@@ -25,7 +25,8 @@ A human-facing robot may remain physically safe and task-successful while collap
 - Literature-pass working manuscript
 - Priority: P0
 - Five-fixes source recovered
-- Awaiting bibliography recovery, Overleaf import, compile verification, and journal targeting
+- Bibliography is embedded in the TeX source through `thebibliography`
+- Awaiting Overleaf import, compile verification, and journal targeting
 
 ## Dependencies
 
@@ -42,9 +43,8 @@ A human-facing robot may remain physically safe and task-successful while collap
 
 ## Next action
 
-1. Locate and preserve the exact bibliography used by the five-fixes source.
-2. Create the dedicated Overleaf project.
-3. Upload the TeX, bibliography, and any supporting assets.
-4. Compile without substantive edits.
-5. Record the Overleaf URL, compiled PDF date, and SHA-256 digest in `registry/CANONICAL_MANUSCRIPTS.md`.
-6. Complete final citation verification and select a journal.
+1. Create the dedicated Overleaf project.
+2. Upload `staged_urgency_protective_hijack_robotics_five_fixes.tex` as the main file.
+3. Compile without substantive edits; no separate `.bib` file is required.
+4. Record the Overleaf URL, compiled PDF date, and SHA-256 digest in `registry/CANONICAL_MANUSCRIPTS.md`.
+5. Complete final citation verification and select a journal.
