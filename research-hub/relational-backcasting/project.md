@@ -4,15 +4,11 @@
 
 **Title:** *The Future Is Rehearsed in the Means: Relational Backcasting and the Formation of Viable Futures*
 
-**Canonical source filename:** `The_Future_Is_Rehearsed_in_the_Means.tex`
+**Canonical GitHub source planned:** `research-hub/relational-backcasting/The_Future_Is_Rehearsed_in_the_Means.tex`
 
-**Required bibliography:** `the_future_is_rehearsed.bib`
+**Required bibliography:** `research-hub/relational-backcasting/the_future_is_rehearsed.bib`
 
-**Current source location:** recovered research archive / ChatGPT File Library
-
-**Overleaf status:** dedicated project not yet created
-
-**Planned Overleaf project name:** `Relational Backcasting — The Future Is Rehearsed in the Means`
+**Current status:** main TeX recovered; bibliography still needs to be located and committed.
 
 ## Research role
 
@@ -26,8 +22,8 @@ A means is not merely an instrument connecting the present to a desired future. 
 
 - Complete working draft
 - Priority: P0
-- Main TeX recovered
-- Awaiting bibliography confirmation, Overleaf import, reproducible compile, novelty review, and journal positioning
+- GitHub is the canonical repository
+- Awaiting source commit, bibliography recovery, reproducible compile, novelty review, and journal positioning
 
 ## Dependencies
 
@@ -37,19 +33,10 @@ A means is not merely an instrument connecting the present to a desired future. 
 - Source-Test
 - Policy feedback and path dependence
 
-## Feeds into
-
-- AI governance
-- Education and AI assistance
-- Public policy and just transition
-- Appeal Ecology
-- Safety as an Achievement of Relation
-
 ## Next action
 
-1. Locate and preserve `the_future_is_rehearsed.bib`.
-2. Create the dedicated Overleaf project.
-3. Upload the TeX and bibliography.
-4. Compile the TikZ figures and bibliography without substantive edits.
-5. Record the Overleaf URL, compiled PDF date, and SHA-256 digest in `registry/CANONICAL_MANUSCRIPTS.md`.
-6. Conduct an adversarial novelty and scope review before journal selection.
+1. Commit the recovered main TeX to this folder.
+2. Locate and commit `the_future_is_rehearsed.bib`.
+3. Compile the TikZ figures and bibliography from the committed package.
+4. Record the commit SHA, source digest, PDF date, and build result in `registry/CANONICAL_MANUSCRIPTS.md`.
+5. Conduct an adversarial novelty and scope review before journal selection.
