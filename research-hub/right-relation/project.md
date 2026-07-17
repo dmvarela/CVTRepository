@@ -4,13 +4,9 @@
 
 **Title:** *Right Relation: A Short Treatise on Order Without Erasure*
 
-**Canonical source filename:** `right_relation_short_treatise.tex`
+**Canonical GitHub source planned:** `research-hub/right-relation/right_relation_short_treatise.tex`
 
-**Current source location:** recovered research archive / ChatGPT File Library
-
-**Overleaf status:** dedicated project not yet created
-
-**Planned Overleaf project name:** `Right Relation — Short Treatise`
+**Current status:** exact source recovered; awaiting commit of the TeX file into this folder.
 
 ## Research role
 
@@ -25,7 +21,7 @@ Right relation is an order in which self, other, whole, and truth remain simulta
 - Complete working draft
 - Priority: P0
 - Canonical text recovered
-- Awaiting Overleaf import and reproducible compile check
+- GitHub is the canonical repository
 
 ## Dependencies
 
@@ -42,8 +38,7 @@ Right relation is an order in which self, other, whole, and truth remain simulta
 
 ## Next action
 
-1. Create the dedicated Overleaf project.
-2. Upload `right_relation_short_treatise.tex`.
-3. Compile without substantive edits.
-4. Record the Overleaf URL, compiled PDF date, and SHA-256 digest in `registry/CANONICAL_MANUSCRIPTS.md`.
-5. Preserve the treatise whole; create any journal-sized article as a separate fork.
+1. Commit `right_relation_short_treatise.tex` to this folder.
+2. Compile from the committed source without substantive edits.
+3. Record the commit SHA, source digest, PDF date, and build result in `registry/CANONICAL_MANUSCRIPTS.md`.
+4. Preserve the treatise whole; create any journal-sized article as a separate branch or folder.
