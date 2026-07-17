@@ -4,13 +4,9 @@
 
 **Title:** *Staged Urgency and Protective Hijack in Human-Facing Robotics: FTLτA as a Non-Compensatory Audit Layer for Custody-Critical Embodied Systems*
 
-**Canonical source filename:** `staged_urgency_protective_hijack_robotics_five_fixes.tex`
+**Canonical GitHub source planned:** `modern-robotics/staged-urgency/staged_urgency_protective_hijack_robotics_five_fixes.tex`
 
-**Current source location:** recovered research archive / ChatGPT File Library
-
-**Overleaf status:** dedicated five-fixes project not yet created
-
-**Planned Overleaf project name:** `Staged Urgency and Protective Hijack`
+**Current status:** exact five-fixes source recovered; awaiting commit of the TeX file into this folder.
 
 ## Research role
 
@@ -24,9 +20,8 @@ A human-facing robot may remain physically safe and task-successful while collap
 
 - Literature-pass working manuscript
 - Priority: P0
-- Five-fixes source recovered
-- Bibliography is embedded in the TeX source through `thebibliography`
-- Awaiting Overleaf import, compile verification, and journal targeting
+- Bibliography embedded through `thebibliography`
+- GitHub is the canonical repository
 
 ## Dependencies
 
@@ -34,17 +29,9 @@ A human-facing robot may remain physically safe and task-successful while collap
 - False Solution Operators / Dilemma Expansion Operators
 - FTLτA
 
-## Feeds into
-
-- Human-facing robotics ethics
-- Verification under urgency
-- Role-indexed agency
-- Safety as an Achievement of Relation
-
 ## Next action
 
-1. Create the dedicated Overleaf project.
-2. Upload `staged_urgency_protective_hijack_robotics_five_fixes.tex` as the main file.
-3. Compile without substantive edits; no separate `.bib` file is required.
-4. Record the Overleaf URL, compiled PDF date, and SHA-256 digest in `registry/CANONICAL_MANUSCRIPTS.md`.
-5. Complete final citation verification and select a journal.
+1. Commit the five-fixes TeX source to this folder.
+2. Compile from the committed source; no separate `.bib` file is required.
+3. Record the commit SHA, source digest, PDF date, and build result in `registry/CANONICAL_MANUSCRIPTS.md`.
+4. Complete final citation verification and journal selection.
