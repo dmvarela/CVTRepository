@@ -1,6 +1,6 @@
 # Coherence Viability Theory Research Repository
 
-This repository is the durable research archive for the **Coherence Viability Theory (CVT)** program developed by **Max Varela-Arévalo** in sustained collaboration with AI research partners.
+This repository is the canonical research and manuscript home for the **Coherence Viability Theory (CVT)** program developed by **Max Varela-Arévalo** in sustained collaboration with AI research partners.
 
 ## What CVT studies
 
@@ -18,13 +18,11 @@ Recurring questions include:
 
 ## Repository role
 
-This repository is not intended to replace the environments in which the research is actively developed.
+- **GitHub** is the canonical source for active manuscripts, exact submitted versions, research maps, inventories, issues, and durable history.
+- **ChatGPT Projects** are the living conversational, exploratory, and organizational workspace.
+- **Local LaTeX tools or Overleaf** may be used as optional editors or compilation environments, but they do not define the canonical version unless a registry entry explicitly says otherwise.
 
-- **ChatGPT Projects** are the living conversational and organizational workspace.
-- **Overleaf** is the canonical source for actively edited LaTeX manuscripts.
-- **GitHub** preserves the research map, inventories, milestone snapshots, exact submitted versions, and durable history.
-
-The untouched Overleaf export in this repository is a dated archival snapshot of 246 projects. It should remain unchanged.
+The untouched Overleaf export in this repository is a dated archival snapshot of 246 historical projects. It should remain unchanged. Its purpose is preservation and migration, not continued canonical authority.
 
 ## Research architecture
 
@@ -43,6 +41,20 @@ The theological and scriptural research project: Recognitions, Cain and Christ, 
 ### Archive and Migration
 Duplicate versions, superseded drafts, terminology migration, adjacent work, and material whose relationship to canonical CVT remains unresolved.
 
+## Canonical manuscript rule
+
+Every active manuscript has one canonical GitHub path. Drafting and review occur through commits and branches. Milestone tags or immutable folders preserve:
+
+- complete working drafts;
+- literature-pass versions;
+- adversarial-review versions;
+- submission-ready versions;
+- exact submitted manuscripts;
+- revised manuscripts;
+- published versions.
+
+A filename, project title, or external editor is not enough to establish canonical identity. The registry records the GitHub path, commit SHA, source digest, compilation status, and publication state.
+
 ## Important naming note
 
 Some early manuscripts use the provisional label **Unified Resonance Framework (URF)**. URF was not a predecessor theory.
@@ -54,9 +66,10 @@ Documents are therefore classified by their substantive content, not automatical
 ## Start here
 
 - [`registry/ACTIVE_RESEARCH.md`](registry/ACTIVE_RESEARCH.md) — current active research spine and next actions
-- [`registry/OVERLEAF_INVENTORY.md`](registry/OVERLEAF_INVENTORY.md) — first-pass inventory of the 246-project export
+- [`registry/CANONICAL_MANUSCRIPTS.md`](registry/CANONICAL_MANUSCRIPTS.md) — canonical paths, hashes, and manuscript status
+- [`registry/OVERLEAF_INVENTORY.md`](registry/OVERLEAF_INVENTORY.md) — first-pass inventory of the historical 246-project export
 - [`registry/MIGRATION_RULES.md`](registry/MIGRATION_RULES.md) — terminology, canonical-source, and version-control rules
 
 ## Current priority
 
-The immediate task is not to reorganize all 246 projects. It is to identify and protect the canonical sources for the active spine, advance the strongest near-term submissions, and allow the larger corpus to be reviewed without interrupting ongoing research.
+The immediate task is to migrate the active spine from recovered sources into clear GitHub manuscript folders, preserve exact submitted versions, and advance the strongest near-term publications without attempting to reorganize all 246 historical projects at once.
