@@ -1,94 +1,86 @@
 # Canonical Manuscripts
 
 **First verification pass:** 2026-07-16  
-**Source examined:** the 246-project Overleaf export preserved in this repository.
+**Historical source examined:** the preserved 246-project Overleaf export.
 
-This registry identifies the exact Overleaf project and source file that should be treated as canonical for active CVT manuscripts. Canonical identity is content-based: the project name alone is not sufficient when duplicate or near-duplicate containers exist.
+This registry identifies the exact manuscript content that should be migrated into canonical GitHub paths. Historical project names are evidence about provenance; canonical authority now belongs to the registered GitHub path and commit.
 
-## Verification method
+## Canonical rule
 
-For each active manuscript, the export was searched by project name, LaTeX title, and distinctive phrases. Candidate TeX files were compared by SHA-256 digest and, where possible, compiled with `pdflatex`. A manuscript is not marked canonical when the intended paper is absent from the export or when the apparent project contains a different work.
+For every active manuscript, record:
 
-## Verified canonical manuscripts
+- canonical GitHub path;
+- current commit SHA;
+- SHA-256 digest of the main source;
+- build status and PDF date;
+- publication status;
+- provenance from any historical project or recovered file.
 
-### CVT Foundations — verified
+## Verified source identities awaiting GitHub migration
 
-- **Overleaf project:** `Coherence viability Theory`
-- **Canonical source:** `main.tex`
-- **Manuscript title:** *Coherence Viability Theory: Bounded Exchange, Receptive Basins, and the Conditions for Hosted Transformation*
+### CVT Foundations
+
+- **Historical source:** `Coherence viability Theory/main.tex`
+- **Title:** *Coherence Viability Theory: Bounded Exchange, Receptive Basins, and the Conditions for Hosted Transformation*
 - **SHA-256:** `fe1cf269a35da713ef13d69d05e35658dc860e4f6caf03ef3864bd38ddc258eb`
-- **Verification:** exact title match; only substantive TeX file in the project; successful local compilation to a 20-page PDF.
-- **Status:** canonical working manuscript.
+- **Verification:** exact title match; successful local compilation to 20 pages.
+- **GitHub status:** canonical folder and source commit still needed.
 
-### FTLτA — exact submitted manuscript verified
+### FTLτA — exact submitted manuscript
 
-- **Primary Overleaf project:** `Ftltau ai final submission`
-- **Canonical source:** `FTLtauA AIandEthics submission revised final.tex`
-- **Manuscript title:** *The FTLτA Framework: A Non-Compensatory Geometry of Permissible Action for AI Safety and Accountability*
+- **Historical source:** `Ftltau ai final submission/FTLtauA AIandEthics submission revised final.tex`
+- **Title:** *The FTLτA Framework: A Non-Compensatory Geometry of Permissible Action for AI Safety and Accountability*
 - **SHA-256:** `b66a144c5addeb694c6891c8b841f163012b7c0c28d208bd9e201ee35db64e3b`
-- **Verification:** anonymized double-blind manuscript; successful local compilation to a 14-page PDF.
-- **Status:** immutable submitted version.
+- **Verification:** anonymized submitted manuscript; successful local compilation to 14 pages.
+- **Duplicate history:** `FTLTauA Final submission` contains the same source. `FtlTauA Submission` is a defective near-copy with an extra `\end{abstract}`.
+- **GitHub status:** exact source, PDF, and submission record must be committed as an immutable milestone.
 
-An exact duplicate of this source is also present in the Overleaf project `FTLTauA Final submission`. The canonical identity is the SHA-256 digest above; `Ftltau ai final submission` is designated the primary container and `FTLTauA Final submission` should be marked as a duplicate container.
+### Healthy Membrane Dynamics
 
-Do **not** use the near-copy in `FtlTauA Submission` as canonical. Its similarly named source contains an extra `\end{abstract}` and is not the verified submitted manuscript. The projects `FTLtauA final submission`, `FtltauA`, `Ftla`, and `AI Ethics as geometry` contain earlier developmental versions.
-
-### Healthy Membrane Dynamics — verified
-
-- **Overleaf project:** `Healthy membrane dynamics`
-- **Canonical source:** `main final.tex`
-- **Manuscript title:** *The Healthy Membrane Regime: A Reaction–Diffusion Model of Communion Without Annihilation*
+- **Historical source:** `Healthy membrane dynamics/main final.tex`
+- **Title:** *The Healthy Membrane Regime: A Reaction–Diffusion Model of Communion Without Annihilation*
 - **SHA-256:** `90a7c97672adeeedb872fbcb4540655c16f01e6d35f15222c9d0f87ad71f7729`
-- **Verification:** successful local compilation to a 23-page PDF; includes the final authorship and AI-collaboration acknowledgment language.
-- **Status:** canonical working manuscript.
+- **Verification:** successful local compilation to 23 pages; later authorship and AI-collaboration language present.
+- **GitHub status:** complete reproducible package still needs migration.
 
-The files `main.tex` and `main-1.tex` contain a syntax error in the date line and should not be treated as canonical. `main with refs.tex` compiles and is a near-final precursor, but `main final.tex` contains the later authorship and acknowledgment revision.
+### Incoherence Debt
 
-### Incoherence Debt — verified, duplicate container unresolved
-
-- **Overleaf project name:** `Incoherence Debt and the Engineering Limits of Suppressive Safety`
-- **Canonical source:** `main.tex`
-- **Manuscript title:** *Alignment Through Love: Restraint, Incoherence Debt, and the Price of Suppressive Safety*
+- **Historical source:** `Incoherence Debt and the Engineering Limits of Suppressive Safety/main.tex`
+- **Title:** *Alignment Through Love: Restraint, Incoherence Debt, and the Price of Suppressive Safety*
 - **SHA-256:** `ca3bf9eec42a1baf620c1de23e0a5626a4b47c6e79f0ecdabf3ef9dcce464b1e`
-- **Status:** canonical content identified.
+- **Duplicate history:** two identical historical project containers.
+- **GitHub status:** commit one canonical copy and preserve the duplicate finding in provenance notes.
 
-The export contains two projects with the identical project name and identical ZIP/source content. One should be renamed or archived as an exact duplicate in Overleaf; either contains the same canonical manuscript.
+## Recovered active manuscripts
 
-## Intended active manuscripts not found as exact Overleaf projects
+### Right Relation
 
-### Right Relation — missing intended treatise
+- **Recovered filename:** `right_relation_short_treatise.tex`
+- **Planned canonical path:** `research-hub/right-relation/right_relation_short_treatise.tex`
+- **Important distinction:** the historical project named `Right relation` contains *The Harvest*, a different manuscript.
+- **GitHub status:** source commit and build verification needed.
 
-The export contains an Overleaf project named `Right relation`, but its manuscript is *The Harvest: Shared Life in Right Relation* (`the_harvest_right_relation.tex`). It is **not** *Right Relation: A Short Treatise on Order Without Erasure* and must not be substituted for it.
+### Staged Urgency and Protective Hijack
 
-**Action:** upload or create the short-treatise project in Overleaf, then register its exact source here.
+- **Recovered filename:** `staged_urgency_protective_hijack_robotics_five_fixes.tex`
+- **Planned canonical path:** `modern-robotics/staged-urgency/staged_urgency_protective_hijack_robotics_five_fixes.tex`
+- **Bibliography:** embedded through `thebibliography`.
+- **GitHub status:** source commit and build verification needed.
 
-### Staged Urgency and Protective Hijack — exact paper missing
+### Relational Backcasting
 
-No exact project or source matching *Staged Urgency and Protective Hijack in Human-Facing Robotics* or the five-fixes manuscript was found in the export.
+- **Recovered filename:** `The_Future_Is_Rehearsed_in_the_Means.tex`
+- **Planned canonical path:** `research-hub/relational-backcasting/The_Future_Is_Rehearsed_in_the_Means.tex`
+- **Required bibliography:** `the_future_is_rehearsed.bib`
+- **GitHub status:** main source and bibliography must be committed before reproducible build verification.
 
-Related but distinct projects include:
+### Safety as an Achievement of Relation
 
-- `Modern robotics VI` — *Protective-Hijack Inference and Decision Modes Under Urgent Claims*;
-- `Failure mode taxonomy` — contains `failure_mode_taxonomy_human_facing_robotics.tex`;
-- `Note on modern robotic and ftltaua` — bridge note harmonizing the robotics precursor with canonical FTLτA.
-
-**Action:** upload the five-fixes manuscript to Overleaf or identify the project if it was created after the export.
-
-### Relational Backcasting — missing
-
-No exact project or source matching *The Future Is Rehearsed in the Means* or “relational backcasting” was found.
-
-**Action:** create or upload the canonical Overleaf project.
-
-### Safety as an Achievement of Relation — not yet a manuscript in the export
-
-No exact project or source was found. This is currently best treated as a structured bridge-paper outline rather than an existing canonical Overleaf manuscript.
+No bounded manuscript exists yet. Treat it as a bridge-paper outline until a two-page prospectus fixes its contribution.
 
 ## Source-of-truth rule
 
-- **Active drafting:** Overleaf is canonical.
-- **Submitted manuscript:** the exact submitted source and PDF become immutable milestone records.
-- **GitHub:** records identities, hashes, milestones, duplicates, and submission history.
+- **Active drafting:** the registered GitHub path is canonical.
+- **Submitted work:** the exact source, compiled PDF, and submission record are immutable GitHub milestones.
+- **External editors:** optional; their changes become canonical only after commit.
 - **ChatGPT Projects:** hold the living research conversations, decisions, and integration work.
-
-When a manuscript reaches a meaningful milestone, record the project name, canonical source filename, SHA-256 digest, compiled PDF, date, and publication status here.
