@@ -1,63 +1,36 @@
 # CVT Migration Rules
 
-## 1. URF was a provisional label, not a predecessor theory
+## 1. Naming history
 
-Some early manuscripts use the label **Unified Resonance Framework (URF)**. This should not be represented as a separate earlier theory from which CVT later evolved.
+Some early manuscripts use **Unified Resonance Framework (URF)**. URF was a provisional label, not a predecessor theory.
 
-The more accurate history is:
+> The research existed first. URF temporarily named it. As the work became more precise, **Coherence Viability Theory (CVT)** became the accurate name.
 
-> The research existed first. URF was temporarily used as its name. As the work became more precise, it became clear that its governing subject was coherence and viability rather than resonance. **Coherence Viability Theory (CVT)** is the accurate name for the research program.
-
-Therefore:
-
-- Do not write `URF → CVT` as a theoretical succession.
-- Do not treat every URF-labelled manuscript as obsolete.
-- Classify each manuscript by its substantive content rather than by the label it happened to carry.
+Therefore, classify manuscripts by substantive content rather than by the label they carry.
 
 ## 2. Migration categories
 
 ### Migrate directly
-The manuscript is substantively CVT and mainly requires terminology and notation updates.
-
-Action:
-- replace inaccurate URF language with CVT terminology;
-- update definitions and notation;
-- preserve a historical note identifying the earlier label;
-- move the manuscript into its proper active branch.
+The manuscript is substantively CVT and mainly needs terminology or notation updates. Preserve the original history and move the revised source into its active GitHub branch.
 
 ### Revise before migration
-The manuscript contains genuine CVT insights but also includes resonance-specific framing, unsupported claims, or concepts that no longer accurately express the research.
-
-Action:
-- isolate the viable argument;
-- remove or qualify unsupported framing;
-- rewrite under CVT;
-- retain the original version in the archive.
+The manuscript contains viable CVT insights alongside unsupported or obsolete framing. Isolate the defensible argument, revise it under CVT, and retain the original in the archive.
 
 ### Retain as adjacent work
-The manuscript explores consciousness, cosmology, identity, physics, or another subject that is not currently necessary to CVT and whose connection remains unproven.
-
-Action:
-- preserve it;
-- do not present it as canonical CVT;
-- revisit if a defensible bridge later emerges.
+The manuscript explores a subject whose relation to canonical CVT remains unproven. Preserve it without presenting it as established CVT.
 
 ### Archive
-The manuscript no longer represents the research, duplicates another project, or cannot be responsibly supported in its current form.
-
-Action:
-- retain it as part of the history;
-- do not use it as evidence for current CVT claims.
+The manuscript duplicates another project, no longer represents the research, or cannot be responsibly supported in its present form. Preserve it as history but do not use it as evidence for current claims.
 
 ## 3. Canonical-source rule
 
-Every active manuscript must identify exactly one current source of truth.
+Every active manuscript must identify one current source of truth:
 
-While a paper is actively edited:
+> **Canonical source: a specific path and commit in this GitHub repository.**
 
-> **Canonical source: Overleaf**
+Drafting and review occur through GitHub commits and branches. External editors, including Overleaf or local LaTeX tools, are optional conveniences. Their changes become canonical only when committed to the registered GitHub path.
 
-GitHub should receive milestone snapshots only at meaningful stages:
+Meaningful milestones should be preserved by tag, release, or immutable milestone folder:
 
 - complete working draft;
 - literature-pass version;
@@ -67,41 +40,44 @@ GitHub should receive milestone snapshots only at meaningful stages:
 - revised manuscript;
 - published version.
 
-This prevents competing “latest versions” across ChatGPT, Overleaf, local files, and GitHub.
-
 ## 4. Project architecture
 
-- **ChatGPT Project** = enduring research environment and conversational workspace.
-- **Chat** = paper, exploration, objection, or research task.
-- **Overleaf project** = live LaTeX manuscript.
-- **GitHub folder** = durable record, milestone snapshots, and program metadata.
-- **Registry file** = current status, dependencies, canonical source, and next action.
+- **ChatGPT Project** = conversational research and integration workspace.
+- **GitHub manuscript folder** = canonical source, bibliography, figures, metadata, and build instructions.
+- **GitHub branch** = bounded drafting or review stream.
+- **Git tag or milestone folder** = immutable scholarly milestone.
+- **Registry file** = current status, dependencies, canonical path, commit, and next action.
+- **Historical Overleaf export** = preserved migration source, not a live repository requirement.
 
-A manuscript may influence several research branches, but it should have one canonical home.
+Each manuscript has one canonical GitHub home even when it influences several research branches.
 
-## 5. Theological register
+## 5. Manuscript-folder standard
 
-**A Crownless Throne** is the theological and scriptural research project. It includes the Recognitions sequence and research into Source, incarnation, Cross, resurrection, ascension, freedom, suffering, authority, and non-grasping power.
+Each active manuscript folder should contain, as applicable:
 
-This material must not be reduced to a mere “application” of CVT. The traffic is bidirectional:
+- `project.md` or `README.md`;
+- one clearly identified main `.tex` file;
+- bibliography file;
+- figures or data required for reproduction;
+- `BUILD.md` when compilation is nonstandard;
+- `milestones/` for exact submitted or published versions.
+
+Do not maintain competing files named `final`, `final2`, or `new final`. Use Git history, tags, and registry entries.
+
+## 6. Theological register
+
+**A Crownless Throne** is the theological and scriptural research project. It must not be reduced to a mere application of CVT. The traffic is bidirectional:
 
 > scriptural recognition ↔ relational principle ↔ CVT formulation
 
-When preparing academic manuscripts, distinguish clearly between:
+Distinguish theological, philosophical, structural, and empirical claims when preparing academic work.
 
-- theological claims;
-- philosophical claims;
-- structural or systems claims;
-- empirical claims.
+## 7. Duplicate handling
 
-## 6. Duplicate and version handling
+1. Compare source content, not only project names.
+2. Identify the newest meaningful manuscript, not merely the newest export date.
+3. Preserve exact submitted versions immutably.
+4. Archive superseded variants after unique changes are merged.
+5. Record every canonicalization decision in the registry.
 
-For duplicate projects:
-
-1. compare the actual source content, not only project names;
-2. identify the newest meaningful manuscript, not merely the newest export date;
-3. preserve exact submitted versions immutably;
-4. archive patch, diff, and abandoned variants after their unique changes are merged;
-5. record the decision in the migration log.
-
-No original project should be deleted during the first-pass inventory.
+No historical source should be deleted during first-pass migration.
