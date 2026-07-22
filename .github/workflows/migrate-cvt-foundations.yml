@@ -1,13 +1,7 @@
 name: Migrate CVT Foundations
 
 on:
-  workflow_dispatch:
-  pull_request:
-    branches:
-      - main
-    paths:
-      - .migration/cvt-foundations-request.md
-      - .github/workflows/migrate-cvt-foundations.yml
+  workflow_dispatch: {}
 
 permissions:
   contents: write
@@ -17,157 +11,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out migration branch
+      - name: Check out repository
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.head_ref || github.ref_name }}
 
       - name: Install LaTeX and PDF inspection tools
         run: |
           sudo apt-get update
-          sudo apt-get install -y \
-            texlive-latex-base \
-            texlive-latex-extra \
-            texlive-science \
-            poppler-utils
+          sudo apt-get install -y texlive-latex-base texlive-latex-extra texlive-science poppler-utils
 
-      - name: Extract and verify canonical source
-        shell: bash
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          import hashlib
-          import io
-          import zipfile
-
-          expected_source_sha = "fe1cf269a35da713ef13d69d05e35658dc860e4f6caf03ef3864bd38ddc258eb"
-          target = Path("research-hub/cvt-foundations")
-          milestone = target / "milestones/2026-07-22-canonicalization"
-          target.mkdir(parents=True, exist_ok=True)
-          milestone.mkdir(parents=True, exist_ok=True)
-
-          outer_candidates = [p for p in Path('.').glob('*.zip') if p.is_file()]
-          if not outer_candidates:
-              raise SystemExit("No root-level Overleaf export ZIP found")
-
-          inner_name = "Coherence viability Theory.zip"
-          source_bytes = None
-          outer_used = None
-
-          for outer_path in outer_candidates:
-              try:
-                  with zipfile.ZipFile(outer_path) as outer:
-                      if inner_name in outer.namelist():
-                          inner_bytes = outer.read(inner_name)
-                          with zipfile.ZipFile(io.BytesIO(inner_bytes)) as inner:
-                              source_bytes = inner.read("main.tex")
-                          outer_used = outer_path
-                          break
-              except zipfile.BadZipFile:
-                  continue
-
-          if source_bytes is None:
-              raise SystemExit(f"Could not find {inner_name}/main.tex in a root ZIP")
-
-          source_sha = hashlib.sha256(source_bytes).hexdigest()
-          if source_sha != expected_source_sha:
-              raise SystemExit(
-                  f"Source hash mismatch: expected {expected_source_sha}, got {source_sha}"
-              )
-
-          (target / "main.tex").write_bytes(source_bytes)
-
-          (target / "README.md").write_text(f'''# CVT Foundations
-
-## Canonical manuscript
-
-**Title:** *Coherence Viability Theory: Bounded Exchange, Receptive Basins, and the Conditions for Hosted Transformation*
-
-**Author:** Daniel Varela Arevalo  
-**Program:** Coherence Viability Theory (CVT)  
-**Canonical source:** `main.tex`
-
-## Role in the research program
-
-This manuscript establishes the structural foundation of CVT. It proposes that viable transformation requires four simultaneous conditions:
-
-1. bounded coupling;
-2. preserved distinction;
-3. a receptive basin;
-4. restorative reserve.
-
-The paper relates this invariant to viability theory, autopoiesis, passivity-based control, resilience theory, and basin dynamics, then develops membrane and fusion instantiations.
-
-## Provenance
-
-The source was recovered from the historical Overleaf export project:
-
-`Coherence viability Theory/main.tex`
-
-Historical export used during migration: `{outer_used.name}`.
-
-The preserved export is migration history. This GitHub path is now the canonical source of the manuscript.
-
-## Verification record
-
-- Source SHA-256: `{source_sha}`
-- Canonicalization date: 2026-07-22
-- Build instructions: [`BUILD.md`](BUILD.md)
-- Immutable first-build record: [`milestones/2026-07-22-canonicalization`](milestones/2026-07-22-canonicalization)
-
-## Current status
-
-**Canonical working manuscript.**
-
-The next scholarly phase is a literature, novelty, and falsifiability stress test. Changes should be made on a bounded branch and merged into this canonical path after review.
-''', encoding='utf-8')
-
-          (target / "BUILD.md").write_text('''# Build instructions
-
-The manuscript is self-contained. It has no external bibliography, figures, or data files.
-
-## Requirements
-
-A TeX distribution containing:
-
-- `geometry`
-- `amsmath`, `amssymb`, `amsthm`, `mathtools`
-- `graphicx`
-- `booktabs`
-- `hyperref`
-- `enumitem`
-- `physics`
-- `authblk`
-- `setspace`
-- `microtype`
-
-## Reproducible build
-
-From this folder, run:
-
-```bash
-pdflatex -interaction=nonstopmode -halt-on-error main.tex
-pdflatex -interaction=nonstopmode -halt-on-error main.tex
-```
-
-The second pass resolves cross-references.
-
-Build artifacts other than an explicitly preserved milestone PDF should not be committed.
-''', encoding='utf-8')
-
-          (milestone / "README.md").write_text('''# Canonicalization milestone - 2026-07-22
-
-This folder records the first canonical GitHub migration and reproducible build of CVT Foundations.
-
-## Included files
-
-- `cvt_foundations_2026-07-22.pdf` - compiled from the canonical source during migration;
-- `BUILD_REPORT.txt` - engine, page-count, provenance, and integrity record;
-- `SHA256SUMS` - cryptographic digests for the canonical source and milestone PDF.
-
-This milestone is historical. Later revisions must not overwrite these artifacts.
-''', encoding='utf-8')
-          PY
+      - name: Recover and verify canonical source
+        run: python .github/scripts/migrate_cvt_foundations.py
 
       - name: Compile manuscript twice
         working-directory: research-hub/cvt-foundations
@@ -175,42 +28,30 @@ This milestone is historical. Later revisions must not overwrite these artifacts
           pdflatex -interaction=nonstopmode -halt-on-error main.tex
           pdflatex -interaction=nonstopmode -halt-on-error main.tex
 
-      - name: Preserve and inspect first canonical build
-        shell: bash
+      - name: Preserve and inspect canonical build
         run: |
           set -euo pipefail
           target="research-hub/cvt-foundations"
           milestone="$target/milestones/2026-07-22-canonicalization"
           cp "$target/main.pdf" "$milestone/cvt_foundations_2026-07-22.pdf"
-
           pages=$(pdfinfo "$target/main.pdf" | awk '/^Pages:/ {print $2}')
-          if [ "$pages" != "20" ]; then
-            echo "Unexpected page count: $pages" >&2
-            exit 1
-          fi
-
+          test "$pages" = "20"
           {
             echo "CVT Foundations canonicalization build"
             echo "Date: 2026-07-22"
             echo "Source: research-hub/cvt-foundations/main.tex"
             echo "Historical provenance: Coherence viability Theory/main.tex"
             echo "Pages: $pages"
-            echo "Page size: $(pdfinfo "$target/main.pdf" | awk -F': *' '/^Page size:/ {print $2}')"
             echo "Engine: $(pdflatex --version | head -n 1)"
           } > "$milestone/BUILD_REPORT.txt"
-
           (
             cd "$target"
-            sha256sum main.tex milestones/2026-07-22-canonicalization/cvt_foundations_2026-07-22.pdf \
-              > milestones/2026-07-22-canonicalization/SHA256SUMS
+            sha256sum main.tex milestones/2026-07-22-canonicalization/cvt_foundations_2026-07-22.pdf > milestones/2026-07-22-canonicalization/SHA256SUMS
           )
-
           rm -f "$target/main.aux" "$target/main.log" "$target/main.out" "$target/main.pdf"
 
-      - name: Commit canonical manuscript and milestone to migration branch
-        shell: bash
+      - name: Commit canonical manuscript and milestone
         run: |
-          branch="${{ github.head_ref || github.ref_name }}"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add research-hub/cvt-foundations
@@ -218,5 +59,5 @@ This milestone is historical. Later revisions must not overwrite these artifacts
             echo "No migration changes to commit."
           else
             git commit -m "Canonicalize CVT Foundations manuscript"
-            git push origin "HEAD:${branch}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
