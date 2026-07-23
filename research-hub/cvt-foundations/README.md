@@ -40,4 +40,8 @@ The preserved export is migration history. This GitHub path is now the canonical
 
 **Canonical working manuscript.**
 
+The manuscript has entered a bounded scholarly stress-test phase. The first review artifact is:
+
+- [`reviews/2026-07-22-claim-ledger.md`](reviews/2026-07-22-claim-ledger.md)
+
 The next scholarly phase is a literature, novelty, and falsifiability stress test. Changes should be made on a bounded branch and merged into this canonical path after review.
