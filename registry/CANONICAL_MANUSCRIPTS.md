@@ -3,28 +3,34 @@
 **First verification pass:** 2026-07-16  
 **Historical source examined:** the preserved 246-project Overleaf export.
 
-This registry identifies the exact manuscript content that should be migrated into canonical GitHub paths. Historical project names are evidence about provenance; canonical authority now belongs to the registered GitHub path and commit.
+This registry identifies the exact manuscript content migrated into canonical GitHub paths. Historical project names are evidence about provenance; canonical authority belongs to the registered GitHub path and commit.
 
 ## Canonical rule
 
 For every active manuscript, record:
 
 - canonical GitHub path;
-- current commit SHA;
+- canonicalization or current manuscript commit SHA;
 - SHA-256 digest of the main source;
 - build status and PDF date;
 - publication status;
 - provenance from any historical project or recovered file.
 
-## Verified source identities awaiting GitHub migration
+## Canonical GitHub manuscripts
 
-### CVT Foundations
+### CVT Foundations — canonicalized
 
-- **Historical source:** `Coherence viability Theory/main.tex`
+- **Canonical path:** `research-hub/cvt-foundations/main.tex`
 - **Title:** *Coherence Viability Theory: Bounded Exchange, Receptive Basins, and the Conditions for Hosted Transformation*
-- **SHA-256:** `fe1cf269a35da713ef13d69d05e35658dc860e4f6caf03ef3864bd38ddc258eb`
-- **Verification:** exact title match; successful local compilation to 20 pages.
-- **GitHub status:** canonical folder and source commit still needed.
+- **Canonicalization commit:** `392445c22b57fc8f54741ea8ceb664164887ac44`
+- **Source SHA-256:** `fe1cf269a35da713ef13d69d05e35658dc860e4f6caf03ef3864bd38ddc258eb`
+- **Build:** reproducible two-pass pdfLaTeX build; 20 pages.
+- **Milestone PDF:** `research-hub/cvt-foundations/milestones/2026-07-22-canonicalization/cvt_foundations_2026-07-22.pdf`
+- **Milestone PDF SHA-256:** `11e4d1fb27f1e275400e725432e4d62f96a88e55143364d51c5856d8c7a1ef19`
+- **Historical provenance:** `Coherence viability Theory/main.tex` inside `Overleaf Projects (246 items).zip`.
+- **Status:** canonical working manuscript; ready for literature, novelty, and falsifiability stress testing.
+
+## Verified source identities awaiting GitHub migration
 
 ### FTLτA — exact submitted manuscript
 
