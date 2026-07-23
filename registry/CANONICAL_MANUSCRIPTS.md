@@ -3,14 +3,14 @@
 **First verification pass:** 2026-07-16  
 **Historical source examined:** the preserved 246-project Overleaf export.
 
-This registry identifies the exact manuscript content migrated into canonical GitHub paths. Historical project names are evidence about provenance; canonical authority belongs to the registered GitHub path and commit.
+This registry identifies the exact manuscript content that should be migrated into canonical GitHub paths. Historical project names are evidence about provenance; canonical authority now belongs to the registered GitHub path and commit.
 
 ## Canonical rule
 
 For every active manuscript, record:
 
 - canonical GitHub path;
-- canonicalization or current manuscript commit SHA;
+- current commit SHA;
 - SHA-256 digest of the main source;
 - build status and PDF date;
 - publication status;
@@ -20,15 +20,17 @@ For every active manuscript, record:
 
 ### CVT Foundations — canonicalized
 
-- **Canonical path:** `research-hub/cvt-foundations/main.tex`
-- **Title:** *Coherence Viability Theory: Bounded Exchange, Receptive Basins, and the Conditions for Hosted Transformation*
+- **Canonical GitHub path:** `research-hub/cvt-foundations/main.tex`
 - **Canonicalization commit:** `392445c22b57fc8f54741ea8ceb664164887ac44`
+- **Historical source:** `Coherence viability Theory/main.tex`
+- **Title:** *Coherence Viability Theory: Bounded Exchange, Receptive Basins, and the Conditions for Hosted Transformation*
 - **Source SHA-256:** `fe1cf269a35da713ef13d69d05e35658dc860e4f6caf03ef3864bd38ddc258eb`
-- **Build:** reproducible two-pass pdfLaTeX build; 20 pages.
+- **Build status:** successful pdfTeX build, 20 pages.
 - **Milestone PDF:** `research-hub/cvt-foundations/milestones/2026-07-22-canonicalization/cvt_foundations_2026-07-22.pdf`
 - **Milestone PDF SHA-256:** `11e4d1fb27f1e275400e725432e4d62f96a88e55143364d51c5856d8c7a1ef19`
-- **Historical provenance:** `Coherence viability Theory/main.tex` inside `Overleaf Projects (246 items).zip`.
-- **Status:** canonical working manuscript; ready for literature, novelty, and falsifiability stress testing.
+- **Publication status:** canonical working manuscript; not submission-ready.
+- **Current review artifact:** `research-hub/cvt-foundations/reviews/2026-07-22-claim-ledger.md`
+- **Next action:** literature, novelty, falsifiability, and scope-control stress test under issue #6.
 
 ## Verified source identities awaiting GitHub migration
 
