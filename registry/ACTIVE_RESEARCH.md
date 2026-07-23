@@ -16,9 +16,11 @@ This file tracks the selective active spine of the Coherence Viability Theory pr
 
 **Role:** Structural foundation of the program.
 
-**Recovered source:** historical project `Coherence viability Theory`, `main.tex`, compilation-tested.
+**Canonical path:** `research-hub/cvt-foundations/main.tex`
 
-**Next action:** commit the verified source into its canonical GitHub manuscript folder; perform a literature-and-novelty stress test.
+**Status:** canonicalized in GitHub with a verified 20-page pdfLaTeX build and immutable first-build milestone.
+
+**Next action:** perform a section-by-section literature, novelty, and falsifiability stress test on a bounded review branch.
 
 ### FTLτA
 **Title:** *The FTLτA Framework: A Non-Compensatory Geometry of Permissible Action for AI Safety and Accountability*
