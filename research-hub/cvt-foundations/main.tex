@@ -1,0 +1,1034 @@
+\documentclass[11pt]{article}
+
+% ------------------------------------------------------------
+% Packages
+% ------------------------------------------------------------
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{physics}
+\usepackage{authblk}
+\usepackage{setspace}
+\usepackage{microtype}
+
+\onehalfspacing
+
+% ------------------------------------------------------------
+% Theorem environments
+% ------------------------------------------------------------
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{remark}{Remark}
+
+% ------------------------------------------------------------
+% Custom commands
+% ------------------------------------------------------------
+\newcommand{\CVT}{\mathrm{CVT}}
+\newcommand{\V}{\mathcal{V}}
+\newcommand{\Hhost}{\mathcal{H}}
+\newcommand{\Rhost}{R_{\mathrm{host}}}
+\newcommand{\RP}{R_P}
+\newcommand{\Phii}{\Phi_i}
+\newcommand{\Jraw}{J_{\mathrm{raw}}}
+\newcommand{\Jeff}{J_{\mathrm{eff}}}
+\newcommand{\chialpha}{\chi_{\alpha}}
+
+% ------------------------------------------------------------
+% Title
+% ------------------------------------------------------------
+\title{\textbf{Coherence Viability Theory:}\\
+Bounded Exchange, Receptive Basins, and the Conditions for Hosted Transformation}
+
+\author{Daniel Varela Arevalo}
+\date{2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+We propose Coherence Viability Theory (CVT), a general framework for systems whose persistence depends on regulated exchange across a boundary. Across physical, biological, institutional, technological, and relational domains, systems do not survive by closure alone, nor by openness alone. They survive when exchange is bounded, distinction is preserved, reception is possible, and restorative reserve remains positive. CVT formalizes this claim as a four-condition viability invariant: bounded coupling, preserved distinction, receptive basin, and restorative margin. We situate the framework in relation to viability theory, autopoiesis, passivity-based control, resilience theory, and basin dynamics, arguing that each tradition captures part of the invariant but not the conjunction. We then express the invariant through membrane dynamics, gated viability flows, memory-enhanced recovery, and basin-capture structure. Finally, we show how the framework applies to artificial fusion: ignition alone is insufficient if alpha self-heating cannot be handed off to a host whose exchange interface remains viable. The resulting Minimum Viable Host condition illustrates the broader CVT claim: transformation is sustainable only when what enters a system can be received without destroying the boundary that makes reception possible.
+\end{abstract}
+
+\section{Introduction}
+
+Systems do not survive by being closed, and they do not survive by being open. A closed system starves; an unboundedly open system dissolves, overloads, or is consumed by what enters it. Viability instead depends on a more delicate condition: exchange must occur across a boundary that remains intact, into a system capable of receiving what crosses, with sufficient restorative capacity to repair the strain of exchange.
+
+This paper names that condition \emph{Coherence Viability Theory}. CVT studies the structural requirements under which systems remain themselves while receiving energy, information, influence, matter, trust, or meaning from beyond themselves.
+
+The central claim is that viable transformation requires four simultaneous conditions:
+\begin{enumerate}[label=(\roman*)]
+    \item \textbf{bounded coupling}: exchange must occur, but not without limit;
+    \item \textbf{preserved distinction}: the interacting systems must remain distinguishable;
+    \item \textbf{receptive basin}: the receiving system must be capable of incorporating what crosses;
+    \item \textbf{restorative reserve}: the system must retain sufficient capacity to recover from the strain of exchange.
+\end{enumerate}
+
+In compact form, CVT proposes the invariant
+\begin{equation}
+\text{Viable Exchange}
+=
+\text{Bounded Coupling}
+\cap
+\text{Preserved Distinction}
+\cap
+\text{Receptive Basin}
+\cap
+\text{Restorative Reserve}.
+\end{equation}
+
+This invariant appears across domains because it is the logical structure of any system that must receive what it needs without being consumed by it.
+
+The contribution of CVT is not that bounded exchange, viability, resilience, or basin capture are individually new. They are not. CVT inherits from several mature traditions. Viability theory studies the states from which trajectories can remain inside admissible constraint sets. Autopoiesis studies self-producing systems that preserve organization through structural coupling. Port-Hamiltonian and passivity-based control study open systems exchanging energy through constrained ports. Resilience theory studies absorption, recovery, and persistence under disturbance. Basin dynamics studies nonlinear capture into stable attractors.
+
+CVT does not replace these traditions. It identifies a shared invariant that they each partially reveal. Viability theory gives the constraint set, but not always the structure of exchange across a boundary. Autopoiesis gives self-maintenance and coupling, but not the product-gate fragility or restorative margin dynamics developed here. Passivity-based control gives energetic exchange and dissipation, but does not foreground preserved distinction and receptivity as distinct success conditions. Resilience theory gives recovery under disturbance, but often treats exchange as background rather than as the central object. Basin dynamics gives capture and threshold behavior, but not the boundary law governing what enters the basin.
+
+CVT’s novelty lies in the conjunction. It asks when exchange can nourish without collapsing the distinction that makes exchange possible.
+
+The fusion case makes this invariant especially explicit. A tokamak-like reactor may reach ignition-like conditions and yet fail to host alpha-dominant burn if self-heating outruns the machine's receptivity, spectral safety, heat exhaust, material tolerance, and restorative control margins. In that setting, ignition is not the endpoint of control. It is the moment at which the plasma becomes an endogenous load source. A reactor does not become an artificial star when alpha heating begins; it becomes one when alpha heating can be handed off to a host whose exchange interface remains viable.
+
+This motivates the concept of \emph{hosted transformation}. A transformation is hosted when the receiving system remains viable while being changed by what it receives. In fusion, this is hosted burn. In membrane dynamics, it is healthy exchange across a preserving boundary. In human--AI interaction, it is influence without agency collapse. In institutional systems, it is trust-enabled circulation without legitimacy erosion. In theological language, it is love received freely rather than forced, possessed, or transacted.
+
+The paper proceeds as follows. Section~\ref{sec:lineage} situates CVT in relation to existing theories. Section~\ref{sec:invariant} defines the CVT invariant and its four necessary conditions. Section~\ref{sec:formal} develops a minimal formal architecture using gates, receptivity, violation variables, and restorative reserve. Section~\ref{sec:membrane} presents the membrane formulation. Section~\ref{sec:fusion} gives the fusion instantiation, including hosted burn and the Minimum Viable Host condition. Section~\ref{sec:failure} classifies CVT failure modes. Section~\ref{sec:discussion} discusses cross-domain implications and limitations.
+
+\section{Intellectual Lineage}
+\label{sec:lineage}
+
+CVT is not proposed as an isolated theory. It is a synthesis of several traditions that have studied viability, self-maintenance, boundary exchange, and recovery from disturbance. Its contribution is to show that these traditions can be understood as partial expressions of a single exchange-viability invariant.
+
+\subsection{Viability Theory}
+
+Viability theory studies dynamical systems subject to state constraints. Given a constraint set \(K\), one asks which initial states admit at least one trajectory that remains in \(K\) over time. The resulting viability kernel identifies the states from which continued admissible evolution is possible.
+
+CVT inherits this concern with constraint preservation. However, CVT shifts attention from viability in a state space alone to viability under exchange. Many systems do not merely need to remain inside constraints; they must receive energy, information, matter, or influence from outside themselves. In such systems, the boundary is not incidental. It is part of the viability problem.
+
+\subsection{Autopoiesis and Structural Coupling}
+
+Autopoiesis describes systems that maintain themselves by continuously producing the components that constitute their organization. Such systems are not closed to their environments; they are structurally coupled to them. They remain themselves through ongoing exchange.
+
+CVT inherits the insight that living or quasi-living systems persist through boundary-mediated relation rather than isolation. Its extension is to formalize the failure modes of exchange. Structural coupling can fail through isolation, overload, merger, or loss of recovery capacity. CVT names these as distinct regimes of exchange viability.
+
+\subsection{Passivity and Port-Based Control}
+
+Port-Hamiltonian and passivity-based control frameworks model open systems through energy storage, exchange ports, and dissipation. These theories provide a rigorous language for bounded energetic interaction.
+
+CVT inherits the idea that exchange must be constrained by system structure. However, CVT distinguishes exchange capacity from exchange receptivity. A system may be capable of receiving input at a port while lacking the basin or restorative margin required to incorporate that input productively. In such cases, delivered exchange becomes load rather than nourishment.
+
+\subsection{Resilience and Recovery}
+
+Resilience theory studies how systems absorb disturbances, maintain function, and recover after shocks. CVT inherits this emphasis on recovery but treats recovery as only one component of viable exchange. A system may be resilient to external shocks while still vulnerable to the very inputs it requires. CVT therefore places exchange itself at the center of the theory.
+
+\subsection{Basin Dynamics and Threshold Capture}
+
+Many nonlinear systems exhibit basin capture: small inputs may fail, while inputs above a threshold move the system into a self-reinforcing attractor. CVT uses basin structure to formalize receptivity. Exchange is not useful merely because it crosses a boundary. It is useful when it enters a basin capable of incorporating it.
+
+This motivates the distinction between raw exchange and effective exchange:
+\begin{equation}
+    \Jraw \neq \Jeff.
+\end{equation}
+Raw exchange measures what is delivered. Effective exchange measures what is received productively.
+
+\section{The CVT Invariant}
+\label{sec:invariant}
+
+\begin{definition}[Coherence Viability]
+A system is coherence-viable under exchange if it can receive inputs across a boundary while preserving its identity-defining organization, incorporating the input into a receptive basin, and maintaining sufficient restorative reserve to recover from the strain induced by exchange.
+\end{definition}
+
+CVT expresses this as a four-condition invariant:
+\begin{equation}
+\CVT
+=
+B
+\cap
+D
+\cap
+R
+\cap
+M,
+\end{equation}
+where \(B\) denotes bounded coupling, \(D\) preserved distinction, \(R\) receptive basin structure, and \(M\) restorative margin.
+
+Equivalently, for a normalized viability functional,
+\begin{equation}
+    \V_{\CVT}
+    =
+    G_{\mathrm{bound}}
+    G_{\mathrm{distinction}}
+    G_{\mathrm{receptivity}}
+    G_{\mathrm{restoration}},
+\end{equation}
+with each gate \(G_i \in [0,1]\).
+
+The product form encodes non-compensability. A collapse in any essential gate can drive total viability toward zero even when the other gates remain strong. Thus CVT rejects additive substitution among necessary conditions. More exchange cannot compensate for loss of distinction. Strong boundaries cannot compensate for absence of receptivity. Receptivity cannot compensate indefinitely for the loss of restorative reserve.
+
+\begin{proposition}[Non-Compensability of Viable Exchange]
+If CVT viability is represented by a product of necessary gates,
+\[
+    \V_{\CVT}=\prod_i G_i,
+\]
+then collapse of any essential gate drives \(\V_{\CVT}\to 0\), regardless of the values of the remaining gates.
+\end{proposition}
+
+\begin{proof}
+Since each \(G_i\in[0,1]\), if any gate \(G_k\to 0\), then
+\[
+    \V_{\CVT}
+    =
+    G_k\prod_{i\neq k}G_i
+    \to 0.
+\]
+Thus no finite strength in the remaining gates can compensate for collapse of an essential condition.
+\end{proof}
+
+\section{Formal Architecture}
+\label{sec:formal}
+
+The CVT invariant can be expressed as a gated viability system. Let a system have
+\(n\) necessary viability gates
+\[
+    G_i(t)\in[0,1],\qquad i=1,\dots,n,
+\]
+where each gate represents a necessary condition for viable exchange. In the minimal CVT formulation these include bounded coupling, preserved distinction, receptive basin structure, and restorative reserve. In domain-specific applications, the gates may represent more concrete constraints such as heat exhaust, spectral safety, material tolerance, agency preservation, or institutional legitimacy.
+
+Total viability is modeled multiplicatively:
+\begin{equation}
+    \V(t)=\prod_{i=1}^{n}G_i(t).
+\end{equation}
+
+The product form encodes the non-compensability of necessary conditions. If any essential gate collapses, total viability collapses even when the remaining gates are strong. This distinguishes CVT from additive optimization frameworks in which one high-performing dimension may compensate for failure elsewhere.
+
+\subsection{Violation Variables}
+
+Each gate has a viability threshold \(\Theta_i\). Define the one-sided violation variable
+\begin{equation}
+    \Phi_i(t) = [\Theta_i - G_i(t)]_+,
+\end{equation}
+where
+\[
+    [x]_+ = \max\{x,0\}.
+\]
+
+Thus \(\Phi_i=0\) when gate \(i\) is viable, and \(\Phi_i>0\) only when the gate falls below threshold. The correction dynamics are therefore one-sided: they activate in the violated region and vanish in the satisfied region.
+
+This structure reflects a basic CVT principle: restoration should respond to violation rather than continuously forcing the system toward an externally imposed optimum. The goal is not maximization of every gate, but maintenance of viability.
+
+\subsection{Gated Recovery Dynamics}
+
+A minimal gated recovery law is
+\begin{equation}
+    \dot{G}_i
+    =
+    \alpha_i(1+\eta_i M)\Phi_i
+    -
+    \beta_i L_i
+    -
+    \sum_{j\neq i}\kappa_{ij}\Phi_j.
+    \label{eq:gate-dynamics}
+\end{equation}
+
+The first term represents recovery activated by violation. The coefficient \(\alpha_i>0\) is the baseline recovery strength. The factor \(1+\eta_iM\) allows retained memory or maturity to accelerate recovery. The second term represents direct load \(L_i\) on gate \(i\). The third term represents coupled margin degradation: violation in one gate can degrade other gates.
+
+Equation~\eqref{eq:gate-dynamics} separates three distinct mechanisms:
+
+\begin{enumerate}[label=(\roman*)]
+    \item \textbf{gated return}: recovery activates only when viability is violated;
+    \item \textbf{load pressure}: exchange, stress, or forcing can reduce gate values;
+    \item \textbf{cascade coupling}: violation in one margin can propagate to others.
+\end{enumerate}
+
+This distinction is central to CVT. Systems rarely fail because one variable crosses a threshold in isolation. They often fail because local violation spreads across coupled margins, reducing total viability faster than any single metric suggests.
+
+\subsection{Memory, Maturity, and Restorative Reserve}
+
+Let \(M(t)\geq 0\) denote memory, maturity, or restorative reserve. In different domains, \(M\) may represent material conditioning, institutional trust, learned control authority, relational repair history, or accumulated adaptive capacity.
+
+A minimal memory law is
+\begin{equation}
+    \dot{M}
+    =
+    \epsilon \sum_i \Phi_i
+    -
+    \zeta M,
+\end{equation}
+where \(\epsilon>0\) records recovery history and \(\zeta>0\) represents fading or decay.
+
+For developmental systems, however, maturity may grow not from violation alone, but from successful viable operation. In that case we use
+\begin{equation}
+    \dot{M}
+    =
+    \eta \V(1-M)
+    -
+    \lambda D M,
+    \label{eq:maturity}
+\end{equation}
+where \(D(t)\) is accumulated damage. Equation~\eqref{eq:maturity} states that maturity grows when total viability remains high and erodes when damage dominates.
+
+The crucial point is that \(M\) does not drive recovery by itself. Rather, it modifies the rate of recovery when violation is present. Memory amplifies re-entry; it does not replace the viability gate.
+
+\subsection{Raw Exchange and Effective Exchange}
+
+CVT distinguishes between exchange delivered to a system and exchange productively received by it. Let
+\[
+    \Jraw = \Pi \Delta,
+\]
+where \(\Pi\) denotes permeability or exchange capacity and \(\Delta\) denotes the driving gradient.
+
+Let \(\rho(t)\in[0,1]\) denote receptivity. Then effective exchange is
+\begin{equation}
+    \Jeff = \rho \Pi \Delta.
+    \label{eq:effective-exchange}
+\end{equation}
+
+When \(\rho\to 0\),
+\[
+    \Jeff \to 0
+\]
+even if raw exchange remains high. Thus the system may receive strong forcing without receiving useful nourishment. In CVT terms, exchange without receptivity becomes load.
+
+A minimal receptivity functional is
+\begin{equation}
+    \rho
+    =
+    \prod_{k\in \mathcal{R}} G_k,
+\end{equation}
+where \(\mathcal{R}\) is the subset of gates required for productive reception. In a fusion setting, these may include burn stability, machine integrity, spectral safety, separation, and restoration. In a relational setting, they may include agency preservation, trust, interpretive capacity, and repairability.
+
+\subsection{Damage Accumulation}
+
+Let \(D(t)\in[0,1]\) denote accumulated damage. A minimal damage law is
+\begin{equation}
+    \dot{D}
+    =
+    \gamma \Jraw(1-\rho)
+    +
+    \delta \sum_i \Phi_i
+    +
+    \omega R_{\mathrm{risk}}
+    -
+    \mu D.
+    \label{eq:damage}
+\end{equation}
+
+The first term captures the CVT claim that raw exchange delivered into low receptivity becomes damaging load. The second term accumulates damage from viability violations. The third term represents domain-specific risk, such as spectral crowding, institutional mistrust, or relational overload. The final term represents repair or dissipation of damage.
+
+Equations~\eqref{eq:effective-exchange} and~\eqref{eq:damage} define one of CVT's central distinctions:
+\[
+    \text{exchange capacity} \neq \text{exchange receptivity}.
+\]
+
+A system can be exposed to more of what it needs than it can receive. When that occurs, input ceases to be nourishment and becomes injury.
+
+\subsection{Hosted Transformation}
+
+We define hosted transformation as the regime in which a system undergoes significant internal transition while maintaining viability.
+
+\begin{definition}[Hosted Transformation]
+A transformation is hosted on a time interval \([t_0,t_1]\) if a transition variable \(X(t)\) increases substantially while viability, receptivity, and damage remain bounded:
+\[
+    X(t_1)-X(t_0)>X_{\mathrm{crit}},
+\]
+\[
+    \V(t)>\V_{\mathrm{crit}},\qquad
+    \rho(t)>\rho_{\mathrm{crit}},\qquad
+    D(t)<D_{\mathrm{crit}}
+\]
+for all \(t\in[t_0,t_1]\).
+\end{definition}
+
+In fusion, \(X(t)\) may be alpha dominance,
+\[
+    \chi_\alpha(t)=\frac{P_\alpha}{P_\alpha+P_{\mathrm{aux}}}.
+\]
+In institutional systems, it may be adoption of a new trust architecture. In human--AI systems, it may be increasing influence or delegation. In each case, CVT asks whether transformation is being hosted or merely forced.
+
+\subsection{Host-Gated Transition}
+
+A CVT-safe transition should not proceed faster than the host can receive it. Let \(X(t)\) denote a transition variable. A host-gated transition has the form
+\begin{equation}
+    \dot{X}
+    =
+    r R_{\mathrm{host}}(1-X)
+    -
+    s(1-R_{\mathrm{host}})X,
+    \label{eq:host-gated-transition}
+\end{equation}
+where \(R_{\mathrm{host}}\in[0,1]\) measures the host's current capacity to receive the transition.
+
+A minimal host capacity functional is
+\begin{equation}
+    R_{\mathrm{host}}
+    =
+    \rho(1-D)G_{\mathrm{restoration}}G_{\mathrm{spectral}},
+\end{equation}
+with domain-specific gates substituted as appropriate.
+
+Equation~\eqref{eq:host-gated-transition} formalizes the principle:
+\[
+    \frac{dX}{dt}
+    \leq R_{\mathrm{host}}(t).
+\]
+
+The transition accelerates when receptivity and restorative margins are strong, and slows or retreats when the host loses viability. This is the formal version of the CVT claim that transformation must be paced by the receiver's capacity to remain coherent.
+
+\subsection{Minimum Viable Host Condition}
+
+A host is minimally viable for a transformation of severity \(\Lambda\) if its reserve \(R_P\) exceeds a critical threshold:
+\begin{equation}
+    R_P \geq R_{P,\mathrm{crit}}(\Lambda).
+\end{equation}
+
+In the fusion instantiation developed below, numerical experiments suggest an approximately linear threshold of the form
+\begin{equation}
+    R_{P,\mathrm{crit}}
+    \approx
+    a+b\Lambda_\alpha,
+\end{equation}
+where \(\Lambda_\alpha\) represents alpha-load severity.
+
+This condition is not restricted to fusion. It expresses a general CVT principle: a system may be capable of initiating a transformation without possessing the reserve required to host it.
+
+\begin{proposition}[Exchange-Receptivity Separation]
+If effective exchange is given by
+\[
+    \Jeff = \rho \Jraw,
+\]
+then increasing raw exchange does not necessarily increase effective exchange. In particular, if increased raw exchange reduces receptivity sufficiently, effective exchange may decrease even as raw exchange increases.
+\end{proposition}
+
+\begin{proof}
+Let \(\Jraw\) increase while \(\rho=\rho(\Jraw)\) decreases. Then
+\[
+    \frac{d\Jeff}{d\Jraw}
+    =
+    \rho
+    +
+    \Jraw\frac{d\rho}{d\Jraw}.
+\]
+If
+\[
+    \Jraw\left|\frac{d\rho}{d\Jraw}\right|>\rho,
+\]
+then
+\[
+    \frac{d\Jeff}{d\Jraw}<0.
+\]
+Thus increasing delivered exchange can reduce productively received exchange whenever receptivity degrades faster than raw exchange increases.
+\end{proof}
+
+\section{Membrane Formulation}
+\label{sec:membrane}
+
+The most direct mathematical form of CVT is a membrane system: two domains exchange through a boundary whose permeability is neither zero nor infinite. This formulation makes explicit why viable exchange requires both openness and preservation.
+
+Let \(A\) and \(B\) denote two interacting domains with internal coherence, concentration, energy, information, or state variables \(c_A(x,t)\) and \(c_B(x,t)\). Let \(\Gamma\) denote the interface between them. A minimal boundary-exchange law is given by a Robin-type condition:
+\begin{equation}
+    \nabla c_A \cdot n_A
+    =
+    \Pi(c_{AB})(c_B-c_A)
+    \qquad \text{on } \Gamma,
+    \label{eq:robin}
+\end{equation}
+where \(n_A\) is the outward normal from domain \(A\), \(\Pi\) is the state-dependent permeability of the membrane, and \(c_{AB}\) denotes the interface state.
+
+Equation~\eqref{eq:robin} encodes three CVT principles at once. First, exchange depends on a gradient \(c_B-c_A\); something must be available to cross. Second, exchange is mediated by permeability \(\Pi\); the boundary is not absent. Third, permeability may depend on the interface state; the membrane can regulate exchange according to its own condition.
+
+In CVT terms, the membrane is not a wall and not an erasure. It is the structure that allows exchange without collapse.
+
+\subsection{Exchange Regimes}
+
+The membrane formulation produces four qualitative regimes.
+
+\paragraph{Isolation.}
+If
+\[
+    \Pi \approx 0,
+\]
+exchange is negligible. The boundary is preserved, but the system is cut off from needed input. In CVT terms, preserved distinction exists without sufficient coupling.
+
+\paragraph{Collapse.}
+If
+\[
+    \Pi \gg 1
+\]
+relative to the receiving system's capacity, exchange becomes excessive. The receiving system is overloaded, damaged, or driven outside its viable basin.
+
+\paragraph{Merger.}
+If permeability becomes effectively unbounded and distinction is lost, the two domains no longer exchange as distinct systems. They merge into a single undifferentiated state. This is not viable relation but loss of boundary.
+
+\paragraph{Healthy exchange.}
+If permeability is bounded, distinction is preserved, the receiving basin is receptive, and restorative reserve remains positive, exchange can become nourishing rather than destructive.
+
+These regimes can be summarized as:
+\begin{equation}
+\begin{array}{lll}
+\Pi \to 0
+&\Rightarrow&
+\text{isolation},\\[4pt]
+\Pi \to \infty,\; D\to 1
+&\Rightarrow&
+\text{collapse},\\[4pt]
+\Pi \to \infty,\; \text{distinction}\to 0
+&\Rightarrow&
+\text{merger},\\[4pt]
+0<\Pi<\Pi_{\mathrm{crit}},\; \rho>0,\; M>0
+&\Rightarrow&
+\text{healthy exchange}.
+\end{array}
+\end{equation}
+
+\subsection{Permeability Is Not Receptivity}
+
+A key CVT distinction is that permeability is not the same as receptivity. Permeability measures how much can cross the membrane. Receptivity measures whether what crosses can be productively incorporated.
+
+Let
+\[
+    J_{\mathrm{raw}}=\Pi(c_{AB})(c_B-c_A)
+\]
+denote raw boundary flux. CVT defines effective flux as
+\begin{equation}
+    J_{\mathrm{eff}}
+    =
+    \rho J_{\mathrm{raw}},
+    \label{eq:membrane-effective-flux}
+\end{equation}
+where \(\rho\in[0,1]\) is the receptivity of the receiving domain.
+
+When \(\rho\) is high, boundary flux becomes useful exchange. When \(\rho\) is low, boundary flux becomes load. Thus a membrane can be highly permeable and yet destructive if the receiving system lacks a basin capable of incorporating what enters.
+
+This is the membrane version of the exchange-receptivity separation:
+\[
+    \text{what crosses}
+    \neq
+    \text{what is received}.
+\]
+
+\subsection{Basin Receptivity}
+
+Let \(x_A(t)\) denote the state of domain \(A\), and let \(\mathcal{B}_A\) denote a viable basin for \(A\). The membrane may deliver input \(J_{\mathrm{raw}}\), but that input is only viable if the perturbed state remains within the basin of recovery:
+\begin{equation}
+    x_A(t) + \delta x(J_{\mathrm{raw}})
+    \in
+    \mathcal{U}(\mathcal{B}_A),
+\end{equation}
+where \(\mathcal{U}(\mathcal{B}_A)\) is the basin of attraction of the viable set.
+
+If the perturbation exits the basin, the same input becomes destabilizing. Thus CVT distinguishes between a boundary condition and a basin condition. A membrane may allow help to cross, but the basin determines whether help can take root.
+
+This gives a compact membrane viability condition:
+\begin{equation}
+    \V_{\mathrm{mem}}
+    =
+    G_{\Pi}
+    G_{\mathrm{distinction}}
+    G_{\rho}
+    G_{\mathrm{restoration}},
+    \label{eq:membrane-viability}
+\end{equation}
+where:
+\begin{itemize}
+    \item \(G_{\Pi}\) measures whether permeability lies inside a viable range;
+    \item \(G_{\mathrm{distinction}}\) measures preservation of boundary identity;
+    \item \(G_{\rho}\) measures receptivity of the receiving basin;
+    \item \(G_{\mathrm{restoration}}\) measures recovery capacity after exchange.
+\end{itemize}
+
+\subsection{State-Dependent Permeability}
+
+A healthy membrane should not have constant permeability under all conditions. It should regulate exchange according to the condition of the receiving system. A minimal state-dependent law is
+\begin{equation}
+    \Pi
+    =
+    \Pi_0 \rho (1-D),
+    \label{eq:state-dependent-permeability}
+\end{equation}
+where \(D\) is accumulated damage.
+
+When receptivity is high and damage is low, permeability remains open. When damage rises or receptivity falls, permeability decreases. This prevents the system from continuing to receive input at a rate it can no longer incorporate.
+
+More generally, permeability can be written as
+\begin{equation}
+    \Pi
+    =
+    \Pi_{\max}
+    \sigma\!\left(
+    a(\rho-\rho_{\mathrm{crit}})
+    -
+    b(D-D_{\mathrm{crit}})
+    \right),
+\end{equation}
+where \(\sigma\) is a sigmoid gate. This gives a soft transition between openness and closure rather than an abrupt switch.
+
+\subsection{Membrane Failure Modes}
+
+The membrane formulation clarifies four failure modes.
+
+\paragraph{Failure by closure.}
+The membrane becomes too closed:
+\[
+    \Pi \to 0.
+\]
+The system preserves itself but starves.
+
+\paragraph{Failure by overexposure.}
+The membrane remains open while receptivity collapses:
+\[
+    \Pi>0,\qquad \rho\to 0.
+\]
+Input continues to cross, but it is converted into damage.
+
+\paragraph{Failure by merger.}
+The membrane loses its distinction-preserving function:
+\[
+    G_{\mathrm{distinction}}\to 0.
+\]
+Exchange ceases because there are no longer two coherent domains across which exchange can occur.
+
+\paragraph{Failure by exhaustion.}
+The membrane remains functional, and the basin remains receptive, but restorative reserve is depleted:
+\[
+    G_{\mathrm{restoration}}\to 0.
+\]
+The system may continue receiving input temporarily, but it cannot repair the strain of exchange.
+
+\subsection{Healthy Membrane Regime}
+
+The healthy membrane regime is the region in which all four conditions remain positive:
+\begin{equation}
+    0<\Pi<\Pi_{\mathrm{crit}},
+    \qquad
+    G_{\mathrm{distinction}}>0,
+    \qquad
+    \rho>0,
+    \qquad
+    G_{\mathrm{restoration}}>0.
+\end{equation}
+
+In this regime, the membrane allows exchange without erasing the boundary, and the receiving basin incorporates what crosses without leaving viability.
+
+This yields the membrane form of the CVT invariant:
+
+\begin{quote}
+A membrane is healthy when it allows enough exchange to nourish the system, but not so much that the system loses the boundary, basin, or reserve required to receive what crosses.
+\end{quote}
+
+\subsection{From Membranes to Hosts}
+
+The membrane formulation prepares the transition to hosted transformation. A host is a membrane-bearing system undergoing a major internal transition. The question is not merely whether input can cross the boundary, but whether the host can remain viable while the input changes its internal dynamics.
+
+In the next section, this structure is instantiated in artificial fusion. The plasma-machine interface is treated as a membrane in the CVT sense. Fuel, heat, ash, alpha particles, waves, and control signals must cross or be regulated across the interface. The reactor fails if it is too closed, too open, merged with the plasma, or unable to restore its margins. It succeeds only if the burn is hosted within a viable exchange regime.
+
+Thus the fusion problem is not metaphorically similar to membrane dynamics. It is a membrane problem in physical coordinates.
+
+\section{Fusion Instantiation: Hosted Burn}
+\label{sec:fusion}
+
+Artificial fusion provides a physically vivid instantiation of CVT. A burning plasma is not merely an energetic state inside a machine. It is a coupled plasma--machine system in which fuel, heat, ash, alpha particles, waves, control signals, and material stresses must be exchanged across an interface. The reactor fails if this exchange is absent, excessive, unreceptive, or non-restorative. It succeeds only if the burn is hosted within a viable exchange regime.
+
+In this section, we interpret the tokamak-like fusion problem as a CVT membrane-host problem. The plasma-machine interface functions as a placental exchange organ: it must nourish the burn without allowing the burn to consume its container.
+
+\subsection{Ignition Access Is Not Hosted Burn}
+
+Fusion research often treats ignition as the decisive transition. In CVT terms, ignition is only the beginning of the host problem. Before ignition, the machine primarily drives the plasma. After alpha heating becomes significant, the plasma becomes an endogenous source of heat and load.
+
+Let
+\begin{equation}
+    \chialpha
+    =
+    \frac{P_{\alpha}}{P_{\alpha}+P_{\mathrm{aux}}},
+\end{equation}
+where \(P_{\alpha}\) is alpha-particle self-heating and \(P_{\mathrm{aux}}\) is externally supplied heating. When \(\chialpha\approx 0\), the plasma is externally driven. When \(\chialpha\to 1\), heating is alpha-dominated.
+
+Ignition access concerns the transition
+\[
+    \chialpha \uparrow.
+\]
+Hosted burn concerns whether this transition can occur while the host remains viable:
+\begin{equation}
+    \V(t)>\V_{\mathrm{crit}},\qquad
+    \rho(t)>\rho_{\mathrm{crit}},\qquad
+    D(t)<D_{\mathrm{crit}}.
+\end{equation}
+
+Thus CVT distinguishes:
+\[
+    \text{ignition access}
+    \neq
+    \text{hosted burn}.
+\]
+
+A reactor may reach alpha-dominant conditions while losing receptivity and saturating damage. In that case, ignition has occurred in a narrow sense, but hosted burn has failed.
+
+\subsection{The Placental Exchange Interface}
+
+We define the placental exchange interface as the coupled system of machine functions that allow the burn to persist without destructive contact. These include:
+\begin{itemize}
+    \item fuel delivery,
+    \item helium ash removal,
+    \item heat exhaust,
+    \item blanket and shielding,
+    \item coolant throughput,
+    \item material tolerance,
+    \item magnetic confinement,
+    \item spectral and wave control,
+    \item diagnostics and feedback authority.
+\end{itemize}
+
+This interface is placental in the structural sense: it mediates exchange between a developing energetic process and the host that carries it. The term does not import biological detail into fusion physics. The claim is structural. A burn requires exchange. The host requires separation. The interface must allow one without destroying the other.
+
+Let the relevant gates be
+\[
+G_{\mathrm{burn}},\quad
+G_{\mathrm{machine}},\quad
+G_{\mathrm{exchange}},\quad
+G_{\mathrm{separation}},\quad
+G_{\mathrm{restoration}},\quad
+G_{\mathrm{spectral}}.
+\]
+
+Total placental viability is
+\begin{equation}
+    \V_P
+    =
+    G_{\mathrm{burn}}
+    G_{\mathrm{machine}}
+    G_{\mathrm{exchange}}
+    G_{\mathrm{separation}}
+    G_{\mathrm{restoration}}
+    G_{\mathrm{spectral}}.
+    \label{eq:placental-viability}
+\end{equation}
+
+The product form states that no single subsystem can compensate indefinitely for collapse of another. A strong magnet does not compensate for failed heat exhaust. Strong fueling does not compensate for ash accumulation. Strong burn does not compensate for loss of machine integrity.
+
+\subsection{Receptivity and Effective Exchange}
+
+In the fusion instantiation, raw exchange is not sufficient. The machine may deliver fuel, heat, current drive, or wave power, but these inputs are only useful if the coupled plasma-machine state can receive them.
+
+We write:
+\begin{equation}
+    \Jraw = \Pi \Delta,
+\end{equation}
+where \(\Pi\) is exchange capacity and \(\Delta\) is the relevant driving gradient. Effective exchange is
+\begin{equation}
+    \Jeff = \rho \Pi \Delta.
+\end{equation}
+
+A minimal fusion receptivity functional is
+\begin{equation}
+    \rho
+    =
+    G_{\mathrm{burn}}
+    G_{\mathrm{machine}}
+    G_{\mathrm{separation}}
+    G_{\mathrm{restoration}}
+    G_{\mathrm{spectral}}
+    (1-D).
+\end{equation}
+
+The exchange gate itself is excluded from this expression because receptivity asks whether the host can receive exchange, not whether the exchange channel exists.
+
+This yields a central CVT claim:
+
+\begin{quote}
+A reactor may possess exchange capacity while lacking exchange receptivity.
+\end{quote}
+
+When \(\rho\to 0\), effective exchange vanishes even if raw exchange remains high:
+\[
+    \Jeff \to 0
+    \qquad
+    \text{while}
+    \qquad
+    \Jraw>0.
+\]
+
+In this case, delivered exchange becomes load.
+
+\subsection{Post-Ignition Throttle Transition}
+
+The transition from externally driven plasma to alpha-dominant burn is analogous to the transition from takeoff thrust to climb thrust in flight. Takeoff thrust is useful for leaving the runway, but it is not the sustainable flight regime. Similarly, ignition-access control may be useful before alpha heating begins, but destructive after the plasma becomes an endogenous heat source.
+
+A post-ignition throttle transition reduces or reshapes external drive as \(\chialpha\) rises. A simple form is
+\begin{equation}
+    P_{\mathrm{aux}}(t)
+    =
+    P_{\mathrm{takeoff}}(1-\chialpha)
+    +
+    P_{\mathrm{climb}}\rho\chialpha.
+\end{equation}
+
+However, auxiliary throttle-back alone is not sufficient if alpha dominance continues to rise on a fixed schedule. CVT requires that the handoff itself be gated by host capacity:
+\begin{equation}
+    \dot{\chialpha}
+    =
+    r_{\alpha}R_{\mathrm{host}}(1-\chialpha)
+    -
+    s_{\alpha}(1-R_{\mathrm{host}})\chialpha.
+    \label{eq:alpha-pacing}
+\end{equation}
+
+A minimal host capacity functional is
+\begin{equation}
+    R_{\mathrm{host}}
+    =
+    \rho(1-D)
+    G_{\mathrm{spectral}}
+    G_{\mathrm{restoration}}.
+\end{equation}
+
+Equation~\eqref{eq:alpha-pacing} states that alpha dominance rises when the host is receptive and slows or retreats when host viability deteriorates. This is the formal version of post-ignition pacing:
+
+\[
+    \frac{d\chialpha}{dt}
+    \leq
+    R_{\mathrm{host}}(t).
+\]
+
+\subsection{Simulation Result 1: Control Philosophy}
+
+A structural toy model compares three controllers: capacity-maximizing, receptivity-gated, and spectral-aware. The model is not a tokamak physics code. It does not solve magnetohydrodynamics, gyrokinetics, alpha-particle transport, impurity dynamics, or scrape-off-layer physics. Its purpose is to test the internal architecture of CVT.
+
+The capacity-maximizing controller delivers the largest raw exchange but collapses receptivity. In one calibration:
+\[
+    \overline{J}_{\mathrm{raw}}=0.647,
+    \qquad
+    \overline{J}_{\mathrm{eff}}=0.002,
+    \qquad
+    D(T)=1,
+    \qquad
+    \rho(T)=0.
+\]
+
+The spectral-aware controller uses less raw exchange but preserves receptivity:
+\[
+    \overline{J}_{\mathrm{raw}}=0.049,
+    \qquad
+    \overline{J}_{\mathrm{eff}}=0.010,
+    \qquad
+    D(T)=0.104,
+    \qquad
+    \rho(T)=0.259.
+\]
+
+Thus the controller that pushes hardest performs worst. The controller that preserves receptivity receives more useful exchange.
+
+\begin{quote}
+More delivered exchange is not the same as more received exchange.
+\end{quote}
+
+\subsection{Simulation Result 2: Ablation}
+
+The ablation study separates the model's mechanisms. Removing receptivity gating reproduces the overdrive failure:
+\[
+    \overline{J}_{\mathrm{raw}}=0.538,
+    \qquad
+    \overline{J}_{\mathrm{eff}}=0.002,
+    \qquad
+    D(T)=1,
+    \qquad
+    \rho(T)=0.
+\]
+
+Removing maturity avoids immediate collapse but prevents strong recovery:
+\[
+    \V_P(T)=0.046,
+    \qquad
+    P(T)=0.
+\]
+
+Removing coupled degradation slightly improves performance, as expected, because violations no longer propagate across margins. This confirms that the coupling term represents a real cascade cost.
+
+The ablation supports the following mechanism map:
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+Mechanism & Function \\
+\midrule
+Product gates & Nonlinear fragility \\
+Coupled degradation & Cascade and correlated margin loss \\
+Receptivity gating & Prevention of overdrive damage \\
+Maturity & Recovery after shock \\
+Spectral awareness & Protection under multimode stress \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Simulation Result 3: Ignition Survival}
+
+When alpha dominance is forced toward unity on a fixed schedule, all controllers reach
+\[
+    \chialpha(T)=1.
+\]
+
+However, the host fails:
+\[
+    D(T)=1,
+    \qquad
+    \rho(T)=0.
+\]
+
+Thus the system reaches alpha dominance but loses the capacity to receive it. This motivates the distinction between ignition and hosted burn. In CVT terms, this is over-ignition: the transition succeeds energetically but fails as hosted transformation.
+
+\subsection{Simulation Result 4: Throttle Transition}
+
+The throttle-transition experiment compares fixed alpha ramp, auxiliary throttle-back, and host-gated alpha pacing.
+
+Auxiliary throttle-back reduces external drive:
+\[
+    \overline{P}_{\mathrm{aux}}=0.260
+\]
+compared with
+\[
+    \overline{P}_{\mathrm{aux}}=0.836
+\]
+in the fixed-ramp case. Nevertheless, damage still saturates and receptivity collapses when alpha dominance rises on a fixed schedule.
+
+Host-gated alpha pacing behaves differently:
+\[
+    \V_P(T)=0.186,
+    \qquad
+    P(T)=0.533,
+    \qquad
+    D(T)=0.283,
+    \qquad
+    \rho(T)=0.148.
+\]
+
+The host remains alive, but alpha dominance is limited:
+\[
+    \chialpha(T)=0.144.
+\]
+
+This shows that pacing preserves the host but may prevent full alpha dominance unless sufficient reserve exists.
+
+\begin{quote}
+Auxiliary throttle-back reduces the push; host-gated alpha pacing regulates the handoff.
+\end{quote}
+
+\subsection{Simulation Result 5: Minimum Viable Host}
+
+To identify the reserve required for hosted burn, we introduce placental reserve \(R_P\), representing combined heat exhaust, material tolerance, coolant throughput, ash removal, spectral damping, diagnostic fidelity, control authority, magnetic margin, and thermal inertia.
+
+In the model, reserve reduces effective alpha load and increases host transition capacity. We sweep \(R_P\) against alpha-load severity \(\Lambda_{\alpha}\).
+
+Hosted burn is defined by the simultaneous conditions:
+\begin{equation}
+    \chialpha>0.75,
+    \qquad
+    D<0.60,
+    \qquad
+    \rho>0.05,
+    \qquad
+    \V_P>0.05.
+\end{equation}
+
+The sweep identifies a hosted-burn boundary. In one calibration, the strict threshold is approximately:
+\begin{equation}
+    R_{P,\mathrm{crit}}
+    \approx
+    6.25+5.5\Lambda_{\alpha}.
+    \label{eq:reserve-curve}
+\end{equation}
+
+At low alpha-load severity,
+\[
+    \Lambda_{\alpha}=0.05,
+\]
+hosted burn begins near
+\[
+    R_P=6.5.
+\]
+
+At higher alpha-load severity,
+\[
+    \Lambda_{\alpha}=0.50,
+\]
+the threshold rises to approximately
+\[
+    R_P=9.0.
+\]
+
+A high-reserve hosted-burn case gives:
+\[
+    R_P=14,
+    \qquad
+    \Lambda_{\alpha}=0.05,
+\]
+with
+\[
+    \chialpha=0.998,
+    \qquad
+    D=0.085,
+    \qquad
+    \rho=0.306,
+    \qquad
+    \V_P=0.321,
+    \qquad
+    P=0.863.
+\]
+
+This is not merely non-collapse. It is a mature hosted-burn state in the toy model: alpha dominance is nearly complete, damage is low, receptivity remains positive, and placental maturity is high.
+
+\subsection{Minimum Viable Host Theorem}
+
+\begin{theorem}[Minimum Viable Host, toy-model form]
+For a host-gated alpha pacing system with alpha-load severity \(\Lambda_{\alpha}\), there exists a critical placental reserve threshold
+\[
+    R_{P,\mathrm{crit}}(\Lambda_{\alpha})
+\]
+such that hosted burn occurs only when
+\[
+    R_P\geq R_{P,\mathrm{crit}}(\Lambda_{\alpha}).
+\]
+Hosted burn requires simultaneous satisfaction of
+\[
+    \chialpha>\chi_{\mathrm{host}},
+    \qquad
+    D<D_{\mathrm{crit}},
+    \qquad
+    \rho>\rho_{\mathrm{crit}},
+    \qquad
+    \V_P>\V_{\mathrm{crit}}.
+\]
+\end{theorem}
+
+\begin{remark}
+In the calibration reported above,
+\[
+    \chi_{\mathrm{host}}=0.75,
+    \qquad
+    D_{\mathrm{crit}}=0.60,
+    \qquad
+    \rho_{\mathrm{crit}}=0.05,
+    \qquad
+    \V_{\mathrm{crit}}=0.05,
+\]
+and the observed threshold is approximately linear:
+\[
+    R_{P,\mathrm{crit}}
+    \approx
+    6.25+5.5\Lambda_{\alpha}.
+\]
+This should not be interpreted as a calibrated engineering law. It is a structural result from a toy model: hosted burn requires reserve sufficient to keep the exchange interface receptive under alpha-dominant load.
+\end{remark}
+
+\subsection{Interpretation}
+
+The fusion instantiation supports the broader CVT claim. A system may be capable of initiating a transformation without being capable of hosting it. Ignition access is not equivalent to hosted burn. Auxiliary throttle-back is not equivalent to handoff pacing. Raw exchange is not equivalent to effective exchange.
+
+The reactor becomes an artificial star not when alpha heating begins, but when alpha heating can be handed off to a host whose exchange interface remains viable.
+
+In ordinary language:
+
+\begin{quote}
+Ignition is lift-off; hosted burn is flight; placental reserve is the runway plus the wings.
+\end{quote}
+
+\end{document}
+

@@ -1,0 +1,6 @@
+CVT Foundations canonicalization build
+Date: 2026-07-22
+Source: research-hub/cvt-foundations/main.tex
+Historical provenance: Coherence viability Theory/main.tex
+Pages: 20
+Engine: pdfTeX 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian)
