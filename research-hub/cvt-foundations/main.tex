@@ -232,240 +232,289 @@ A model that defines \(C\) by \(\rho_{\mathrm{obs}}\) cannot then use \(C\) to e
 
 The immediate research burden is therefore not to defend one equation. It is to determine, domain by domain, whether the four proposed conditions are identifiable, whether any are genuinely essential, and which mathematical representation best predicts hosted viability without circular measurement.
 
-\section{Formal Architecture}
+% CVT Foundations v0.2 — proposed Formal Architecture replacement
+% Review artifact. This section replaces only the material between
+% \section{Formal Architecture} and \section{Membrane Formulation}.
+
+\section{Formal Architecture: Observables, Gates, and Candidate Models}
 \label{sec:formal}
 
-The CVT invariant can be expressed as a gated viability system. Let a system have
-\(n\) necessary viability gates
-\[
-    G_i(t)\in[0,1],\qquad i=1,\dots,n,
-\]
-where each gate represents a necessary condition for viable exchange. In the minimal CVT formulation these include bounded coupling, preserved distinction, receptive basin structure, and restorative reserve. In domain-specific applications, the gates may represent more concrete constraints such as heat exhaust, spectral safety, material tolerance, agency preservation, or institutional legitimacy.
+The formal architecture must separate what is measured from how it is normalized and from how normalized quantities are combined. CVT therefore distinguishes three layers:
+\begin{enumerate}[label=(\roman*)]
+    \item \textbf{observable layer}: domain-native measurements with units, time windows, and uncertainty;
+    \item \textbf{gate layer}: documented transformations of those measurements into normalized scores;
+    \item \textbf{model layer}: candidate aggregation and dynamical rules whose performance can be compared against an independently defined viability outcome.
+\end{enumerate}
+A normalized gate is not itself an observation, and no scalar aggregator defines success merely by being chosen.
 
-Total viability is modeled multiplicatively:
+\subsection{Observable and Gate Layers}
+
+For each proposed condition \(i\in\mathcal I=\{B,Q,C,S\}\), let \(z_i(t)\) denote a raw domain-specific measurement or vector of measurements. A normalization map
 \begin{equation}
-    \V(t)=\prod_{i=1}^{n}G_i(t).
-\end{equation}
-
-The product form encodes the non-compensability of necessary conditions. If any essential gate collapses, total viability collapses even when the remaining gates are strong. This distinguishes CVT from additive optimization frameworks in which one high-performing dimension may compensate for failure elsewhere.
-
-\subsection{Violation Variables}
-
-Each gate has a viability threshold \(\Theta_i\). Define the one-sided violation variable
-\begin{equation}
-    \Phi_i(t) = [\Theta_i - G_i(t)]_+,
-\end{equation}
-where
-\[
-    [x]_+ = \max\{x,0\}.
-\]
-
-Thus \(\Phi_i=0\) when gate \(i\) is viable, and \(\Phi_i>0\) only when the gate falls below threshold. The correction dynamics are therefore one-sided: they activate in the violated region and vanish in the satisfied region.
-
-This structure reflects a basic CVT principle: restoration should respond to violation rather than continuously forcing the system toward an externally imposed optimum. The goal is not maximization of every gate, but maintenance of viability.
-
-\subsection{Gated Recovery Dynamics}
-
-A minimal gated recovery law is
-\begin{equation}
-    \dot{G}_i
+    G_i(t)
     =
-    \alpha_i(1+\eta_i M)\Phi_i
+    g_i\!\left(z_i(t);\vartheta_i\right)
+    \in[0,1]
+    \label{eq:gate-normalization}
+\end{equation}
+converts the raw measurement into a gate score. The parameters \(\vartheta_i\), normalization range, uncertainty interval, and threshold rationale must be reported for each application.
+
+The maps need not be monotone. In particular, bounded coupling generally requires a two-sided map: both insufficient exchange and excessive exchange may receive low scores, while an admissible operating band receives a high score. Preserved organization \(Q\), capture readiness \(C\), and available restorative reserve \(S\) likewise require domain-native observables rather than intuitive numerical assignments.
+
+Let \(y(t)\) denote a domain-native viability outcome and let \(\mathcal Y_{\mathrm{viable}}\) be declared before the gates are fitted. The binary event
+\begin{equation}
+    V_{\mathrm{set}}(t)
+    =
+    \mathbf{1}\!\left\{y(t)\in\mathcal Y_{\mathrm{viable}}\right\}
+    \label{eq:independent-viability-event}
+\end{equation}
+is an independently defined outcome, not a CVT aggregate. Continuous domain-native outcomes may be used instead when binary classification would discard relevant information.
+
+\subsection{Candidate Aggregation Family}
+
+The intersection in Equation~\eqref{eq:candidate-cvt-region} specifies simultaneous constraint satisfaction. When a scalar score is useful, several non-compensatory or weakly compensatory representations should be compared:
+\begin{align}
+    \V_{\Pi}(t)
+    &=
+    \prod_{i\in\mathcal I}G_i(t),
+    \\
+    \V_{\min}(t)
+    &=
+    \min_{i\in\mathcal I}G_i(t),
+    \\
+    \V_G(t)
+    &=
+    \prod_{i\in\mathcal I}G_i(t)^{w_i},
+    \qquad
+    w_i\geq0,
+    \quad
+    \sum_iw_i=1,
+    \\
+    \V_{\tau}(t)
+    &=
+    -\tau\log\!\left(
+        \frac{1}{|\mathcal I|}
+        \sum_{i\in\mathcal I}e^{-G_i(t)/\tau}
+    \right),
+    \qquad \tau>0.
+    \label{eq:aggregation-family}
+\end{align}
+The last expression is a normalized soft minimum. Direct simultaneous constraints \(G_i\geq\Theta_i\) for every essential condition remain a further alternative. Product, minimum, weighted geometric mean, soft minimum, and constraint intersection encode different assumptions and must be evaluated against the same independently defined outcome using common data or simulations and out-of-sample comparison.
+
+\subsection{Threshold Violations}
+
+Given a gate threshold \(\Theta_i\), define the one-sided violation
+\begin{equation}
+    \Phi_i(t)
+    =
+    [\Theta_i-G_i(t)]_+,
+    \qquad
+    [x]_+=\max\{x,0\}.
+    \label{eq:violation-variable}
+\end{equation}
+A two-sided raw constraint should be encoded in the normalization map \(g_i\), so that \(\Phi_i\) retains one interpretation: distance below the normalized viability threshold. Thresholds should be justified independently, preregistered when possible, or estimated out of sample. The uncertainty in \(\Phi_i\) inherits uncertainty in both \(z_i\) and \(\Theta_i\).
+
+\subsection{Candidate Gate Dynamics}
+
+A phenomenological recovery model may be written as
+\begin{equation}
+    \dot G_i
+    =
+    a_i(H,S)\Phi_i
     -
-    \beta_i L_i
+    \ell_i(t)
     -
-    \sum_{j\neq i}\kappa_{ij}\Phi_j.
+    \sum_{j\neq i}\kappa_{ij}\Phi_j,
     \label{eq:gate-dynamics}
 \end{equation}
+with projected or saturating dynamics used to preserve \(G_i\in[0,1]\). Here \(\ell_i(t)\) is a normalized gate-degradation rate with units of inverse time, not an unscaled physical load. The coefficients \(\kappa_{ij}\) represent lagged cross-gate degradation and cannot be inferred from simultaneous decline alone, because common-cause forcing is an alternative explanation.
 
-The first term represents recovery activated by violation. The coefficient \(\alpha_i>0\) is the baseline recovery strength. The factor \(1+\eta_iM\) allows retained memory or maturity to accelerate recovery. The second term represents direct load \(L_i\) on gate \(i\). The third term represents coupled margin degradation: violation in one gate can degrade other gates.
-
-Equation~\eqref{eq:gate-dynamics} separates three distinct mechanisms:
-
-\begin{enumerate}[label=(\roman*)]
-    \item \textbf{gated return}: recovery activates only when viability is violated;
-    \item \textbf{load pressure}: exchange, stress, or forcing can reduce gate values;
-    \item \textbf{cascade coupling}: violation in one margin can propagate to others.
-\end{enumerate}
-
-This distinction is central to CVT. Systems rarely fail because one variable crosses a threshold in isolation. They often fail because local violation spreads across coupled margins, reducing total viability faster than any single metric suggests.
-
-\subsection{Memory, Maturity, and Restorative Reserve}
-
-Let \(M(t)\geq 0\) denote memory, maturity, or restorative reserve. In different domains, \(M\) may represent material conditioning, institutional trust, learned control authority, relational repair history, or accumulated adaptive capacity.
-
-A minimal memory law is
+One candidate recovery coefficient is
 \begin{equation}
-    \dot{M}
+    a_i(H,S)
     =
-    \epsilon \sum_i \Phi_i
-    -
-    \zeta M,
+    \alpha_i(1+\eta_i H)q_i(S),
+    \label{eq:recovery-coefficient}
 \end{equation}
-where \(\epsilon>0\) records recovery history and \(\zeta>0\) represents fading or decay.
+where \(q_i\) is nondecreasing and may satisfy \(q_i(0)=0\) when recovery requires available reserve. Equation~\eqref{eq:gate-dynamics} is not a universal law. It is a model class whose terms must be mapped to domain-native mechanisms and compared with simpler baselines.
 
-For developmental systems, however, maturity may grow not from violation alone, but from successful viable operation. In that case we use
-\begin{equation}
-    \dot{M}
-    =
-    \eta \V(1-M)
-    -
-    \lambda D M,
-    \label{eq:maturity}
-\end{equation}
-where \(D(t)\) is accumulated damage. Equation~\eqref{eq:maturity} states that maturity grows when total viability remains high and erodes when damage dominates.
+\subsection{Recovery History and Available Reserve}
 
-The crucial point is that \(M\) does not drive recovery by itself. Rather, it modifies the rate of recovery when violation is present. Memory amplifies re-entry; it does not replace the viability gate.
-
-\subsection{Raw Exchange and Effective Exchange}
-
-CVT distinguishes between exchange delivered to a system and exchange productively received by it. Let
+Recovery history or maturity and present restorative reserve are distinct states. Let
 \[
-    \Jraw = \Pi \Delta,
+    H(t)\in[0,1]
 \]
-where \(\Pi\) denotes permeability or exchange capacity and \(\Delta\) denotes the driving gradient.
+denote learned recovery history, conditioning, or maturity, and let
+\[
+    S(t)\in[0,S_{\max}]
+\]
+denote currently available restorative reserve. The normalized reserve gate is \(G_S=g_S(S)\).
 
-Let \(\rho(t)\in[0,1]\) denote receptivity. Then effective exchange is
+A candidate learning law is
 \begin{equation}
-    \Jeff = \rho \Pi \Delta.
+    \dot H
+    =
+    \epsilon U_{\mathrm{rec}}(t)(1-H)
+    -
+    \zeta H
+    -
+    \xi_D D H,
+    \label{eq:history-dynamics}
+\end{equation}
+where \(U_{\mathrm{rec}}(t)\) is an independently coded measure of successful viable operation or recovery. A candidate reserve law is
+\begin{equation}
+    \dot S
+    =
+    r_S(H)(S_{\max}-S)
+    -
+    c_S(t)
+    -
+    \sum_i\nu_i\Phi_i,
+    \label{eq:reserve-dynamics}
+\end{equation}
+with projection onto \([0,S_{\max}]\). The term \(c_S(t)\) is measured reserve consumption; \(r_S(H)\) is a replenishment rate that may improve with history. These equations permit a mature system to be temporarily exhausted and an inexperienced system to possess substantial unused reserve. Neither possibility was representable when memory, maturity, and reserve shared one variable.
+
+\subsection{Raw Exchange, Productive Uptake, and Prediction}
+
+Let \(J_{\mathrm{raw}}(t)\) be measured delivered exchange. In a transport model one may have
+\begin{equation}
+    J_{\mathrm{raw}}
+    =
+    \Pi\Delta,
+    \label{eq:raw-exchange}
+\end{equation}
+where \(\Pi\) is permeability or exchange capacity and \(\Delta\) is a driving gradient. This relation is domain-specific rather than the definition of raw exchange in every application.
+
+Let \(J_{\mathrm{eff}}(t)\) be independently measured retained productive uptake over the same accounting window. When the quantities are commensurate and \(J_{\mathrm{raw}}>0\), observed uptake efficiency is
+\begin{equation}
+    \rho_{\mathrm{obs}}(t)
+    =
+    \frac{J_{\mathrm{eff}}(t)}{J_{\mathrm{raw}}(t)}.
     \label{eq:effective-exchange}
 \end{equation}
+In systems with endogenous amplification or noncommensurate input and output units, productive uptake must instead be defined through an explicit conversion or target-response measure.
 
-When \(\rho\to 0\),
-\[
-    \Jeff \to 0
-\]
-even if raw exchange remains high. Thus the system may receive strong forcing without receiving useful nourishment. In CVT terms, exchange without receptivity becomes load.
-
-A minimal receptivity functional is
+Capture readiness is measured before or independently of the uptake outcome. CVT may then test a predictor
 \begin{equation}
-    \rho
+    \widehat{\rho}_{\theta}(t)
     =
-    \prod_{k\in \mathcal{R}} G_k,
+    f_{\theta}\!\left(
+        G_B(t),G_Q(t),G_C(t),G_S(t),\mathbf w(t)
+    \right),
+    \label{eq:uptake-predictor}
 \end{equation}
-where \(\mathcal{R}\) is the subset of gates required for productive reception. In a fusion setting, these may include burn stability, machine integrity, spectral safety, separation, and restoration. In a relational setting, they may include agency preservation, trust, interpretive capacity, and repairability.
+where \(\mathbf w(t)\) contains declared exogenous covariates. The predictor may be multiplicative, minimum-gated, nonlinear, or domain-native. Defining \(\rho\) as a product of the same gates and then treating that product as an explanation of uptake is not permitted.
 
 \subsection{Damage Accumulation}
 
-Let \(D(t)\in[0,1]\) denote accumulated damage. A minimal damage law is
+Reserve the symbol \(D(t)\in[0,1]\) for accumulated damage. When raw and effective exchange are commensurate, define unretained delivered load as
 \begin{equation}
-    \dot{D}
+    L_{\mathrm{u}}(t)
     =
-    \gamma \Jraw(1-\rho)
+    [J_{\mathrm{raw}}(t)-J_{\mathrm{eff}}(t)]_+.
+    \label{eq:unretained-load}
+\end{equation}
+Otherwise \(L_{\mathrm{u}}\) must be replaced by a directly measured rejection, spillover, waste, or harmful-load quantity.
+
+A candidate damage model is
+\begin{equation}
+    \dot D
+    =
+    \gamma L_{\mathrm{u}}
     +
-    \delta \sum_i \Phi_i
+    \delta\sum_i\Phi_i
     +
     \omega R_{\mathrm{risk}}
     -
-    \mu D.
+    \mu(H,S)D,
     \label{eq:damage}
 \end{equation}
+with projected dynamics preserving \(D\in[0,1]\). The domain-specific risk term \(R_{\mathrm{risk}}\) must be specified before fitting rather than used as a residual container. The repair rate \(\mu(H,S)\) may depend on both learned recovery capacity and currently available reserve. Equation~\eqref{eq:damage} is a candidate mechanism, not a general conservation law.
 
-The first term captures the CVT claim that raw exchange delivered into low receptivity becomes damaging load. The second term accumulates damage from viability violations. The third term represents domain-specific risk, such as spectral crowding, institutional mistrust, or relational overload. The final term represents repair or dissipation of damage.
+\subsection{Hosted Transformation as an Independent Outcome}
 
-Equations~\eqref{eq:effective-exchange} and~\eqref{eq:damage} define one of CVT's central distinctions:
-\[
-    \text{exchange capacity} \neq \text{exchange receptivity}.
-\]
-
-A system can be exposed to more of what it needs than it can receive. When that occurs, input ceases to be nourishment and becomes injury.
-
-\subsection{Hosted Transformation}
-
-We define hosted transformation as the regime in which a system undergoes significant internal transition while maintaining viability.
-
-\begin{definition}[Hosted Transformation]
-A transformation is hosted on a time interval \([t_0,t_1]\) if a transition variable \(X(t)\) increases substantially while viability, receptivity, and damage remain bounded:
-\[
-    X(t_1)-X(t_0)>X_{\mathrm{crit}},
-\]
-\[
-    \V(t)>\V_{\mathrm{crit}},\qquad
-    \rho(t)>\rho_{\mathrm{crit}},\qquad
-    D(t)<D_{\mathrm{crit}}
-\]
-for all \(t\in[t_0,t_1]\).
+\begin{definition}[Hosted transformation]
+Fix a host state \(x(t)\), a transformation variable \(X(t)\), a domain-native viable set \(\mathcal K_{\mathrm{declared}}\), a transition threshold \(X_{\mathrm{crit}}\), and a follow-up horizon \(\tau_f\geq0\). A transformation is hosted on \([t_0,t_1]\) when
+\begin{equation}
+    X(t_1)-X(t_0)
+    \geq
+    X_{\mathrm{crit}},
+    \label{eq:transformation-success}
+\end{equation}
+and
+\begin{equation}
+    x(t)\in\mathcal K_{\mathrm{declared}}
+    \qquad
+    \text{for all }t\in[t_0,t_1+\tau_f].
+    \label{eq:delayed-host-viability}
+\end{equation}
+An independently specified damage limit may be added when damage is not already included in \(\mathcal K_{\mathrm{declared}}\).
 \end{definition}
 
-In fusion, \(X(t)\) may be alpha dominance,
-\[
-    \chi_\alpha(t)=\frac{P_\alpha}{P_\alpha+P_{\mathrm{aux}}}.
-\]
-In institutional systems, it may be adoption of a new trust architecture. In human--AI systems, it may be increasing influence or delegation. In each case, CVT asks whether transformation is being hosted or merely forced.
+The follow-up horizon permits delayed failure to count against apparent success. Gate scores and aggregate CVT scores are predictors or explanatory variables for this outcome; they do not define the outcome they are supposed to predict.
 
-\subsection{Host-Gated Transition}
+\subsection{Host-Paced Transition as a Model Class}
 
-A CVT-safe transition should not proceed faster than the host can receive it. Let \(X(t)\) denote a transition variable. A host-gated transition has the form
+Let \(u_X(t)\) denote the control or pacing input applied to a transformation. A candidate host-paced policy is
 \begin{equation}
-    \dot{X}
+    u_X(t)
     =
-    r R_{\mathrm{host}}(1-X)
-    -
-    s(1-R_{\mathrm{host}})X,
+    u_{\max}
+    h_{\theta}\!\left(
+        G_B,G_Q,G_C,G_S,D
+    \right),
+    \qquad
+    0\leq h_{\theta}\leq1,
+    \label{eq:host-capacity-policy}
+\end{equation}
+combined with domain-specific transition dynamics
+\begin{equation}
+    \dot X
+    =
+    F\!\left(X,u_X,\mathbf w\right).
     \label{eq:host-gated-transition}
 \end{equation}
-where \(R_{\mathrm{host}}\in[0,1]\) measures the host's current capacity to receive the transition.
+The pacing function \(h_{\theta}\) must not double-count variables already embedded in one another. It should be compared with fixed-rate, capacity-maximizing, and domain-native control policies using the same outcome criteria. CVT does not imply the dimensionally unsupported universal inequality \(\dot X\leq R_{\mathrm{host}}\); any rate bound must be derived in the units and dynamics of the specific application.
 
-A minimal host capacity functional is
+\subsection{Minimum Viable Host as a Domain-Specific Threshold}
+
+For a fixed model, forcing severity \(\Lambda\), observation horizon \(\tau\), and control policy \(\pi\), one may estimate a reserve threshold
 \begin{equation}
-    R_{\mathrm{host}}
+    S(t_0)
+    \geq
+    S_{\mathrm{crit}}(\Lambda,\tau;\pi,\theta)
+    \label{eq:minimum-host-threshold}
+\end{equation}
+associated with a chosen probability or level of hosted success. This is a domain- and model-specific threshold, not a general theorem. Its form may be nonlinear, history-dependent, or absent. A case that hosts the transformation with no measurable restorative reserve would constrain the claim that reserve is essential in that domain.
+
+\subsection{Local Exchange--Uptake Condition}
+
+Suppose \(J_{\mathrm{raw}}>0\), \(\rho_{\mathrm{obs}}>0\), and
+\[
+    J_{\mathrm{eff}}
     =
-    \rho(1-D)G_{\mathrm{restoration}}G_{\mathrm{spectral}},
-\end{equation}
-with domain-specific gates substituted as appropriate.
-
-Equation~\eqref{eq:host-gated-transition} formalizes the principle:
-\[
-    \frac{dX}{dt}
-    \leq R_{\mathrm{host}}(t).
+    \rho_{\mathrm{obs}}(J_{\mathrm{raw}})J_{\mathrm{raw}}
 \]
-
-The transition accelerates when receptivity and restorative margins are strong, and slows or retreats when the host loses viability. This is the formal version of the CVT claim that transformation must be paced by the receiver's capacity to remain coherent.
-
-\subsection{Minimum Viable Host Condition}
-
-A host is minimally viable for a transformation of severity \(\Lambda\) if its reserve \(R_P\) exceeds a critical threshold:
+locally with differentiable \(\rho_{\mathrm{obs}}\). Then
 \begin{equation}
-    R_P \geq R_{P,\mathrm{crit}}(\Lambda).
-\end{equation}
-
-In the fusion instantiation developed below, numerical experiments suggest an approximately linear threshold of the form
-\begin{equation}
-    R_{P,\mathrm{crit}}
-    \approx
-    a+b\Lambda_\alpha,
-\end{equation}
-where \(\Lambda_\alpha\) represents alpha-load severity.
-
-This condition is not restricted to fusion. It expresses a general CVT principle: a system may be capable of initiating a transformation without possessing the reserve required to host it.
-
-\begin{proposition}[Exchange-Receptivity Separation]
-If effective exchange is given by
-\[
-    \Jeff = \rho \Jraw,
-\]
-then increasing raw exchange does not necessarily increase effective exchange. In particular, if increased raw exchange reduces receptivity sufficiently, effective exchange may decrease even as raw exchange increases.
-\end{proposition}
-
-\begin{proof}
-Let \(\Jraw\) increase while \(\rho=\rho(\Jraw)\) decreases. Then
-\[
-    \frac{d\Jeff}{d\Jraw}
+    \frac{dJ_{\mathrm{eff}}}{dJ_{\mathrm{raw}}}
     =
-    \rho
+    \rho_{\mathrm{obs}}
     +
-    \Jraw\frac{d\rho}{d\Jraw}.
-\]
-If
-\[
-    \Jraw\left|\frac{d\rho}{d\Jraw}\right|>\rho,
-\]
-then
-\[
-    \frac{d\Jeff}{d\Jraw}<0.
-\]
-Thus increasing delivered exchange can reduce productively received exchange whenever receptivity degrades faster than raw exchange increases.
-\end{proof}
+    J_{\mathrm{raw}}
+    \frac{d\rho_{\mathrm{obs}}}{dJ_{\mathrm{raw}}}.
+    \label{eq:exchange-uptake-derivative}
+\end{equation}
+Effective uptake decreases with additional delivered exchange exactly when
+\begin{equation}
+    \frac{d\log\rho_{\mathrm{obs}}}{d\log J_{\mathrm{raw}}}
+    <
+    -1.
+    \label{eq:uptake-elasticity-condition}
+\end{equation}
+This is a calculus condition, not evidence that such degradation occurs. The empirical CVT claim is that some scoped systems enter regimes satisfying Equation~\eqref{eq:uptake-elasticity-condition} because capture readiness, restorative reserve, or another essential mechanism deteriorates under load.
+
+The formal research burden is therefore explicit: define viability independently, publish the raw measurements and normalization maps, estimate uncertainty, compare aggregation and pacing models out of sample, and search deliberately for transformations that remain hosted despite failure of a proposed essential condition.
 
 \section{Membrane Formulation}
 \label{sec:membrane}
