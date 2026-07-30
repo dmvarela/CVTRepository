@@ -2,7 +2,7 @@ name: Apply CVT v0.2 Membrane Formulation One Time
 
 on:
   pull_request:
-    types: [opened]
+    types: [opened, reopened]
     branches: [main]
     paths:
       - .rewrite-cvt-v0.2-membrane-formulation
