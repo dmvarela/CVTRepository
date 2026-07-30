@@ -1,0 +1,174 @@
+% CVT Foundations v0.2 — proposed Intellectual Lineage and Candidate Structure
+% Review artifact. The section text below is applied to main.tex by a bounded one-time workflow.
+
+\section{Intellectual Lineage}
+\label{sec:lineage}
+
+CVT is assembled from established literatures on viability, self-maintaining organization, open-system control, resilience, and nonlinear basin structure. The present claim is not that these traditions unknowingly contain one already-demonstrated CVT invariant. It is narrower: their concepts motivate a proposed decomposition of hosted transformation into bounded coupling, preserved identity-defining organization, pre-existing capture readiness, and available restorative reserve. Whether that decomposition adds explanatory or predictive value remains a question for comparison, intervention, and counterexample testing.
+
+\subsection{Viability Theory}
+
+Viability theory studies evolutions constrained to remain within admissible sets and characterizes the initial states from which at least one viable trajectory exists, including through viability kernels and regulation under constraints \cite{aubin2011}. CVT inherits this concern with admissible evolution. Its proposed emphasis is boundary-mediated forcing: the host must not only remain inside constraints, but do so while receiving inputs whose rate, timing, and form may alter the host's capacity to remain viable.
+
+This is not yet a mathematical extension of viability theory. It is a proposed decomposition of one class of viability problems. CVT earns distinct value only if the explicit separation of boundary regulation, capture readiness, identity preservation, and restorative reserve improves analysis beyond an ordinary state-constraint formulation.
+
+\subsection{Autopoiesis and Structural Coupling}
+
+Maturana and Varela describe living systems through autopoietic organization: a network of processes that continuously produces and maintains the components and boundary constituting the system as a unity \cite{maturana1980}. CVT inherits the importance of organization and boundary-mediated relation, but it does not identify every CVT host as autopoietic and does not claim organizational closure or structural coupling as new.
+
+Preserved distinction in CVT therefore means continuity of the identity-defining organization relevant to the declared host and success criterion. It does not mean static form, impermeability, or isolation. A host may change profoundly while retaining the organization or constraints that make it the same host for the purpose of the analysis.
+
+\subsection{Passivity and Port-Hamiltonian Systems}
+
+Port-Hamiltonian theory models open physical systems through storage, interconnection, dissipation, and ports that expose exchanges with an environment \cite{vanderschaft2014}. It provides a substantially more rigorous account of energetic exchange than CVT presently offers. CVT does not modify that formalism in this manuscript.
+
+The proposed CVT question is whether exchange capacity and productive retention must be represented separately in some hosted transformations, and whether identity, capture, or repair constraints matter in addition to energetic balance. In physical applications, those claims must be translated into domain-native variables and tested against port-Hamiltonian, passivity, and constraint-based baselines rather than asserted by analogy.
+
+\subsection{Resilience and Recovery}
+
+Holling distinguished ecological resilience from local stability by emphasizing persistence and the capacity of systems to absorb change without losing their organizing relations \cite{holling1973}. CVT inherits this concern with persistence under disturbance. Its term \emph{available restorative reserve} is intended to be narrower than resilience as a whole: it denotes currently accessible recovery headroom, not every property that contributes to long-run persistence.
+
+Restorative reserve may coincide with an established resilience measure in some domains and add nothing in others. It should be retained as a separate CVT variable only where it can be independently operationalized and improves prediction of recovery, delayed damage, or repeated-load failure.
+
+\subsection{Basin Dynamics and Capture Readiness}
+
+Basin-based approaches characterize nonlocal stability by considering the set or measure of initial conditions that return to or remain associated with a desired attractor after finite perturbation. Basin stability, for example, complements local linear stability with a nonlocal measure related to basin volume \cite{menck2013}.
+
+CVT uses this lineage to define \emph{capture readiness}: before uptake is observed, the host occupies a state from which a specified input can enter and remain within an admissible basin over a declared horizon. Capture readiness is not the same as the later outcome of productive uptake. A boundary may deliver input into a system that has no suitable capture path, while a receptive state may remain inaccessible because the boundary does not deliver the required input.
+
+\subsection{Status of the Synthesis}
+
+These traditions overlap, but conceptual overlap does not establish a shared mechanism or a universal invariant. CVT's present contribution is a testable synthesis hypothesis:
+
+\begin{quote}
+For a scoped class of boundary-mediated hosted transformations, failure may be better explained when bounded coupling, identity preservation, capture readiness, and restorative reserve are treated as jointly required and potentially non-compensatory.
+\end{quote}
+
+This claim is supported only when the CVT decomposition can be operationalized independently, compared with simpler or domain-native models, and exposed to cases in which one proposed condition is absent without loss of hosted viability.
+
+\section{Candidate CVT Structure and Non-Compensability}
+\label{sec:invariant}
+
+\begin{definition}[Hosted coherence viability]
+Fix a declared host, boundary, transformation, success criterion, observation horizon, and level of analysis. The host is coherence-viable for that transformation when it can undergo or support the transition while remaining inside the declared viable set and retaining the identity-defining organization required by the success criterion.
+\end{definition}
+
+Let \(\mathcal K_B(t)\), \(\mathcal K_Q(t)\), \(\mathcal K_C(t)\), and \(\mathcal K_S(t)\) denote the state sets satisfying four proposed conditions at time \(t\):
+
+\begin{enumerate}[label=(\roman*)]
+    \item \textbf{bounded coupling} \(B\): the exchange schedule remains within a domain-specific admissible range relative to the host's changing handling capacity;
+    \item \textbf{preserved identity-defining organization} \(Q\): the organization, constraints, or independent control structure relevant to the declared host persists through the transformation;
+    \item \textbf{capture readiness} \(C\): before realized uptake is measured, the host state permits the specified input to enter and remain within an admissible basin over the stated horizon;
+    \item \textbf{available restorative reserve} \(S\): sufficient internal or reliably accessible recovery capacity remains to absorb strain, repair damage, or preserve control authority.
+\end{enumerate}
+
+The candidate CVT viability region is
+\begin{equation}
+    \mathcal K_{\CVT}(t)
+    =
+    \mathcal K_B(t)
+    \cap
+    \mathcal K_Q(t)
+    \cap
+    \mathcal K_C(t)
+    \cap
+    \mathcal K_S(t).
+    \label{eq:candidate-cvt-region}
+\end{equation}
+The shorthand \(B\cap Q\cap C\cap S\) refers to simultaneous satisfaction of these conditions; it should not be read as though four scalar variables were themselves sets.
+
+Equation~\eqref{eq:candidate-cvt-region} states a candidate structure, not a demonstrated universal law. CVT presently hypothesizes that the four conditions may be necessary in some scoped domains. It does not establish that every condition is universally necessary, and their simultaneous satisfaction is not presently sufficient for success. Delayed damage, hidden variables, regime change, path dependence, adversarial interference, and measurement error may still produce failure.
+
+\subsection{Conceptual Non-Compensability}
+
+A proposed condition is non-compensatory in a specified domain when crossing its failure threshold prevents the declared viable outcome despite admissible improvement in the remaining conditions, unless the failed condition itself is restored or the scope of the host is changed. In gate notation, a strong form would be
+\begin{equation}
+    G_k < \Theta_k
+    \quad\Longrightarrow\quad
+    y \notin \mathcal Y_{\mathrm{viable}}
+    \qquad
+    \text{for all admissible values of }\{G_i\}_{i\neq k},
+    \label{eq:strong-noncompensability}
+\end{equation}
+under stated domain assumptions.
+
+Equation~\eqref{eq:strong-noncompensability} is an empirical or model-class hypothesis. A valid case in which severe failure of one condition is reliably offset by another would constrain strict non-compensability, reveal an omitted restoration pathway, or show that the failed condition was not essential in that domain.
+
+\subsection{Product Gate as a Candidate Representation}
+
+One smooth representation of essential-gate fragility is
+\begin{equation}
+    \V_{\Pi}
+    =
+    \prod_{i=1}^{n}G_i,
+    \qquad G_i\in[0,1].
+    \label{eq:product-candidate}
+\end{equation}
+
+\begin{proposition}[Zero-gate property of the product representation]
+If viability is represented by Equation~\eqref{eq:product-candidate}, then \(G_k\to 0\) implies \(\V_{\Pi}\to 0\), regardless of the remaining gate values.
+\end{proposition}
+
+\begin{proof}
+Because each \(G_i\in[0,1]\),
+\[
+    \V_{\Pi}
+    =
+    G_k\prod_{i\neq k}G_i.
+\]
+The remaining product is bounded above by one, so \(G_k\to0\) implies \(\V_{\Pi}\to0\).
+\end{proof}
+
+This proposition proves a property of the selected aggregator; it does not prove that real systems aggregate viability multiplicatively. The product must therefore compete with alternatives such as
+\begin{equation}
+    \V_{\min}=\min_i G_i,
+    \qquad
+    \V_G=\prod_i G_i^{w_i},\quad \sum_i w_i=1,
+\end{equation}
+and with direct simultaneous constraint satisfaction \(G_i\geq\Theta_i\) for every essential condition. Model comparison should use independently defined viability outcomes, common data or simulations, and out-of-sample evaluation.
+
+\subsection{Capture Readiness and Realized Uptake}
+
+Capture readiness \(C\) is a pre-existing state condition. Realized uptake efficiency is an observed outcome:
+\begin{equation}
+    \rho_{\mathrm{obs}}
+    =
+    \frac{J_{\mathrm{eff}}}{J_{\mathrm{raw}}},
+    \qquad J_{\mathrm{raw}}>0.
+\end{equation}
+A model that defines \(C\) by \(\rho_{\mathrm{obs}}\) cannot then use \(C\) to explain the same observed ratio. CVT must operationalize capture readiness from state, basin, or response-capacity information available before or independently of the uptake outcome.
+
+The immediate research burden is therefore not to defend one equation. It is to determine, domain by domain, whether the four proposed conditions are identifiable, whether any are genuinely essential, and which mathematical representation best predicts hosted viability without circular measurement.
+
+% --- BIBLIOGRAPHY ---
+
+\begin{thebibliography}{9}
+
+\bibitem{aubin2011}
+J.-P. Aubin, A. M. Bayen, and P. Saint-Pierre,
+\emph{Viability Theory: New Directions}, 2nd ed.
+Springer, 2011. doi:10.1007/978-3-642-16684-6.
+
+\bibitem{maturana1980}
+H. R. Maturana and F. J. Varela,
+\emph{Autopoiesis and Cognition: The Realization of the Living}.
+D. Reidel, 1980. doi:10.1007/978-94-009-8947-4.
+
+\bibitem{vanderschaft2014}
+A. van der Schaft and D. Jeltsema,
+\emph{Port-Hamiltonian Systems Theory: An Introductory Overview}.
+Now Publishers, 2014. doi:10.1561/2600000002.
+
+\bibitem{holling1973}
+C. S. Holling,
+``Resilience and Stability of Ecological Systems,''
+\emph{Annual Review of Ecology and Systematics}, vol. 4, pp. 1--23, 1973.
+doi:10.1146/annurev.es.04.110173.000245.
+
+\bibitem{menck2013}
+P. J. Menck, J. Heitzig, N. Marwan, and J. Kurths,
+``How basin stability complements the linear-stability paradigm,''
+\emph{Nature Physics}, vol. 9, pp. 89--92, 2013.
+doi:10.1038/nphys2516.
+
+\end{thebibliography}
