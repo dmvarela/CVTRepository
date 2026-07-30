@@ -1,0 +1,47 @@
+name: Apply CVT v0.2 Introduction One Time
+
+on:
+  push:
+    branches:
+      - review/cvt-foundations-v0.2-introduction-2026-07-29b
+    paths:
+      - .rewrite-cvt-v0.2-introduction
+
+permissions:
+  contents: write
+
+jobs:
+  rewrite:
+    if: github.event.head_commit.message != 'Apply CVT Foundations v0.2 abstract and introduction'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Apply bounded rewrite
+        run: python .github/scripts/apply_cvt_v02_introduction.py
+
+      - name: Install TeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-latex-base texlive-latex-extra texlive-science
+
+      - name: Verify compilation
+        working-directory: research-hub/cvt-foundations
+        run: |
+          pdflatex -interaction=nonstopmode -halt-on-error main.tex
+          pdflatex -interaction=nonstopmode -halt-on-error main.tex
+          rm -f main.aux main.log main.out main.toc main.pdf
+
+      - name: Retire branch-local rewrite machinery
+        run: |
+          rm -f .rewrite-cvt-v0.2-introduction
+          rm -f .github/scripts/apply_cvt_v02_introduction.py
+          rm -f .github/workflows/cvt-v02-intro-one-time.yml
+
+      - name: Commit rewrite
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add -A
+          git commit -m 'Apply CVT Foundations v0.2 abstract and introduction'
+          git push origin HEAD:${GITHUB_REF_NAME}
