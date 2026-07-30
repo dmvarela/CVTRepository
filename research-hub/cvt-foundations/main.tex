@@ -516,209 +516,148 @@ This is a calculus condition, not evidence that such degradation occurs. The emp
 
 The formal research burden is therefore explicit: define viability independently, publish the raw measurements and normalization maps, estimate uncertainty, compare aggregation and pacing models out of sample, and search deliberately for transformations that remain hosted despite failure of a proposed essential condition.
 
-\section{Membrane Formulation}
+% CVT Foundations v0.2 — proposed Membrane Illustration replacement
+% Review artifact. This section is intended to replace only the current
+% membrane material and to stop immediately before the fusion section.
+
+\section{Membrane Illustration: Regulated Transport Across an Interface}
 \label{sec:membrane}
 
-The most direct mathematical form of CVT is a membrane system: two domains exchange through a boundary whose permeability is neither zero nor infinite. This formulation makes explicit why viable exchange requires both openness and preservation.
+A regulated transport interface provides a bounded physical illustration of CVT. It is not presented as the universal mathematical form of the theory. The purpose of the illustration is narrower: to show how delivered flux, interface integrity, pre-existing capture readiness, productive uptake, restorative reserve, and delayed damage can be represented as distinct quantities in a system whose boundary is physically explicit.
 
-Let \(A\) and \(B\) denote two interacting domains with internal coherence, concentration, energy, information, or state variables \(c_A(x,t)\) and \(c_B(x,t)\). Let \(\Gamma\) denote the interface between them. A minimal boundary-exchange law is given by a Robin-type condition:
+\subsection{Established Interface-Transport Form}
+
+Let domains \(A\) and \(B\) meet at an interface \(\Gamma\), and let \(c_A(x,t)\) and \(c_B(x,t)\) denote concentrations or other transport potentials on the two sides. Classical diffusion and membrane-transport models use boundary or interface laws that relate flux to a potential difference and an interface-transfer coefficient \cite{crank1975,kedem1958}. A linear permeability law may be written
 \begin{equation}
-    \nabla c_A \cdot n_A
+    J_{\mathrm{raw}}(t)
     =
-    \Pi(c_{AB})(c_B-c_A)
-    \qquad \text{on } \Gamma,
-    \label{eq:robin}
+    \Pi_{\Gamma}(t)
+    \bigl(c_B(t)-c_A(t)\bigr)
+    \qquad \text{on }\Gamma,
+    \label{eq:membrane-raw-flux}
 \end{equation}
-where \(n_A\) is the outward normal from domain \(A\), \(\Pi\) is the state-dependent permeability of the membrane, and \(c_{AB}\) denotes the interface state.
-
-Equation~\eqref{eq:robin} encodes three CVT principles at once. First, exchange depends on a gradient \(c_B-c_A\); something must be available to cross. Second, exchange is mediated by permeability \(\Pi\); the boundary is not absent. Third, permeability may depend on the interface state; the membrane can regulate exchange according to its own condition.
-
-In CVT terms, the membrane is not a wall and not an erasure. It is the structure that allows exchange without collapse.
-
-\subsection{Exchange Regimes}
-
-The membrane formulation produces four qualitative regimes.
-
-\paragraph{Isolation.}
-If
-\[
-    \Pi \approx 0,
-\]
-exchange is negligible. The boundary is preserved, but the system is cut off from needed input. In CVT terms, preserved distinction exists without sufficient coupling.
-
-\paragraph{Collapse.}
-If
-\[
-    \Pi \gg 1
-\]
-relative to the receiving system's capacity, exchange becomes excessive. The receiving system is overloaded, damaged, or driven outside its viable basin.
-
-\paragraph{Merger.}
-If permeability becomes effectively unbounded and distinction is lost, the two domains no longer exchange as distinct systems. They merge into a single undifferentiated state. This is not viable relation but loss of boundary.
-
-\paragraph{Healthy exchange.}
-If permeability is bounded, distinction is preserved, the receiving basin is receptive, and restorative reserve remains positive, exchange can become nourishing rather than destructive.
-
-These regimes can be summarized as:
+with the corresponding diffusive boundary flux on side \(A\), under a stated sign convention,
 \begin{equation}
-\begin{array}{lll}
-\Pi \to 0
-&\Rightarrow&
-\text{isolation},\\[4pt]
-\Pi \to \infty,\; D\to 1
-&\Rightarrow&
-\text{collapse},\\[4pt]
-\Pi \to \infty,\; \text{distinction}\to 0
-&\Rightarrow&
-\text{merger},\\[4pt]
-0<\Pi<\Pi_{\mathrm{crit}},\; \rho>0,\; M>0
-&\Rightarrow&
-\text{healthy exchange}.
-\end{array}
-\end{equation}
-
-\subsection{Permeability Is Not Receptivity}
-
-A key CVT distinction is that permeability is not the same as receptivity. Permeability measures how much can cross the membrane. Receptivity measures whether what crosses can be productively incorporated.
-
-Let
-\[
-    J_{\mathrm{raw}}=\Pi(c_{AB})(c_B-c_A)
-\]
-denote raw boundary flux. CVT defines effective flux as
-\begin{equation}
-    J_{\mathrm{eff}}
+    -D_A\nabla c_A\cdot n_A
     =
-    \rho J_{\mathrm{raw}},
-    \label{eq:membrane-effective-flux}
+    J_{\mathrm{raw}}.
+    \label{eq:membrane-robin-law}
 \end{equation}
-where \(\rho\in[0,1]\) is the receptivity of the receiving domain.
+Here \(D_A\) is a diffusion coefficient, \(n_A\) is the outward normal, and \(\Pi_{\Gamma}\) is an interface conductance or permeability with units chosen consistently with the transported quantity. Equations~\eqref{eq:membrane-raw-flux}--\eqref{eq:membrane-robin-law} are established transport forms, not CVT inventions. State dependence of \(\Pi_{\Gamma}\) is a modeling choice that must be justified by a physical mechanism or controller.
 
-When \(\rho\) is high, boundary flux becomes useful exchange. When \(\rho\) is low, boundary flux becomes load. Thus a membrane can be highly permeable and yet destructive if the receiving system lacks a basin capable of incorporating what enters.
+The interface law identifies what can cross. It does not by itself establish whether the receiving state can capture, retain, or survive the delivered input.
 
-This is the membrane version of the exchange-receptivity separation:
-\[
-    \text{what crosses}
+\subsection{Separating Permeability, Flux, Capture, and Uptake}
+
+The membrane illustration distinguishes five quantities that should not be collapsed:
+\begin{equation}
+    \Pi_{\Gamma}
     \neq
-    \text{what is received}.
-\]
-
-\subsection{Basin Receptivity}
-
-Let \(x_A(t)\) denote the state of domain \(A\), and let \(\mathcal{B}_A\) denote a viable basin for \(A\). The membrane may deliver input \(J_{\mathrm{raw}}\), but that input is only viable if the perturbed state remains within the basin of recovery:
-\begin{equation}
-    x_A(t) + \delta x(J_{\mathrm{raw}})
-    \in
-    \mathcal{U}(\mathcal{B}_A),
+    J_{\mathrm{raw}}
+    \neq
+    C
+    \neq
+    \rho_{\mathrm{obs}}
+    \neq
+    J_{\mathrm{eff}}.
+    \label{eq:membrane-separation}
 \end{equation}
-where \(\mathcal{U}(\mathcal{B}_A)\) is the basin of attraction of the viable set.
-
-If the perturbation exits the basin, the same input becomes destabilizing. Thus CVT distinguishes between a boundary condition and a basin condition. A membrane may allow help to cross, but the basin determines whether help can take root.
-
-This gives a compact membrane viability condition:
+The permeability \(\Pi_{\Gamma}\) is an interface property or control setting. The raw flux \(J_{\mathrm{raw}}\) is delivered transport. Capture readiness \(C\) is a pre-existing property of the receiving state, estimated before or independently of the uptake outcome. The quantity \(J_{\mathrm{eff}}\) is retained productive uptake measured over a declared accounting window. When raw and effective quantities are commensurate and delivered flux is positive, observed uptake efficiency is
 \begin{equation}
-    \V_{\mathrm{mem}}
+    \rho_{\mathrm{obs}}
     =
-    G_{\Pi}
-    G_{\mathrm{distinction}}
-    G_{\rho}
-    G_{\mathrm{restoration}},
-    \label{eq:membrane-viability}
+    \frac{J_{\mathrm{eff}}}{J_{\mathrm{raw}}}.
+    \label{eq:membrane-observed-uptake}
 \end{equation}
-where:
-\begin{itemize}
-    \item \(G_{\Pi}\) measures whether permeability lies inside a viable range;
-    \item \(G_{\mathrm{distinction}}\) measures preservation of boundary identity;
-    \item \(G_{\rho}\) measures receptivity of the receiving basin;
-    \item \(G_{\mathrm{restoration}}\) measures recovery capacity after exchange.
-\end{itemize}
+This ratio is an outcome. It must not be used to define the same capture-readiness variable that is then claimed to explain it. In systems with endogenous amplification, storage delay, or noncommensurate input and output units, productive uptake requires an explicit conversion or target-response measure instead of Equation~\eqref{eq:membrane-observed-uptake}.
 
-\subsection{State-Dependent Permeability}
+\subsection{Operational Mapping to \(B,Q,C,S\)}
 
-A healthy membrane should not have constant permeability under all conditions. It should regulate exchange according to the condition of the receiving system. A minimal state-dependent law is
+For a declared receiving host, the membrane illustration maps the four candidate CVT conditions as follows:
+\begin{enumerate}[label=(\roman*)]
+    \item \textbf{bounded coupling \(B\)}: delivered flux remains within a two-sided admissible band relative to the host's changing handling capacity;
+    \item \textbf{preserved identity-defining organization \(Q\)}: the interface and the host organization required by the success criterion remain functionally intact;
+    \item \textbf{capture readiness \(C\)}: before the uptake outcome is observed, the receiving state lies in a region from which the specified input can be retained within an admissible basin over the declared horizon;
+    \item \textbf{available restorative reserve \(S\)}: measurable recovery headroom remains after transport-induced strain.
+\end{enumerate}
+
+Let \(z_B,z_Q,z_C,z_S\) denote domain-native measurements and let \(G_i=g_i(z_i;\vartheta_i)\) be documented normalizations. The candidate membrane viability region is
 \begin{equation}
-    \Pi
+    \mathcal K_{\mathrm{mem}}(t)
     =
-    \Pi_0 \rho (1-D),
-    \label{eq:state-dependent-permeability}
+    \mathcal K_B(t)
+    \cap
+    \mathcal K_Q(t)
+    \cap
+    \mathcal K_C(t)
+    \cap
+    \mathcal K_S(t).
+    \label{eq:membrane-viability-region}
 \end{equation}
-where \(D\) is accumulated damage.
-
-When receptivity is high and damage is low, permeability remains open. When damage rises or receptivity falls, permeability decreases. This prevents the system from continuing to receive input at a rate it can no longer incorporate.
-
-More generally, permeability can be written as
+This intersection is the representation-independent claim. When a scalar score is useful, candidate forms include
 \begin{equation}
-    \Pi
+    \V_{\mathrm{prod,mem}}
     =
-    \Pi_{\max}
-    \sigma\!\left(
-    a(\rho-\rho_{\mathrm{crit}})
-    -
-    b(D-D_{\mathrm{crit}})
+    G_BG_QG_CG_S,
+    \qquad
+    \V_{\min,\mathrm{mem}}
+    =
+    \min\{G_B,G_Q,G_C,G_S\},
+    \label{eq:membrane-candidate-scores}
+\end{equation}
+and the wider aggregation family in Equation~\eqref{eq:aggregation-family}. No one form is privileged without comparative evidence against an independently declared viability outcome.
+
+\subsection{Transport Regimes and Failure Signatures}
+
+The same interface can enter several distinct regimes.
+
+\paragraph{Insufficient delivery.}
+Raw flux remains below the lower edge of the admissible operating band. The host may preserve organization and reserve while failing to receive enough input for the declared transformation. This is a bounded-coupling failure at the low-input side, not evidence that openness is always beneficial.
+
+\paragraph{Overexposure.}
+Raw flux exceeds the receiving system's handling band. Damage, rejection, spillover, saturation, or escape from the viable set may increase even when permeability and gradient remain physically large. Overexposure is first a failure of bounded coupling; observed uptake loss may follow but should be measured rather than assumed.
+
+\paragraph{Capture failure.}
+The interface delivers input while the receiving state lacks a viable capture path. A low value of \(\rho_{\mathrm{obs}}\) may be consistent with this mechanism, but it does not uniquely identify it: conversion losses, measurement error, transport delay, or an omitted state variable remain alternatives.
+
+\paragraph{Loss of identity-defining organization.}
+The interface or host organization required by the declared success criterion fails. Complete merger is a CVT failure only when continued distinction is part of that criterion. If merger is the intended transformation, the host and level of analysis must be redefined rather than treating all loss of boundary as pathological.
+
+\paragraph{Reserve exhaustion.}
+Transport remains possible and uptake may remain temporarily positive, but restorative reserve falls below the level required for repair or repeated-load survival. The failure may therefore appear only during a follow-up horizon after the target state has been reached.
+
+These regimes show why permeability alone cannot classify membrane health. The same value of \(\Pi_{\Gamma}\) may be viable or destructive depending on the gradient, receiving state, damage, reserve, observation window, and declared success criterion.
+
+\subsection{Causal State-Dependent Interface Control}
+
+A regulated interface may adapt permeability to estimates of receiving-state condition. A causal policy class is
+\begin{equation}
+    \Pi_{\Gamma}(t)
+    =
+    \Pi_{\min}
+    +
+    \bigl(\Pi_{\max}-\Pi_{\min}\bigr)
+    h_{\theta}\!\left(
+        \widehat C(t-\Delta t),
+        G_S(t-\Delta t),
+        D(t-\Delta t),
+        z_{\Gamma}(t-\Delta t)
     \right),
+    \label{eq:membrane-causal-control}
 \end{equation}
-where \(\sigma\) is a sigmoid gate. This gives a soft transition between openness and closure rather than an abrupt switch.
+where \(0\leq h_{\theta}\leq1\), \(\Delta t\geq0\) is the sensing and actuation delay, and \(z_{\Gamma}\) contains declared interface measurements. A lagged value of \(\rho_{\mathrm{obs}}\) may enter \(z_{\Gamma}\) as feedback from a completed accounting window. Contemporaneous observed uptake cannot be treated as a pre-existing causal input without specifying how it is measured before the control action it is supposed to determine.
 
-\subsection{Membrane Failure Modes}
+Equation~\eqref{eq:membrane-causal-control} is a controller class, not a universal membrane law. It should be compared with fixed permeability, capacity-maximizing control, and domain-native controllers using the same hosted-transformation outcome and follow-up horizon.
 
-The membrane formulation clarifies four failure modes.
+\subsection{Minimal Membrane Test}
 
-\paragraph{Failure by closure.}
-The membrane becomes too closed:
-\[
-    \Pi \to 0.
-\]
-The system preserves itself but starves.
+A reproducible test should declare the host, transported quantity, interface law, viable set, transformation criterion, and follow-up horizon before fitting CVT variables. It should measure pre-input state and reserve, perturb permeability or driving gradient over a stated range, record delivered flux, retained productive uptake, rejection or damage, and recovery, and then compare product, minimum, soft-minimum, and direct-constraint representations out of sample. Deliberate counterexamples should include intended merger, successful transport with negligible measured reserve, high flux without uptake loss, and low capture estimates followed by stable productive retention.
 
-\paragraph{Failure by overexposure.}
-The membrane remains open while receptivity collapses:
-\[
-    \Pi>0,\qquad \rho\to 0.
-\]
-Input continues to cross, but it is converted into damage.
+The membrane illustration supports CVT only if the \(B,Q,C,S\) decomposition improves prediction or explanation beyond simpler transport, damage, or state-constraint models. A standard transport model that performs equally well with fewer independently measured quantities would constrain the added value of CVT in this domain.
 
-\paragraph{Failure by merger.}
-The membrane loses its distinction-preserving function:
-\[
-    G_{\mathrm{distinction}}\to 0.
-\]
-Exchange ceases because there are no longer two coherent domains across which exchange can occur.
+\subsection{From the Interface Illustration to Fusion}
 
-\paragraph{Failure by exhaustion.}
-The membrane remains functional, and the basin remains receptive, but restorative reserve is depleted:
-\[
-    G_{\mathrm{restoration}}\to 0.
-\]
-The system may continue receiving input temporarily, but it cannot repair the strain of exchange.
-
-\subsection{Healthy Membrane Regime}
-
-The healthy membrane regime is the region in which all four conditions remain positive:
-\begin{equation}
-    0<\Pi<\Pi_{\mathrm{crit}},
-    \qquad
-    G_{\mathrm{distinction}}>0,
-    \qquad
-    \rho>0,
-    \qquad
-    G_{\mathrm{restoration}}>0.
-\end{equation}
-
-In this regime, the membrane allows exchange without erasing the boundary, and the receiving basin incorporates what crosses without leaving viability.
-
-This yields the membrane form of the CVT invariant:
-
-\begin{quote}
-A membrane is healthy when it allows enough exchange to nourish the system, but not so much that the system loses the boundary, basin, or reserve required to receive what crosses.
-\end{quote}
-
-\subsection{From Membranes to Hosts}
-
-The membrane formulation prepares the transition to hosted transformation. A host is a membrane-bearing system undergoing a major internal transition. The question is not merely whether input can cross the boundary, but whether the host can remain viable while the input changes its internal dynamics.
-
-In the next section, this structure is instantiated in artificial fusion. The plasma-machine interface is treated as a membrane in the CVT sense. Fuel, heat, ash, alpha particles, waves, and control signals must cross or be regulated across the interface. The reactor fails if it is too closed, too open, merged with the plasma, or unable to restore its margins. It succeeds only if the burn is hosted within a viable exchange regime.
-
-Thus the fusion problem is not metaphorically similar to membrane dynamics. It is a membrane problem in physical coordinates.
+The next section uses artificial fusion as an illustrative boundary-mediated host problem. The transfer is structural: a plasma--machine system contains interfaces across which heat, particles, waves, fuel, ash, and control influence are transported or regulated while machine viability matters. This does not establish that fusion is literally reducible to Equation~\eqref{eq:membrane-robin-law}, that a tokamak is a biological membrane, or that the membrane illustration captures reactor physics. Those stronger claims require domain-native equations, calibrated parameters, and comparison with established fusion models.
 
 \section{Fusion Instantiation: Hosted Burn}
 \label{sec:fusion}
@@ -1153,6 +1092,16 @@ P. J. Menck, J. Heitzig, N. Marwan, and J. Kurths,
 ``How basin stability complements the linear-stability paradigm,''
 \emph{Nature Physics}, vol. 9, pp. 89--92, 2013.
 doi:10.1038/nphys2516.
+
+\bibitem{crank1975}
+J. Crank, \emph{The Mathematics of Diffusion}, 2nd ed.
+Clarendon Press, Oxford, 1975. ISBN: 978-0-19-853344-3.
+
+\bibitem{kedem1958}
+O. Kedem and A. Katchalsky,
+``Thermodynamic analysis of the permeability of biological membranes to non-electrolytes,''
+\emph{Biochimica et Biophysica Acta}, vol. 27, no. 2, pp. 229--246, 1958.
+doi:10.1016/0006-3002(58)90330-5.
 
 \end{thebibliography}
 
