@@ -52,49 +52,46 @@ Bounded Exchange, Receptive Basins, and the Conditions for Hosted Transformation
 \maketitle
 
 \begin{abstract}
-We propose Coherence Viability Theory (CVT), a general framework for systems whose persistence depends on regulated exchange across a boundary. Across physical, biological, institutional, technological, and relational domains, systems do not survive by closure alone, nor by openness alone. They survive when exchange is bounded, distinction is preserved, reception is possible, and restorative reserve remains positive. CVT formalizes this claim as a four-condition viability invariant: bounded coupling, preserved distinction, receptive basin, and restorative margin. We situate the framework in relation to viability theory, autopoiesis, passivity-based control, resilience theory, and basin dynamics, arguing that each tradition captures part of the invariant but not the conjunction. We then express the invariant through membrane dynamics, gated viability flows, memory-enhanced recovery, and basin-capture structure. Finally, we show how the framework applies to artificial fusion: ignition alone is insufficient if alpha self-heating cannot be handed off to a host whose exchange interface remains viable. The resulting Minimum Viable Host condition illustrates the broader CVT claim: transformation is sustainable only when what enters a system can be received without destroying the boundary that makes reception possible.
+We propose Coherence Viability Theory (CVT) as a testable framework for boundary-mediated transformations in which the continued viability of an identifiable receiving or hosting system is part of the success criterion. CVT hypothesizes a candidate non-compensatory structure comprising bounded coupling, preserved identity-defining organization, pre-existing capture readiness, and available restorative reserve. These elements are not individually new: the framework draws from viability theory, autopoiesis, passivity-based control, resilience theory, and basin dynamics. Its proposed contribution is their conjunction as conditions of hosted transformation, together with a distinction between exchange delivered to a system and exchange retained as productive uptake. The non-compensability claim is conceptually prior to any particular scalar aggregator; the product-gate form developed here is one candidate representation rather than an established universal equation. We develop a minimal gated architecture and a membrane formulation, then use artificial fusion as an illustrative toy-model instantiation of the difference between initiating a transition and hosting it. CVT does not yet establish that the proposed conditions are universally necessary or sufficient. It instead defines a bounded research program in which the conditions, observables, aggregation rules, and counterexamples can be compared empirically or in reproducible simulation.
 \end{abstract}
 
 \section{Introduction}
 
-Systems do not survive by being closed, and they do not survive by being open. A closed system starves; an unboundedly open system dissolves, overloads, or is consumed by what enters it. Viability instead depends on a more delicate condition: exchange must occur across a boundary that remains intact, into a system capable of receiving what crosses, with sufficient restorative capacity to repair the strain of exchange.
+Many systems depend on exchange across a boundary. They must receive energy, matter, information, influence, or control while retaining the organization that allows them to continue functioning as hosts. Neither closure nor openness alone solves this problem. Insufficient exchange can starve a system; excessive or poorly received exchange can overload it, erase relevant distinctions, exhaust recovery capacity, or drive it outside an admissible regime.
 
-This paper names that condition \emph{Coherence Viability Theory}. CVT studies the structural requirements under which systems remain themselves while receiving energy, information, influence, matter, trust, or meaning from beyond themselves.
+This paper studies a bounded class of such processes: \emph{boundary-mediated transformations in which continued host viability is part of what counts as success}. We call a transformation \emph{hosted} when a declared host undergoes or supports a meaningful transition while remaining viable over a stated observation horizon. The host, boundary, transformation variable, success criterion, timescale, and level of analysis must therefore be specified before CVT is applied.
 
-The central claim is that viable transformation requires four simultaneous conditions:
+CVT proposes that hosted transformation may depend on four jointly necessary conditions:
 \begin{enumerate}[label=(\roman*)]
-    \item \textbf{bounded coupling}: exchange must occur, but not without limit;
-    \item \textbf{preserved distinction}: the interacting systems must remain distinguishable;
-    \item \textbf{receptive basin}: the receiving system must be capable of incorporating what crosses;
-    \item \textbf{restorative reserve}: the system must retain sufficient capacity to recover from the strain of exchange.
+    \item \textbf{bounded coupling}: exchange is present but constrained relative to the host's changing handling range;
+    \item \textbf{preserved distinction}: the host retains the identity-defining organization or independent constraints relevant to the declared success criterion;
+    \item \textbf{capture readiness}: before uptake is observed, the host occupies a state from which delivered input can enter and remain within an admissible basin;
+    \item \textbf{available restorative reserve}: sufficient internal or reliably accessible recovery capacity remains to absorb strain, repair damage, and preserve control authority.
 \end{enumerate}
 
-In compact form, CVT proposes the invariant
+In compact form, the candidate structure is
 \begin{equation}
-\text{Viable Exchange}
-=
-\text{Bounded Coupling}
-\cap
-\text{Preserved Distinction}
-\cap
-\text{Receptive Basin}
-\cap
-\text{Restorative Reserve}.
+    \mathrm{CVT}_{\mathrm{candidate}}
+    =
+    B\cap Q\cap C\cap S.
 \end{equation}
+This expression is a hypothesis about essential conditions, not a proof that the conditions are universal or sufficient. Their satisfaction defines a candidate viability region. Hidden state variables, delayed damage, environmental change, path dependence, adversarial interference, and measurement error may still produce failure.
 
-This invariant appears across domains because it is the logical structure of any system that must receive what it needs without being consumed by it.
+A central distinction is between what is delivered and what is productively retained. Let \(J_{\mathrm{raw}}\) denote boundary flux delivered to the host and \(J_{\mathrm{eff}}\) denote retained productive uptake over a declared horizon. Realized uptake efficiency may be observed as
+\begin{equation}
+    \rho_{\mathrm{obs}}
+    =
+    \frac{J_{\mathrm{eff}}}{J_{\mathrm{raw}}},
+\end{equation}
+when \(J_{\mathrm{raw}}>0\). This ratio is an outcome, not an explanation. CVT must predict it from independently measured host conditions rather than define receptivity through the same gates later used to explain it. The testable claim is that increased delivered exchange can, in some regimes, reduce productive uptake when capture readiness or restorative reserve degrades sufficiently.
 
-The contribution of CVT is not that bounded exchange, viability, resilience, or basin capture are individually new. They are not. CVT inherits from several mature traditions. Viability theory studies the states from which trajectories can remain inside admissible constraint sets. Autopoiesis studies self-producing systems that preserve organization through structural coupling. Port-Hamiltonian and passivity-based control study open systems exchanging energy through constrained ports. Resilience theory studies absorption, recovery, and persistence under disturbance. Basin dynamics studies nonlinear capture into stable attractors.
+The individual ingredients of this framework are inherited from mature traditions. Viability theory studies admissible trajectories under state constraints. Autopoiesis studies self-producing organization and structural coupling. Passivity and port-Hamiltonian control formalize constrained energetic exchange. Resilience theory studies persistence and recovery under disturbance. Basin dynamics studies nonlinear capture and escape. CVT does not claim these concepts as new. Its proposed contribution is narrower: it asks whether a class of boundary-mediated failures is better understood when bounded coupling, identity preservation, capture readiness, and restorative reserve are treated as non-compensatory rather than substitutable.
 
-CVT does not replace these traditions. It identifies a shared invariant that they each partially reveal. Viability theory gives the constraint set, but not always the structure of exchange across a boundary. Autopoiesis gives self-maintenance and coupling, but not the product-gate fragility or restorative margin dynamics developed here. Passivity-based control gives energetic exchange and dissipation, but does not foreground preserved distinction and receptivity as distinct success conditions. Resilience theory gives recovery under disturbance, but often treats exchange as background rather than as the central object. Basin dynamics gives capture and threshold behavior, but not the boundary law governing what enters the basin.
+Non-compensability is conceptually prior to the product equation used later in the manuscript. A product of normalized gates is one smooth representation because a near-zero essential gate sharply lowers the aggregate. It is not yet established as the uniquely correct form. Minimum-gate, weighted geometric-mean, normalized soft-minimum, and simultaneous constraint-intersection formulations remain competing representations to be compared against the same data or simulations.
 
-CVT’s novelty lies in the conjunction. It asks when exchange can nourish without collapsing the distinction that makes exchange possible.
+The membrane formulation provides the paper's clearest structural illustration. A boundary can permit flux while the receiving domain remains unable to retain that flux productively. Permeability is therefore not identical to capture readiness or effective uptake. The fusion section extends this logic as an illustrative toy model: ignition access is distinguished from hosted burn, but the numerical thresholds and controller comparisons are not presented as calibrated reactor-physics results or as validation of CVT.
 
-The fusion case makes this invariant especially explicit. A tokamak-like reactor may reach ignition-like conditions and yet fail to host alpha-dominant burn if self-heating outruns the machine's receptivity, spectral safety, heat exhaust, material tolerance, and restorative control margins. In that setting, ignition is not the endpoint of control. It is the moment at which the plasma becomes an endogenous load source. A reactor does not become an artificial star when alpha heating begins; it becomes one when alpha heating can be handed off to a host whose exchange interface remains viable.
-
-This motivates the concept of \emph{hosted transformation}. A transformation is hosted when the receiving system remains viable while being changed by what it receives. In fusion, this is hosted burn. In membrane dynamics, it is healthy exchange across a preserving boundary. In human--AI interaction, it is influence without agency collapse. In institutional systems, it is trust-enabled circulation without legitimacy erosion. In theological language, it is love received freely rather than forced, possessed, or transacted.
-
-The paper proceeds as follows. Section~\ref{sec:lineage} situates CVT in relation to existing theories. Section~\ref{sec:invariant} defines the CVT invariant and its four necessary conditions. Section~\ref{sec:formal} develops a minimal formal architecture using gates, receptivity, violation variables, and restorative reserve. Section~\ref{sec:membrane} presents the membrane formulation. Section~\ref{sec:fusion} gives the fusion instantiation, including hosted burn and the Minimum Viable Host condition. Section~\ref{sec:failure} classifies CVT failure modes. Section~\ref{sec:discussion} discusses cross-domain implications and limitations.
+The paper proceeds as follows. Section~\ref{sec:lineage} situates CVT within its principal intellectual lineages. Section~\ref{sec:invariant} states the candidate four-condition structure and the non-compensability proposal. Section~\ref{sec:formal} develops an initial gated formal architecture whose variables and aggregation rules remain subject to operational testing. Section~\ref{sec:membrane} gives the membrane formulation. Section~\ref{sec:fusion} presents the fusion material as an illustrative instantiation of hosted transformation. The present paper establishes neither universal necessity nor sufficiency; it defines a research framework whose strongest claims must survive counterexamples, independent measurement, competing models, and delayed-failure tests.
 
 \section{Intellectual Lineage}
 \label{sec:lineage}
