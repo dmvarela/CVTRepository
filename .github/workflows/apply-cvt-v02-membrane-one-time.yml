@@ -4,8 +4,6 @@ on:
   pull_request:
     types: [opened, reopened]
     branches: [main]
-    paths:
-      - .rewrite-cvt-v0.2-membrane-formulation
 
 permissions:
   contents: write
