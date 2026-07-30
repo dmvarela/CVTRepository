@@ -1,0 +1,51 @@
+name: Apply CVT v0.2 Lineage and Candidate Structure One Time
+
+on:
+  pull_request:
+    types: [opened]
+    branches: [main]
+    paths:
+      - .rewrite-cvt-v0.2-lineage-invariant
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  rewrite:
+    if: github.event.pull_request.head.ref == 'review/cvt-foundations-v0.2-lineage-invariant'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          fetch-depth: 0
+
+      - name: Apply bounded revision
+        run: python .github/scripts/apply_cvt_v02_lineage_invariant.py
+
+      - name: Install TeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-latex-base texlive-latex-extra texlive-science
+
+      - name: Verify compilation
+        working-directory: research-hub/cvt-foundations
+        run: |
+          pdflatex -interaction=nonstopmode -halt-on-error main.tex
+          pdflatex -interaction=nonstopmode -halt-on-error main.tex
+          rm -f main.aux main.log main.out main.toc main.pdf
+
+      - name: Retire branch-local revision machinery
+        run: |
+          rm -f .rewrite-cvt-v0.2-lineage-invariant
+          rm -f .github/scripts/apply_cvt_v02_lineage_invariant.py
+
+      - name: Commit revision to review branch
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add -A
+          git commit -m 'Align CVT lineage and candidate structure for v0.2'
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
