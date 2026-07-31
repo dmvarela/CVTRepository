@@ -659,412 +659,83 @@ The membrane illustration supports CVT only if the \(B,Q,C,S\) decomposition imp
 
 The next section uses artificial fusion as an illustrative boundary-mediated host problem. The transfer is structural: a plasma--machine system contains interfaces across which heat, particles, waves, fuel, ash, and control influence are transported or regulated while machine viability matters. This does not establish that fusion is literally reducible to Equation~\eqref{eq:membrane-robin-law}, that a tokamak is a biological membrane, or that the membrane illustration captures reactor physics. Those stronger claims require domain-native equations, calibrated parameters, and comparison with established fusion models.
 
-\section{Fusion Instantiation: Hosted Burn}
+% CVT Foundations v0.2 — proposed Fusion Illustration replacement
+% Review artifact. This section is intended to replace only the current
+% fusion material and to stop immediately before the bibliography.
+
+\section{Fusion Illustration: Self-Heating and Host Viability}
 \label{sec:fusion}
 
-Artificial fusion provides a physically vivid instantiation of CVT. A burning plasma is not merely an energetic state inside a machine. It is a coupled plasma--machine system in which fuel, heat, ash, alpha particles, waves, control signals, and material stresses must be exchanged across an interface. The reactor fails if this exchange is absent, excessive, unreceptive, or non-restorative. It succeeds only if the burn is hosted within a viable exchange regime.
+Fusion provides a bounded illustration of hosted transformation because the target transition occurs inside a coupled plasma--machine system whose continued viability is part of success. This section does not present CVT as an alternative to fusion physics, nor does it treat the membrane illustration as a reactor model. It asks a narrower question: can a transition metric be kept distinct from the independently specified conditions under which the machine can sustain that transition?
 
-In this section, we interpret the tokamak-like fusion problem as a CVT membrane-host problem. The plasma-machine interface functions as a placental exchange organ: it must nourish the burn without allowing the burn to consume its container.
+\subsection{Self-Heating Is Not a Complete Viability Criterion}
 
-\subsection{Ignition Access Is Not Hosted Burn}
+Lawson's power-balance analysis already shows that reactor relevance cannot be inferred from temperature alone; density, confinement, duration, and losses enter the criterion for a power-producing system \cite{lawson1957}. Burning-plasma research likewise distinguishes externally supplied heating from heating supplied by fusion-born alpha particles. Experimental evidence for a self-heated burning-plasma regime has been reported in inertial confinement fusion \cite{zylstra2022}; that result supports the general concept of fusion self-heating but does not establish tokamak-specific exhaust, material, confinement, or control performance.
 
-Fusion research often treats ignition as the decisive transition. In CVT terms, ignition is only the beginning of the host problem. Before ignition, the machine primarily drives the plasma. After alpha heating becomes significant, the plasma becomes an endogenous source of heat and load.
-
-Let
+For the limited purpose of this illustration, define the local diagnostic
 \begin{equation}
-    \chialpha
+    \chi_{\alpha}(t)
     =
-    \frac{P_{\alpha}}{P_{\alpha}+P_{\mathrm{aux}}},
+    \frac{P_{\alpha}(t)}{P_{\alpha}(t)+P_{\mathrm{aux}}(t)},
+    \label{eq:fusion-alpha-fraction}
 \end{equation}
-where \(P_{\alpha}\) is alpha-particle self-heating and \(P_{\mathrm{aux}}\) is externally supplied heating. When \(\chialpha\approx 0\), the plasma is externally driven. When \(\chialpha\to 1\), heating is alpha-dominated.
+where \(P_{\alpha}\) is alpha-particle heating and \(P_{\mathrm{aux}}\) is auxiliary heating. Equation~\eqref{eq:fusion-alpha-fraction} is an author-defined heating fraction, not a universal definition of ignition, fusion gain, or reactor success. An increase in \(\chi_{\alpha}\) records progress toward alpha-dominated self-heating; it does not by itself establish a viable operating state.
 
-Ignition access concerns the transition
-\[
-    \chialpha \uparrow.
-\]
-Hosted burn concerns whether this transition can occur while the host remains viable:
+Let \(y_{\mathrm{fus}}(t)\) denote a domain-native outcome vector and let \(\mathcal K_{\mathrm{fus}}\) be an operating set declared independently of CVT. Depending on the device and scenario, this set may constrain fusion performance, confinement, MHD and kinetic stability, heat and particle exhaust, helium and impurity control, plasma-facing-component loads, actuator and diagnostic availability, and pulse duration. A hosted self-heating transition over a follow-up horizon \(\tau_{\mathrm{follow}}\) may then be stated as
 \begin{equation}
-    \V(t)>\V_{\mathrm{crit}},\qquad
-    \rho(t)>\rho_{\mathrm{crit}},\qquad
-    D(t)<D_{\mathrm{crit}}.
+    \chi_{\alpha}(t_1)
+    \geq
+    \chi_{\mathrm{target}},
+    \qquad
+    y_{\mathrm{fus}}(t)
+    \in
+    \mathcal K_{\mathrm{fus}}
+    \quad
+    \text{for all }t\in[t_1,t_1+\tau_{\mathrm{follow}}].
+    \label{eq:fusion-hosted-condition}
 \end{equation}
+The first condition describes the selected transformation target. The second describes continued host viability. Their separation is the point of the illustration.
 
-Thus CVT distinguishes:
-\[
-    \text{ignition access}
-    \neq
-    \text{hosted burn}.
-\]
+\subsection{The Host Problem Is Already Physical}
 
-A reactor may reach alpha-dominant conditions while losing receptivity and saturating damage. In that case, ignition has occurred in a narrow sense, but hosted burn has failed.
+The ITER Physics Basis and its update treat burning-plasma performance as an integrated problem involving confinement, stability, fuelling, power and particle control, plasma-facing components, diagnostics, actuators, and energetic-particle behavior \cite{iter1999,shimada2007}. Heat and particle exhaust, helium removal, impurity control, and material loading are established reactor problems \cite{loarte2007}; energetic alpha particles also create established confinement, redistribution, and instability questions \cite{fasoli2007}. CVT does not claim discovery of these constraints.
 
-\subsection{The Placental Exchange Interface}
+The proposed CVT question is instead whether one useful decomposition of the pre-transition host state is:
+\begin{enumerate}[label=(\roman*)]
+    \item \textbf{bounded coupling \(B\)}: heating, fuelling, particle, momentum, and exhaust loads remain inside declared operating envelopes;
+    \item \textbf{preserved identity-defining organization \(Q\)}: the plasma configuration and machine functions required by the declared operating state remain intact;
+    \item \textbf{capture readiness \(C\)}: before the outcome is observed, the plasma--machine state can accommodate the specified increase in self-heating without leaving \(\mathcal K_{\mathrm{fus}}\);
+    \item \textbf{available restorative reserve \(S\)}: measurable actuator, exhaust, thermal, magnetic, diagnostic, or recovery headroom remains after the transition.
+\end{enumerate}
+This mapping is provisional. Several margins listed under \(S\) may be independent hard constraints rather than indicators of one latent reserve variable. Likewise, a measured failure after the transition does not by itself identify which proposed condition was absent.
 
-We define the placental exchange interface as the coupled system of machine functions that allow the burn to persist without destructive contact. These include:
-\begin{itemize}
-    \item fuel delivery,
-    \item helium ash removal,
-    \item heat exhaust,
-    \item blanket and shielding,
-    \item coolant throughput,
-    \item material tolerance,
-    \item magnetic confinement,
-    \item spectral and wave control,
-    \item diagnostics and feedback authority.
-\end{itemize}
-
-This interface is placental in the structural sense: it mediates exchange between a developing energetic process and the host that carries it. The term does not import biological detail into fusion physics. The claim is structural. A burn requires exchange. The host requires separation. The interface must allow one without destroying the other.
-
-Let the relevant gates be
-\[
-G_{\mathrm{burn}},\quad
-G_{\mathrm{machine}},\quad
-G_{\mathrm{exchange}},\quad
-G_{\mathrm{separation}},\quad
-G_{\mathrm{restoration}},\quad
-G_{\mathrm{spectral}}.
-\]
-
-Total placental viability is
+The candidate fusion viability region may be written only at the level of simultaneous constraints:
 \begin{equation}
-    \V_P
+    \mathcal K_{\mathrm{CVT,fus}}(t)
     =
-    G_{\mathrm{burn}}
-    G_{\mathrm{machine}}
-    G_{\mathrm{exchange}}
-    G_{\mathrm{separation}}
-    G_{\mathrm{restoration}}
-    G_{\mathrm{spectral}}.
-    \label{eq:placental-viability}
+    \mathcal K_B(t)
+    \cap
+    \mathcal K_Q(t)
+    \cap
+    \mathcal K_C(t)
+    \cap
+    \mathcal K_S(t).
+    \label{eq:fusion-cvt-region}
 \end{equation}
+No product score is asserted here. Any scalar aggregation would have to be compared with direct constraint satisfaction, minimum-gate and soft-minimum models, and established integrated fusion models using the same independently declared outcome.
 
-The product form states that no single subsystem can compensate indefinitely for collapse of another. A strong magnet does not compensate for failed heat exhaust. Strong fueling does not compensate for ash accumulation. Strong burn does not compensate for loss of machine integrity.
+\subsection{Evidentiary Limit}
 
-\subsection{Receptivity and Effective Exchange}
+In this paper fusion illustrates, but does not validate, CVT. The decomposition adds scientific value only if independently measured pre-transition variables improve out-of-sample prediction, control, or failure diagnosis beyond simpler and domain-native baselines. It would be constrained if sustained operation occurs despite persistent failure of a proposed essential condition, if the capture-readiness proxy merely restates the outcome, if the reserve construct adds no information beyond existing engineering margins, or if ordinary integrated models perform equally well with fewer variables.
 
-In the fusion instantiation, raw exchange is not sufficient. The machine may deliver fuel, heat, current drive, or wave power, but these inputs are only useful if the coupled plasma-machine state can receive them.
+The detailed controller equations, historical numerical runs, reserve sweep, and former Minimum Viable Host statement are therefore excluded from the foundations argument. They belong in a separate reproducible fusion-host model with complete equations, units, parameter provenance, initial and boundary conditions, solver details, sensitivity analysis, and domain-native comparison controllers.
 
-We write:
-\begin{equation}
-    \Jraw = \Pi \Delta,
-\end{equation}
-where \(\Pi\) is exchange capacity and \(\Delta\) is the relevant driving gradient. Effective exchange is
-\begin{equation}
-    \Jeff = \rho \Pi \Delta.
-\end{equation}
-
-A minimal fusion receptivity functional is
-\begin{equation}
-    \rho
-    =
-    G_{\mathrm{burn}}
-    G_{\mathrm{machine}}
-    G_{\mathrm{separation}}
-    G_{\mathrm{restoration}}
-    G_{\mathrm{spectral}}
-    (1-D).
-\end{equation}
-
-The exchange gate itself is excluded from this expression because receptivity asks whether the host can receive exchange, not whether the exchange channel exists.
-
-This yields a central CVT claim:
-
+The bounded conclusion is:
 \begin{quote}
-A reactor may possess exchange capacity while lacking exchange receptivity.
+Progress toward alpha-dominated self-heating is a transformation metric. Hosted operation additionally requires that the coupled plasma--machine system remain inside an independently declared viable operating set while carrying that transition.
 \end{quote}
 
-When \(\rho\to 0\), effective exchange vanishes even if raw exchange remains high:
-\[
-    \Jeff \to 0
-    \qquad
-    \text{while}
-    \qquad
-    \Jraw>0.
-\]
-
-In this case, delivered exchange becomes load.
-
-\subsection{Post-Ignition Throttle Transition}
-
-The transition from externally driven plasma to alpha-dominant burn is analogous to the transition from takeoff thrust to climb thrust in flight. Takeoff thrust is useful for leaving the runway, but it is not the sustainable flight regime. Similarly, ignition-access control may be useful before alpha heating begins, but destructive after the plasma becomes an endogenous heat source.
-
-A post-ignition throttle transition reduces or reshapes external drive as \(\chialpha\) rises. A simple form is
-\begin{equation}
-    P_{\mathrm{aux}}(t)
-    =
-    P_{\mathrm{takeoff}}(1-\chialpha)
-    +
-    P_{\mathrm{climb}}\rho\chialpha.
-\end{equation}
-
-However, auxiliary throttle-back alone is not sufficient if alpha dominance continues to rise on a fixed schedule. CVT requires that the handoff itself be gated by host capacity:
-\begin{equation}
-    \dot{\chialpha}
-    =
-    r_{\alpha}R_{\mathrm{host}}(1-\chialpha)
-    -
-    s_{\alpha}(1-R_{\mathrm{host}})\chialpha.
-    \label{eq:alpha-pacing}
-\end{equation}
-
-A minimal host capacity functional is
-\begin{equation}
-    R_{\mathrm{host}}
-    =
-    \rho(1-D)
-    G_{\mathrm{spectral}}
-    G_{\mathrm{restoration}}.
-\end{equation}
-
-Equation~\eqref{eq:alpha-pacing} states that alpha dominance rises when the host is receptive and slows or retreats when host viability deteriorates. This is the formal version of post-ignition pacing:
-
-\[
-    \frac{d\chialpha}{dt}
-    \leq
-    R_{\mathrm{host}}(t).
-\]
-
-\subsection{Simulation Result 1: Control Philosophy}
-
-A structural toy model compares three controllers: capacity-maximizing, receptivity-gated, and spectral-aware. The model is not a tokamak physics code. It does not solve magnetohydrodynamics, gyrokinetics, alpha-particle transport, impurity dynamics, or scrape-off-layer physics. Its purpose is to test the internal architecture of CVT.
-
-The capacity-maximizing controller delivers the largest raw exchange but collapses receptivity. In one calibration:
-\[
-    \overline{J}_{\mathrm{raw}}=0.647,
-    \qquad
-    \overline{J}_{\mathrm{eff}}=0.002,
-    \qquad
-    D(T)=1,
-    \qquad
-    \rho(T)=0.
-\]
-
-The spectral-aware controller uses less raw exchange but preserves receptivity:
-\[
-    \overline{J}_{\mathrm{raw}}=0.049,
-    \qquad
-    \overline{J}_{\mathrm{eff}}=0.010,
-    \qquad
-    D(T)=0.104,
-    \qquad
-    \rho(T)=0.259.
-\]
-
-Thus the controller that pushes hardest performs worst. The controller that preserves receptivity receives more useful exchange.
-
-\begin{quote}
-More delivered exchange is not the same as more received exchange.
-\end{quote}
-
-\subsection{Simulation Result 2: Ablation}
-
-The ablation study separates the model's mechanisms. Removing receptivity gating reproduces the overdrive failure:
-\[
-    \overline{J}_{\mathrm{raw}}=0.538,
-    \qquad
-    \overline{J}_{\mathrm{eff}}=0.002,
-    \qquad
-    D(T)=1,
-    \qquad
-    \rho(T)=0.
-\]
-
-Removing maturity avoids immediate collapse but prevents strong recovery:
-\[
-    \V_P(T)=0.046,
-    \qquad
-    P(T)=0.
-\]
-
-Removing coupled degradation slightly improves performance, as expected, because violations no longer propagate across margins. This confirms that the coupling term represents a real cascade cost.
-
-The ablation supports the following mechanism map:
-\begin{center}
-\begin{tabular}{ll}
-\toprule
-Mechanism & Function \\
-\midrule
-Product gates & Nonlinear fragility \\
-Coupled degradation & Cascade and correlated margin loss \\
-Receptivity gating & Prevention of overdrive damage \\
-Maturity & Recovery after shock \\
-Spectral awareness & Protection under multimode stress \\
-\bottomrule
-\end{tabular}
-\end{center}
-
-\subsection{Simulation Result 3: Ignition Survival}
-
-When alpha dominance is forced toward unity on a fixed schedule, all controllers reach
-\[
-    \chialpha(T)=1.
-\]
-
-However, the host fails:
-\[
-    D(T)=1,
-    \qquad
-    \rho(T)=0.
-\]
-
-Thus the system reaches alpha dominance but loses the capacity to receive it. This motivates the distinction between ignition and hosted burn. In CVT terms, this is over-ignition: the transition succeeds energetically but fails as hosted transformation.
-
-\subsection{Simulation Result 4: Throttle Transition}
-
-The throttle-transition experiment compares fixed alpha ramp, auxiliary throttle-back, and host-gated alpha pacing.
-
-Auxiliary throttle-back reduces external drive:
-\[
-    \overline{P}_{\mathrm{aux}}=0.260
-\]
-compared with
-\[
-    \overline{P}_{\mathrm{aux}}=0.836
-\]
-in the fixed-ramp case. Nevertheless, damage still saturates and receptivity collapses when alpha dominance rises on a fixed schedule.
-
-Host-gated alpha pacing behaves differently:
-\[
-    \V_P(T)=0.186,
-    \qquad
-    P(T)=0.533,
-    \qquad
-    D(T)=0.283,
-    \qquad
-    \rho(T)=0.148.
-\]
-
-The host remains alive, but alpha dominance is limited:
-\[
-    \chialpha(T)=0.144.
-\]
-
-This shows that pacing preserves the host but may prevent full alpha dominance unless sufficient reserve exists.
-
-\begin{quote}
-Auxiliary throttle-back reduces the push; host-gated alpha pacing regulates the handoff.
-\end{quote}
-
-\subsection{Simulation Result 5: Minimum Viable Host}
-
-To identify the reserve required for hosted burn, we introduce placental reserve \(R_P\), representing combined heat exhaust, material tolerance, coolant throughput, ash removal, spectral damping, diagnostic fidelity, control authority, magnetic margin, and thermal inertia.
-
-In the model, reserve reduces effective alpha load and increases host transition capacity. We sweep \(R_P\) against alpha-load severity \(\Lambda_{\alpha}\).
-
-Hosted burn is defined by the simultaneous conditions:
-\begin{equation}
-    \chialpha>0.75,
-    \qquad
-    D<0.60,
-    \qquad
-    \rho>0.05,
-    \qquad
-    \V_P>0.05.
-\end{equation}
-
-The sweep identifies a hosted-burn boundary. In one calibration, the strict threshold is approximately:
-\begin{equation}
-    R_{P,\mathrm{crit}}
-    \approx
-    6.25+5.5\Lambda_{\alpha}.
-    \label{eq:reserve-curve}
-\end{equation}
-
-At low alpha-load severity,
-\[
-    \Lambda_{\alpha}=0.05,
-\]
-hosted burn begins near
-\[
-    R_P=6.5.
-\]
-
-At higher alpha-load severity,
-\[
-    \Lambda_{\alpha}=0.50,
-\]
-the threshold rises to approximately
-\[
-    R_P=9.0.
-\]
-
-A high-reserve hosted-burn case gives:
-\[
-    R_P=14,
-    \qquad
-    \Lambda_{\alpha}=0.05,
-\]
-with
-\[
-    \chialpha=0.998,
-    \qquad
-    D=0.085,
-    \qquad
-    \rho=0.306,
-    \qquad
-    \V_P=0.321,
-    \qquad
-    P=0.863.
-\]
-
-This is not merely non-collapse. It is a mature hosted-burn state in the toy model: alpha dominance is nearly complete, damage is low, receptivity remains positive, and placental maturity is high.
-
-\subsection{Minimum Viable Host Theorem}
-
-\begin{theorem}[Minimum Viable Host, toy-model form]
-For a host-gated alpha pacing system with alpha-load severity \(\Lambda_{\alpha}\), there exists a critical placental reserve threshold
-\[
-    R_{P,\mathrm{crit}}(\Lambda_{\alpha})
-\]
-such that hosted burn occurs only when
-\[
-    R_P\geq R_{P,\mathrm{crit}}(\Lambda_{\alpha}).
-\]
-Hosted burn requires simultaneous satisfaction of
-\[
-    \chialpha>\chi_{\mathrm{host}},
-    \qquad
-    D<D_{\mathrm{crit}},
-    \qquad
-    \rho>\rho_{\mathrm{crit}},
-    \qquad
-    \V_P>\V_{\mathrm{crit}}.
-\]
-\end{theorem}
-
-\begin{remark}
-In the calibration reported above,
-\[
-    \chi_{\mathrm{host}}=0.75,
-    \qquad
-    D_{\mathrm{crit}}=0.60,
-    \qquad
-    \rho_{\mathrm{crit}}=0.05,
-    \qquad
-    \V_{\mathrm{crit}}=0.05,
-\]
-and the observed threshold is approximately linear:
-\[
-    R_{P,\mathrm{crit}}
-    \approx
-    6.25+5.5\Lambda_{\alpha}.
-\]
-This should not be interpreted as a calibrated engineering law. It is a structural result from a toy model: hosted burn requires reserve sufficient to keep the exchange interface receptive under alpha-dominant load.
-\end{remark}
-
-\subsection{Interpretation}
-
-The fusion instantiation supports the broader CVT claim. A system may be capable of initiating a transformation without being capable of hosting it. Ignition access is not equivalent to hosted burn. Auxiliary throttle-back is not equivalent to handoff pacing. Raw exchange is not equivalent to effective exchange.
-
-The reactor becomes an artificial star not when alpha heating begins, but when alpha heating can be handed off to a host whose exchange interface remains viable.
-
-In ordinary language:
-
-\begin{quote}
-Ignition is lift-off; hosted burn is flight; placental reserve is the runway plus the wings.
-\end{quote}
-
-\begin{thebibliography}{9}
+\begin{thebibliography}{99}
 
 \bibitem{aubin2011}
 J.-P. Aubin, A. M. Bayen, and P. Saint-Pierre,
@@ -1103,7 +774,42 @@ O. Kedem and A. Katchalsky,
 \emph{Biochimica et Biophysica Acta}, vol. 27, no. 2, pp. 229--246, 1958.
 doi:10.1016/0006-3002(58)90330-5.
 
+\bibitem{lawson1957}
+J. D. Lawson,
+``Some Criteria for a Power Producing Thermonuclear Reactor,''
+\emph{Proceedings of the Physical Society, Section B}, vol. 70, pp. 6--10, 1957.
+doi:10.1088/0370-1301/70/1/303.
+
+\bibitem{iter1999}
+ITER Physics Basis Editors et al.,
+``ITER Physics Basis, Chapter 1: Overview and Summary,''
+\emph{Nuclear Fusion}, vol. 39, pp. 2137--2174, 1999.
+doi:10.1088/0029-5515/39/12/301.
+
+\bibitem{shimada2007}
+M. Shimada et al.,
+``Chapter 1: Overview and Summary,''
+\emph{Nuclear Fusion}, vol. 47, pp. S1--S17, 2007.
+doi:10.1088/0029-5515/47/6/S01.
+
+\bibitem{loarte2007}
+A. Loarte et al.,
+``Chapter 4: Power and Particle Control,''
+\emph{Nuclear Fusion}, vol. 47, pp. S203--S263, 2007.
+doi:10.1088/0029-5515/47/6/S04.
+
+\bibitem{fasoli2007}
+A. Fasoli et al.,
+``Chapter 5: Physics of Energetic Ions,''
+\emph{Nuclear Fusion}, vol. 47, pp. S264--S284, 2007.
+doi:10.1088/0029-5515/47/6/S05.
+
+\bibitem{zylstra2022}
+A. B. Zylstra et al.,
+``Burning Plasma Achieved in Inertial Fusion,''
+\emph{Nature}, vol. 601, pp. 542--548, 2022.
+doi:10.1038/s41586-021-04281-w.
+
 \end{thebibliography}
 
 \end{document}
-

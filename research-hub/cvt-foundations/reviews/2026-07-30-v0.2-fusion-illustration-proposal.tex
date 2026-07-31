@@ -1,0 +1,75 @@
+% CVT Foundations v0.2 — proposed Fusion Illustration replacement
+% Review artifact. This section is intended to replace only the current
+% fusion material and to stop immediately before the bibliography.
+
+\section{Fusion Illustration: Self-Heating and Host Viability}
+\label{sec:fusion}
+
+Fusion provides a bounded illustration of hosted transformation because the target transition occurs inside a coupled plasma--machine system whose continued viability is part of success. This section does not present CVT as an alternative to fusion physics, nor does it treat the membrane illustration as a reactor model. It asks a narrower question: can a transition metric be kept distinct from the independently specified conditions under which the machine can sustain that transition?
+
+\subsection{Self-Heating Is Not a Complete Viability Criterion}
+
+Lawson's power-balance analysis already shows that reactor relevance cannot be inferred from temperature alone; density, confinement, duration, and losses enter the criterion for a power-producing system \cite{lawson1957}. Burning-plasma research likewise distinguishes externally supplied heating from heating supplied by fusion-born alpha particles. Experimental evidence for a self-heated burning-plasma regime has been reported in inertial confinement fusion \cite{zylstra2022}; that result supports the general concept of fusion self-heating but does not establish tokamak-specific exhaust, material, confinement, or control performance.
+
+For the limited purpose of this illustration, define the local diagnostic
+\begin{equation}
+    \chi_{\alpha}(t)
+    =
+    \frac{P_{\alpha}(t)}{P_{\alpha}(t)+P_{\mathrm{aux}}(t)},
+    \label{eq:fusion-alpha-fraction}
+\end{equation}
+where \(P_{\alpha}\) is alpha-particle heating and \(P_{\mathrm{aux}}\) is auxiliary heating. Equation~\eqref{eq:fusion-alpha-fraction} is an author-defined heating fraction, not a universal definition of ignition, fusion gain, or reactor success. An increase in \(\chi_{\alpha}\) records progress toward alpha-dominated self-heating; it does not by itself establish a viable operating state.
+
+Let \(y_{\mathrm{fus}}(t)\) denote a domain-native outcome vector and let \(\mathcal K_{\mathrm{fus}}\) be an operating set declared independently of CVT. Depending on the device and scenario, this set may constrain fusion performance, confinement, MHD and kinetic stability, heat and particle exhaust, helium and impurity control, plasma-facing-component loads, actuator and diagnostic availability, and pulse duration. A hosted self-heating transition over a follow-up horizon \(\tau_{\mathrm{follow}}\) may then be stated as
+\begin{equation}
+    \chi_{\alpha}(t_1)
+    \geq
+    \chi_{\mathrm{target}},
+    \qquad
+    y_{\mathrm{fus}}(t)
+    \in
+    \mathcal K_{\mathrm{fus}}
+    \quad
+    \text{for all }t\in[t_1,t_1+\tau_{\mathrm{follow}}].
+    \label{eq:fusion-hosted-condition}
+\end{equation}
+The first condition describes the selected transformation target. The second describes continued host viability. Their separation is the point of the illustration.
+
+\subsection{The Host Problem Is Already Physical}
+
+The ITER Physics Basis and its update treat burning-plasma performance as an integrated problem involving confinement, stability, fuelling, power and particle control, plasma-facing components, diagnostics, actuators, and energetic-particle behavior \cite{iter1999,shimada2007}. Heat and particle exhaust, helium removal, impurity control, and material loading are established reactor problems \cite{loarte2007}; energetic alpha particles also create established confinement, redistribution, and instability questions \cite{fasoli2007}. CVT does not claim discovery of these constraints.
+
+The proposed CVT question is instead whether one useful decomposition of the pre-transition host state is:
+\begin{enumerate}[label=(\roman*)]
+    \item \textbf{bounded coupling \(B\)}: heating, fuelling, particle, momentum, and exhaust loads remain inside declared operating envelopes;
+    \item \textbf{preserved identity-defining organization \(Q\)}: the plasma configuration and machine functions required by the declared operating state remain intact;
+    \item \textbf{capture readiness \(C\)}: before the outcome is observed, the plasma--machine state can accommodate the specified increase in self-heating without leaving \(\mathcal K_{\mathrm{fus}}\);
+    \item \textbf{available restorative reserve \(S\)}: measurable actuator, exhaust, thermal, magnetic, diagnostic, or recovery headroom remains after the transition.
+\end{enumerate}
+This mapping is provisional. Several margins listed under \(S\) may be independent hard constraints rather than indicators of one latent reserve variable. Likewise, a measured failure after the transition does not by itself identify which proposed condition was absent.
+
+The candidate fusion viability region may be written only at the level of simultaneous constraints:
+\begin{equation}
+    \mathcal K_{\mathrm{CVT,fus}}(t)
+    =
+    \mathcal K_B(t)
+    \cap
+    \mathcal K_Q(t)
+    \cap
+    \mathcal K_C(t)
+    \cap
+    \mathcal K_S(t).
+    \label{eq:fusion-cvt-region}
+\end{equation}
+No product score is asserted here. Any scalar aggregation would have to be compared with direct constraint satisfaction, minimum-gate and soft-minimum models, and established integrated fusion models using the same independently declared outcome.
+
+\subsection{Evidentiary Limit}
+
+In this paper fusion illustrates, but does not validate, CVT. The decomposition adds scientific value only if independently measured pre-transition variables improve out-of-sample prediction, control, or failure diagnosis beyond simpler and domain-native baselines. It would be constrained if sustained operation occurs despite persistent failure of a proposed essential condition, if the capture-readiness proxy merely restates the outcome, if the reserve construct adds no information beyond existing engineering margins, or if ordinary integrated models perform equally well with fewer variables.
+
+The detailed controller equations, historical numerical runs, reserve sweep, and former Minimum Viable Host statement are therefore excluded from the foundations argument. They belong in a separate reproducible fusion-host model with complete equations, units, parameter provenance, initial and boundary conditions, solver details, sensitivity analysis, and domain-native comparison controllers.
+
+The bounded conclusion is:
+\begin{quote}
+Progress toward alpha-dominated self-heating is a transformation metric. Hosted operation additionally requires that the coupled plasma--machine system remain inside an independently declared viable operating set while carrying that transition.
+\end{quote}
