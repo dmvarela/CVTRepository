@@ -17,32 +17,18 @@
 \onehalfspacing
 
 % ------------------------------------------------------------
-% Theorem environments
+% Theorem environments and commands
 % ------------------------------------------------------------
-\newtheorem{theorem}{Theorem}
 \newtheorem{definition}{Definition}
 \newtheorem{proposition}{Proposition}
-\newtheorem{corollary}{Corollary}
-\newtheorem{remark}{Remark}
-
-% ------------------------------------------------------------
-% Custom commands
-% ------------------------------------------------------------
 \newcommand{\CVT}{\mathrm{CVT}}
 \newcommand{\V}{\mathcal{V}}
-\newcommand{\Hhost}{\mathcal{H}}
-\newcommand{\Rhost}{R_{\mathrm{host}}}
-\newcommand{\RP}{R_P}
-\newcommand{\Phii}{\Phi_i}
-\newcommand{\Jraw}{J_{\mathrm{raw}}}
-\newcommand{\Jeff}{J_{\mathrm{eff}}}
-\newcommand{\chialpha}{\chi_{\alpha}}
 
 % ------------------------------------------------------------
 % Title
 % ------------------------------------------------------------
 \title{\textbf{Coherence Viability Theory:}\\
-Bounded Exchange, Receptive Basins, and the Conditions for Hosted Transformation}
+Bounded Exchange, Capture Readiness, and the Conditions for Hosted Transformation}
 
 \author{Daniel Varela Arevalo}
 \date{2026}
@@ -52,21 +38,21 @@ Bounded Exchange, Receptive Basins, and the Conditions for Hosted Transformation
 \maketitle
 
 \begin{abstract}
-We propose Coherence Viability Theory (CVT) as a testable framework for boundary-mediated transformations in which the continued viability of an identifiable receiving or hosting system is part of the success criterion. CVT hypothesizes a candidate non-compensatory structure comprising bounded coupling, preserved identity-defining organization, pre-existing capture readiness, and available restorative reserve. These elements are not individually new: the framework draws from viability theory, autopoiesis, passivity-based control, resilience theory, and basin dynamics. Its proposed contribution is their conjunction as conditions of hosted transformation, together with a distinction between exchange delivered to a system and exchange retained as productive uptake. The non-compensability claim is conceptually prior to any particular scalar aggregator; the product-gate form developed here is one candidate representation rather than an established universal equation. We develop a minimal gated architecture and a membrane formulation, then use artificial fusion as an illustrative toy-model instantiation of the difference between initiating a transition and hosting it. CVT does not yet establish that the proposed conditions are universally necessary or sufficient. It instead defines a bounded research program in which the conditions, observables, aggregation rules, and counterexamples can be compared empirically or in reproducible simulation.
+We propose Coherence Viability Theory (CVT) as a testable framework for boundary-mediated transformations in which the continued viability of an identifiable receiving or hosting system is part of the success criterion. CVT hypothesizes a candidate non-compensatory structure comprising bounded coupling, preserved identity-defining organization, pre-existing capture readiness, and available restorative reserve. These elements are not individually new: the framework draws from viability theory, autopoiesis, passivity-based control, resilience theory, and basin dynamics. Its proposed contribution is their explicit conjunction as conditions of hosted transformation, together with a distinction between exchange delivered to a system and exchange retained as productive uptake. Non-compensability is conceptually prior to any scalar aggregator; product, minimum, geometric-mean, soft-minimum, and direct constraint formulations remain competing representations. We develop a compact formal architecture, give a regulated membrane as the principal physical illustration, and use artificial fusion as a bounded source-anchored illustration of the difference between reaching a transition metric and hosting the resulting state. CVT does not yet establish universal necessity or sufficiency. It defines a research program in which conditions, observables, aggregation rules, counterexamples, and delayed failures can be compared empirically or in reproducible simulation.
 \end{abstract}
 
 \section{Introduction}
 
-Many systems depend on exchange across a boundary. They must receive energy, matter, information, influence, or control while retaining the organization that allows them to continue functioning as hosts. Neither closure nor openness alone solves this problem. Insufficient exchange can starve a system; excessive or poorly received exchange can overload it, erase relevant distinctions, exhaust recovery capacity, or drive it outside an admissible regime.
+Many systems depend on exchange across a boundary. They must receive energy, matter, information, influence, or control while retaining the organization that allows them to continue functioning as hosts. Neither closure nor openness alone solves this problem. Insufficient exchange can starve a system; excessive or poorly received exchange can overload it, erase relevant organization, exhaust recovery capacity, or drive it outside an admissible regime.
 
-This paper studies a bounded class of such processes: \emph{boundary-mediated transformations in which continued host viability is part of what counts as success}. We call a transformation \emph{hosted} when a declared host undergoes or supports a meaningful transition while remaining viable over a stated observation horizon. The host, boundary, transformation variable, success criterion, timescale, and level of analysis must therefore be specified before CVT is applied.
+This paper studies a bounded class of such processes: \emph{boundary-mediated transformations in which continued host viability is part of what counts as success}. We call a transformation \emph{hosted} when a declared host undergoes or supports a meaningful transition while remaining viable over a stated observation and follow-up horizon. The host, boundary, transformation variable, success criterion, timescale, and level of analysis must therefore be specified before CVT is applied.
 
 CVT proposes that hosted transformation may depend on four jointly necessary conditions:
 \begin{enumerate}[label=(\roman*)]
     \item \textbf{bounded coupling}: exchange is present but constrained relative to the host's changing handling range;
-    \item \textbf{preserved distinction}: the host retains the identity-defining organization or independent constraints relevant to the declared success criterion;
+    \item \textbf{preserved identity-defining organization}: the organization, constraints, or independent control structure relevant to the declared success criterion persists through the transformation;
     \item \textbf{capture readiness}: before uptake is observed, the host occupies a state from which delivered input can enter and remain within an admissible basin;
-    \item \textbf{available restorative reserve}: sufficient internal or reliably accessible recovery capacity remains to absorb strain, repair damage, and preserve control authority.
+    \item \textbf{available restorative reserve}: sufficient internal or reliably accessible recovery capacity remains to absorb strain, repair damage, or preserve control authority.
 \end{enumerate}
 
 In compact form, the candidate structure is
@@ -77,21 +63,21 @@ In compact form, the candidate structure is
 \end{equation}
 This expression is a hypothesis about essential conditions, not a proof that the conditions are universal or sufficient. Their satisfaction defines a candidate viability region. Hidden state variables, delayed damage, environmental change, path dependence, adversarial interference, and measurement error may still produce failure.
 
-A central distinction is between what is delivered and what is productively retained. Let \(J_{\mathrm{raw}}\) denote boundary flux delivered to the host and \(J_{\mathrm{eff}}\) denote retained productive uptake over a declared horizon. Realized uptake efficiency may be observed as
+A central distinction is between what is delivered and what is productively retained. Let \(J_{\mathrm{raw}}\) denote boundary exchange delivered to the host and \(J_{\mathrm{eff}}\) denote retained productive uptake over a declared accounting window. When these quantities are commensurate and \(J_{\mathrm{raw}}>0\), realized uptake efficiency may be observed as
 \begin{equation}
     \rho_{\mathrm{obs}}
     =
-    \frac{J_{\mathrm{eff}}}{J_{\mathrm{raw}}},
+    \frac{J_{\mathrm{eff}}}{J_{\mathrm{raw}}}.
 \end{equation}
-when \(J_{\mathrm{raw}}>0\). This ratio is an outcome, not an explanation. CVT must predict it from independently measured host conditions rather than define receptivity through the same gates later used to explain it. The testable claim is that increased delivered exchange can, in some regimes, reduce productive uptake when capture readiness or restorative reserve degrades sufficiently.
+This ratio is an outcome, not an explanation. CVT must predict it from independently measured host conditions rather than define capture readiness through the same outcome later used to evaluate the model. The testable claim is that increased delivered exchange can, in some regimes, reduce productive uptake when capture readiness, restorative reserve, or another essential mechanism degrades sufficiently.
 
-The individual ingredients of this framework are inherited from mature traditions. Viability theory studies admissible trajectories under state constraints. Autopoiesis studies self-producing organization and structural coupling. Passivity and port-Hamiltonian control formalize constrained energetic exchange. Resilience theory studies persistence and recovery under disturbance. Basin dynamics studies nonlinear capture and escape. CVT does not claim these concepts as new. Its proposed contribution is narrower: it asks whether a class of boundary-mediated failures is better understood when bounded coupling, identity preservation, capture readiness, and restorative reserve are treated as non-compensatory rather than substitutable.
+The individual ingredients of this framework are inherited from mature traditions. Viability theory studies admissible trajectories under state constraints. Autopoiesis studies self-producing organization and structural coupling. Passivity and port-Hamiltonian control formalize constrained energetic exchange. Resilience theory studies persistence and recovery under disturbance. Basin dynamics studies nonlinear capture and escape. CVT does not claim these concepts as new. Its proposed contribution is narrower: it asks whether a class of boundary-mediated failures is better understood when bounded coupling, preserved organization, capture readiness, and restorative reserve are treated as potentially non-compensatory rather than freely substitutable.
 
-Non-compensability is conceptually prior to the product equation used later in the manuscript. A product of normalized gates is one smooth representation because a near-zero essential gate sharply lowers the aggregate. It is not yet established as the uniquely correct form. Minimum-gate, weighted geometric-mean, normalized soft-minimum, and simultaneous constraint-intersection formulations remain competing representations to be compared against the same data or simulations.
+Non-compensability is conceptually prior to any product equation. A product of normalized gates is one smooth representation because a near-zero essential gate sharply lowers the aggregate. It is not established as the uniquely correct form. Minimum-gate, weighted geometric-mean, normalized soft-minimum, and simultaneous constraint-intersection formulations remain competing representations to be compared against the same independently defined outcomes.
 
-The membrane formulation provides the paper's clearest structural illustration. A boundary can permit flux while the receiving domain remains unable to retain that flux productively. Permeability is therefore not identical to capture readiness or effective uptake. The fusion section extends this logic as an illustrative toy model: ignition access is distinguished from hosted burn, but the numerical thresholds and controller comparisons are not presented as calibrated reactor-physics results or as validation of CVT.
+The membrane formulation provides the paper's clearest structural illustration. A boundary can permit flux while the receiving domain remains unable to retain that flux productively. Permeability is therefore not identical to capture readiness or effective uptake. The fusion section provides a bounded illustration of the distinction between a transformation metric and independently declared host viability; it does not restore the former numerical toy model or present CVT as a fusion-control result.
 
-The paper proceeds as follows. Section~\ref{sec:lineage} situates CVT within its principal intellectual lineages. Section~\ref{sec:invariant} states the candidate four-condition structure and the non-compensability proposal. Section~\ref{sec:formal} develops an initial gated formal architecture whose variables and aggregation rules remain subject to operational testing. Section~\ref{sec:membrane} gives the membrane formulation. Section~\ref{sec:fusion} presents the fusion material as an illustrative instantiation of hosted transformation. The present paper establishes neither universal necessity nor sufficiency; it defines a research framework whose strongest claims must survive counterexamples, independent measurement, competing models, and delayed-failure tests.
+The paper proceeds as follows. Section~\ref{sec:lineage} situates CVT within its principal intellectual lineages. Section~\ref{sec:candidate-structure} states the candidate four-condition structure and the non-compensability proposal. Section~\ref{sec:formal} develops a compact formal architecture that separates observables, gates, candidate models, and independent outcomes. Section~\ref{sec:membrane} gives the regulated-interface illustration. Section~\ref{sec:fusion} presents fusion as a bounded domain mapping. Section~\ref{sec:discussion} states the limitations, validation program, and falsification burden, and Section~\ref{sec:conclusion} concludes.
 
 \section{Intellectual Lineage}
 \label{sec:lineage}
@@ -102,13 +88,13 @@ CVT is assembled from established literatures on viability, self-maintaining org
 
 Viability theory studies evolutions constrained to remain within admissible sets and characterizes the initial states from which at least one viable trajectory exists, including through viability kernels and regulation under constraints \cite{aubin2011}. CVT inherits this concern with admissible evolution. Its proposed emphasis is boundary-mediated forcing: the host must not only remain inside constraints, but do so while receiving inputs whose rate, timing, and form may alter the host's capacity to remain viable.
 
-This is not yet a mathematical extension of viability theory. It is a proposed decomposition of one class of viability problems. CVT earns distinct value only if the explicit separation of boundary regulation, capture readiness, identity preservation, and restorative reserve improves analysis beyond an ordinary state-constraint formulation.
+This is not yet a mathematical extension of viability theory. It is a proposed decomposition of one class of viability problems. CVT earns distinct value only if the explicit separation of boundary regulation, capture readiness, preserved organization, and restorative reserve improves analysis beyond an ordinary state-constraint formulation.
 
 \subsection{Autopoiesis and Structural Coupling}
 
 Maturana and Varela describe living systems through autopoietic organization: a network of processes that continuously produces and maintains the components and boundary constituting the system as a unity \cite{maturana1980}. CVT inherits the importance of organization and boundary-mediated relation, but it does not identify every CVT host as autopoietic and does not claim organizational closure or structural coupling as new.
 
-Preserved distinction in CVT therefore means continuity of the identity-defining organization relevant to the declared host and success criterion. It does not mean static form, impermeability, or isolation. A host may change profoundly while retaining the organization or constraints that make it the same host for the purpose of the analysis.
+Preserved identity-defining organization in CVT means continuity of the organization or constraints relevant to the declared host and success criterion. It does not mean static form, impermeability, or isolation. A host may change profoundly while retaining what makes it the same host for the purpose of the analysis.
 
 \subsection{Passivity and Port-Hamiltonian Systems}
 
@@ -126,27 +112,26 @@ Restorative reserve may coincide with an established resilience measure in some 
 
 Basin-based approaches characterize nonlocal stability by considering the set or measure of initial conditions that return to or remain associated with a desired attractor after finite perturbation. Basin stability, for example, complements local linear stability with a nonlocal measure related to basin volume \cite{menck2013}.
 
-CVT uses this lineage to define \emph{capture readiness}: before uptake is observed, the host occupies a state from which a specified input can enter and remain within an admissible basin over a declared horizon. Capture readiness is not the same as the later outcome of productive uptake. A boundary may deliver input into a system that has no suitable capture path, while a receptive state may remain inaccessible because the boundary does not deliver the required input.
+CVT uses this lineage to define \emph{capture readiness}: before uptake is observed, the host occupies a state from which a specified input can enter and remain within an admissible basin over a declared horizon. Capture readiness is not the same as the later outcome of productive uptake. A boundary may deliver input into a system that has no suitable capture path, while a capture-ready state may remain unused because the boundary does not deliver the required input.
 
 \subsection{Status of the Synthesis}
 
 These traditions overlap, but conceptual overlap does not establish a shared mechanism or a universal invariant. CVT's present contribution is a testable synthesis hypothesis:
 
 \begin{quote}
-For a scoped class of boundary-mediated hosted transformations, failure may be better explained when bounded coupling, identity preservation, capture readiness, and restorative reserve are treated as jointly required and potentially non-compensatory.
+For a scoped class of boundary-mediated hosted transformations, failure may be better explained when bounded coupling, preserved identity-defining organization, capture readiness, and restorative reserve are treated as jointly required and potentially non-compensatory.
 \end{quote}
 
 This claim is supported only when the CVT decomposition can be operationalized independently, compared with simpler or domain-native models, and exposed to cases in which one proposed condition is absent without loss of hosted viability.
 
 \section{Candidate CVT Structure and Non-Compensability}
-\label{sec:invariant}
+\label{sec:candidate-structure}
 
 \begin{definition}[Hosted coherence viability]
 Fix a declared host, boundary, transformation, success criterion, observation horizon, and level of analysis. The host is coherence-viable for that transformation when it can undergo or support the transition while remaining inside the declared viable set and retaining the identity-defining organization required by the success criterion.
 \end{definition}
 
 Let \(\mathcal K_B(t)\), \(\mathcal K_Q(t)\), \(\mathcal K_C(t)\), and \(\mathcal K_S(t)\) denote the state sets satisfying four proposed conditions at time \(t\):
-
 \begin{enumerate}[label=(\roman*)]
     \item \textbf{bounded coupling} \(B\): the exchange schedule remains within a domain-specific admissible range relative to the host's changing handling capacity;
     \item \textbf{preserved identity-defining organization} \(Q\): the organization, constraints, or independent control structure relevant to the declared host persists through the transformation;
@@ -198,7 +183,7 @@ One smooth representation of essential-gate fragility is
 \end{equation}
 
 \begin{proposition}[Zero-gate property of the product representation]
-If viability is represented by Equation~\eqref{eq:product-candidate}, then \(G_k\to 0\) implies \(\V_{\Pi}\to 0\), regardless of the remaining gate values.
+If viability is represented by Equation~\eqref{eq:product-candidate}, then \(G_k\to0\) implies \(\V_{\Pi}\to0\), regardless of the remaining gate values.
 \end{proposition}
 
 \begin{proof}
@@ -211,11 +196,11 @@ Because each \(G_i\in[0,1]\),
 The remaining product is bounded above by one, so \(G_k\to0\) implies \(\V_{\Pi}\to0\).
 \end{proof}
 
-This proposition proves a property of the selected aggregator; it does not prove that real systems aggregate viability multiplicatively. The product must therefore compete with alternatives such as
+This proposition proves a property of the selected aggregator; it does not prove that real systems aggregate viability multiplicatively. Composite-indicator methodology likewise treats normalization, weighting, aggregation, robustness, and sensitivity as substantive modeling choices rather than neutral arithmetic \cite{oecd2008}. The product must therefore compete with alternatives such as
 \begin{equation}
     \V_{\min}=\min_i G_i,
     \qquad
-    \V_G=\prod_i G_i^{w_i},\quad \sum_i w_i=1,
+    \V_G=\prod_i G_i^{w_i},\quad \sum_iw_i=1,
 \end{equation}
 and with direct simultaneous constraint satisfaction \(G_i\geq\Theta_i\) for every essential condition. Model comparison should use independently defined viability outcomes, common data or simulations, and out-of-sample evaluation.
 
@@ -230,24 +215,20 @@ Capture readiness \(C\) is a pre-existing state condition. Realized uptake effic
 \end{equation}
 A model that defines \(C\) by \(\rho_{\mathrm{obs}}\) cannot then use \(C\) to explain the same observed ratio. CVT must operationalize capture readiness from state, basin, or response-capacity information available before or independently of the uptake outcome.
 
-The immediate research burden is therefore not to defend one equation. It is to determine, domain by domain, whether the four proposed conditions are identifiable, whether any are genuinely essential, and which mathematical representation best predicts hosted viability without circular measurement.
-
-% CVT Foundations v0.2 — proposed Formal Architecture replacement
-% Review artifact. This section replaces only the material between
-% \section{Formal Architecture} and \section{Membrane Formulation}.
+The immediate research burden is therefore not to defend one equation. It is to determine, domain by domain, whether the four proposed conditions are identifiable, whether any are genuinely essential, and which representation best predicts hosted viability without circular measurement.
 
 \section{Formal Architecture: Observables, Gates, and Candidate Models}
 \label{sec:formal}
 
-The formal architecture must separate what is measured from how it is normalized and from how normalized quantities are combined. CVT therefore distinguishes three layers:
+The formal architecture separates what is measured from how it is normalized and from how normalized quantities are combined. CVT therefore distinguishes three layers:
 \begin{enumerate}[label=(\roman*)]
     \item \textbf{observable layer}: domain-native measurements with units, time windows, and uncertainty;
     \item \textbf{gate layer}: documented transformations of those measurements into normalized scores;
-    \item \textbf{model layer}: candidate aggregation and dynamical rules whose performance can be compared against an independently defined viability outcome.
+    \item \textbf{model layer}: candidate aggregation or prediction rules whose performance is compared against an independently defined viability outcome.
 \end{enumerate}
-A normalized gate is not itself an observation, and no scalar aggregator defines success merely by being chosen.
+A normalized gate is not itself an observation, and no scalar aggregate defines success merely by being chosen.
 
-\subsection{Observable and Gate Layers}
+\subsection{Observable, Gate, and Outcome Layers}
 
 For each proposed condition \(i\in\mathcal I=\{B,Q,C,S\}\), let \(z_i(t)\) denote a raw domain-specific measurement or vector of measurements. A normalization map
 \begin{equation}
@@ -257,9 +238,7 @@ For each proposed condition \(i\in\mathcal I=\{B,Q,C,S\}\), let \(z_i(t)\) denot
     \in[0,1]
     \label{eq:gate-normalization}
 \end{equation}
-converts the raw measurement into a gate score. The parameters \(\vartheta_i\), normalization range, uncertainty interval, and threshold rationale must be reported for each application.
-
-The maps need not be monotone. In particular, bounded coupling generally requires a two-sided map: both insufficient exchange and excessive exchange may receive low scores, while an admissible operating band receives a high score. Preserved organization \(Q\), capture readiness \(C\), and available restorative reserve \(S\) likewise require domain-native observables rather than intuitive numerical assignments.
+converts the raw measurement into a gate score. The parameters \(\vartheta_i\), normalization range, uncertainty interval, and threshold rationale must be reported for each application. The maps need not be monotone. Bounded coupling generally requires a two-sided map: both insufficient and excessive exchange may receive low scores, while an admissible operating band receives a high score.
 
 Let \(y(t)\) denote a domain-native viability outcome and let \(\mathcal Y_{\mathrm{viable}}\) be declared before the gates are fitted. The binary event
 \begin{equation}
@@ -268,7 +247,7 @@ Let \(y(t)\) denote a domain-native viability outcome and let \(\mathcal Y_{\mat
     \mathbf{1}\!\left\{y(t)\in\mathcal Y_{\mathrm{viable}}\right\}
     \label{eq:independent-viability-event}
 \end{equation}
-is an independently defined outcome, not a CVT aggregate. Continuous domain-native outcomes may be used instead when binary classification would discard relevant information.
+is an independently defined outcome, not a CVT aggregate. Continuous outcomes may be used when binary classification would discard relevant information.
 
 \subsection{Candidate Aggregation Family}
 
@@ -299,100 +278,39 @@ The intersection in Equation~\eqref{eq:candidate-cvt-region} specifies simultane
     \qquad \tau>0.
     \label{eq:aggregation-family}
 \end{align}
-The last expression is a normalized soft minimum. Direct simultaneous constraints \(G_i\geq\Theta_i\) for every essential condition remain a further alternative. Product, minimum, weighted geometric mean, soft minimum, and constraint intersection encode different assumptions and must be evaluated against the same independently defined outcome using common data or simulations and out-of-sample comparison.
+The last expression is a normalized soft minimum. Direct simultaneous constraints \(G_i\geq\Theta_i\) for every essential condition remain a further alternative. These representations encode different assumptions and must be evaluated against the same independent outcome using common data or simulations, sensitivity analysis, and out-of-sample comparison \cite{oecd2008}.
 
-\subsection{Threshold Violations}
+\subsection{State Separation and Notation}
 
-Given a gate threshold \(\Theta_i\), define the one-sided violation
-\begin{equation}
-    \Phi_i(t)
-    =
-    [\Theta_i-G_i(t)]_+,
-    \qquad
-    [x]_+=\max\{x,0\}.
-    \label{eq:violation-variable}
-\end{equation}
-A two-sided raw constraint should be encoded in the normalization map \(g_i\), so that \(\Phi_i\) retains one interpretation: distance below the normalized viability threshold. Thresholds should be justified independently, preregistered when possible, or estimated out of sample. The uncertainty in \(\Phi_i\) inherits uncertainty in both \(z_i\) and \(\Theta_i\).
+Recovery history, current reserve, and accumulated damage should not be collapsed. Let \(H(t)\) denote learned recovery history or maturity, \(S(t)\) currently available restorative reserve, and \(D(t)\) accumulated damage. The reserve construct may be a vector or a family of independently constrained margins; it should not be forced into one latent scalar when a domain does not support such aggregation. These states may enter domain-specific dynamical models, but CVT does not assert a universal differential equation for their evolution in this foundations paper.
 
-\subsection{Candidate Gate Dynamics}
-
-A phenomenological recovery model may be written as
-\begin{equation}
-    \dot G_i
-    =
-    a_i(H,S)\Phi_i
-    -
-    \ell_i(t)
-    -
-    \sum_{j\neq i}\kappa_{ij}\Phi_j,
-    \label{eq:gate-dynamics}
-\end{equation}
-with projected or saturating dynamics used to preserve \(G_i\in[0,1]\). Here \(\ell_i(t)\) is a normalized gate-degradation rate with units of inverse time, not an unscaled physical load. The coefficients \(\kappa_{ij}\) represent lagged cross-gate degradation and cannot be inferred from simultaneous decline alone, because common-cause forcing is an alternative explanation.
-
-One candidate recovery coefficient is
-\begin{equation}
-    a_i(H,S)
-    =
-    \alpha_i(1+\eta_i H)q_i(S),
-    \label{eq:recovery-coefficient}
-\end{equation}
-where \(q_i\) is nondecreasing and may satisfy \(q_i(0)=0\) when recovery requires available reserve. Equation~\eqref{eq:gate-dynamics} is not a universal law. It is a model class whose terms must be mapped to domain-native mechanisms and compared with simpler baselines.
-
-\subsection{Recovery History and Available Reserve}
-
-Recovery history or maturity and present restorative reserve are distinct states. Let
-\[
-    H(t)\in[0,1]
-\]
-denote learned recovery history, conditioning, or maturity, and let
-\[
-    S(t)\in[0,S_{\max}]
-\]
-denote currently available restorative reserve. The normalized reserve gate is \(G_S=g_S(S)\).
-
-A candidate learning law is
-\begin{equation}
-    \dot H
-    =
-    \epsilon U_{\mathrm{rec}}(t)(1-H)
-    -
-    \zeta H
-    -
-    \xi_D D H,
-    \label{eq:history-dynamics}
-\end{equation}
-where \(U_{\mathrm{rec}}(t)\) is an independently coded measure of successful viable operation or recovery. A candidate reserve law is
-\begin{equation}
-    \dot S
-    =
-    r_S(H)(S_{\max}-S)
-    -
-    c_S(t)
-    -
-    \sum_i\nu_i\Phi_i,
-    \label{eq:reserve-dynamics}
-\end{equation}
-with projection onto \([0,S_{\max}]\). The term \(c_S(t)\) is measured reserve consumption; \(r_S(H)\) is a replenishment rate that may improve with history. These equations permit a mature system to be temporarily exhausted and an inexperienced system to possess substantial unused reserve. Neither possibility was representable when memory, maturity, and reserve shared one variable.
+The notation hierarchy is therefore:
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+Symbol & Role \\
+\midrule
+\(z_i\) & raw domain-native measurement or measurement vector \\
+\(G_i\) & normalized candidate gate \\
+\(\mathcal K_i\) & state set satisfying a proposed condition \\
+\(y\), \(V_{\mathrm{set}}\) & independent domain-native outcome \\
+\(\V\) & candidate scalar aggregate or score \\
+\(H,S,D\) & recovery history, available reserve, and accumulated damage \\
+\(\rho_{\mathrm{obs}}\) & observed uptake efficiency when defined \\
+\bottomrule
+\end{tabular}
+\end{center}
 
 \subsection{Raw Exchange, Productive Uptake, and Prediction}
 
-Let \(J_{\mathrm{raw}}(t)\) be measured delivered exchange. In a transport model one may have
-\begin{equation}
-    J_{\mathrm{raw}}
-    =
-    \Pi\Delta,
-    \label{eq:raw-exchange}
-\end{equation}
-where \(\Pi\) is permeability or exchange capacity and \(\Delta\) is a driving gradient. This relation is domain-specific rather than the definition of raw exchange in every application.
-
-Let \(J_{\mathrm{eff}}(t)\) be independently measured retained productive uptake over the same accounting window. When the quantities are commensurate and \(J_{\mathrm{raw}}>0\), observed uptake efficiency is
+Let \(J_{\mathrm{raw}}(t)\) be measured delivered exchange and \(J_{\mathrm{eff}}(t)\) independently measured retained productive uptake over the same accounting window. When the quantities are commensurate and \(J_{\mathrm{raw}}>0\),
 \begin{equation}
     \rho_{\mathrm{obs}}(t)
     =
     \frac{J_{\mathrm{eff}}(t)}{J_{\mathrm{raw}}(t)}.
     \label{eq:effective-exchange}
 \end{equation}
-In systems with endogenous amplification or noncommensurate input and output units, productive uptake must instead be defined through an explicit conversion or target-response measure.
+In systems with endogenous amplification or noncommensurate units, productive uptake must instead be defined through an explicit conversion or target-response measure.
 
 Capture readiness is measured before or independently of the uptake outcome. CVT may then test a predictor
 \begin{equation}
@@ -404,32 +322,6 @@ Capture readiness is measured before or independently of the uptake outcome. CVT
     \label{eq:uptake-predictor}
 \end{equation}
 where \(\mathbf w(t)\) contains declared exogenous covariates. The predictor may be multiplicative, minimum-gated, nonlinear, or domain-native. Defining \(\rho\) as a product of the same gates and then treating that product as an explanation of uptake is not permitted.
-
-\subsection{Damage Accumulation}
-
-Reserve the symbol \(D(t)\in[0,1]\) for accumulated damage. When raw and effective exchange are commensurate, define unretained delivered load as
-\begin{equation}
-    L_{\mathrm{u}}(t)
-    =
-    [J_{\mathrm{raw}}(t)-J_{\mathrm{eff}}(t)]_+.
-    \label{eq:unretained-load}
-\end{equation}
-Otherwise \(L_{\mathrm{u}}\) must be replaced by a directly measured rejection, spillover, waste, or harmful-load quantity.
-
-A candidate damage model is
-\begin{equation}
-    \dot D
-    =
-    \gamma L_{\mathrm{u}}
-    +
-    \delta\sum_i\Phi_i
-    +
-    \omega R_{\mathrm{risk}}
-    -
-    \mu(H,S)D,
-    \label{eq:damage}
-\end{equation}
-with projected dynamics preserving \(D\in[0,1]\). The domain-specific risk term \(R_{\mathrm{risk}}\) must be specified before fitting rather than used as a residual container. The repair rate \(\mu(H,S)\) may depend on both learned recovery capacity and currently available reserve. Equation~\eqref{eq:damage} is a candidate mechanism, not a general conservation law.
 
 \subsection{Hosted Transformation as an Independent Outcome}
 
@@ -451,41 +343,7 @@ and
 An independently specified damage limit may be added when damage is not already included in \(\mathcal K_{\mathrm{declared}}\).
 \end{definition}
 
-The follow-up horizon permits delayed failure to count against apparent success. Gate scores and aggregate CVT scores are predictors or explanatory variables for this outcome; they do not define the outcome they are supposed to predict.
-
-\subsection{Host-Paced Transition as a Model Class}
-
-Let \(u_X(t)\) denote the control or pacing input applied to a transformation. A candidate host-paced policy is
-\begin{equation}
-    u_X(t)
-    =
-    u_{\max}
-    h_{\theta}\!\left(
-        G_B,G_Q,G_C,G_S,D
-    \right),
-    \qquad
-    0\leq h_{\theta}\leq1,
-    \label{eq:host-capacity-policy}
-\end{equation}
-combined with domain-specific transition dynamics
-\begin{equation}
-    \dot X
-    =
-    F\!\left(X,u_X,\mathbf w\right).
-    \label{eq:host-gated-transition}
-\end{equation}
-The pacing function \(h_{\theta}\) must not double-count variables already embedded in one another. It should be compared with fixed-rate, capacity-maximizing, and domain-native control policies using the same outcome criteria. CVT does not imply the dimensionally unsupported universal inequality \(\dot X\leq R_{\mathrm{host}}\); any rate bound must be derived in the units and dynamics of the specific application.
-
-\subsection{Minimum Viable Host as a Domain-Specific Threshold}
-
-For a fixed model, forcing severity \(\Lambda\), observation horizon \(\tau\), and control policy \(\pi\), one may estimate a reserve threshold
-\begin{equation}
-    S(t_0)
-    \geq
-    S_{\mathrm{crit}}(\Lambda,\tau;\pi,\theta)
-    \label{eq:minimum-host-threshold}
-\end{equation}
-associated with a chosen probability or level of hosted success. This is a domain- and model-specific threshold, not a general theorem. Its form may be nonlinear, history-dependent, or absent. A case that hosts the transformation with no measurable restorative reserve would constrain the claim that reserve is essential in that domain.
+The follow-up horizon permits delayed failure to count against apparent success. Gate scores and CVT aggregates are predictors or explanatory variables for this outcome; they do not define the outcome they are supposed to predict.
 
 \subsection{Local Exchange--Uptake Condition}
 
@@ -512,18 +370,12 @@ Effective uptake decreases with additional delivered exchange exactly when
     -1.
     \label{eq:uptake-elasticity-condition}
 \end{equation}
-This is a calculus condition, not evidence that such degradation occurs. The empirical CVT claim is that some scoped systems enter regimes satisfying Equation~\eqref{eq:uptake-elasticity-condition} because capture readiness, restorative reserve, or another essential mechanism deteriorates under load.
-
-The formal research burden is therefore explicit: define viability independently, publish the raw measurements and normalization maps, estimate uncertainty, compare aggregation and pacing models out of sample, and search deliberately for transformations that remain hosted despite failure of a proposed essential condition.
-
-% CVT Foundations v0.2 — proposed Membrane Illustration replacement
-% Review artifact. This section is intended to replace only the current
-% membrane material and to stop immediately before the fusion section.
+This is a calculus condition, not evidence that such degradation occurs. The empirical CVT claim is that some scoped systems may enter regimes satisfying Equation~\eqref{eq:uptake-elasticity-condition} because capture readiness, restorative reserve, or another essential mechanism deteriorates under load.
 
 \section{Membrane Illustration: Regulated Transport Across an Interface}
 \label{sec:membrane}
 
-A regulated transport interface provides a bounded physical illustration of CVT. It is not presented as the universal mathematical form of the theory. The purpose of the illustration is narrower: to show how delivered flux, interface integrity, pre-existing capture readiness, productive uptake, restorative reserve, and delayed damage can be represented as distinct quantities in a system whose boundary is physically explicit.
+A regulated transport interface provides a bounded physical illustration of CVT. It is not presented as the universal mathematical form of the theory. The purpose is narrower: to show how delivered flux, interface integrity, pre-existing capture readiness, productive uptake, restorative reserve, and delayed damage can be represented as distinct quantities in a system whose boundary is physically explicit.
 
 \subsection{Established Interface-Transport Form}
 
@@ -562,21 +414,14 @@ The membrane illustration distinguishes five quantities that should not be colla
     J_{\mathrm{eff}}.
     \label{eq:membrane-separation}
 \end{equation}
-The permeability \(\Pi_{\Gamma}\) is an interface property or control setting. The raw flux \(J_{\mathrm{raw}}\) is delivered transport. Capture readiness \(C\) is a pre-existing property of the receiving state, estimated before or independently of the uptake outcome. The quantity \(J_{\mathrm{eff}}\) is retained productive uptake measured over a declared accounting window. When raw and effective quantities are commensurate and delivered flux is positive, observed uptake efficiency is
-\begin{equation}
-    \rho_{\mathrm{obs}}
-    =
-    \frac{J_{\mathrm{eff}}}{J_{\mathrm{raw}}}.
-    \label{eq:membrane-observed-uptake}
-\end{equation}
-This ratio is an outcome. It must not be used to define the same capture-readiness variable that is then claimed to explain it. In systems with endogenous amplification, storage delay, or noncommensurate input and output units, productive uptake requires an explicit conversion or target-response measure instead of Equation~\eqref{eq:membrane-observed-uptake}.
+The permeability \(\Pi_{\Gamma}\) is an interface property or control setting. The raw flux \(J_{\mathrm{raw}}\) is delivered transport. Capture readiness \(C\) is a pre-existing property of the receiving state, estimated before or independently of the uptake outcome. The quantity \(J_{\mathrm{eff}}\) is retained productive uptake measured over a declared accounting window. When raw and effective quantities are commensurate and delivered flux is positive, observed uptake efficiency is given by Equation~\eqref{eq:effective-exchange}. This ratio must not be used to define the same capture-readiness variable then claimed to explain it.
 
 \subsection{Operational Mapping to \(B,Q,C,S\)}
 
 For a declared receiving host, the membrane illustration maps the four candidate CVT conditions as follows:
 \begin{enumerate}[label=(\roman*)]
     \item \textbf{bounded coupling \(B\)}: delivered flux remains within a two-sided admissible band relative to the host's changing handling capacity;
-    \item \textbf{preserved identity-defining organization \(Q\)}: the interface and the host organization required by the success criterion remain functionally intact;
+    \item \textbf{preserved identity-defining organization \(Q\)}: the interface and host organization required by the success criterion remain functionally intact;
     \item \textbf{capture readiness \(C\)}: before the uptake outcome is observed, the receiving state lies in a region from which the specified input can be retained within an admissible basin over the declared horizon;
     \item \textbf{available restorative reserve \(S\)}: measurable recovery headroom remains after transport-induced strain.
 \end{enumerate}
@@ -612,21 +457,21 @@ and the wider aggregation family in Equation~\eqref{eq:aggregation-family}. No o
 The same interface can enter several distinct regimes.
 
 \paragraph{Insufficient delivery.}
-Raw flux remains below the lower edge of the admissible operating band. The host may preserve organization and reserve while failing to receive enough input for the declared transformation. This is a bounded-coupling failure at the low-input side, not evidence that openness is always beneficial.
+Raw flux remains below the lower edge of the admissible operating band. The host may preserve organization and reserve while failing to receive enough input for the declared transformation.
 
 \paragraph{Overexposure.}
-Raw flux exceeds the receiving system's handling band. Damage, rejection, spillover, saturation, or escape from the viable set may increase even when permeability and gradient remain physically large. Overexposure is first a failure of bounded coupling; observed uptake loss may follow but should be measured rather than assumed.
+Raw flux exceeds the receiving system's handling band. Damage, rejection, spillover, saturation, or escape from the viable set may increase even when permeability and gradient remain physically large. Observed uptake loss may follow but should be measured rather than assumed.
 
 \paragraph{Capture failure.}
 The interface delivers input while the receiving state lacks a viable capture path. A low value of \(\rho_{\mathrm{obs}}\) may be consistent with this mechanism, but it does not uniquely identify it: conversion losses, measurement error, transport delay, or an omitted state variable remain alternatives.
 
 \paragraph{Loss of identity-defining organization.}
-The interface or host organization required by the declared success criterion fails. Complete merger is a CVT failure only when continued distinction is part of that criterion. If merger is the intended transformation, the host and level of analysis must be redefined rather than treating all loss of boundary as pathological.
+The interface or host organization required by the declared success criterion fails. Complete merger is a CVT failure only when continued distinction is part of that criterion. If merger is the intended transformation, the host and level of analysis must be redefined.
 
 \paragraph{Reserve exhaustion.}
-Transport remains possible and uptake may remain temporarily positive, but restorative reserve falls below the level required for repair or repeated-load survival. The failure may therefore appear only during a follow-up horizon after the target state has been reached.
+Transport remains possible and uptake may remain temporarily positive, but restorative reserve falls below the level required for repair or repeated-load survival. Failure may therefore appear only during a follow-up horizon after the target state has been reached.
 
-These regimes show why permeability alone cannot classify membrane health. The same value of \(\Pi_{\Gamma}\) may be viable or destructive depending on the gradient, receiving state, damage, reserve, observation window, and declared success criterion.
+These regimes show why permeability alone cannot classify interface health. The same value of \(\Pi_{\Gamma}\) may be viable or destructive depending on the gradient, receiving state, damage, reserve, observation window, and declared success criterion.
 
 \subsection{Causal State-Dependent Interface Control}
 
@@ -657,16 +502,12 @@ The membrane illustration supports CVT only if the \(B,Q,C,S\) decomposition imp
 
 \subsection{From the Interface Illustration to Fusion}
 
-The next section uses artificial fusion as an illustrative boundary-mediated host problem. The transfer is structural: a plasma--machine system contains interfaces across which heat, particles, waves, fuel, ash, and control influence are transported or regulated while machine viability matters. This does not establish that fusion is literally reducible to Equation~\eqref{eq:membrane-robin-law}, that a tokamak is a biological membrane, or that the membrane illustration captures reactor physics. Those stronger claims require domain-native equations, calibrated parameters, and comparison with established fusion models.
-
-% CVT Foundations v0.2 — proposed Fusion Illustration replacement
-% Review artifact. This section is intended to replace only the current
-% fusion material and to stop immediately before the bibliography.
+The next section uses artificial fusion as an illustrative boundary-mediated host problem. The transfer is structural: a plasma--machine system contains interfaces across which heat, particles, waves, fuel, ash, and control influence are transported or regulated while machine viability matters. This does not establish that fusion is reducible to Equation~\eqref{eq:membrane-robin-law}, that a tokamak is a biological membrane, or that the membrane illustration captures reactor physics.
 
 \section{Fusion Illustration: Self-Heating and Host Viability}
 \label{sec:fusion}
 
-Fusion provides a bounded illustration of hosted transformation because the target transition occurs inside a coupled plasma--machine system whose continued viability is part of success. This section does not present CVT as an alternative to fusion physics, nor does it treat the membrane illustration as a reactor model. It asks a narrower question: can a transition metric be kept distinct from the independently specified conditions under which the machine can sustain that transition?
+Fusion provides a bounded illustration of hosted transformation because the target transition occurs inside a coupled plasma--machine system whose continued viability is part of success. This section does not present CVT as an alternative to fusion physics, nor does it treat the membrane illustration as a reactor model. It asks a narrower question: can a transformation metric be kept distinct from the independently specified conditions under which the machine can sustain that transition?
 
 \subsection{Self-Heating Is Not a Complete Viability Criterion}
 
@@ -700,7 +541,7 @@ The first condition describes the selected transformation target. The second des
 
 The ITER Physics Basis and its update treat burning-plasma performance as an integrated problem involving confinement, stability, fuelling, power and particle control, plasma-facing components, diagnostics, actuators, and energetic-particle behavior \cite{iter1999,shimada2007}. Heat and particle exhaust, helium removal, impurity control, and material loading are established reactor problems \cite{loarte2007}; energetic alpha particles also create established confinement, redistribution, and instability questions \cite{fasoli2007}. CVT does not claim discovery of these constraints.
 
-The proposed CVT question is instead whether one useful decomposition of the pre-transition host state is:
+The proposed CVT question is whether one useful decomposition of the pre-transition host state is:
 \begin{enumerate}[label=(\roman*)]
     \item \textbf{bounded coupling \(B\)}: heating, fuelling, particle, momentum, and exhaust loads remain inside declared operating envelopes;
     \item \textbf{preserved identity-defining organization \(Q\)}: the plasma configuration and machine functions required by the declared operating state remain intact;
@@ -728,12 +569,72 @@ No product score is asserted here. Any scalar aggregation would have to be compa
 
 In this paper fusion illustrates, but does not validate, CVT. The decomposition adds scientific value only if independently measured pre-transition variables improve out-of-sample prediction, control, or failure diagnosis beyond simpler and domain-native baselines. It would be constrained if sustained operation occurs despite persistent failure of a proposed essential condition, if the capture-readiness proxy merely restates the outcome, if the reserve construct adds no information beyond existing engineering margins, or if ordinary integrated models perform equally well with fewer variables.
 
-The detailed controller equations, historical numerical runs, reserve sweep, and former Minimum Viable Host statement are therefore excluded from the foundations argument. They belong in a separate reproducible fusion-host model with complete equations, units, parameter provenance, initial and boundary conditions, solver details, sensitivity analysis, and domain-native comparison controllers.
+The detailed controller equations, historical numerical runs, reserve sweep, and former Minimum Viable Host statement are excluded from the foundations argument. They belong, if pursued, in a separate reproducible fusion-host model with complete equations, units, parameter provenance, initial and boundary conditions, solver details, sensitivity analysis, and domain-native comparison controllers.
 
 The bounded conclusion is:
 \begin{quote}
 Progress toward alpha-dominated self-heating is a transformation metric. Hosted operation additionally requires that the coupled plasma--machine system remain inside an independently declared viable operating set while carrying that transition.
 \end{quote}
+
+\section{Discussion, Limitations, and Validation Program}
+\label{sec:discussion}
+
+\subsection{Publication Status of the Framework}
+
+CVT is presented here as a conceptual and methodological framework paper. It is not a theorem establishing universal conditions, an empirical validation study, or a calibrated fusion-control model. Its scientific value depends on whether the proposed decomposition improves prediction, diagnosis, or intervention relative to simpler and domain-native baselines.
+
+The four-condition structure may prove domain-dependent. Some conditions may collapse into existing variables; some may be vectors rather than scalars; some may not be essential in particular applications; and additional conditions may be required. The paper therefore treats \(B,Q,C,S\) as a candidate decomposition rather than a settled ontology.
+
+\subsection{Principal Threats to Validity}
+
+The principal threats are circular measurement, flexible host definition, post-hoc thresholds, correlated gates, hidden state, delayed failure, and overinterpretation of analogies. In particular:
+\begin{enumerate}[label=(\roman*)]
+    \item capture readiness must not be defined by the uptake outcome it is intended to predict;
+    \item the host, boundary, viable set, and transformation criterion must be declared before results are interpreted;
+    \item gate normalizations and thresholds must be reported with uncertainty and sensitivity analysis;
+    \item apparent cross-gate effects must be distinguished from common-cause forcing;
+    \item short-term target attainment must not count as hosted success when delayed damage removes viability during the follow-up horizon;
+    \item membrane and fusion mappings must not be treated as evidence for universal equivalence across domains.
+\end{enumerate}
+
+Transparent reporting of model development, validation, predictor handling, outcome definition, and missing information is a prerequisite for evaluating predictive claims. The TRIPOD statement provides one established reporting model in clinical prediction research, although CVT applications will require domain-specific adaptation rather than literal transfer \cite{collins2015}.
+
+\subsection{Falsification and Model Comparison}
+
+A bounded CVT application should be considered constrained or unsuccessful when any of the following occurs:
+\begin{enumerate}[label=(\roman*)]
+    \item hosted transformation occurs reliably despite persistent failure of a condition claimed to be essential;
+    \item a gate or proxy merely restates the independent outcome;
+    \item a simpler state-constraint, transport, resilience, or domain-native model performs equally well or better with fewer independently measured quantities;
+    \item the preferred aggregation form fails out of sample or is unstable under reasonable normalization and threshold choices;
+    \item the proposed reserve construct adds no information beyond already established margins;
+    \item the declared success disappears when the observation horizon is extended to include delayed damage.
+\end{enumerate}
+
+A successful test need not vindicate the whole framework. It may instead identify a narrower domain, remove a nonessential condition, replace a scalar with a vector, or show that direct constraint intersection performs better than any aggregate score.
+
+\subsection{First Bounded Validation: Regulated Transport}
+
+The membrane domain is the preferred first validation because it permits an explicit boundary, measurable delivered input, a pre-input receiving state, independently recorded uptake and rejection, and a controlled follow-up horizon. A minimal study should:
+\begin{enumerate}[label=(\arabic*)]
+    \item declare the host, transported quantity, interface law, viable set, transition criterion, and follow-up horizon;
+    \item define domain-native measurements for \(B,Q,C,S\) without using the target outcome to construct the predictors;
+    \item perturb permeability or driving gradient across low, admissible, and excessive regimes;
+    \item record delivered flux, productive uptake, rejection or spillover, damage, reserve, and recovery;
+    \item compare direct constraints, product, minimum, geometric-mean, soft-minimum, and domain-native baselines using common training and test partitions;
+    \item publish normalization maps, threshold rationales, uncertainty, sensitivity analyses, and deliberate counterexamples.
+\end{enumerate}
+
+The goal is not to make the membrane conform to CVT. It is to determine whether the decomposition adds measurable value and to identify where it fails.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+CVT proposes a bounded research question: when a system must receive exchange while remaining an identifiable and viable host, does success depend on jointly maintained conditions of bounded coupling, preserved identity-defining organization, pre-existing capture readiness, and available restorative reserve?
+
+The present paper does not establish a universal invariant. It clarifies the candidate claim, separates raw observations from normalized gates and independent outcomes, distinguishes delivered exchange from productive uptake, and requires delayed host viability to be part of success. The membrane illustration shows why permeability, flux, capture, uptake, reserve, and damage should not be collapsed. The fusion illustration shows why progress toward a transition metric does not by itself establish that the coupled host can sustain the resulting state.
+
+CVT earns scientific standing only through bounded tests, explicit counterexamples, independent measurement, competing models, and reproducible validation. Its strongest present contribution is therefore not one universal equation, but a disciplined separation of questions that are often conflated: what crosses a boundary, what can be captured, what is productively retained, what organization must persist, and what recovery capacity remains after change.
 
 \begin{thebibliography}{99}
 
@@ -763,6 +664,17 @@ P. J. Menck, J. Heitzig, N. Marwan, and J. Kurths,
 ``How basin stability complements the linear-stability paradigm,''
 \emph{Nature Physics}, vol. 9, pp. 89--92, 2013.
 doi:10.1038/nphys2516.
+
+\bibitem{oecd2008}
+OECD and European Commission Joint Research Centre,
+\emph{Handbook on Constructing Composite Indicators: Methodology and User Guide}.
+OECD Publishing, Paris, 2008. doi:10.1787/9789264043466-en.
+
+\bibitem{collins2015}
+G. S. Collins, J. B. Reitsma, D. G. Altman, and K. G. M. Moons,
+``Transparent Reporting of a Multivariable Prediction Model for Individual Prognosis or Diagnosis (TRIPOD): The TRIPOD Statement,''
+\emph{Annals of Internal Medicine}, vol. 162, no. 1, pp. 55--63, 2015.
+doi:10.7326/M14-0697.
 
 \bibitem{crank1975}
 J. Crank, \emph{The Mathematics of Diffusion}, 2nd ed.
