@@ -1,3 +1,4 @@
+from collections import Counter
 from pathlib import Path
 
 import pandas as pd
@@ -11,7 +12,7 @@ def test_final_test_generation_is_inaccessible() -> None:
         design_rows("test", 10)
 
 
-def test_design_is_deterministic_and_disjoint() -> None:
+def test_design_is_deterministic_disjoint_and_jointly_balanced() -> None:
     first = design_rows("training", 24)
     second = design_rows("training", 24)
     validation = design_rows("validation", 24)
@@ -19,6 +20,12 @@ def test_design_is_deterministic_and_disjoint() -> None:
     assert {row["design_hash"] for row in first}.isdisjoint(
         {row["design_hash"] for row in validation}
     )
+    cells = Counter(
+        (row["forcing_family"], row["forcing_stratum"])
+        for row in first
+    )
+    assert len(cells) == 12
+    assert set(cells.values()) == {2}
 
 
 def test_quick_generation_and_integrity(tmp_path: Path) -> None:
