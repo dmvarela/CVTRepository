@@ -1,0 +1,9 @@
+partition,failure_reason,rows
+training,damage_violation,972
+training,hosted,381
+training,integrity_violation,321
+training,target_not_reached,10326
+validation,damage_violation,317
+validation,hosted,121
+validation,integrity_violation,121
+validation,target_not_reached,3441

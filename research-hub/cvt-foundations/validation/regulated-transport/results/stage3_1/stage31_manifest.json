@@ -1,0 +1,62 @@
+{
+  "version": "stage3.1-data-1.0",
+  "master_seed": 20260803,
+  "partitions": {
+    "training": {
+      "version": "stage3.1-data-1.0",
+      "partition": "training",
+      "rows": 12000,
+      "seed": 20260803,
+      "file": "training.csv",
+      "sha256": "31a23de52adf5914929c5c56f3dd7ff6ded03ac9daf42e96f9269006371b512b",
+      "design_hash_sha256": "a70ac34676978f84deee0297861a503944bdfee11d6c08c7c2da86c76f7a3096",
+      "row_digest_sha256": "99c48720d85961f3ad34782746e2a7b9e50af01d15fce9e1819f8c87303c3c51",
+      "test_partition_opened": false,
+      "candidate_model_fitted": false
+    },
+    "validation": {
+      "version": "stage3.1-data-1.0",
+      "partition": "validation",
+      "rows": 4000,
+      "seed": 20260804,
+      "file": "validation.csv",
+      "sha256": "b2b70e5bb8624ee5300c37d8750ace3b63e3cb5e3f727c15f6abc164da38467f",
+      "design_hash_sha256": "3ed7e2e2b23f1da42113c919c323f2ea19d60bb019d94212674c9e7acf7dc9f2",
+      "row_digest_sha256": "1ef1ec75c6bf635c868a1370b7bc9a2964e81d99077f519a9ee30851545c2929",
+      "test_partition_opened": false,
+      "candidate_model_fitted": false
+    }
+  },
+  "test_partition_generated": false,
+  "test_partition_opened": false,
+  "candidate_model_fitted": false,
+  "environment": {
+    "python": "3.13.5",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.17.0"
+  },
+  "design": {
+    "families": ["constant", "pulse", "ramp", "shock_tail"],
+    "forcing_strata": {
+      "low": [0.5, 2.5],
+      "middle": [2.5, 6.0],
+      "high": [6.0, 10.0]
+    },
+    "probe_primary": {
+      "c_b": 2.0,
+      "permeability": 0.1,
+      "pulse_duration": 0.05,
+      "readout_horizon": 1.0,
+      "delivered_floor_fraction_pcap": 0.0001
+    },
+    "probe_sensitivity": {
+      "c_b": 2.0,
+      "permeability": 0.25,
+      "pulse_duration": 0.05,
+      "readout_horizon": 1.0,
+      "delivered_floor_fraction_pcap": 0.0001
+    },
+    "complete_ranges": "config/stage31_design.json"
+  }
+}

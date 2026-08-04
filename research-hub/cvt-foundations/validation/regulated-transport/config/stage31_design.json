@@ -1,0 +1,139 @@
+{
+  "version": "stage3.1-data-1.0",
+  "date": "2026-08-04",
+  "status": "pre-fit development-data generation",
+  "master_seed": 20260803,
+  "partition_seeds": {
+    "training": 20260803,
+    "validation": 20260804
+  },
+  "partitions_generated": {
+    "training": 12000,
+    "validation": 4000
+  },
+  "training_subsets": {
+    "fit": 9000,
+    "calibration": 3000,
+    "assignment": "ascending SHA-256 of row_id; first 75 percent fit"
+  },
+  "test_partition_generated": false,
+  "test_partition_opened": false,
+  "candidate_model_fitted": false,
+  "sampling": {
+    "method": "Latin hypercube",
+    "family_stratum_joint_balance": true,
+    "families": [
+      "constant",
+      "pulse",
+      "ramp",
+      "shock_tail"
+    ],
+    "excluded_held_out_family": "repeated_pulse",
+    "forcing_strata": {
+      "low": [0.5, 2.5],
+      "middle": [2.5, 6.0],
+      "high": [6.0, 10.0]
+    },
+    "permeability": [0.05, 1.0],
+    "pulse_duration": [2.0, 5.0],
+    "shock_duration": [1.0, 3.0],
+    "tail_fraction": [0.2, 0.6]
+  },
+  "native_parameter_sampling": {
+    "uniform": {
+      "p_cap": [5.0, 12.0],
+      "u_max": [2.0, 8.0],
+      "k_p": [0.4, 1.5],
+      "k_b": [0.2, 1.2],
+      "k_rel": [0.05, 0.5],
+      "k_e": [0.1, 1.0],
+      "s_max": [3.0, 10.0],
+      "r_s": [0.01, 0.15],
+      "k_rep": [0.05, 0.5],
+      "r_q": [0.01, 0.15],
+      "c_safe": [0.5, 2.0],
+      "u_safe_fraction": [0.35, 0.9],
+      "c_q": [1.0, 3.0],
+      "j_safe": [0.5, 3.0],
+      "h": [0.0, 1.0]
+    },
+    "initial_state_uniform": {
+      "c_a0": [0.0, 0.8],
+      "p_fraction0": [0.0, 0.5],
+      "u_fraction0": [0.0, 0.8],
+      "d0": [0.0, 0.35],
+      "s_fraction0": [0.05, 1.0],
+      "q0": [0.35, 1.0]
+    },
+    "log_uniform_factor_three_around_frozen_defaults": [
+      "k_s",
+      "k_q",
+      "s_export",
+      "k_rep_half",
+      "k_qs",
+      "k_d1",
+      "k_d2",
+      "k_d3",
+      "a_p",
+      "a_e",
+      "a_b",
+      "a_r",
+      "b_d",
+      "b_l"
+    ]
+  },
+  "solver": {
+    "primary": "BDF",
+    "primary_rtol": 1e-8,
+    "primary_atol": 1e-10,
+    "timeout_fallback": "RK45",
+    "accounting_failure_fallback": "DOP853 at rtol 1e-10 and atol 1e-12",
+    "cross_solver_audit_fraction": 0.01,
+    "cross_solver_comparator": "RK45"
+  },
+  "accounting": {
+    "primary": "adaptive whole-window quadrature across forcing breakpoints",
+    "refinement": "bounded subinterval quadrature at maximum width 5 plus all forcing breakpoints",
+    "tolerance": "max(1e-8, 1e-6 * max(delivered, 1))"
+  },
+  "capture_probe": {
+    "primary": {
+      "c_b": 2.0,
+      "permeability": 0.1,
+      "pulse_duration": 0.05,
+      "readout_horizon": 1.0,
+      "delivered_floor_fraction_pcap": 0.0001
+    },
+    "sensitivity": {
+      "c_b": 2.0,
+      "permeability": 0.25,
+      "pulse_duration": 0.05,
+      "readout_horizon": 1.0,
+      "delivered_floor_fraction_pcap": 0.0001
+    },
+    "implementation": "primary and sensitivity probes share one zero-input sham in a combined augmented integration"
+  },
+  "integrity_stop_rules": {
+    "training_validation_design_overlap": 0,
+    "solver_success_fraction": 1.0,
+    "accounting_valid_fraction": 1.0,
+    "bounds_valid_fraction": 1.0,
+    "productive_monotone_fraction": 1.0,
+    "maximum_probe_invalid_fraction_each_partition": 0.01,
+    "minimum_training_minority_class": 200,
+    "minimum_validation_minority_class": 50,
+    "maximum_cross_solver_hosted_mismatches": 0
+  },
+  "storage": {
+    "checkpoint_rows": 500,
+    "full_csvs_version_controlled": false,
+    "reason": "large deterministic evidence files are regenerated from frozen code and verified by SHA-256 manifests",
+    "committed_outputs": [
+      "partition manifests",
+      "combined manifest",
+      "integrity summary",
+      "family-stratum balance tables",
+      "failure-reason counts"
+    ]
+  }
+}

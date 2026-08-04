@@ -1,0 +1,13 @@
+forcing_family,forcing_stratum,rows,hosted,hosted_fraction,probe_invalid_fraction
+constant,high,1000,22,0.022,0.0
+constant,low,1000,47,0.047,0.0
+constant,middle,1000,88,0.088,0.0
+pulse,high,1000,16,0.016,0.0
+pulse,low,1000,0,0.0,0.0
+pulse,middle,1000,5,0.005,0.0
+ramp,high,1000,31,0.031,0.0
+ramp,low,1000,1,0.001,0.0
+ramp,middle,1000,50,0.05,0.0
+shock_tail,high,1000,64,0.064,0.0
+shock_tail,low,1000,3,0.003,0.0
+shock_tail,middle,1000,54,0.054,0.0
