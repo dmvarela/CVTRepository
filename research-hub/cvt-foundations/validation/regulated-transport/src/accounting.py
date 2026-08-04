@@ -32,14 +32,27 @@ def _channel_integral(result: SimulationResult, channel: str) -> float:
         state = result.dense_solution(t)
         return rates(t, state, result.params, result.schedule)[1][channel]
 
+    raw_points = getattr(
+        result.schedule,
+        "breakpoints",
+        (result.config.t_intervention,),
+    )
+    points = sorted(
+        {
+            float(point)
+            for point in raw_points
+            if 0.0 < float(point) < result.config.t_end
+        }
+    )
+
     value, _ = quad(
         integrand,
         0.0,
         result.config.t_end,
         epsabs=1e-10,
         epsrel=1e-9,
-        points=[result.config.t_intervention],
-        limit=300,
+        points=points,
+        limit=max(300, 50 * (len(points) + 1)),
     )
     return float(value)
 
