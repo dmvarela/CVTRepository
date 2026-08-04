@@ -1,0 +1,146 @@
+{
+  "version": "stage3-prereg-1.0",
+  "date": "2026-08-04",
+  "status": "pre-fit",
+  "primary_outcome": "hosted",
+  "partitions": {
+    "training": 12000,
+    "training_fit": 9000,
+    "training_calibration": 3000,
+    "validation": 4000,
+    "test": 4000,
+    "test_blocks": {
+      "in_distribution": 1000,
+      "repeated_pulse": 1000,
+      "excessive_forcing": 1000,
+      "experienced_exhausted": 1000
+    }
+  },
+  "primary_gates": [
+    "g_b",
+    "g_q",
+    "g_c_probe_sham_adjusted_primary",
+    "g_s"
+  ],
+  "capture_sensitivities": [
+    "g_c_probe_sham_adjusted_2_5x_dose",
+    "g_c_direct_structural_composite"
+  ],
+  "probe_invalid_fraction_stop": 0.01,
+  "cvt_candidates": {
+    "CVT-1-product": {},
+    "CVT-2-minimum": {},
+    "CVT-3-geometric": {},
+    "CVT-4-softmin": {
+      "tau_grid": [0.02, 0.05, 0.1, 0.2, 0.5]
+    },
+    "CVT-5-direct-constraint": {
+      "threshold_quantiles": [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
+    },
+    "CVT-6-monotone-main-effects": {
+      "coefficient_lower_bound": 0.0,
+      "l2_grid": [0.0, 0.0001, 0.001, 0.01, 0.1, 1.0]
+    },
+    "CVT-7-monotone-pairwise": {
+      "coefficient_lower_bound": 0.0,
+      "l2_grid": [0.0, 0.0001, 0.001, 0.01, 0.1, 1.0]
+    }
+  },
+  "baselines": {
+    "BL-0-prevalence": {},
+    "BL-1-forcing-only": {},
+    "BL-2-transport-only": {},
+    "BL-3-mechanistic-margins": {},
+    "BL-4-raw-initial-state": {},
+    "BL-5-full-native-logistic": {
+      "l2_grid": [0.0, 0.0001, 0.001, 0.01, 0.1, 1.0]
+    },
+    "BL-6-full-native-gradient-boosting": {
+      "max_leaf_nodes": [7, 15, 31],
+      "learning_rate": [0.03, 0.1],
+      "max_iter": [100, 300],
+      "min_samples_leaf": [20, 50]
+    }
+  },
+  "tuning": {
+    "folds": 5,
+    "stratify_by": ["hosted", "forcing_family"],
+    "primary_score": "brier",
+    "tie_absolute_brier": 0.0005,
+    "tie_preference": [
+      "lower_complexity",
+      "stronger_regularization_or_smoother_setting"
+    ]
+  },
+  "calibration": {
+    "method": "platt",
+    "weak_l2": 0.000001,
+    "scalar_score_slope_lower_bound": 0.0,
+    "isotonic_allowed_primary": false
+  },
+  "metrics": {
+    "primary": "brier",
+    "secondary": [
+      "log_loss",
+      "auroc",
+      "average_precision",
+      "calibration_intercept",
+      "calibration_slope",
+      "ece_10_equal_count"
+    ],
+    "high_confidence_threshold": 0.8,
+    "ordinary_threshold": 0.5,
+    "minimum_high_confidence_count": 50,
+    "bootstrap_resamples": 2000
+  },
+  "validation_selection": {
+    "tie_absolute_brier": 0.002,
+    "tie_if_paired_ci_includes_zero": true,
+    "tie_breakers": [
+      "lower_false_safe_rate_at_0_8",
+      "fewer_fitted_parameters",
+      "simpler_structure"
+    ]
+  },
+  "incremental_value": {
+    "minimum_absolute_brier_improvement": 0.005,
+    "minimum_relative_brier_improvement": 0.02,
+    "paired_ci_must_exclude_zero": true,
+    "maximum_false_safe_worsening": 0.02,
+    "reference_baselines": [
+      "BL-0-prevalence",
+      "BL-1-forcing-only",
+      "BL-2-transport-only"
+    ]
+  },
+  "compression": {
+    "maximum_absolute_brier_disadvantage": 0.005,
+    "maximum_ci_upper_brier_disadvantage": 0.01,
+    "maximum_feature_fraction": 0.3333333333,
+    "maximum_false_safe_worsening": 0.02,
+    "reference_baselines": [
+      "BL-5-full-native-logistic",
+      "BL-6-full-native-gradient-boosting"
+    ]
+  },
+  "safe_screen_limits": {
+    "minimum_coverage": 0.05,
+    "minimum_count": 50,
+    "maximum_false_safe_rate": 0.1,
+    "calibration_slope_range": [0.8, 1.2],
+    "calibration_intercept_range": [-0.1, 0.1]
+  },
+  "counterexamples": {
+    "strong_gate_deficit": 0.1,
+    "substantive_fraction": 0.05
+  },
+  "test_opening": {
+    "requires_model_lock": true,
+    "requires_preregistration_hash": true,
+    "requires_validation_report_hash": true,
+    "single_execution": true,
+    "post_open_changes_confirmatory": false
+  },
+  "test_partition_opened": false,
+  "candidate_model_fitted": false
+}
