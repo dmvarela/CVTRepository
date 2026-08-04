@@ -1,0 +1,12 @@
+{
+  "version": "stage3.1-data-1.0",
+  "partition": "training",
+  "rows": 12000,
+  "seed": 20260803,
+  "file": "training.csv",
+  "sha256": "31a23de52adf5914929c5c56f3dd7ff6ded03ac9daf42e96f9269006371b512b",
+  "design_hash_sha256": "a70ac34676978f84deee0297861a503944bdfee11d6c08c7c2da86c76f7a3096",
+  "row_digest_sha256": "99c48720d85961f3ad34782746e2a7b9e50af01d15fce9e1819f8c87303c3c51",
+  "test_partition_opened": false,
+  "candidate_model_fitted": false
+}
