@@ -1,0 +1,7 @@
+scenario,family,c_b,permeability,duration,starts,tail_fraction,purpose
+moderate_constant,constant,4.0,0.35,20,, ,ordinary cross-solver
+high_constant,constant,8.0,0.70,20,, ,projection-heavy cross-solver
+short_pulse,pulse,8.0,0.70,3.0,0, ,discontinuity accounting
+repeated_pulse,repeated_pulse,6.0,0.55,3.0,"0;7;14", ,multiple discontinuities
+ramp,ramp,8.0,0.60,20,, ,continuous changing forcing
+shock_tail,shock_tail,10.0,0.80,2.0,0,0.35,shock and sustained tail

@@ -1,0 +1,2 @@
+randomized_runs,successful_integrations,accounting_passes,bound_passes,monotonicity_passes,projection_positive_runs,projection_over_500_runs,maximum_residual_fraction_of_tolerance,maximum_cross_solver_trajectory_difference,maximum_cross_solver_terminal_difference
+120,120,120,120,120,15,11,0.23365822347802884,2.1606341220614667e-06,4.829636457349687e-07

@@ -1,0 +1,7 @@
+scenario,max_scaled_trajectory_difference,max_scaled_terminal_difference,lsoda_projection_count,bdf_projection_count,lsoda_accounting_valid,bdf_accounting_valid
+moderate_constant,1.1247607092505925e-06,9.041559613307826e-08,0,0,True,True
+high_constant,2.1606341220614667e-06,2.0825471538921114e-07,742,770,True,True
+short_pulse,3.8928524481729454e-07,1.355150556600884e-07,0,0,True,True
+repeated_pulse,9.82722629440047e-07,9.937234793611896e-08,0,0,True,True
+ramp,1.753674379711967e-06,4.829636457349687e-07,263,331,True,True
+shock_tail,1.3307337399113265e-06,1.3811613863130661e-07,0,0,True,True
