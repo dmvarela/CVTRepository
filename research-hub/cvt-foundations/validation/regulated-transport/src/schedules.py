@@ -13,26 +13,40 @@ class Forcing:
     t_intervention: float = 20.0
 
 
+def _with_breakpoints(schedule: Schedule, points: tuple[float, ...]) -> Schedule:
+    """Attach integration breakpoints for exact channel accounting."""
+    schedule.breakpoints = tuple(sorted({float(x) for x in points if x > 0.0}))  # type: ignore[attr-defined]
+    return schedule
+
+
 def constant(forcing: Forcing) -> Schedule:
     def schedule(t: float) -> tuple[float, float]:
         if t <= forcing.t_intervention:
             return forcing.c_b, forcing.permeability
         return 0.0, 0.0
-    return schedule
+
+    return _with_breakpoints(schedule, (forcing.t_intervention,))
 
 
 def pulse(forcing: Forcing, duration: float = 3.0, start: float = 0.0) -> Schedule:
     def schedule(t: float) -> tuple[float, float]:
         active = start <= t <= start + duration
         return (forcing.c_b, forcing.permeability) if active else (0.0, 0.0)
-    return schedule
+
+    return _with_breakpoints(schedule, (start, start + duration))
 
 
-def repeated_pulse(forcing: Forcing, duration: float = 3.0, starts: tuple[float, ...] = (0.0, 7.0, 14.0)) -> Schedule:
+def repeated_pulse(
+    forcing: Forcing,
+    duration: float = 3.0,
+    starts: tuple[float, ...] = (0.0, 7.0, 14.0),
+) -> Schedule:
     def schedule(t: float) -> tuple[float, float]:
         active = any(start <= t <= start + duration for start in starts)
         return (forcing.c_b, forcing.permeability) if active else (0.0, 0.0)
-    return schedule
+
+    points = tuple(starts) + tuple(start + duration for start in starts)
+    return _with_breakpoints(schedule, points)
 
 
 def ramp(forcing: Forcing) -> Schedule:
@@ -41,14 +55,20 @@ def ramp(forcing: Forcing) -> Schedule:
             fraction = t / forcing.t_intervention
             return forcing.c_b * fraction, forcing.permeability
         return 0.0, 0.0
-    return schedule
+
+    return _with_breakpoints(schedule, (forcing.t_intervention,))
 
 
-def shock_tail(forcing: Forcing, shock_duration: float = 2.0, tail_fraction: float = 0.35) -> Schedule:
+def shock_tail(
+    forcing: Forcing,
+    shock_duration: float = 2.0,
+    tail_fraction: float = 0.35,
+) -> Schedule:
     def schedule(t: float) -> tuple[float, float]:
         if 0.0 <= t <= shock_duration:
             return forcing.c_b, forcing.permeability
         if shock_duration < t <= forcing.t_intervention:
             return forcing.c_b * tail_fraction, forcing.permeability
         return 0.0, 0.0
-    return schedule
+
+    return _with_breakpoints(schedule, (shock_duration, forcing.t_intervention))
