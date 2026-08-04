@@ -1,0 +1,60 @@
+{
+  "n_cases": 300,
+  "seed": 20260804,
+  "primary_spec": {
+    "c_b": 2.0,
+    "permeability": 0.1,
+    "pulse_duration": 0.05,
+    "readout_horizon": 1.0,
+    "delivered_floor_fraction_pcap": 0.0001
+  },
+  "sensitivity_spec": {
+    "c_b": 2.0,
+    "permeability": 0.25,
+    "pulse_duration": 0.05,
+    "readout_horizon": 1.0,
+    "delivered_floor_fraction_pcap": 0.0001
+  },
+  "primary_sensitivity_spearman": 0.9999986666518517,
+  "primary_sensitivity_max_abs_difference": 5.631073687539789e-05,
+  "readout_0_5_vs_1_0_spearman_on_candidate_subset": 0.9770468187274909,
+  "median_ratio_readout_1_0_over_0_5": 1.5989850251779423,
+  "primary": {
+    "valid_fraction": 1.0,
+    "delivered_floor_margin_min": 2.0404539590368067,
+    "delivered_fraction_p95": 0.0011978019192234184,
+    "marginal_ratio_median": 0.14244330303770628,
+    "marginal_ratio_iqr": 0.08265916192199069,
+    "fraction_negative": 0.0,
+    "fraction_gt_one": 0.0,
+    "raw_ratio_fraction_gt_one": 0.9933333333333333,
+    "raw_ratio_median": 13.85774155869522,
+    "rho_q": 0.233589706552295,
+    "rho_s": 0.3363095145501616,
+    "rho_headroom": 0.3955497283303148,
+    "incremental_p_fraction_p95": 0.00027863713571212365,
+    "incremental_damage_p95": 4.592029398687304e-05,
+    "incremental_reserve_fraction_p95": 3.888354062310705e-05,
+    "incremental_integrity_p95": 1.654863738020929e-06
+  },
+  "sensitivity": {
+    "valid_fraction": 1.0,
+    "delivered_floor_margin_min": 5.093810869568992,
+    "delivered_fraction_p95": 0.0029832456552776766,
+    "marginal_ratio_median": 0.1424461586350017,
+    "marginal_ratio_iqr": 0.08265444682746251,
+    "fraction_negative": 0.0,
+    "fraction_gt_one": 0.0,
+    "raw_ratio_fraction_gt_one": 0.9566666666666667,
+    "raw_ratio_median": 5.655231735481694,
+    "rho_q": 0.23359237324859164,
+    "rho_s": 0.3362432915921288,
+    "rho_headroom": 0.3955777286414293,
+    "incremental_p_fraction_p95": 0.000693940829649072,
+    "incremental_damage_p95": 0.00011435510732698485,
+    "incremental_reserve_fraction_p95": 9.69444647651501e-05,
+    "incremental_integrity_p95": 4.124858249138219e-06
+  },
+  "test_partition_opened": false,
+  "outcome_used": false
+}

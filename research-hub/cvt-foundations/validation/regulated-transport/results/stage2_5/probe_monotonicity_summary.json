@@ -1,0 +1,33 @@
+{
+  "n_cases": 30,
+  "seed": 20260805,
+  "q": {
+    "nondecreasing_fraction": 1.0,
+    "strictly_increasing_fraction": 1.0,
+    "worst_step": 0.0
+  },
+  "s": {
+    "nondecreasing_fraction": 1.0,
+    "strictly_increasing_fraction": 1.0,
+    "worst_step": 0.0
+  },
+  "headroom": {
+    "nondecreasing_fraction": 1.0,
+    "strictly_increasing_fraction": 1.0,
+    "worst_step": 0.0
+  },
+  "c_a_descriptive": {
+    "median_linear_correlation": -0.9998462879813454,
+    "positive_fraction": 0.16666666666666666
+  },
+  "u_descriptive": {
+    "median_linear_correlation": 0.9993995690909736,
+    "positive_fraction": 1.0
+  },
+  "repeatability": {
+    "exact_repeat_max_abs": 0.0,
+    "bdf_max_abs": 6.598975436478138e-06,
+    "tight_tolerance_max_abs": 1.459915970475345e-06
+  },
+  "test_partition_opened": false
+}
