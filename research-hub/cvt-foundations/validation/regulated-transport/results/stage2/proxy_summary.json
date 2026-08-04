@@ -1,0 +1,16 @@
+{
+  "n": 300,
+  "seed": 20260804,
+  "direct_probe_spearman": 0.10829511470817312,
+  "max_abs_pairwise_spearman": 0.6539828220313559,
+  "vif": {
+    "g_b": 1.0053663571061282,
+    "g_q": 2.1763950056825254,
+    "g_c_direct": 2.819457782711813,
+    "g_c_probe": 1.0811557588299672,
+    "g_s": 1.614179261757257
+  },
+  "near_duplicate_pairs": [],
+  "test_partition_opened": false,
+  "outcome_used_in_proxy_construction": false
+}
