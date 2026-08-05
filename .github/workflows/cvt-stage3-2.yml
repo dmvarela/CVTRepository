@@ -18,24 +18,41 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.13"
+          python-version: "3.13.5"
           cache: pip
           cache-dependency-path: research-hub/cvt-foundations/validation/regulated-transport/requirements.txt
       - name: Install frozen environment
         run: python -m pip install --upgrade pip && python -m pip install -r requirements.txt
       - name: Run focused tests
         run: python -m pytest -q tests/test_stage31.py tests/test_stage32.py
+      - name: Restore sealed Stage 3.1 evidence cache
+        id: stage31-cache
+        uses: actions/cache@v4
+        with:
+          path: research-hub/cvt-foundations/validation/regulated-transport/results/stage3_1
+          key: stage31-${{ runner.os }}-py3.13.5-${{ hashFiles('research-hub/cvt-foundations/validation/regulated-transport/src/*.py', 'research-hub/cvt-foundations/validation/regulated-transport/config/stage31_design.json', 'research-hub/cvt-foundations/validation/regulated-transport/requirements.txt') }}
       - name: Regenerate sealed Stage 3.1 evidence
+        if: steps.stage31-cache.outputs.cache-hit != 'true'
         run: python -m src.stage31_dataset --output results/stage3_1 --workers 2
+      - name: Preserve regenerated Stage 3.1 evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: cvt-stage3-1-sealed-evidence
+          path: |
+            research-hub/cvt-foundations/validation/regulated-transport/results/stage3_1/training.csv
+            research-hub/cvt-foundations/validation/regulated-transport/results/stage3_1/validation.csv
+            research-hub/cvt-foundations/validation/regulated-transport/results/stage3_1/*manifest.json
+          retention-days: 30
       - name: Fit candidates and open validation once
         run: python -m src.stage32_compare --data results/stage3_1 --output results/stage3_2 --bootstrap-resamples 2000
       - name: Record environment
-        run: python -m pip freeze > results/stage3_2/pip-freeze.txt
+        if: always()
+        run: mkdir -p results/stage3_2 && python -m pip freeze > results/stage3_2/pip-freeze.txt
       - name: Upload locked comparison evidence
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: cvt-stage3-2-results
-          path: |
-            research-hub/cvt-foundations/validation/regulated-transport/results/stage3_1/*manifest.json
-            research-hub/cvt-foundations/validation/regulated-transport/results/stage3_2/*
+          path: research-hub/cvt-foundations/validation/regulated-transport/results/stage3_2/*
+          if-no-files-found: warn
           retention-days: 30
