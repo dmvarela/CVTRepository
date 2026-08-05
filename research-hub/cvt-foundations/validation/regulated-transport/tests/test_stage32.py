@@ -26,7 +26,10 @@ def test_gate_and_pairwise_shapes() -> None:
     assert expanded.shape == (2, 10)
 
 
-def test_softmin_is_bounded_by_minimum() -> None:
+def test_softmin_approaches_minimum_from_above() -> None:
     values = np.array([[0.2, 0.4, 0.6, 0.8], [0.7, 0.7, 0.7, 0.7]])
-    score = softmin(values, 0.1)
-    assert np.all(score <= np.min(values, axis=1) + 1e-12)
+    tau = 0.1
+    score = softmin(values, tau)
+    minimum = np.min(values, axis=1)
+    assert np.all(score >= minimum - 1e-12)
+    assert np.all(score <= minimum + tau * np.log(values.shape[1]) + 1e-12)
