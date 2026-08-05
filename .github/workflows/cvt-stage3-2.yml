@@ -1,0 +1,41 @@
+name: CVT Stage 3.2 validation comparison
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "research-hub/cvt-foundations/validation/regulated-transport/**"
+      - ".github/workflows/cvt-stage3-2.yml"
+
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    defaults:
+      run:
+        working-directory: research-hub/cvt-foundations/validation/regulated-transport
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: research-hub/cvt-foundations/validation/regulated-transport/requirements.txt
+      - name: Install frozen environment
+        run: python -m pip install --upgrade pip && python -m pip install -r requirements.txt
+      - name: Run focused tests
+        run: python -m pytest -q tests/test_stage31.py tests/test_stage32.py
+      - name: Regenerate sealed Stage 3.1 evidence
+        run: python -m src.stage31_dataset --output results/stage3_1 --workers 2
+      - name: Fit candidates and open validation once
+        run: python -m src.stage32_compare --data results/stage3_1 --output results/stage3_2 --bootstrap-resamples 2000
+      - name: Record environment
+        run: python -m pip freeze > results/stage3_2/pip-freeze.txt
+      - name: Upload locked comparison evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: cvt-stage3-2-results
+          path: |
+            research-hub/cvt-foundations/validation/regulated-transport/results/stage3_1/*manifest.json
+            research-hub/cvt-foundations/validation/regulated-transport/results/stage3_2/*
+          retention-days: 30
