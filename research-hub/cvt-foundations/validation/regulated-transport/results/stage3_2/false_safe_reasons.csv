@@ -1,0 +1,15 @@
+model,failure_reason,rows
+CVT-1-product,none,0
+CVT-2-minimum,none,0
+CVT-3-geometric,none,0
+CVT-4-softmin,none,0
+CVT-5-direct-constraint,none,0
+CVT-6-monotone-main-effects,none,0
+CVT-7-monotone-pairwise,none,0
+BL-0-prevalence,none,0
+BL-1-forcing-only,none,0
+BL-2-transport-only,none,0
+BL-3-mechanistic-margins,none,0
+BL-4-raw-initial-state,none,0
+BL-5-full-native-logistic,target_not_reached,1
+BL-6-full-native-gradient-boosting,none,0
