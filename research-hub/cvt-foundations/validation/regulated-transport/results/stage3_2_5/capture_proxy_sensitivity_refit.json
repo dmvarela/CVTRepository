@@ -1,0 +1,97 @@
+{
+  "stage": "3.2.5",
+  "method": "fair refit of locked CVT-2-minimum scorer with each prespecified C alternative; calibration refit uses calibration subset only; validation evaluated once from already-opened validation partition; final test unused",
+  "training_sha256": "173206e583dfd8aacfecca20385cac693f52c81407fade603a82f46eab315a4f",
+  "validation_sha256": "e7e49a9bfa99d61664f850fa2e78c86e31c580d4fcfcfff786a3ff360660aad4",
+  "variants": {
+    "primary_micro_probe": {
+      "c_column": "g_c_probe_sham_adjusted_primary",
+      "score": "minimum(g_b,g_q,c,g_s)",
+      "calibration_intercept": 0.38660894835851883,
+      "calibration_slope": 1.1976687988138965,
+      "brier": 0.027566401837687916,
+      "log_loss": 0.11690176685007674,
+      "auroc": 0.8045856157014141,
+      "average_precision": 0.14808271523641503,
+      "ece": 0.008818251595744559,
+      "high": {
+        "count": 0,
+        "coverage": 0.0,
+        "false_safe_rate": null,
+        "informative": false
+      },
+      "ordinary": {
+        "count": 0,
+        "coverage": 0.0,
+        "false_safe_rate": null,
+        "informative": false
+      },
+      "brier_minus_primary": 0.0
+    },
+    "dose_2_5x_micro_probe": {
+      "c_column": "g_c_probe_sham_adjusted_2_5x_dose",
+      "score": "minimum(g_b,g_q,c,g_s)",
+      "calibration_intercept": 0.38664968076934564,
+      "calibration_slope": 1.1976856084726937,
+      "brier": 0.027566455521298536,
+      "log_loss": 0.11690178784971397,
+      "auroc": 0.8045877462667169,
+      "average_precision": 0.14804057650501426,
+      "ece": 0.008818397128724446,
+      "high": {
+        "count": 0,
+        "coverage": 0.0,
+        "false_safe_rate": null,
+        "informative": false
+      },
+      "ordinary": {
+        "count": 0,
+        "coverage": 0.0,
+        "false_safe_rate": null,
+        "informative": false
+      },
+      "brier_minus_primary": 5.3683610619359445e-08
+    },
+    "direct_structural_composite": {
+      "c_column": "g_c_direct_structural_composite",
+      "score": "minimum(g_b,g_q,c,g_s)",
+      "calibration_intercept": -0.5622525095100079,
+      "calibration_slope": 0.8670358307743246,
+      "brier": 0.029098659579906646,
+      "log_loss": 0.13232563206931217,
+      "auroc": 0.6356040898331554,
+      "average_precision": 0.061069302840408596,
+      "ece": 0.008577474589536758,
+      "high": {
+        "count": 0,
+        "coverage": 0.0,
+        "false_safe_rate": null,
+        "informative": false
+      },
+      "ordinary": {
+        "count": 0,
+        "coverage": 0.0,
+        "false_safe_rate": null,
+        "informative": false
+      },
+      "brier_minus_primary": 0.0015322577422187296
+    }
+  },
+  "final_test_generated": false,
+  "final_test_opened": false,
+  "confirmatory_test_authorized": false,
+  "ranking_by_brier": [
+    [
+      "primary_micro_probe",
+      0.027566401837687916
+    ],
+    [
+      "dose_2_5x_micro_probe",
+      0.027566455521298536
+    ],
+    [
+      "direct_structural_composite",
+      0.029098659579906646
+    ]
+  ]
+}

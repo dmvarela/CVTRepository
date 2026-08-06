@@ -1,6 +1,6 @@
 # Regulated-Transport Validation Package
 
-This package implements the native two-compartment transport model, pre-outcome measurements, frozen development evidence, and the locked Stage 3.2 validation comparison for the CVT Foundations validation protocol.
+This package implements the native two-compartment transport model, pre-outcome measurements, frozen development evidence, the locked Stage 3.2 validation comparison, and the Stage 3.2.5 closure decision for the CVT Foundations validation protocol.
 
 Current completed scope:
 
@@ -10,7 +10,8 @@ Current completed scope:
 - Stage 2.5 sham-adjusted micro-probe qualification;
 - Stage 3 pre-fit model-comparison preregistration;
 - Stage 3.1 deterministic training/validation generation and integrity review;
-- Stage 3.2 fit/calibration/validation comparison under the frozen rules.
+- Stage 3.2 fit/calibration/validation comparison under the frozen rules;
+- Stage 3.2.5 fair capture-proxy sensitivity refit and final-test non-authorization.
 
 Still excluded:
 
@@ -39,6 +40,13 @@ The Stage 3.2 comparison and locked results are recorded in:
 reviews/2026-08-05-stage3-2-validation-model-comparison.md
 validation/regulated-transport/config/stage32_portable_seal.json
 validation/regulated-transport/results/stage3_2/
+```
+
+The Stage 3.2.5 closure decision is recorded in:
+
+```text
+reviews/2026-08-06-stage3-2-5-closure-and-architecture-memo.md
+validation/regulated-transport/results/stage3_2_5/
 ```
 
 Run tests:
@@ -88,6 +96,14 @@ python -m src.stage32_runner \
 python -m src.stage32_finalize --output results/stage3_2
 ```
 
+Run the Stage 3.2.5 capture-proxy sensitivity refit:
+
+```bash
+python -m src.stage325_sensitivity_refit \
+  --data results/stage3_1 \
+  --output results/stage3_2_5
+```
+
 Stage 3.2 locked `CVT-2-minimum` as the primary CVT candidate and `BL-6-full-native-gradient-boosting` as the primary baseline. The current four-proxy operationalization did not meet the preregistered thresholds for incremental predictive value, predictive compression, or high-confidence safety-screen utility.
 
-The final test remains ungenerated and unopened. The next bounded action is Stage 3.2.5: materialize reproducible locked scorers, correctly refit the prespecified capture-proxy sensitivity alternatives on training/calibration data only, audit the unopened final-test generator, and decide whether to authorize the single confirmatory run.
+Stage 3.2.5 fairly refit the locked minimum scorer with the primary micro-probe, 2.5x-dose micro-probe, and direct structural capture composite. The dose perturbation left performance effectively unchanged, while the direct composite remained worse after fair calibration. The final test remains ungenerated, unopened, and not authorized.

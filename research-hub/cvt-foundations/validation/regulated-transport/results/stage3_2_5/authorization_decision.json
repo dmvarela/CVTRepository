@@ -1,0 +1,46 @@
+{
+  "stage": "3.2.5",
+  "decision": "final_test_not_authorized",
+  "confirmatory_test_authorized": false,
+  "final_test_generated": false,
+  "final_test_opened": false,
+  "basis": {
+    "incremental_predictive_value_demonstrated": false,
+    "predictive_compression_demonstrated": false,
+    "safe_screen_utility_demonstrated": false,
+    "hard_gate_intersection_supported": false,
+    "locked_cvt_winner": "CVT-2-minimum",
+    "locked_baseline_winner": "BL-6-full-native-gradient-boosting",
+    "locked_cvt_brier": 0.027566401837687913,
+    "best_baseline_brier": 0.0191944598455619,
+    "incremental_improvement_vs_transport_only": 0.0014212547111364972,
+    "incremental_required_absolute_threshold": 0.005,
+    "compression_disadvantage_vs_native": 0.008371941992126004,
+    "compression_max_allowed_point_disadvantage": 0.005,
+    "hosted_with_failed_gate": 92,
+    "hosted_total": 121,
+    "nonhosted_all_gates_pass": 114,
+    "fair_capture_sensitivity": {
+      "primary_micro_probe": {
+        "brier": 0.027566401837687916,
+        "brier_minus_primary": 0.0,
+        "auroc": 0.8045856157014141,
+        "average_precision": 0.14808271523641503
+      },
+      "dose_2_5x_micro_probe": {
+        "brier": 0.027566455521298536,
+        "brier_minus_primary": 5.3683610619359445e-08,
+        "auroc": 0.8045877462667169,
+        "average_precision": 0.14804057650501426
+      },
+      "direct_structural_composite": {
+        "brier": 0.029098659579906646,
+        "brier_minus_primary": 0.0015322577422187296,
+        "auroc": 0.6356040898331554,
+        "average_precision": 0.061069302840408596
+      }
+    }
+  },
+  "authorized_next_work": "exploratory_counterexample_anatomy_and_relational_routing_revision_only",
+  "forbidden_next_work": "single confirmatory final-test execution under the failed Stage 3.2 lock"
+}
