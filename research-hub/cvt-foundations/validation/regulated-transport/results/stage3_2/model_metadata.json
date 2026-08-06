@@ -1,0 +1,212 @@
+{
+  "CVT-1-product": {
+    "name": "CVT-1-product",
+    "family": "CVT",
+    "input_count": 4,
+    "coeff": 0,
+    "thresholds": 0,
+    "hyper": 0,
+    "cal": 2,
+    "meta": {
+      "cv_brier": 0.028627477775682697,
+      "calibration": [-4.154488424845908, 13.20095837440895]
+    }
+  },
+  "CVT-2-minimum": {
+    "name": "CVT-2-minimum",
+    "family": "CVT",
+    "input_count": 4,
+    "coeff": 0,
+    "thresholds": 0,
+    "hyper": 0,
+    "cal": 2,
+    "meta": {
+      "cv_brier": 0.028470406064260562,
+      "calibration": [-4.987266525672094, 10.072070527366384]
+    }
+  },
+  "CVT-3-geometric": {
+    "name": "CVT-3-geometric",
+    "family": "CVT",
+    "input_count": 4,
+    "coeff": 0,
+    "thresholds": 0,
+    "hyper": 0,
+    "cal": 2,
+    "meta": {
+      "cv_brier": 0.028712116978385528,
+      "calibration": [-5.4038133722181, 4.883268774506964]
+    }
+  },
+  "CVT-4-softmin": {
+    "name": "CVT-4-softmin",
+    "family": "CVT",
+    "input_count": 4,
+    "coeff": 0,
+    "thresholds": 0,
+    "hyper": 1,
+    "cal": 2,
+    "meta": {
+      "grid": [
+        {"tau": 0.02, "cv_brier": 0.028452889923093378},
+        {"tau": 0.05, "cv_brier": 0.02841655585196558},
+        {"tau": 0.1, "cv_brier": 0.028341818684326014},
+        {"tau": 0.2, "cv_brier": 0.028302801062648365},
+        {"tau": 0.5, "cv_brier": 0.028683263389911562}
+      ],
+      "selected": {"tau": 0.5, "cv_brier": 0.028683263389911562},
+      "calibration": [-6.939278634633811, 7.736004270929361]
+    }
+  },
+  "CVT-5-direct-constraint": {
+    "name": "CVT-5-direct-constraint",
+    "family": "CVT",
+    "input_count": 4,
+    "coeff": 0,
+    "thresholds": 4,
+    "hyper": 0,
+    "cal": 2,
+    "meta": {
+      "thresholds": [0.673592323904192, 0.6756470618205909, 0.26837276438988267, 0.1460561929912628],
+      "cv_brier": 0.028422105210768787,
+      "candidate_count": 6561,
+      "calibration": [-2.493143577158718, 4.179904839988435]
+    }
+  },
+  "CVT-6-monotone-main-effects": {
+    "name": "CVT-6-monotone-main-effects",
+    "family": "CVT",
+    "input_count": 4,
+    "coeff": 5,
+    "thresholds": 0,
+    "hyper": 1,
+    "cal": 2,
+    "meta": {
+      "l2": 1.0,
+      "intercept": -8.135465740271068,
+      "coef": [1.1309404763242823, 2.9930535741949433, 8.224002924172432, 0.2001174745821758],
+      "calibration": [0.5094993294878506, 1.1257303924797655]
+    }
+  },
+  "CVT-7-monotone-pairwise": {
+    "name": "CVT-7-monotone-pairwise",
+    "family": "CVT",
+    "input_count": 4,
+    "coeff": 11,
+    "thresholds": 0,
+    "hyper": 1,
+    "cal": 2,
+    "meta": {
+      "l2": 1.0,
+      "intercept": -7.031550285924436,
+      "coef": [0.0, 1.7969321818912025, 4.101146017551827, 0.0, 0.6543647566450551, 3.206667684874568, 0.0, 3.3338403549172115, 0.0, 1.4340133734626699],
+      "calibration": [0.10542763702052142, 0.9864436104594222]
+    }
+  },
+  "BL-0-prevalence": {
+    "name": "BL-0-prevalence",
+    "family": "baseline",
+    "input_count": 0,
+    "coeff": 0,
+    "thresholds": 0,
+    "hyper": 0,
+    "cal": 1,
+    "meta": {"probability": 0.034}
+  },
+  "BL-1-forcing-only": {
+    "name": "BL-1-forcing-only",
+    "family": "baseline",
+    "input_count": 9,
+    "coeff": 10,
+    "thresholds": 0,
+    "hyper": 1,
+    "cal": 2,
+    "meta": {
+      "features": ["peak_source_concentration", "peak_permeability", "active_duration", "pulse_count", "scheduled_peak_intact_flux", "scheduled_intact_dose", "forcing_family_pulse", "forcing_family_ramp", "forcing_family_shock_tail"],
+      "l2": 1.0,
+      "boost": null,
+      "leaves": 0,
+      "calibration": [-0.2780818866676724, 0.8754323737921198]
+    }
+  },
+  "BL-2-transport-only": {
+    "name": "BL-2-transport-only",
+    "family": "baseline",
+    "input_count": 10,
+    "coeff": 11,
+    "thresholds": 0,
+    "hyper": 1,
+    "cal": 2,
+    "meta": {
+      "features": ["peak_source_concentration", "peak_permeability", "active_duration", "pulse_count", "scheduled_peak_intact_flux", "scheduled_intact_dose", "initial_c_a", "forcing_family_pulse", "forcing_family_ramp", "forcing_family_shock_tail"],
+      "l2": 1.0,
+      "boost": null,
+      "leaves": 0,
+      "calibration": [-0.21064664266642635, 0.8962371912147615]
+    }
+  },
+  "BL-3-mechanistic-margins": {
+    "name": "BL-3-mechanistic-margins",
+    "family": "baseline",
+    "input_count": 15,
+    "coeff": 16,
+    "thresholds": 0,
+    "hyper": 1,
+    "cal": 2,
+    "meta": {
+      "features": ["peak_source_concentration", "peak_permeability", "active_duration", "pulse_count", "scheduled_peak_intact_flux", "scheduled_intact_dose", "productive_headroom", "buffer_headroom", "damage_margin", "integrity_margin", "reserve_fraction", "free_load_margin", "forcing_family_pulse", "forcing_family_ramp", "forcing_family_shock_tail"],
+      "l2": 1.0,
+      "boost": null,
+      "leaves": 0,
+      "calibration": [-0.13986531693357818, 0.8968328490380374]
+    }
+  },
+  "BL-4-raw-initial-state": {
+    "name": "BL-4-raw-initial-state",
+    "family": "baseline",
+    "input_count": 16,
+    "coeff": 17,
+    "thresholds": 0,
+    "hyper": 1,
+    "cal": 2,
+    "meta": {
+      "features": ["peak_source_concentration", "peak_permeability", "active_duration", "pulse_count", "scheduled_peak_intact_flux", "scheduled_intact_dose", "initial_c_a", "initial_p_fraction", "initial_u_fraction", "initial_d", "initial_s_fraction", "initial_q", "param_h", "forcing_family_pulse", "forcing_family_ramp", "forcing_family_shock_tail"],
+      "l2": 1.0,
+      "boost": null,
+      "leaves": 0,
+      "calibration": [-0.06853848528036013, 0.9245722624704209]
+    }
+  },
+  "BL-5-full-native-logistic": {
+    "name": "BL-5-full-native-logistic",
+    "family": "baseline",
+    "input_count": 44,
+    "coeff": 45,
+    "thresholds": 0,
+    "hyper": 1,
+    "cal": 2,
+    "meta": {
+      "features": ["peak_source_concentration", "peak_permeability", "active_duration", "pulse_count", "scheduled_peak_intact_flux", "scheduled_intact_dose", "initial_c_a", "initial_p_fraction", "initial_u_fraction", "initial_d", "initial_s_fraction", "initial_q", "param_h", "param_p_cap", "param_u_max", "param_k_p", "param_k_b", "param_k_rel", "param_k_e", "param_s_max", "param_r_s", "param_k_rep", "param_r_q", "param_c_safe", "param_u_safe", "param_c_q", "param_j_safe", "param_k_s", "param_k_q", "param_s_export", "param_k_rep_half", "param_k_qs", "param_k_d1", "param_k_d2", "param_k_d3", "param_a_p", "param_a_e", "param_a_b", "param_a_r", "param_b_d", "param_b_l", "forcing_family_pulse", "forcing_family_ramp", "forcing_family_shock_tail"],
+      "l2": 1.0,
+      "boost": null,
+      "leaves": 0,
+      "calibration": [-0.1995247673714173, 0.8465508349286421]
+    }
+  },
+  "BL-6-full-native-gradient-boosting": {
+    "name": "BL-6-full-native-gradient-boosting",
+    "family": "baseline",
+    "input_count": 44,
+    "coeff": 700,
+    "thresholds": 0,
+    "hyper": 4,
+    "cal": 2,
+    "meta": {
+      "features": ["peak_source_concentration", "peak_permeability", "active_duration", "pulse_count", "scheduled_peak_intact_flux", "scheduled_intact_dose", "initial_c_a", "initial_p_fraction", "initial_u_fraction", "initial_d", "initial_s_fraction", "initial_q", "param_h", "param_p_cap", "param_u_max", "param_k_p", "param_k_b", "param_k_rel", "param_k_e", "param_s_max", "param_r_s", "param_k_rep", "param_r_q", "param_c_safe", "param_u_safe", "param_c_q", "param_j_safe", "param_k_s", "param_k_q", "param_s_export", "param_k_rep_half", "param_k_qs", "param_k_d1", "param_k_d2", "param_k_d3", "param_a_p", "param_a_e", "param_a_b", "param_a_r", "param_b_d", "param_b_l", "forcing_family_pulse", "forcing_family_ramp", "forcing_family_shock_tail"],
+      "l2": null,
+      "boost": {"max_leaf_nodes": 7, "learning_rate": 0.1, "max_iter": 100, "min_samples_leaf": 50},
+      "leaves": 700,
+      "calibration": [0.3058099615019454, 1.00862559825176]
+    }
+  }
+}
