@@ -1,0 +1,19 @@
+{
+  "stage": "3.2",
+  "best_cvt": "CVT-2-minimum",
+  "best_baseline": "BL-6-full-native-gradient-boosting",
+  "training_sha256": "173206e583dfd8aacfecca20385cac693f52c81407fade603a82f46eab315a4f",
+  "validation_sha256": "e7e49a9bfa99d61664f850fa2e78c86e31c580d4fcfcfff786a3ff360660aad4",
+  "selection_sha256": "0cd89bbb6cea615edcd7a707ded8772d1af439c37aa78a84225e3e7be8a45c85",
+  "tuning_sha256": "4c92d8023f3356193725524260b8083c361d368740ebb8c978bc5ddea1e137a1",
+  "metrics_sha256": "4e54c961663d161d3470ae938f75ee6df1d26fdb3b6cc10f29f0af0913738ab2",
+  "predictions_sha256": "2889eae1387498de9547a293e2a28a4ee314f79528bb9137cb2843f33b8cecd2",
+  "final_test_opened": false,
+  "confirmatory_test_authorized": false,
+  "portable_seal_version": "stage3.2-portable-seal-1.0",
+  "portable_seal_report_sha256": "ed1fdb29f42670ed8f66f80da46d349e3abca8e08c60ca78de4e709ea7ee0c28",
+  "source_artifact_id": 8915891930,
+  "source_artifact_digest": "sha256:d0a2a59b3c01fd73467c06031dd5a246ace0520f87be0cdc9c2d7c85e814511c",
+  "threshold_search": "bounded-memory exact frozen grid",
+  "false_safe_reasons_sha256": "93465499a80768b8d0ff211da088f0e9c1f2e98af43e15ffa05ff248709525e2"
+}
