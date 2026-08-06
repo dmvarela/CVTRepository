@@ -33,6 +33,7 @@ jobs:
           tests/test_stage31.py
           tests/test_stage32.py
           tests/test_stage32_runner.py
+          tests/test_stage32_finalize.py
       - name: Restore frozen Stage 3.1 evidence artifact
         uses: actions/download-artifact@v4
         with:
@@ -48,6 +49,8 @@ jobs:
           --output results/stage3_2
           --seal config/stage32_portable_seal.json
           --bootstrap-resamples 2000
+      - name: Finalize strict JSON and lock hashes
+        run: python -m src.stage32_finalize --output results/stage3_2
       - name: Record environment
         if: always()
         run: mkdir -p results/stage3_2 && python -m pip freeze > results/stage3_2/pip-freeze.txt
