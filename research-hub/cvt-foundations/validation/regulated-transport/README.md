@@ -1,6 +1,6 @@
 # Regulated-Transport Validation Package
 
-This package implements the native two-compartment transport model, pre-outcome measurements, frozen development evidence, the locked Stage 3.2 validation comparison, and the Stage 3.2.5 closure decision for the CVT Foundations validation protocol.
+This package implements the native two-compartment transport model, pre-outcome measurements, frozen development evidence, the locked Stage 3.2 validation comparison, the Stage 3.2.5 closure decision, and the Stage 4.0 counterexample-anatomy protocol for the CVT Foundations validation program.
 
 Current completed scope:
 
@@ -11,13 +11,15 @@ Current completed scope:
 - Stage 3 pre-fit model-comparison preregistration;
 - Stage 3.1 deterministic training/validation generation and integrity review;
 - Stage 3.2 fit/calibration/validation comparison under the frozen rules;
-- Stage 3.2.5 fair capture-proxy sensitivity refit and final-test non-authorization.
+- Stage 3.2.5 fair capture-proxy sensitivity refit and final-test non-authorization;
+- Stage 4.0 exploratory protocol for counterexample anatomy and relational-routing revision.
 
 Still excluded:
 
 - generation or use of the untouched final test partition;
 - post-validation alteration of the locked primary winners;
-- claims of empirical or general CVT validation.
+- claims of empirical or general CVT validation;
+- confirmatory use of Stage 4 exploratory findings.
 
 The frozen Stage 3 design is recorded in:
 
@@ -47,6 +49,14 @@ The Stage 3.2.5 closure decision is recorded in:
 ```text
 reviews/2026-08-06-stage3-2-5-closure-and-architecture-memo.md
 validation/regulated-transport/results/stage3_2_5/
+```
+
+The Stage 4.0 counterexample-anatomy protocol is recorded in:
+
+```text
+reviews/2026-08-06-stage4-counterexample-anatomy-protocol.md
+validation/regulated-transport/config/stage4_counterexample_anatomy.json
+validation/regulated-transport/results/stage4_0/
 ```
 
 Run tests:
@@ -107,3 +117,5 @@ python -m src.stage325_sensitivity_refit \
 Stage 3.2 locked `CVT-2-minimum` as the primary CVT candidate and `BL-6-full-native-gradient-boosting` as the primary baseline. The current four-proxy operationalization did not meet the preregistered thresholds for incremental predictive value, predictive compression, or high-confidence safety-screen utility.
 
 Stage 3.2.5 fairly refit the locked minimum scorer with the primary micro-probe, 2.5x-dose micro-probe, and direct structural capture composite. The dose perturbation left performance effectively unchanged, while the direct composite remained worse after fair calibration. The final test remains ungenerated, unopened, and not authorized.
+
+Stage 4.0 reframes the failed hard-intersection geometry as an exploratory counterexample-anatomy problem. It studies hosted cases that failed at least one gate and nonhosted cases that passed all four gates as evidence for a possible relational-routing revision. Stage 4.0 does not authorize final testing or claim validation.
