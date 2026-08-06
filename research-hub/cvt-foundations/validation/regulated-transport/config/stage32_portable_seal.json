@@ -1,0 +1,61 @@
+{
+  "version": "stage3.2-portable-seal-1.0",
+  "source_workflow_run": 30966929493,
+  "source_artifact_id": 8915891930,
+  "source_artifact_digest": "sha256:d0a2a59b3c01fd73467c06031dd5a246ace0520f87be0cdc9c2d7c85e814511c",
+  "source_head_sha": "4837e063c946aafc6c5af2594353b99e9d863f3e",
+  "gate_columns": [
+    "g_b",
+    "g_q",
+    "g_c_probe_sham_adjusted_primary",
+    "g_s",
+    "g_c_probe_sham_adjusted_2_5x_dose",
+    "g_c_direct_structural_composite"
+  ],
+  "gate_round_decimals": 5,
+  "partitions": {
+    "training": {
+      "rows": 12000,
+      "file_sha256": "173206e583dfd8aacfecca20385cac693f52c81407fade603a82f46eab315a4f",
+      "design_hash_sha256": "a70ac34676978f84deee0297861a503944bdfee11d6c08c7c2da86c76f7a3096",
+      "identity_digest": "175808e4d3ea2f3a12922984aa26c52ea3313458ec93288310b433bcf2aac0f6",
+      "outcome_digest": "4f29b5bf78cbc6bae9a71a27c283e61b412681ed21dbe1be29413d50317fc775",
+      "rounded_gate_digest": "055cb82eb5ba50fb8d19d6ff540533071fb99c71dc8954f77c47a3f1b1516705",
+      "hosted_count": 381,
+      "target_reached_count": 1674,
+      "viable_count": 4021,
+      "failure_reason_counts": {
+        "damage_violation": 972,
+        "hosted": 381,
+        "integrity_violation": 321,
+        "target_not_reached": 10326
+      }
+    },
+    "validation": {
+      "rows": 4000,
+      "file_sha256": "e7e49a9bfa99d61664f850fa2e78c86e31c580d4fcfcfff786a3ff360660aad4",
+      "design_hash_sha256": "3ed7e2e2b23f1da42113c919c323f2ea19d60bb019d94212674c9e7acf7dc9f2",
+      "identity_digest": "dd8f2a8828510dd0e35e164cda3bf0cb7a0ac93299f61f57223f225955dc28bb",
+      "outcome_digest": "871e413b5bf1b5717306de59e5f5abb00a7dc6face4465cdeaf9ec251af02c93",
+      "rounded_gate_digest": "6af9bc9bea44dc99392b4cb2212fdec20c1342af37ef4466c0812424ad8415a8",
+      "hosted_count": 121,
+      "target_reached_count": 559,
+      "viable_count": 1331,
+      "failure_reason_counts": {
+        "damage_violation": 317,
+        "hosted": 121,
+        "integrity_violation": 121,
+        "target_not_reached": 3441
+      }
+    }
+  },
+  "conditions": {
+    "solver_success_fraction": 1.0,
+    "accounting_valid_fraction": 1.0,
+    "bounds_valid_fraction": 1.0,
+    "productive_monotone_fraction": 1.0,
+    "primary_probe_valid_fraction": 1.0,
+    "sensitivity_probe_valid_fraction": 1.0,
+    "test_partition_opened": false
+  }
+}

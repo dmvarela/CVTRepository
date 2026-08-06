@@ -1,0 +1,9 @@
+{
+  "stage": "3.2",
+  "elapsed_seconds": 149.45215203200001,
+  "bootstrap_resamples": 2000,
+  "portable_seal_passed": true,
+  "validation_opened_once": true,
+  "final_test_generated": false,
+  "final_test_opened": false
+}

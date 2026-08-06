@@ -1,0 +1,55 @@
+{
+  "version": "stage3.2-portable-seal-1.0",
+  "source_workflow_run": 30966929493,
+  "source_artifact_id": 8915891930,
+  "source_artifact_digest": "sha256:d0a2a59b3c01fd73467c06031dd5a246ace0520f87be0cdc9c2d7c85e814511c",
+  "test_partition_present": false,
+  "test_partition_opened": false,
+  "partitions": {
+    "training": {
+      "file_sha256": "173206e583dfd8aacfecca20385cac693f52c81407fade603a82f46eab315a4f",
+      "checks": {
+        "rows": true,
+        "exact_artifact_hash": true,
+        "design_hash": true,
+        "identity_digest": true,
+        "outcome_digest": true,
+        "rounded_gate_digest": true,
+        "hosted_count": true,
+        "target_reached_count": true,
+        "viable_count": true,
+        "failure_reason_counts": true,
+        "solver_success": true,
+        "accounting_valid": true,
+        "bounds_valid": true,
+        "productive_monotone": true,
+        "primary_probe_valid": true,
+        "sensitivity_probe_valid": true
+      },
+      "failed_checks": []
+    },
+    "validation": {
+      "file_sha256": "e7e49a9bfa99d61664f850fa2e78c86e31c580d4fcfcfff786a3ff360660aad4",
+      "checks": {
+        "rows": true,
+        "exact_artifact_hash": true,
+        "design_hash": true,
+        "identity_digest": true,
+        "outcome_digest": true,
+        "rounded_gate_digest": true,
+        "hosted_count": true,
+        "target_reached_count": true,
+        "viable_count": true,
+        "failure_reason_counts": true,
+        "solver_success": true,
+        "accounting_valid": true,
+        "bounds_valid": true,
+        "productive_monotone": true,
+        "primary_probe_valid": true,
+        "sensitivity_probe_valid": true
+      },
+      "failed_checks": []
+    }
+  },
+  "passed": true
+}
