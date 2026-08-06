@@ -1,0 +1,225 @@
+{
+  "best_cvt": "CVT-2-minimum",
+  "best_baseline": "BL-6-full-native-gradient-boosting",
+  "best_simple_baseline": "BL-2-transport-only",
+  "best_native_baseline": "BL-6-full-native-gradient-boosting",
+  "incremental_value": {
+    "absolute_improvement": 0.0014212547111364972,
+    "relative_improvement": 0.04902965193970245,
+    "ci": [
+      -0.0022194480162529857,
+      -0.000700678578087135
+    ],
+    "passes": false,
+    "passes_predictive_criteria": false,
+    "false_safe_comparison": {
+      "estimable": false,
+      "model_count": 0,
+      "reference_count": 0,
+      "model_false_safe_rate": null,
+      "reference_false_safe_rate": null,
+      "worsening": null,
+      "passes": true
+    }
+  },
+  "predictive_compression": {
+    "brier_disadvantage": 0.008371941992126004,
+    "ci": [
+      0.006440745996478492,
+      0.01022168807054857
+    ],
+    "input_fraction": 0.09090909090909091,
+    "passes": false,
+    "passes_predictive_criteria": false,
+    "false_safe_comparison": {
+      "estimable": false,
+      "model_count": 0,
+      "reference_count": 12,
+      "model_false_safe_rate": null,
+      "reference_false_safe_rate": 0.0,
+      "worsening": null,
+      "passes": true
+    }
+  },
+  "counterexamples": {
+    "thresholds": [
+      0.673592323904192,
+      0.6756470618205909,
+      0.26837276438988267,
+      0.1460561929912628
+    ],
+    "hosted_with_failed_gate": 92,
+    "hosted_total": 121,
+    "nonhosted_all_gates_pass": 114,
+    "all_gates_0_8_nonhosted": 0
+  },
+  "sensitivity": {
+    "primary": {
+      "brier": 0.027566401837687913,
+      "log_loss": 0.11690176685007676,
+      "auroc": 0.8045856157014141,
+      "average_precision": 0.14808271523641503,
+      "calibration_intercept": 0.38660894835852183,
+      "calibration_slope": 1.1976687988138979,
+      "ece": 0.00831825159574458,
+      "high": {
+        "count": 0,
+        "coverage": 0.0,
+        "false_safe_rate": null,
+        "informative": false
+      },
+      "ordinary": {
+        "count": 0,
+        "coverage": 0.0,
+        "false_safe_rate": null,
+        "informative": false
+      }
+    },
+    "dose_2_5x": {
+      "brier": 0.027566456770129248,
+      "log_loss": 0.11690169602816522,
+      "auroc": 0.8045877462667169,
+      "average_precision": 0.14804057650501426,
+      "calibration_intercept": 0.38748084764390894,
+      "calibration_slope": 1.197891386878733,
+      "ece": 0.00832288545049436,
+      "high": {
+        "count": 0,
+        "coverage": 0.0,
+        "false_safe_rate": null,
+        "informative": false
+      },
+      "ordinary": {
+        "count": 0,
+        "coverage": 0.0,
+        "false_safe_rate": null,
+        "informative": false
+      }
+    },
+    "direct": {
+      "brier": 0.20426921085315655,
+      "log_loss": 0.6203283943176161,
+      "auroc": 0.6356040898331554,
+      "average_precision": 0.061069302840408596,
+      "calibration_intercept": -3.270483781445009,
+      "calibration_slope": 0.2118899786011298,
+      "ece": 0.2880124884182121,
+      "high": {
+        "count": 541,
+        "coverage": 0.13525,
+        "false_safe_rate": 0.933456561922366,
+        "informative": true
+      },
+      "ordinary": {
+        "count": 1134,
+        "coverage": 0.2835,
+        "false_safe_rate": 0.9479717813051146,
+        "informative": true
+      }
+    }
+  },
+  "validation_opened_once": true,
+  "final_test_generated": false,
+  "final_test_opened": false,
+  "provisional_safety_screens": {
+    "CVT-7-monotone-pairwise": {
+      "minimum_count": false,
+      "minimum_coverage": false,
+      "maximum_false_safe_rate": false,
+      "passes_validation_only_screen": false,
+      "final_test_calibration_still_required": true
+    },
+    "CVT-6-monotone-main-effects": {
+      "minimum_count": false,
+      "minimum_coverage": false,
+      "maximum_false_safe_rate": false,
+      "passes_validation_only_screen": false,
+      "final_test_calibration_still_required": true
+    },
+    "CVT-2-minimum": {
+      "minimum_count": false,
+      "minimum_coverage": false,
+      "maximum_false_safe_rate": false,
+      "passes_validation_only_screen": false,
+      "final_test_calibration_still_required": true
+    },
+    "CVT-1-product": {
+      "minimum_count": false,
+      "minimum_coverage": false,
+      "maximum_false_safe_rate": false,
+      "passes_validation_only_screen": false,
+      "final_test_calibration_still_required": true
+    },
+    "CVT-4-softmin": {
+      "minimum_count": false,
+      "minimum_coverage": false,
+      "maximum_false_safe_rate": false,
+      "passes_validation_only_screen": false,
+      "final_test_calibration_still_required": true
+    },
+    "CVT-5-direct-constraint": {
+      "minimum_count": false,
+      "minimum_coverage": false,
+      "maximum_false_safe_rate": false,
+      "passes_validation_only_screen": false,
+      "final_test_calibration_still_required": true
+    },
+    "CVT-3-geometric": {
+      "minimum_count": false,
+      "minimum_coverage": false,
+      "maximum_false_safe_rate": false,
+      "passes_validation_only_screen": false,
+      "final_test_calibration_still_required": true
+    },
+    "BL-6-full-native-gradient-boosting": {
+      "minimum_count": false,
+      "minimum_coverage": false,
+      "maximum_false_safe_rate": false,
+      "passes_validation_only_screen": false,
+      "final_test_calibration_still_required": true
+    },
+    "BL-5-full-native-logistic": {
+      "minimum_count": false,
+      "minimum_coverage": false,
+      "maximum_false_safe_rate": false,
+      "passes_validation_only_screen": false,
+      "final_test_calibration_still_required": true
+    },
+    "BL-4-raw-initial-state": {
+      "minimum_count": false,
+      "minimum_coverage": false,
+      "maximum_false_safe_rate": false,
+      "passes_validation_only_screen": false,
+      "final_test_calibration_still_required": true
+    },
+    "BL-3-mechanistic-margins": {
+      "minimum_count": false,
+      "minimum_coverage": false,
+      "maximum_false_safe_rate": false,
+      "passes_validation_only_screen": false,
+      "final_test_calibration_still_required": true
+    },
+    "BL-2-transport-only": {
+      "minimum_count": false,
+      "minimum_coverage": false,
+      "maximum_false_safe_rate": false,
+      "passes_validation_only_screen": false,
+      "final_test_calibration_still_required": true
+    },
+    "BL-1-forcing-only": {
+      "minimum_count": false,
+      "minimum_coverage": false,
+      "maximum_false_safe_rate": false,
+      "passes_validation_only_screen": false,
+      "final_test_calibration_still_required": true
+    },
+    "BL-0-prevalence": {
+      "minimum_count": false,
+      "minimum_coverage": false,
+      "maximum_false_safe_rate": false,
+      "passes_validation_only_screen": false,
+      "final_test_calibration_still_required": true
+    }
+  },
+  "portable_seal_passed": true
+}
