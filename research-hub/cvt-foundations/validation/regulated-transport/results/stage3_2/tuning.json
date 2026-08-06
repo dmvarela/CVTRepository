@@ -1,0 +1,132 @@
+{
+  "CVT-1-product": {
+    "cv_brier": 0.028627477775682697
+  },
+  "CVT-2-minimum": {
+    "cv_brier": 0.028470406064260562
+  },
+  "CVT-3-geometric": {
+    "cv_brier": 0.028712116978385528
+  },
+  "CVT-4-softmin": {
+    "grid": [
+      {"tau": 0.02, "cv_brier": 0.028452889923093378},
+      {"tau": 0.05, "cv_brier": 0.02841655585196558},
+      {"tau": 0.1, "cv_brier": 0.028341818684326014},
+      {"tau": 0.2, "cv_brier": 0.028302801062648365},
+      {"tau": 0.5, "cv_brier": 0.028683263389911562}
+    ],
+    "selected": {"tau": 0.5, "cv_brier": 0.028683263389911562}
+  },
+  "CVT-5-direct-constraint": {
+    "thresholds": [0.673592323904192, 0.6756470618205909, 0.26837276438988267, 0.1460561929912628],
+    "cv_brier": 0.028422105210768787,
+    "candidate_count": 6561
+  },
+  "CVT-6-monotone-main-effects": {
+    "grid": [
+      {"l2": 0.0, "cv_brier": 0.027606372863114282},
+      {"l2": 0.0001, "cv_brier": 0.02760632224962627},
+      {"l2": 0.001, "cv_brier": 0.027605868462334572},
+      {"l2": 0.01, "cv_brier": 0.027601483114267543},
+      {"l2": 0.1, "cv_brier": 0.027571728127126383},
+      {"l2": 1.0, "cv_brier": 0.027801877827588712}
+    ],
+    "selected": {"l2": 1.0, "cv_brier": 0.027801877827588712}
+  },
+  "CVT-7-monotone-pairwise": {
+    "grid": [
+      {"l2": 0.0, "cv_brier": 0.02760885824610247},
+      {"l2": 0.0001, "cv_brier": 0.02760393988625976},
+      {"l2": 0.001, "cv_brier": 0.027610525537811247},
+      {"l2": 0.01, "cv_brier": 0.027612305906471048},
+      {"l2": 0.1, "cv_brier": 0.027619769762833063},
+      {"l2": 1.0, "cv_brier": 0.027569639923555034}
+    ],
+    "selected": {"l2": 1.0, "cv_brier": 0.027569639923555034}
+  },
+  "BL-1-forcing-only": {
+    "grid": [
+      {"l2": 0.0, "cv_brier": 0.02963098661362471},
+      {"l2": 0.0001, "cv_brier": 0.02963098289499219},
+      {"l2": 0.001, "cv_brier": 0.029630949099433274},
+      {"l2": 0.01, "cv_brier": 0.029630612151295845},
+      {"l2": 0.1, "cv_brier": 0.029627182554149332},
+      {"l2": 1.0, "cv_brier": 0.029602719808832396}
+    ],
+    "selected": {"l2": 1.0, "cv_brier": 0.029602719808832396}
+  },
+  "BL-2-transport-only": {
+    "grid": [
+      {"l2": 0.0, "cv_brier": 0.02963503152784197},
+      {"l2": 0.0001, "cv_brier": 0.02963502774739456},
+      {"l2": 0.001, "cv_brier": 0.02963499339000093},
+      {"l2": 0.01, "cv_brier": 0.029634650835327542},
+      {"l2": 0.1, "cv_brier": 0.029631324709090086},
+      {"l2": 1.0, "cv_brier": 0.029605104459460307}
+    ],
+    "selected": {"l2": 1.0, "cv_brier": 0.029605104459460307}
+  },
+  "BL-3-mechanistic-margins": {
+    "grid": [
+      {"l2": 0.0, "cv_brier": 0.028164469016123617},
+      {"l2": 0.0001, "cv_brier": 0.02816446328658816},
+      {"l2": 0.001, "cv_brier": 0.028164411216484646},
+      {"l2": 0.01, "cv_brier": 0.028163892154291475},
+      {"l2": 0.1, "cv_brier": 0.028158860711689458},
+      {"l2": 1.0, "cv_brier": 0.028121105493897423}
+    ],
+    "selected": {"l2": 1.0, "cv_brier": 0.028121105493897423}
+  },
+  "BL-4-raw-initial-state": {
+    "grid": [
+      {"l2": 0.0, "cv_brier": 0.027495654542627212},
+      {"l2": 0.0001, "cv_brier": 0.02749564970417708},
+      {"l2": 0.001, "cv_brier": 0.02749560574126646},
+      {"l2": 0.01, "cv_brier": 0.027495168388180648},
+      {"l2": 0.1, "cv_brier": 0.027491014706426335},
+      {"l2": 1.0, "cv_brier": 0.027464338209784313}
+    ],
+    "selected": {"l2": 1.0, "cv_brier": 0.027464338209784313}
+  },
+  "BL-5-full-native-logistic": {
+    "grid": [
+      {"l2": 0.0, "cv_brier": 0.024023084644681326},
+      {"l2": 0.0001, "cv_brier": 0.024023074479137846},
+      {"l2": 0.001, "cv_brier": 0.024022982173608206},
+      {"l2": 0.01, "cv_brier": 0.024022069908442578},
+      {"l2": 0.1, "cv_brier": 0.02401405888200842},
+      {"l2": 1.0, "cv_brier": 0.023962813013748852}
+    ],
+    "selected": {"l2": 1.0, "cv_brier": 0.023962813013748852}
+  },
+  "BL-6-full-native-gradient-boosting": {
+    "grid": [
+      {"max_leaf_nodes": 7, "learning_rate": 0.03, "max_iter": 100, "min_samples_leaf": 20, "cv_brier": 0.0225837156319229},
+      {"max_leaf_nodes": 7, "learning_rate": 0.03, "max_iter": 100, "min_samples_leaf": 50, "cv_brier": 0.022701409874894787},
+      {"max_leaf_nodes": 7, "learning_rate": 0.03, "max_iter": 300, "min_samples_leaf": 20, "cv_brier": 0.020989362388416036},
+      {"max_leaf_nodes": 7, "learning_rate": 0.03, "max_iter": 300, "min_samples_leaf": 50, "cv_brier": 0.02080561088717915},
+      {"max_leaf_nodes": 7, "learning_rate": 0.1, "max_iter": 100, "min_samples_leaf": 20, "cv_brier": 0.021385523191678642},
+      {"max_leaf_nodes": 7, "learning_rate": 0.1, "max_iter": 100, "min_samples_leaf": 50, "cv_brier": 0.021216909314201317},
+      {"max_leaf_nodes": 7, "learning_rate": 0.1, "max_iter": 300, "min_samples_leaf": 20, "cv_brier": 0.021799606034746656},
+      {"max_leaf_nodes": 7, "learning_rate": 0.1, "max_iter": 300, "min_samples_leaf": 50, "cv_brier": 0.02121577252700408},
+      {"max_leaf_nodes": 15, "learning_rate": 0.03, "max_iter": 100, "min_samples_leaf": 20, "cv_brier": 0.021735343076385236},
+      {"max_leaf_nodes": 15, "learning_rate": 0.03, "max_iter": 100, "min_samples_leaf": 50, "cv_brier": 0.021418880371612277},
+      {"max_leaf_nodes": 15, "learning_rate": 0.03, "max_iter": 300, "min_samples_leaf": 20, "cv_brier": 0.021317507329132353},
+      {"max_leaf_nodes": 15, "learning_rate": 0.03, "max_iter": 300, "min_samples_leaf": 50, "cv_brier": 0.02093764533475761},
+      {"max_leaf_nodes": 15, "learning_rate": 0.1, "max_iter": 100, "min_samples_leaf": 20, "cv_brier": 0.02207221192972377},
+      {"max_leaf_nodes": 15, "learning_rate": 0.1, "max_iter": 100, "min_samples_leaf": 50, "cv_brier": 0.021667760744917074},
+      {"max_leaf_nodes": 15, "learning_rate": 0.1, "max_iter": 300, "min_samples_leaf": 20, "cv_brier": 0.02337210434897589},
+      {"max_leaf_nodes": 15, "learning_rate": 0.1, "max_iter": 300, "min_samples_leaf": 50, "cv_brier": 0.023455183843450505},
+      {"max_leaf_nodes": 31, "learning_rate": 0.03, "max_iter": 100, "min_samples_leaf": 20, "cv_brier": 0.022138110819616533},
+      {"max_leaf_nodes": 31, "learning_rate": 0.03, "max_iter": 100, "min_samples_leaf": 50, "cv_brier": 0.02163078534580474},
+      {"max_leaf_nodes": 31, "learning_rate": 0.03, "max_iter": 300, "min_samples_leaf": 20, "cv_brier": 0.023150526279764168},
+      {"max_leaf_nodes": 31, "learning_rate": 0.03, "max_iter": 300, "min_samples_leaf": 50, "cv_brier": 0.02265359924909459},
+      {"max_leaf_nodes": 31, "learning_rate": 0.1, "max_iter": 100, "min_samples_leaf": 20, "cv_brier": 0.023575418206904165},
+      {"max_leaf_nodes": 31, "learning_rate": 0.1, "max_iter": 100, "min_samples_leaf": 50, "cv_brier": 0.023137524361847434},
+      {"max_leaf_nodes": 31, "learning_rate": 0.1, "max_iter": 300, "min_samples_leaf": 20, "cv_brier": 0.02533444501201316},
+      {"max_leaf_nodes": 31, "learning_rate": 0.1, "max_iter": 300, "min_samples_leaf": 50, "cv_brier": 0.025338396468741874}
+    ],
+    "selected": {"max_leaf_nodes": 7, "learning_rate": 0.1, "max_iter": 100, "min_samples_leaf": 50, "cv_brier": 0.021216909314201317}
+  }
+}
