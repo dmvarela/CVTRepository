@@ -1,0 +1,68 @@
+{
+  "stage": "4.0",
+  "name": "counterexample_anatomy_protocol",
+  "status": "exploratory_protocol",
+  "final_test_generated": false,
+  "final_test_opened": false,
+  "confirmatory_test_authorized": false,
+  "allowed_data_sources": [
+    "stage3_1_training_evidence",
+    "stage3_1_validation_evidence",
+    "stage3_2_locked_validation_predictions",
+    "stage3_2_selection_and_thresholds",
+    "stage3_2_5_closure_decision"
+  ],
+  "forbidden_actions": [
+    "generate_final_test_partition",
+    "read_final_test_partition",
+    "alter_stage3_2_locked_winners",
+    "claim_confirmatory_validation_from_stage4",
+    "tune_revised_model_for_final_test"
+  ],
+  "gate_thresholds": {
+    "B": 0.673592323904192,
+    "Q": 0.6756470618205909,
+    "C": 0.26837276438988267,
+    "S": 0.1460561929912628
+  },
+  "primary_classes": {
+    "hosted_failed_gate": "hosted == 1 and at least one of B,Q,C,S is below the frozen threshold",
+    "hosted_all_gates_pass": "hosted == 1 and all four frozen gates pass",
+    "nonhosted_all_gates_pass": "hosted == 0 and all four frozen gates pass",
+    "nonhosted_failed_gate": "hosted == 0 and at least one of B,Q,C,S is below the frozen threshold"
+  },
+  "load_bearing_contradiction_classes": [
+    "hosted_failed_gate",
+    "nonhosted_all_gates_pass"
+  ],
+  "required_outputs_stage4_1": [
+    "results/stage4_1/counterexample_anatomy.csv",
+    "results/stage4_1/counterexample_summary.json",
+    "reviews/2026-08-06-stage4-1-counterexample-anatomy.md",
+    "results/stage4_1/relational_routing_hypotheses.json"
+  ],
+  "minimum_descriptive_analyses": [
+    "class_counts",
+    "class_by_forcing_family",
+    "failed_gate_pattern_counts",
+    "failure_reason_by_class",
+    "gate_margin_schedule_summary_by_class",
+    "cvt_vs_native_prediction_by_class",
+    "model_error_direction_by_class",
+    "nearest_neighbor_examples_in_gate_space",
+    "extremal_model_error_examples"
+  ],
+  "permitted_exploratory_models": [
+    "monotone_gate_interactions",
+    "capture_by_dose_reserve_integrity_interactions",
+    "routing_scores_for_productive_rejection_buffering_damage_recovery",
+    "contradiction_classifiers_for_hypothesis_generation_only"
+  ],
+  "revision_target": "Hosted transformation should be studied as relational routing among boundary, organization, capture response, reserve, input form, and history, not as a hard intersection of four independent gates.",
+  "capture_revision_hypothesis": "C = C(B, Q, S, input, current_load, history)",
+  "exit_criteria": {
+    "stage4_0": "protocol merged",
+    "stage4_1": "counterexample anatomy artifacts created while final test remains sealed",
+    "stage4_2": "decision whether to revise manuscript, create fresh development cycle, preregister Stage 5, or stop line as negative result"
+  }
+}
