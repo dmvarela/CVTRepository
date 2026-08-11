@@ -1,6 +1,6 @@
 # Regulated-Transport Validation Package
 
-This package implements the native two-compartment transport model, pre-outcome measurements, frozen development evidence, the locked Stage 3.2 validation comparison, the Stage 3.2.5 closure decision, the Stage 4.0 counterexample-anatomy protocol, and the executed Stage 4.1 anatomy for the CVT Foundations validation program.
+This package implements the native two-compartment transport model, pre-outcome measurements, frozen development evidence, the locked Stage 3.2 validation comparison, the Stage 3.2.5 closure decision, the Stage 4.0 counterexample-anatomy protocol, the executed Stage 4.1 anatomy, and the Stage 4.2 architecture decision for the CVT Foundations validation program.
 
 Current completed scope:
 
@@ -13,7 +13,8 @@ Current completed scope:
 - Stage 3.2 fit/calibration/validation comparison under the frozen rules;
 - Stage 3.2.5 fair capture-proxy sensitivity refit and final-test non-authorization;
 - Stage 4.0 exploratory protocol for counterexample anatomy and relational-routing revision;
-- Stage 4.1 deterministic counterexample anatomy, model-error comparison, and relational-routing hypotheses.
+- Stage 4.1 deterministic counterexample anatomy, model-error comparison, and relational-routing hypotheses;
+- Stage 4.2 architecture decision and canonical-manuscript revision plan.
 
 Still excluded:
 
@@ -66,6 +67,14 @@ The executed Stage 4.1 anatomy is recorded in:
 reviews/2026-08-06-stage4-1-counterexample-anatomy.md
 validation/regulated-transport/results/stage4_1/
 validation/regulated-transport/src/stage41_counterexample_anatomy.py
+```
+
+The Stage 4.2 architecture decision is recorded in:
+
+```text
+reviews/2026-08-10-stage4-2-architecture-decision.md
+reviews/2026-08-10-stage4-2-manuscript-revision-plan.md
+validation/regulated-transport/results/stage4_2/
 ```
 
 Run tests:
@@ -140,3 +149,5 @@ Stage 3.2 locked `CVT-2-minimum` as the primary CVT candidate and `BL-6-full-nat
 Stage 3.2.5 fairly refit the locked minimum scorer with the primary micro-probe, 2.5x-dose micro-probe, and direct structural capture composite. The dose perturbation left performance effectively unchanged, while the direct composite remained worse after fair calibration. The final test remains ungenerated, unopened, and not authorized.
 
 Stage 4.0 reframes the failed hard-intersection geometry as an exploratory counterexample-anatomy problem. Stage 4.1 executes that protocol: 92 hosted rows fail at least one gate, 114 nonhosted rows pass all four, capture-gate failure appears in 71 of the 92 hosted contradictions, and 90 of the 114 all-pass failures do not reach the transformation target. The native gradient booster reduces error most strongly on hosted rows, while rare confident nonhosted errors complicate its class-level advantage. These are exploratory architecture-repair findings, not confirmation. The final test remains ungenerated, unopened, and not authorized.
+
+Stage 4.2 closes the architecture cycle by authorizing a separate Stage 4.3 manuscript revision and conditionally authorizing Stage 5.0 protocol design. Relational routing remains exploratory; revised-model execution and final-test access remain unauthorized. A fresh development partition and new preregistration are required before any revised candidate is executed.

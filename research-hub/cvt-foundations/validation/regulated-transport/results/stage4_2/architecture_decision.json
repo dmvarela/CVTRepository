@@ -1,0 +1,80 @@
+{
+  "stage": "4.2",
+  "name": "architecture_decision",
+  "status": "complete",
+  "evidence_basis": [
+    "stage3_2_locked_validation_comparison",
+    "stage3_2_5_closure_and_non_authorization",
+    "stage4_0_counterexample_anatomy_protocol",
+    "stage4_1_counterexample_anatomy"
+  ],
+  "bounded_result": {
+    "hard_gate_intersection_supported": false,
+    "incremental_predictive_value_demonstrated": false,
+    "predictive_compression_demonstrated": false,
+    "safety_screen_utility_demonstrated": false,
+    "hosted_failed_gate": 92,
+    "hosted_all_gates_pass": 29,
+    "nonhosted_all_gates_pass": 114,
+    "nonhosted_failed_gate": 3765,
+    "capture_gate_involved_in_hosted_failed_gate": 71,
+    "all_pass_target_not_reached": 90,
+    "all_pass_damage_violation": 12,
+    "all_pass_integrity_violation": 12
+  },
+  "decisions": {
+    "revise_foundations_manuscript_now": true,
+    "canonical_manuscript_changed_in_stage4_2": false,
+    "hard_gate_geometry_status": "rejected_for_measured_proxies_in_bounded_regulated_transport_simulation",
+    "relational_routing_status": "exploratory_hypothesis_field_not_validated_replacement",
+    "stage5_protocol_design_conditionally_authorized": true,
+    "stage5_model_execution_authorized": false,
+    "fresh_development_partition_required": true,
+    "opened_stage3_validation_permitted_for_revised_model_selection": false,
+    "post_outcome_routing_variables_permitted_as_revised_predictors": false
+  },
+  "retained_program": [
+    "independent_host_and_outcome_declaration",
+    "delivered_exchange_vs_productive_uptake_separation",
+    "transformation_success_vs_host_viability_separation",
+    "pre_outcome_measurement_requirement",
+    "damage_reserve_history_and_recovery_separation",
+    "comparison_with_simple_capacity_matched_and_domain_native_models",
+    "counterexample_and_delayed_failure_reporting"
+  ],
+  "manuscript_revision": {
+    "authorized": true,
+    "execution_stage": "4.3",
+    "plan": "reviews/2026-08-10-stage4-2-manuscript-revision-plan.md",
+    "required_status_language": "mixed_negative_simulation_result",
+    "must_not_claim": [
+      "universal_necessity",
+      "universal_sufficiency",
+      "validated_relational_routing_law",
+      "empirical_domain_confirmation"
+    ]
+  },
+  "stage5_entry_criteria": [
+    "canonical_manuscript_reports_the_mixed_negative_result",
+    "pre_outcome_routing_estimators_are_defined",
+    "fresh_development_partition_is_frozen",
+    "candidate_interactions_and_capacity_matched_baselines_are_preregistered",
+    "selection_calibration_uncertainty_and_stopping_rules_are_frozen",
+    "new_validation_authorization_threshold_is_frozen",
+    "final_test_disposition_is_explicit"
+  ],
+  "final_test": {
+    "confirmatory_test_authorized": false,
+    "final_test_generated": false,
+    "final_test_opened": false,
+    "disposition": "preserve_sealed_not_a_development_resource",
+    "future_access_rule": "only_after_revised_candidate_lock_and_fresh_validation_stage_authorization"
+  },
+  "ordered_next_actions": [
+    "stage4_3_canonical_manuscript_revision",
+    "stage5_0_relational_routing_preregistration_if_continuation_remains_justified",
+    "target_field_and_venue_decision",
+    "separate_fusion_host_archive_before_any_detailed_fusion_restoration"
+  ]
+}
+
