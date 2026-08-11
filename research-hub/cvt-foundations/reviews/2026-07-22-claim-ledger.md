@@ -1,218 +1,64 @@
-# CVT Foundations — Claim Ledger, Pass 01
+# CVT Foundations - Claim Ledger
 
-**Date:** 2026-07-22  
+**Updated:** 2026-08-10  
 **Manuscript:** `research-hub/cvt-foundations/main.tex`  
-**Review issue:** #6 — Stress-test CVT Foundations  
-**Status:** first bounded scholarly review artifact; does not modify the canonical manuscript.
+**Review issue:** #6 - Stress-test CVT Foundations  
+**Current stage:** Stage 4.3 canonical manuscript revision
 
 ## Executive verdict
 
-CVT Foundations has a strong conceptual nucleus: viable transformation requires more than openness, more than closure, and more than raw exchange. The manuscript repeatedly returns to a defensible structural distinction between what crosses a boundary and what is productively received.
+CVT Foundations now has a result-constrained conceptual and methodological nucleus: hosted transformation requires an independent transformation outcome and continuing host viability, while delivered exchange, productive uptake, organization, capture response, reserve, damage, load, and history must remain distinguishable in measurement and modeling.
 
-The next revision should not expand the manuscript. It should narrow and harden it.
+The first bounded regulated-transport simulation produced a **mixed negative simulation result**. The measured `B,Q,C,S` variables carried modest pre-outcome signal, but the locked CVT model failed the preregistered thresholds for incremental predictive value, predictive compression, and high-confidence safety-screen utility. The literal fitted hard-gate intersection was neither necessary nor sufficient. Accordingly, the four dimensions remain a candidate measurement decomposition; four jointly necessary independent gates do not remain the preferred empirical architecture.
 
-The strongest paper is likely one of two forms:
+Relational routing is a next hypothesis, not a result. It may proceed only through a fresh protocol and development partition. No empirical-domain claim and no final-test authorization follows from the opened simulation evidence.
 
-1. **General CVT Foundations paper:** define the four-condition invariant, product-gate non-compensability, raw/effective exchange, and hosted transformation; use membrane and fusion as short illustrations.
-2. **Fusion-host paper:** make the reactor/machine interface the main subject and use CVT as the framing contribution.
+## Current claim statuses
 
-The present version tries to do both. That is productive for discovery, but risky for publication.
-
-## Major structural findings
-
-### 1. The core invariant is the main contribution
-
-**Claim:** Viable transformation requires bounded coupling, preserved distinction, receptive basin, and restorative reserve.
-
-**Claim type:** structural / programmatic / partly definitional.
-
-**Manuscript location:** abstract and introduction.
-
-**Novelty risk:** moderate. The individual concepts are inherited from established traditions. The proposed novelty lies in their conjunction and non-compensatory relation.
-
-**Evidence burden:** the paper must show that the conjunction is not merely a restatement of existing viability, resilience, autopoiesis, passivity, or basin-dynamics language.
-
-**Revision decision:** keep, but state novelty modestly: CVT proposes a unifying exchange-viability invariant rather than a wholly new mathematical field.
-
----
-
-### 2. Cross-domain scope is promising but currently too broad
-
-**Claim:** The invariant appears across physical, biological, institutional, technological, relational, and theological domains.
-
-**Claim type:** analogical / philosophical / programmatic.
-
-**Novelty risk:** high if presented as proven; acceptable if presented as a research program.
-
-**Evidence burden:** each domain requires its own operational variables, failure cases, and falsifiability conditions. The theological sentence in the introduction should either be removed from the technical article or clearly framed as motivational register, not evidence.
-
-**Revision decision:** constrain the technical manuscript to systems with explicit boundary-mediated exchange. Move theological and relational register to A Crownless Throne / Right Relation unless directly needed.
-
----
-
-### 3. The intellectual lineage section needs primary-source anchoring
-
-**Claim:** Viability theory, autopoiesis, passivity/port-based control, resilience, and basin dynamics each capture part of the invariant but not the conjunction.
-
-**Claim type:** literature-positioning / historiographic synthesis.
-
-**Novelty risk:** high until supported by direct citations.
-
-**Evidence burden:** the paper needs primary or standard references for each tradition, plus an explicit table showing:
-
-| Tradition | What it already covers | What CVT adds | What CVT must not claim as new |
+| Claim | Type | Current status | Evidence and revision burden |
 |---|---|---|---|
-| Viability theory | state constraints, viable kernels | exchange boundary and receptivity | viability under constraints |
-| Autopoiesis | self-maintenance and structural coupling | non-compensatory gate failure and reserve | organizational closure |
-| Port-Hamiltonian / passivity | energy ports, constrained exchange | receptivity vs capacity, preserved distinction | bounded energetic exchange |
-| Resilience | absorption and recovery | exchange as central load/nourishment distinction | recovery under disturbance |
-| Basin dynamics | capture, thresholds, attractors | boundary law plus receiving basin | threshold behavior |
+| Four jointly necessary independent conditions govern hosted transformation | structural / empirical | **Empirically constrained strong hypothesis** | The fitted hard intersection was contradicted by 92 hosted failed-gate cases and 114 nonhosted all-pass cases. Retain only as the documented first-generation geometry or retest under a newly scoped domain and preregistration. |
+| `B,Q,C,S` are useful dimensions for separating boundary regulation, organization, capture response, and restorative reserve | conceptual / methodological | **Candidate measurement decomposition retained** | Each dimension must remain independently operationalized, compared with simpler variables, and removable if it adds no value. |
+| Capture readiness is an independent stored scalar condition | measurement / mechanistic | **Measurement architecture under revision** | It must be measured before or independently of uptake, but may instead be an input-conditioned response relation such as `C_t(u;B,Q,S,L,H)`. A fresh study must prespecify the probes, context, and timing. |
+| Relational routing among state, specified input, load, schedule, and history explains the contradictions | programmatic / mechanistic | **Exploratory programmatic hypothesis** | Generated from opened-validation anatomy. It requires fresh development data, prespecified interactions, capacity accounting, and domain-native comparison models. It is not validated. |
+| Separating delivered input, uptake, viability, damage, reserve, and history prevents circular success definitions | conceptual / methodological | **Retained conceptual/methodological contribution** | Continue to enforce temporal ordering, independent outcomes, common accounting windows, and delayed-failure follow-up in every application. |
+| The regulated-transport study supports CVT over simpler and native baselines | simulation / predictive | **Mixed negative simulation result** | CVT-2-minimum Brier was 0.027566 versus 0.028988 for transport-only and 0.019194 for native gradient boosting. Improvement over transport-only was 0.001421, below the required 0.005; compression and safety-screen claims failed. |
+| Product, minimum, soft-minimum, geometric-mean, and direct constraints represent CVT | mathematical / modeling | **Falsifiable candidate representations, not preferred results** | The product's zero-gate property follows mathematically from the chosen aggregator, but no representation is empirically privileged. The fitted literal intersection failed in the bounded simulation. |
+| Hosted transformation combines a declared transition with continued viability over a follow-up horizon | definition / methodological | **Retained organizing definition** | Host, boundary, transition, viable set, success criterion, and horizon must be declared independently of CVT predictors. |
+| Increased delivered exchange can reduce productive uptake | structural / testable | **Scoped testable hypothesis** | The local elasticity result is mathematical; occurrence of the degrading regime remains domain-specific and requires independent measurement of delivered and productive exchange. |
+| The membrane illustration validates CVT | analogical / empirical | **Rejected as a manuscript claim** | The regulated-transport simulation is a bounded native world, not an empirical membrane validation and not evidence of universal cross-domain equivalence. |
+| Fusion self-heating is distinct from sustained plasma-machine viability | conceptual / domain mapping | **Source-anchored illustration only** | Fusion remains a short illustration. Detailed equations, controllers, numerical claims, and the former Minimum Viable Host statement remain excluded pending a separate reproducible archive and domain-native review. |
+| CVT is a universal invariant or a mathematical extension of viability theory | theoretical / novelty | **Not established** | The manuscript claims a testable synthesis and disciplined measurement architecture, not a universal law or a new foundational field. |
 
-**Revision decision:** add a novelty matrix before the formal section.
+## Locked simulation evidence
 
----
+The following values are the only numerical claims carried into the Stage 4.3 manuscript:
 
-### 4. Product-gate mathematics is valid but does not prove the modeling choice
+- locked CVT model: `CVT-2-minimum`, Brier `0.027566`;
+- transport-only baseline: Brier `0.028988`;
+- CVT improvement over transport-only: `0.001421`, below the required `0.005`;
+- native gradient boosting: Brier `0.019194`, an advantage of `0.008372` over CVT;
+- anatomy: hosted all-pass `29`, hosted failed-gate `92`, nonhosted all-pass `114`, nonhosted failed-gate `3,765`;
+- capture-gate failure in hosted contradictions: `71/92`;
+- nonhosted all-pass failure reasons: target not reached `90`, damage `12`, integrity `12`.
 
-**Claim:** If viability is represented as a product of necessary gates, collapse of any gate collapses total viability.
+Provenance is the Stage 4.1 merge commit `bfa12e38e4ddef89d2d76ed2b04577e56bcbafc1` and the locked Stage 3.2/Stage 3.2.5 artifacts referenced by that review.
 
-**Claim type:** mathematical consequence of assumptions.
+## Falsification and continuation burden
 
-**Novelty risk:** low as mathematics, but high if interpreted as empirically established.
+A future CVT model is constrained or unsuccessful when hosted transformation occurs reliably despite failure of a condition claimed to be essential, when all proposed conditions pass but the independent outcome fails, when a predictor restates a post-outcome anatomy label, or when a simpler or domain-native model performs as well with fewer independently measured quantities.
 
-**Evidence burden:** the paper must justify why a product representation is appropriate rather than minimum, soft-min, log-barrier, conjunctive fuzzy logic, or viability-kernel intersection.
+Stage 5.0 protocol design is conditionally authorized only after this manuscript revision. Any continuation must:
 
-**Revision decision:** preserve the proposition, but label it as a representation of non-compensability. Add alternatives and explain why product form is chosen for first formalization.
+1. use a fresh development partition;
+2. preregister relational inputs, probes, interactions, capacity, baselines, outcomes, and stop/go thresholds;
+3. keep productive uptake, rejection, damage, and recovery as outcomes or anatomy labels unless independently predicted before evaluation;
+4. prevent adaptive reuse of the opened validation partition as confirmatory evidence;
+5. require a new authorization decision before generating or opening any final test.
 
----
+The preserved final test remains **ungenerated, unopened, and unauthorized**.
 
-### 5. The formal architecture is useful but under-identified
+## Publication recommendation
 
-**Claim:** Gate dynamics can be represented with violation variables, gated recovery, load pressure, cascade coupling, memory/maturity, damage accumulation, and receptivity-weighted effective exchange.
+The canonical manuscript is suitable for continued scholarly and venue review as a result-constrained conceptual and methodological framework paper. It is not suitable for presentation as a validated universal theory, an empirical membrane result, or a calibrated fusion model. Venue selection should reflect the mixed negative simulation result and the manuscript's primary contribution: transparent separation of measurement, model geometry, relational hypotheses, and independent hosted outcomes.
 
-**Claim type:** formal modeling / heuristic dynamics.
-
-**Novelty risk:** moderate. The equations are useful as a toy architecture but presently lack parameter identification, units, domains of validity, and empirical calibration.
-
-**Evidence burden:** define what each variable means in at least one concrete domain. State which equations are proposed mechanisms and which are illustrative minimal forms.
-
-**Revision decision:** create a table of variables, units/scale, interpretation, measurable proxy, and domain-specific examples.
-
----
-
-### 6. Raw exchange versus effective exchange is the clearest portable idea
-
-**Claim:** More delivered exchange is not necessarily more received exchange; exchange without receptivity becomes load.
-
-**Claim type:** structural / formal / testable.
-
-**Novelty risk:** low-to-moderate. Similar ideas exist across control, physiology, education, and resilience, but CVT’s phrasing may be a useful unifier.
-
-**Evidence burden:** this needs empirical or simulation cases where increased input reduces effective uptake because receptivity falls faster than raw input rises.
-
-**Revision decision:** elevate this as one of the paper’s central contributions. It is clearer and more falsifiable than the widest cross-domain claims.
-
----
-
-### 7. Hosted transformation is a strong organizing concept
-
-**Claim:** A transformation is hosted when a transition variable changes substantially while viability, receptivity, and damage remain within bounds.
-
-**Claim type:** definition / formal criterion.
-
-**Novelty risk:** moderate.
-
-**Evidence burden:** define at least one worked example where `X`, `V`, `rho`, and `D` can be measured or simulated.
-
-**Revision decision:** keep. This could become the bridge from general CVT to fusion, AI, institutional change, and right relation.
-
----
-
-### 8. The membrane formulation is plausible but must avoid overclaiming
-
-**Claim:** A membrane is neither wall nor erasure; it permits exchange while preserving distinction.
-
-**Claim type:** formal analogy / boundary model.
-
-**Novelty risk:** moderate.
-
-**Evidence burden:** Robin boundary conditions are standard. CVT’s contribution is not the boundary condition itself, but the coupling of permeability, receptivity, damage, distinction, and restorative reserve.
-
-**Revision decision:** keep, but say explicitly: the mathematics is borrowed; the proposed synthesis is the gate-receptivity interpretation.
-
----
-
-### 9. The fusion section is interesting but too large for the foundation paper
-
-**Claim:** Ignition access is not equivalent to hosted burn; a reactor succeeds only when alpha self-heating is handed off to a viable host interface.
-
-**Claim type:** domain-specific conceptual reframing / toy-model application.
-
-**Novelty risk:** high until fusion literature is audited.
-
-**Evidence burden:** distinguish CVT language from established fusion concepts: ignition, burn control, alpha-particle heating, confinement, exhaust, ash removal, plasma-wall interaction, control authority, and operational limits.
-
-**Revision decision:** either compress fusion to a short illustration or split into a second paper: *Hosted Burn: A CVT Reframing of Fusion Ignition and Reactor Viability*.
-
----
-
-### 10. The toy-model simulations are currently non-reproducible
-
-**Claim:** Capacity-maximizing control collapses receptivity; spectral-aware control preserves more useful exchange; host-gated pacing preserves the host but may limit alpha dominance; sufficient reserve produces hosted burn.
-
-**Claim type:** simulation result / toy model.
-
-**Novelty risk:** high until code, parameters, and sensitivity analysis are included.
-
-**Evidence burden:** commit model code, parameter table, random seeds if any, plotting scripts, and sensitivity sweeps. State clearly that these are not tokamak physics simulations.
-
-**Revision decision:** move numerical claims to an appendix or separate reproducible simulation folder before publication. Without code, the results should be described as illustrative only.
-
----
-
-### 11. The manuscript promises sections it does not yet deliver
-
-**Claim:** The introduction says the paper will classify CVT failure modes and discuss cross-domain implications and limitations.
-
-**Observed issue:** the manuscript moves from formal architecture to membrane to fusion and then ends. It does not contain the promised standalone failure-mode or discussion/limitations sections.
-
-**Revision decision:** add two sections before submission:
-
-1. **Failure Modes and Counterexamples**
-2. **Limitations, Falsifiability, and Scope Conditions**
-
-These should be added before any further expansion.
-
-## Falsifiability and boundary tests
-
-The next revision should make CVT vulnerable to criticism. Candidate tests:
-
-1. **Additive-compensation counterexample:** find a domain where one extremely strong gate can compensate for another near-zero gate. If such cases exist, product form is too strict.
-2. **High-receptivity overload case:** find a case where receptivity remains high despite extreme raw exchange. This constrains the damage law.
-3. **Boundaryless exchange case:** identify systems where exchange remains viable after distinction collapses. If valid, preserved distinction is not necessary in that domain.
-4. **Reserve-free transformation case:** identify transformations that complete without restorative reserve. If valid, reserve is domain-dependent, not universal.
-5. **Toy-model sensitivity test:** perturb alpha-load severity, reserve, receptivity thresholds, and gate couplings to see whether the Minimum Viable Host boundary is robust or artifact.
-
-## Immediate revision priorities
-
-1. Add a novelty matrix.
-2. Add a variable/proxy table.
-3. Add a limitations and falsifiability section.
-4. Decide whether fusion remains an illustration or becomes a separate paper.
-5. Make simulation code reproducible before retaining numerical claims.
-6. Remove or relocate theological/relational register from the technical foundation paper unless clearly framed as outside the evidentiary argument.
-
-## Initial publication recommendation
-
-Do not submit this version as-is.
-
-Best next form:
-
-**CVT Foundations v0.2 — narrowed theory article**
-
-- Keep: invariant, non-compensability, raw/effective exchange, hosted transformation, membrane framing.
-- Compress: fusion to one illustrative section.
-- Add: novelty matrix, limitations, falsifiability, variable/proxy table.
-- Move: detailed toy simulations and Minimum Viable Host threshold to a companion technical note unless code is committed.
-
-The manuscript is strong enough to deserve adversarial review, but the next move is discipline: less expansion, more claim control.
