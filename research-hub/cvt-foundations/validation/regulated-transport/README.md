@@ -1,6 +1,6 @@
 # Regulated-Transport Validation Package
 
-This package implements the native two-compartment transport model, pre-outcome measurements, frozen development evidence, the locked Stage 3.2 validation comparison, the Stage 3.2.5 closure decision, and the Stage 4.0 counterexample-anatomy protocol for the CVT Foundations validation program.
+This package implements the native two-compartment transport model, pre-outcome measurements, frozen development evidence, the locked Stage 3.2 validation comparison, the Stage 3.2.5 closure decision, the Stage 4.0 counterexample-anatomy protocol, and the executed Stage 4.1 anatomy for the CVT Foundations validation program.
 
 Current completed scope:
 
@@ -12,7 +12,8 @@ Current completed scope:
 - Stage 3.1 deterministic training/validation generation and integrity review;
 - Stage 3.2 fit/calibration/validation comparison under the frozen rules;
 - Stage 3.2.5 fair capture-proxy sensitivity refit and final-test non-authorization;
-- Stage 4.0 exploratory protocol for counterexample anatomy and relational-routing revision.
+- Stage 4.0 exploratory protocol for counterexample anatomy and relational-routing revision;
+- Stage 4.1 deterministic counterexample anatomy, model-error comparison, and relational-routing hypotheses.
 
 Still excluded:
 
@@ -57,6 +58,14 @@ The Stage 4.0 counterexample-anatomy protocol is recorded in:
 reviews/2026-08-06-stage4-counterexample-anatomy-protocol.md
 validation/regulated-transport/config/stage4_counterexample_anatomy.json
 validation/regulated-transport/results/stage4_0/
+```
+
+The executed Stage 4.1 anatomy is recorded in:
+
+```text
+reviews/2026-08-06-stage4-1-counterexample-anatomy.md
+validation/regulated-transport/results/stage4_1/
+validation/regulated-transport/src/stage41_counterexample_anatomy.py
 ```
 
 Run tests:
@@ -114,8 +123,20 @@ python -m src.stage325_sensitivity_refit \
   --output results/stage3_2_5
 ```
 
+Run Stage 4.1 from the preserved Stage 3.1 and Stage 3.2 workflow artifacts:
+
+```bash
+python -m src.stage41_counterexample_anatomy \
+  --validation /path/to/stage3_1/validation.csv \
+  --predictions /path/to/stage3_2/validation_predictions.csv \
+  --selection results/stage3_2/selection.json \
+  --authorization results/stage3_2_5/authorization_decision.json \
+  --output results/stage4_1 \
+  --review ../../reviews/2026-08-06-stage4-1-counterexample-anatomy.md
+```
+
 Stage 3.2 locked `CVT-2-minimum` as the primary CVT candidate and `BL-6-full-native-gradient-boosting` as the primary baseline. The current four-proxy operationalization did not meet the preregistered thresholds for incremental predictive value, predictive compression, or high-confidence safety-screen utility.
 
 Stage 3.2.5 fairly refit the locked minimum scorer with the primary micro-probe, 2.5x-dose micro-probe, and direct structural capture composite. The dose perturbation left performance effectively unchanged, while the direct composite remained worse after fair calibration. The final test remains ungenerated, unopened, and not authorized.
 
-Stage 4.0 reframes the failed hard-intersection geometry as an exploratory counterexample-anatomy problem. It studies hosted cases that failed at least one gate and nonhosted cases that passed all four gates as evidence for a possible relational-routing revision. Stage 4.0 does not authorize final testing or claim validation.
+Stage 4.0 reframes the failed hard-intersection geometry as an exploratory counterexample-anatomy problem. Stage 4.1 executes that protocol: 92 hosted rows fail at least one gate, 114 nonhosted rows pass all four, capture-gate failure appears in 71 of the 92 hosted contradictions, and 90 of the 114 all-pass failures do not reach the transformation target. The native gradient booster reduces error most strongly on hosted rows, while rare confident nonhosted errors complicate its class-level advantage. These are exploratory architecture-repair findings, not confirmation. The final test remains ungenerated, unopened, and not authorized.
