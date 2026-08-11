@@ -144,6 +144,9 @@ def attach_predictions(evidence: pd.DataFrame, predictions: pd.DataFrame) -> pd.
     joined["cvt_overprediction_if_nonhosted"] = np.where(joined.hosted == 0, joined.cvt_probability, 0.0)
     joined["native_underprediction_if_hosted"] = np.where(joined.hosted == 1, 1 - joined.native_gb_probability, 0.0)
     joined["native_overprediction_if_nonhosted"] = np.where(joined.hosted == 0, joined.native_gb_probability, 0.0)
+    joined["probability_error_direction"] = np.where(
+        joined.hosted == 1, "underpredict_hosted", "overpredict_nonhosted"
+    )
     joined["cvt_classification_error"] = ((joined.cvt_probability >= 0.5).astype(int) != joined.hosted).astype(int)
     joined["native_classification_error"] = ((joined.native_gb_probability >= 0.5).astype(int) != joined.hosted).astype(int)
     joined["classification_error_partition"] = np.select(
@@ -277,6 +280,10 @@ def build_summary(
             "cvt_minus_native_mean_brier": _json_number(part.cvt_minus_native_brier.mean()),
             "cvt_classification_errors": int(part.cvt_classification_error.sum()),
             "native_classification_errors": int(part.native_classification_error.sum()),
+            "cvt_mean_underprediction_if_hosted": _json_number(part.cvt_underprediction_if_hosted.mean()),
+            "cvt_mean_overprediction_if_nonhosted": _json_number(part.cvt_overprediction_if_nonhosted.mean()),
+            "native_mean_underprediction_if_hosted": _json_number(part.native_underprediction_if_hosted.mean()),
+            "native_mean_overprediction_if_nonhosted": _json_number(part.native_overprediction_if_nonhosted.mean()),
             "classification_error_partition": {str(k): int(v) for k, v in part.classification_error_partition.value_counts().items()},
             "lower_brier_model": {str(k): int(v) for k, v in part.lower_brier_model.value_counts().items()},
         }
@@ -526,6 +533,9 @@ Proceed only to a Stage 4.2 architecture decision. If relational routing is deve
 
 
 def output_columns() -> list[str]:
+    # Keep the row-level artifact compact and de-identified. Boolean pass flags,
+    # threshold margins, individual loss terms, and post-outcome routing values
+    # remain exactly derivable or are summarized in counterexample_summary.json.
     return [
         "row_id",
         "hosted",
@@ -535,31 +545,16 @@ def output_columns() -> list[str]:
         "forcing_family",
         "forcing_stratum",
         "primary_class",
-        "all_gates_pass",
         "failed_gate_pattern",
-        "failed_gate_count",
         *list(GATES.values()),
-        *[f"gate_{label}_pass" for label in GATES],
-        *[f"gate_{label}_margin" for label in GATES],
-        *CAPTURE,
+        "g_c_probe_sham_adjusted_2_5x_dose",
+        "g_c_direct_structural_composite",
         *MARGINS,
         *SCHEDULE,
-        *ROUTING,
         "cvt_probability",
         "native_gb_probability",
-        "cvt_brier_contribution",
-        "native_brier_contribution",
         "cvt_minus_native_brier",
-        "cvt_underprediction_if_hosted",
-        "cvt_overprediction_if_nonhosted",
-        "native_underprediction_if_hosted",
-        "native_overprediction_if_nonhosted",
-        "cvt_classification_error",
-        "native_classification_error",
-        "classification_error_partition",
-        "lower_brier_model",
         "nearest_control_row_id",
-        "nearest_control_class",
         "nearest_control_gate_distance",
     ]
 
@@ -631,7 +626,10 @@ def run(
     anatomy_path = output_dir / "counterexample_anatomy.csv"
     summary_path = output_dir / "counterexample_summary.json"
     hypotheses_path = output_dir / "relational_routing_hypotheses.json"
-    frame.loc[:, output_columns()].to_csv(anatomy_path, index=False)
+    export = frame.loc[:, output_columns()].copy()
+    for column in ["hosted", "target_reached", "viable"]:
+        export[column] = export[column].astype(int)
+    export.to_csv(anatomy_path, index=False, float_format="%.6g")
     summary["output_hashes"] = {"counterexample_anatomy_csv": sha256(anatomy_path)}
     summary_path.write_text(json.dumps(summary, indent=2, allow_nan=False) + "\n", encoding="utf-8")
     hypotheses_path.write_text(json.dumps(hypotheses, indent=2, allow_nan=False) + "\n", encoding="utf-8")
