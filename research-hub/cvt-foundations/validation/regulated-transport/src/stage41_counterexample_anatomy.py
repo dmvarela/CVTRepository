@@ -466,7 +466,7 @@ def build_review(summary: dict[str, Any], hypotheses: dict[str, Any]) -> str:
         ])
     all_pass_contrast = summary["contrasts"]["nonhosted_all_gates_pass_vs_hosted_all_gates_pass"]
     failed_contrast = summary["contrasts"]["hosted_failed_gate_vs_nonhosted_failed_gate"]
-    return f"""# CVT Regulated-Transport Validation â€” Stage 4.1 Counterexample Anatomy
+    return f"""# CVT Regulated-Transport Validation — Stage 4.1 Counterexample Anatomy
 
 **Status:** exploratory architecture repair after a failed validation geometry  
 **Evidence boundary:** already-opened Stage 3.1 validation evidence, locked Stage 3.2 predictions, and Stage 3.2.5 closure only  
