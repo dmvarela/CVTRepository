@@ -1722,6 +1722,10 @@
       "cvt_minus_native_mean_brier": 0.3903629492601386,
       "cvt_classification_errors": 92,
       "native_classification_errors": 68,
+      "cvt_mean_underprediction_if_hosted": 0.9345663604433097,
+      "cvt_mean_overprediction_if_nonhosted": 0.0,
+      "native_mean_underprediction_if_hosted": 0.649497994046562,
+      "native_mean_overprediction_if_nonhosted": 0.0,
       "classification_error_partition": {
         "shared": 68,
         "cvt_only": 24
@@ -1740,6 +1744,10 @@
       "cvt_minus_native_mean_brier": 0.33401768542678584,
       "cvt_classification_errors": 29,
       "native_classification_errors": 17,
+      "cvt_mean_underprediction_if_hosted": 0.8242848384409853,
+      "cvt_mean_overprediction_if_nonhosted": 0.0,
+      "native_mean_underprediction_if_hosted": 0.523755425689295,
+      "native_mean_overprediction_if_nonhosted": 0.0,
       "classification_error_partition": {
         "shared": 17,
         "cvt_only": 12
@@ -1758,6 +1766,10 @@
       "cvt_minus_native_mean_brier": -0.010664874730941947,
       "cvt_classification_errors": 0,
       "native_classification_errors": 3,
+      "cvt_mean_underprediction_if_hosted": 0.0,
+      "cvt_mean_overprediction_if_nonhosted": 0.14465952563114215,
+      "native_mean_underprediction_if_hosted": 0.0,
+      "native_mean_overprediction_if_nonhosted": 0.10632152765058475,
       "classification_error_partition": {
         "neither": 111,
         "native_only": 3
@@ -1776,6 +1788,10 @@
       "cvt_minus_native_mean_brier": -0.002894114348334168,
       "cvt_classification_errors": 0,
       "native_classification_errors": 20,
+      "cvt_mean_underprediction_if_hosted": 0.0,
+      "cvt_mean_overprediction_if_nonhosted": 0.030232219368780955,
+      "native_mean_underprediction_if_hosted": 0.0,
+      "native_mean_overprediction_if_nonhosted": 0.020863297282437535,
       "classification_error_partition": {
         "neither": 3745,
         "native_only": 20
@@ -2329,7 +2345,7 @@
     }
   },
   "output_hashes": {
-    "counterexample_anatomy_csv": "a0fcb0f17b2bb7d6dde412b96cc7b3b4f5bcd62e3796c380257bd5b586b8e21d"
+    "counterexample_anatomy_csv": "a4ded3340e8579265d620026e7e40226057e39fdea5d39e135f6549cfb35a235"
   }
 }
 
