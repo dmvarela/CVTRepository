@@ -1,4 +1,4 @@
-# CVT Regulated-Transport Validation â€” Stage 4.1 Counterexample Anatomy
+# CVT Regulated-Transport Validation — Stage 4.1 Counterexample Anatomy
 
 **Status:** exploratory architecture repair after a failed validation geometry  
 **Evidence boundary:** already-opened Stage 3.1 validation evidence, locked Stage 3.2 predictions, and Stage 3.2.5 closure only  
