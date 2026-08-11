@@ -1,0 +1,83 @@
+{
+  "stage": "4.1",
+  "status": "exploratory_hypotheses_only",
+  "suitable_for_final_test": false,
+  "requires_fresh_development_partition": true,
+  "final_test_generated": false,
+  "final_test_opened": false,
+  "hypotheses": [
+    {
+      "id": "RR-H1",
+      "claim": "A failed local gate can be survivable when the realized routing configuration preserves damage, integrity, and reserve margins.",
+      "anatomy_signal": {
+        "most_common_hosted_failed_gate_pattern": "C",
+        "count": 32,
+        "capture_gate_involved_count": 71,
+        "capture_gate_involved_share": 0.7717391304347826
+      },
+      "alternative_explanations": [
+        "threshold miscalibration",
+        "proxy measurement error",
+        "simulation-specific compensation"
+      ],
+      "fresh_test": "Preregister interactions between failed-gate identity and pre-contact margin configuration on a new development partition."
+    },
+    {
+      "id": "RR-H2",
+      "claim": "Passing all four local gates is insufficient: most all-pass failures did not reach the transformation target, while a smaller subset lost viability through damage or integrity failure.",
+      "anatomy_signal": {
+        "dominant_failure_reason": "target_not_reached",
+        "dominant_failure_reason_count": 90,
+        "dominant_failure_reason_share": 0.7894736842105263,
+        "family_with_highest_all_pass_failure_share": "pulse",
+        "share_of_nonhosted": 0.03420523138832998,
+        "scheduled_dose_mean_difference_failed_minus_hosted_all_pass": -6.735032566524536
+      },
+      "alternative_explanations": [
+        "forcing-family imbalance",
+        "unmeasured history",
+        "gate thresholds fitted to the wrong contrast"
+      ],
+      "fresh_test": "Cross a fresh schedule field with dose, active duration, and recovery horizon before fitting revised candidates."
+    },
+    {
+      "id": "RR-H3",
+      "claim": "Capture readiness should be modeled as an input-conditioned response relation rather than a coequal stored gate.",
+      "anatomy_signal": {
+        "capture_proxy_context": "Primary and 2.5x micro-probes were nearly identical in Stage 3.2.5, while the direct structural composite was worse after fair calibration.",
+        "working_form": "C = C(B, Q, S, input, current_load, history)"
+      },
+      "alternative_explanations": [
+        "micro-probe lacks dynamic range",
+        "direct composite is misspecified"
+      ],
+      "fresh_test": "Design multiple probe timings and doses on a new development partition and preregister response-surface candidates."
+    },
+    {
+      "id": "RR-H4",
+      "claim": "The native gradient booster gains most on hosted cases, while rare confident nonhosted errors can erase its average advantage within the nonhosted anatomy classes.",
+      "anatomy_signal": {
+        "hosted_failed_gate": 0.3903629492601386,
+        "hosted_all_gates_pass": 0.33401768542678584,
+        "nonhosted_all_gates_pass": -0.010664874730941947,
+        "nonhosted_failed_gate": -0.002894114348334168
+      },
+      "alternative_explanations": [
+        "higher native model capacity",
+        "calibration differences",
+        "simulation equations favor native inputs"
+      ],
+      "fresh_test": "Freeze an interaction-limited relational CVT candidate and compare it with capacity-matched native baselines on fresh development data."
+    },
+    {
+      "id": "RR-H5",
+      "claim": "A revised CVT candidate should represent routing channels explicitly: productive uptake, rejection, buffering, damage, and recovery.",
+      "anatomy_signal": "The Stage 4.1 class contrasts report realized routing quantities separately rather than collapsing them into gate possession.",
+      "alternative_explanations": [
+        "post-outcome routing variables are descriptive only and cannot be used as predictors"
+      ],
+      "fresh_test": "Define pre-outcome estimators for routing propensities before using them in any new candidate."
+    }
+  ]
+}
+
