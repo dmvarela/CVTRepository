@@ -1,6 +1,6 @@
 # Regulated-Transport Validation Package
 
-This package implements the native two-compartment transport model, pre-outcome measurements, frozen development evidence, the locked Stage 3.2 validation comparison, the Stage 3.2.5 closure decision, the Stage 4.0 counterexample-anatomy protocol, the executed Stage 4.1 anatomy, and the Stage 4.2 architecture decision for the CVT Foundations validation program.
+This package implements the native two-compartment transport model, pre-outcome measurements, frozen development evidence, the locked Stage 3.2 validation comparison, the Stage 3.2.5 closure decision, the Stage 4 counterexample and architecture cycle, and the frozen Stage 5.0 relational-routing protocol for the CVT Foundations validation program.
 
 Current completed scope:
 
@@ -14,10 +14,13 @@ Current completed scope:
 - Stage 3.2.5 fair capture-proxy sensitivity refit and final-test non-authorization;
 - Stage 4.0 exploratory protocol for counterexample anatomy and relational-routing revision;
 - Stage 4.1 deterministic counterexample anatomy, model-error comparison, and relational-routing hypotheses;
-- Stage 4.2 architecture decision and canonical-manuscript revision plan.
+- Stage 4.2 architecture decision and canonical-manuscript revision plan;
+- Stage 4.3 canonical-manuscript revision and verified build;
+- Stage 5.0 frozen relational-routing preregistration and protocol audit.
 
 Still excluded:
 
+- Stage 5 fresh-data generation or revised-model fitting;
 - generation or use of the untouched final test partition;
 - post-validation alteration of the locked primary winners;
 - claims of empirical or general CVT validation;
@@ -77,7 +80,23 @@ reviews/2026-08-10-stage4-2-manuscript-revision-plan.md
 validation/regulated-transport/results/stage4_2/
 ```
 
-Run tests:
+The Stage 4.3 manuscript revision and verified build are recorded in:
+
+```text
+reviews/2026-08-11-stage4-3-manuscript-revision-and-build-report.md
+main.tex
+```
+
+The frozen Stage 5.0 relational-routing protocol is recorded in:
+
+```text
+reviews/2026-08-11-stage5-0-relational-routing-protocol.md
+validation/regulated-transport/config/stage5_relational_routing_protocol.json
+validation/regulated-transport/results/stage5_0/
+validation/regulated-transport/src/stage50_protocol_audit.py
+```
+
+Run all tests:
 
 ```bash
 python -m pytest -q
@@ -144,10 +163,22 @@ python -m src.stage41_counterexample_anatomy \
   --review ../../reviews/2026-08-06-stage4-1-counterexample-anatomy.md
 ```
 
-Stage 3.2 locked `CVT-2-minimum` as the primary CVT candidate and `BL-6-full-native-gradient-boosting` as the primary baseline. The current four-proxy operationalization did not meet the preregistered thresholds for incremental predictive value, predictive compression, or high-confidence safety-screen utility.
+Audit the Stage 5.0 protocol without generating evidence:
 
-Stage 3.2.5 fairly refit the locked minimum scorer with the primary micro-probe, 2.5x-dose micro-probe, and direct structural capture composite. The dose perturbation left performance effectively unchanged, while the direct composite remained worse after fair calibration. The final test remains ungenerated, unopened, and not authorized.
+```bash
+python -m src.stage50_protocol_audit \
+  --protocol config/stage5_relational_routing_protocol.json \
+  --output results/stage5_0/protocol_audit.json
+python -m unittest discover -s tests -p 'test_stage50_protocol_audit.py' -v
+```
 
-Stage 4.0 reframes the failed hard-intersection geometry as an exploratory counterexample-anatomy problem. Stage 4.1 executes that protocol: 92 hosted rows fail at least one gate, 114 nonhosted rows pass all four, capture-gate failure appears in 71 of the 92 hosted contradictions, and 90 of the 114 all-pass failures do not reach the transformation target. The native gradient booster reduces error most strongly on hosted rows, while rare confident nonhosted errors complicate its class-level advantage. These are exploratory architecture-repair findings, not confirmation. The final test remains ungenerated, unopened, and not authorized.
+Stage 3.2 locked `CVT-2-minimum` as the primary CVT candidate and `BL-6-full-native-gradient-boosting` as the primary baseline. The four-proxy operationalization did not meet the preregistered thresholds for incremental predictive value, predictive compression, or high-confidence safety-screen utility.
 
-Stage 4.2 closes the architecture cycle by authorizing a separate Stage 4.3 manuscript revision and conditionally authorizing Stage 5.0 protocol design. Relational routing remains exploratory; revised-model execution and final-test access remain unauthorized. A fresh development partition and new preregistration are required before any revised candidate is executed.
+Stage 3.2.5 fairly refit the locked minimum scorer with the primary micro-probe, 2.5x-dose micro-probe, and direct structural capture composite. The dose perturbation left performance effectively unchanged, while the direct composite remained worse after fair calibration.
+
+Stage 4.1 found 92 hosted rows failing at least one gate and 114 nonhosted rows passing all four. Capture-gate failure appeared in 71 of the 92 hosted contradictions, and 90 of the 114 all-pass failures did not reach the transformation target. The native gradient booster reduced error most strongly on hosted rows. Stage 4.2 rejected the measured hard-gate geometry for this bounded simulation and Stage 4.3 revised the canonical manuscript to report that mixed negative result.
+
+Stage 5.0 prospectively defines a fresh relational-routing test. It freezes independent partitions, 31 encoded pre-outcome input/timing/load/history/probe columns, 12 interactions, an equal-column native comparison, separate routing and failure endpoints, and selection, calibration, uncertainty, integrity, stopping, and validation thresholds. The audit passes 12 invariants and eight focused tests. No Stage 5 data have been generated and no revised model has been fitted.
+
+Revised-model execution remains unauthorized. The final test remains ungenerated, unopened, and not authorized.
+

@@ -1,0 +1,24 @@
+{
+  "check_count": 12,
+  "checks_passed": [
+    "stage_identity",
+    "protocol_only_status",
+    "execution_and_final_test_firewall",
+    "evidence_firewall",
+    "fresh_partition_independence",
+    "pre_outcome_predictor_boundary",
+    "outcome_separation",
+    "candidate_and_capacity_matching",
+    "fit_selection_calibration_roles",
+    "fresh_validation_thresholds",
+    "stopping_rules",
+    "claims_boundary"
+  ],
+  "data_generated": false,
+  "final_test_generated": false,
+  "final_test_opened": false,
+  "models_fitted": false,
+  "stage": "5.0",
+  "status": "pass"
+}
+

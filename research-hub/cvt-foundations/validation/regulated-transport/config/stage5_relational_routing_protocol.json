@@ -1,0 +1,371 @@
+{
+  "version": "stage5.0-relational-routing-1.0",
+  "date": "2026-08-11",
+  "stage": "5.0",
+  "status": "protocol_frozen_execution_not_authorized",
+  "objective": "Test whether pre-outcome input-conditioned routing measurements add calibrated, capacity-controlled predictive value for regulated transport hosting on entirely fresh development and validation evidence.",
+  "hypotheses": [
+    "RR-H1_failed_local_gates_can_be_survivable_when_precontact_margins_and_routing_response_are_favorable",
+    "RR-H2_all_local_gates_can_pass_while_schedule_timing_load_or_damage_dynamics_prevent_hosting",
+    "RR-H3_capture_is_an_input_conditioned_response_of_boundary_quality_selectivity_load_and_history",
+    "RR-H4_relational_features_must_beat_capacity_matched_native_models_not_only_simple_gate_scorers",
+    "RR-H5_productive_uptake_rejection_buffering_damage_and_recovery_are_distinct_endpoints"
+  ],
+  "authorization": {
+    "protocol_design_complete": true,
+    "stage5_data_generation_authorized": false,
+    "stage5_candidate_fitting_authorized": false,
+    "stage5_validation_generation_authorized": false,
+    "stage5_validation_opening_authorized": false,
+    "confirmatory_final_test_authorized": false,
+    "final_test_generated": false,
+    "final_test_opened": false
+  },
+  "evidence_firewall": {
+    "stage4_evidence_use": "hypothesis_motivation_and_threshold_continuity_only",
+    "allowed_inputs_at_stage5_0": [
+      "stage3_preregistration_documents",
+      "stage3_2_locked_aggregate_results",
+      "stage3_2_5_closure_artifacts",
+      "stage4_1_aggregate_anatomy_and_hypotheses",
+      "stage4_2_architecture_decision",
+      "stage4_3_canonical_manuscript_status"
+    ],
+    "forbidden_for_stage5_fitting_selection_calibration_or_validation": [
+      "stage3_training_rows",
+      "stage3_validation_rows",
+      "stage3_validation_predictions",
+      "stage4_row_level_counterexample_anatomy",
+      "final_test_rows",
+      "final_test_predictions"
+    ],
+    "row_level_stage3_access_from_stage5_code": false,
+    "final_test_disposition": "preserve_existing_generator_sealed_and_unchanged_not_a_development_resource",
+    "final_test_generator_changes_permitted": false
+  },
+  "planned_stage_sequence": [
+    "stage5_1_fresh_development_generation_and_integrity",
+    "stage5_2_candidate_fitting_tuning_calibration_and_selection",
+    "stage5_3_candidate_and_validation_plan_lock",
+    "stage5_4_fresh_validation_generation_and_single_opening",
+    "stage5_5_validation_evaluation_and_final_test_authorization_decision"
+  ],
+  "fresh_partitions": {
+    "generation_method": "independent_latin_hypercube_with_family_stratum_balance",
+    "seed_derivation": "first_64_bits_of_sha256(stage5_seed_namespace_colon_partition_colon_row_index)",
+    "development_fit": {
+      "rows": 12000,
+      "seed_namespace": "cvt-regulated-transport-stage5-v1-development-fit",
+      "opened_when_generated": true
+    },
+    "development_tune": {
+      "rows": 4000,
+      "seed_namespace": "cvt-regulated-transport-stage5-v1-development-tune",
+      "opened_when_generated": true
+    },
+    "development_calibration": {
+      "rows": 4000,
+      "seed_namespace": "cvt-regulated-transport-stage5-v1-development-calibration",
+      "opened_when_generated": true
+    },
+    "development_selection": {
+      "rows": 4000,
+      "seed_namespace": "cvt-regulated-transport-stage5-v1-development-selection",
+      "opened_when_generated": true
+    },
+    "fresh_validation": {
+      "rows": 8000,
+      "seed_namespace": "cvt-regulated-transport-stage5-v1-fresh-validation",
+      "generate_only_after_candidate_lock": true,
+      "single_opening": true
+    },
+    "row_id_overlap_permitted": false,
+    "stage3_seed_reuse_permitted": false,
+    "adaptive_outcome_enrichment_permitted": false,
+    "forcing_families": [
+      "constant",
+      "pulse",
+      "ramp",
+      "shock_tail"
+    ],
+    "excluded_reserved_family": "repeated_pulse",
+    "forcing_strata": {
+      "low": [0.5, 2.5],
+      "middle": [2.5, 6.0],
+      "high": [6.0, 10.0]
+    },
+    "controlled_precontact_history": [
+      "none",
+      "subthreshold_prior_exposure",
+      "prior_exposure_then_recovery"
+    ],
+    "history_rule": "History schedules and recovery intervals are sampled before the main forcing and are recorded independently of all outcomes. They must not reproduce the reserved final-test blocks."
+  },
+  "pre_outcome_predictors": {
+    "availability_rule": "Every predictor must be fixed or measurable before the primary main-forcing outcome window begins.",
+    "post_outcome_variables_allowed_as_predictors": false,
+    "groups": {
+      "local_state": [
+        "g_b",
+        "g_q",
+        "g_s",
+        "initial_free_load_fraction",
+        "initial_buffer_load_fraction",
+        "initial_damage_margin",
+        "initial_integrity_margin",
+        "initial_reserve_fraction"
+      ],
+      "scheduled_input": [
+        "forcing_family",
+        "scheduled_peak",
+        "scheduled_dose",
+        "active_duration",
+        "input_centroid",
+        "rise_time",
+        "tail_fraction",
+        "declared_recovery_horizon"
+      ],
+      "declared_history": [
+        "history_class",
+        "prior_scheduled_dose",
+        "time_since_prior_exposure",
+        "precontact_recovery_fraction"
+      ],
+      "counterfactual_probe_response": [
+        "probe_uptake_nominal_posthistory",
+        "probe_uptake_dose_slope",
+        "probe_rejection_nominal_posthistory",
+        "probe_buffering_dose_slope",
+        "probe_damage_dose_slope",
+        "probe_integrity_dose_slope",
+        "probe_recovery_nominal_posthistory",
+        "probe_recovery_timing_contrast"
+      ]
+    },
+    "frozen_encoded_column_counts": {
+      "local_state": 8,
+      "scheduled_input": 10,
+      "declared_history": 5,
+      "counterfactual_probe_response": 8,
+      "total": 31
+    },
+    "probe_design": {
+      "implementation": "sham_adjusted_counterfactual_clones_that_do_not_modify_the_evaluated_trajectory",
+      "timing_states": [
+        "initial_state",
+        "post_history_pre_main_input"
+      ],
+      "dose_multipliers": [
+        1.0,
+        2.5
+      ],
+      "readout_horizons": [
+        "short_uptake_window",
+        "declared_recovery_window"
+      ],
+      "summary_rule": "The four timing-by-dose probe cells are reduced without outcome access to the eight frozen nominal, dose-slope, and timing-contrast columns listed in counterfactual_probe_response.",
+      "invalid_fraction_stop": 0.01
+    }
+  },
+  "post_outcome_endpoints": {
+    "primary": "hosted",
+    "primary_definition": "independent_host_declaration_and_transformation_target_reached_and_no_damage_violation_and_no_integrity_violation",
+    "separate_binary_failures": [
+      "target_not_reached",
+      "damage_violation",
+      "integrity_violation"
+    ],
+    "routing_responses": [
+      "productive_uptake",
+      "rejected_exchange",
+      "buffered_load",
+      "damage_accumulation",
+      "integrity_loss",
+      "recovery"
+    ],
+    "routing_response_role": "secondary_descriptive_or_multitask_outcomes_never_primary_predictors",
+    "forced_mutual_exclusivity_required": false
+  },
+  "prespecified_interactions": [
+    "probe_uptake_nominal_posthistory_x_scheduled_dose",
+    "probe_uptake_dose_slope_x_initial_free_load_fraction",
+    "probe_rejection_nominal_posthistory_x_scheduled_peak",
+    "probe_buffering_dose_slope_x_active_duration",
+    "probe_damage_dose_slope_x_initial_damage_margin",
+    "probe_integrity_dose_slope_x_initial_integrity_margin",
+    "probe_recovery_nominal_posthistory_x_declared_recovery_horizon",
+    "g_b_x_scheduled_peak",
+    "g_q_x_forcing_family",
+    "g_s_x_prior_scheduled_dose",
+    "initial_reserve_fraction_x_history_class",
+    "scheduled_dose_x_time_since_prior_exposure"
+  ],
+  "models": {
+    "maximum_relational_input_columns": 32,
+    "maximum_relational_fitted_terms": 48,
+    "relational_candidates": {
+      "RR-1-additive-logistic": {
+        "features": "all_prespecified_main_effects_with_frozen_reference_coding",
+        "l2_grid": [
+          0.0001,
+          0.001,
+          0.01,
+          0.1,
+          1.0
+        ]
+      },
+      "RR-2-hierarchical-interaction-logistic": {
+        "features": "RR-1_plus_all_12_prespecified_interactions_with_strong_hierarchy",
+        "l2_grid": [
+          0.0001,
+          0.001,
+          0.01,
+          0.1,
+          1.0
+        ]
+      },
+      "RR-3-relational-gradient-boosting": {
+        "features": "same_pre_outcome_feature_budget_as_RR-2",
+        "max_leaf_nodes": [7, 15],
+        "learning_rate": [0.03, 0.1],
+        "max_iter": [100, 300],
+        "min_samples_leaf": [20, 50]
+      }
+    },
+    "baselines": {
+      "BL-0-prevalence": {
+        "role": "null"
+      },
+      "BL-1-transport-only-logistic": {
+        "role": "scheduled_input_and_initial_load_reference"
+      },
+      "CM-1-native-logistic": {
+        "role": "capacity_matched_to_RR-2",
+        "frozen_input_groups": {
+          "native_parameters": 15,
+          "initial_state": 6,
+          "forcing_family_reference_coded": 3,
+          "scheduled_peak_dose_duration": 3,
+          "history_reference_coded_prior_dose_elapsed_time": 4
+        },
+        "maximum_input_columns": 32,
+        "maximum_fitted_terms": 48,
+        "same_regularization_grid": true
+      },
+      "CM-2-native-gradient-boosting": {
+        "role": "capacity_matched_to_RR-3",
+        "frozen_input_groups": "identical_to_CM-1-native-logistic",
+        "maximum_input_columns": 32,
+        "same_hyperparameter_grid": true
+      },
+      "BL-6-full-native-gradient-boosting": {
+        "role": "stage3_continuity_performance_benchmark",
+        "feature_set": "full_pre_outcome_native_feature_set",
+        "hyperparameter_grid": "unchanged_from_stage3"
+      }
+    },
+    "capacity_accounting": "Compare matched model classes under identical row access, preprocessing, tuning opportunities, input-column caps, and fitted-term or tree-complexity caps. Report the full native gradient booster separately as a non-capacity-matched ceiling.",
+    "post_selection_refitting_permitted": false
+  },
+  "fit_select_calibrate": {
+    "development_fit_role": "candidate_fit_and_internal_five_fold_tuning_support",
+    "development_tune_role": "hyperparameter_choice",
+    "development_calibration_role": "platt_calibration_only",
+    "development_selection_role": "single_winner_selection_and_preregistered_gate_estimation",
+    "primary_metric": "brier",
+    "secondary_metrics": [
+      "log_loss",
+      "average_precision",
+      "auroc",
+      "calibration_intercept",
+      "calibration_slope",
+      "ece_10_equal_count"
+    ],
+    "bootstrap_resamples": 2000,
+    "paired_bootstrap_strata": [
+      "hosted",
+      "forcing_family"
+    ],
+    "calibration_method": "platt",
+    "isotonic_primary_permitted": false,
+    "selection_tie_absolute_brier": 0.002,
+    "tie_breakers": [
+      "lower_capacity",
+      "stronger_regularization",
+      "simpler_structure"
+    ],
+    "winner_lock_required_before_fresh_validation_generation": true
+  },
+  "fresh_validation_gates": {
+    "all_required_for_final_test_authorization": true,
+    "incremental_value_vs_transport": {
+      "minimum_absolute_brier_improvement": 0.005,
+      "minimum_relative_brier_improvement": 0.02,
+      "paired_95_percent_ci_must_exclude_zero": true
+    },
+    "relational_value_vs_additive_ablation": {
+      "minimum_absolute_brier_improvement": 0.005,
+      "paired_95_percent_ci_must_exclude_zero": true
+    },
+    "capacity_matched_value": {
+      "minimum_absolute_brier_improvement": 0.002,
+      "paired_95_percent_ci_must_exclude_zero": true
+    },
+    "compression_vs_full_native_gradient_boosting": {
+      "maximum_absolute_brier_disadvantage": 0.005,
+      "maximum_95_percent_ci_upper_disadvantage": 0.01,
+      "maximum_feature_fraction": 0.3333333333
+    },
+    "calibration": {
+      "slope_range": [
+        0.8,
+        1.2
+      ],
+      "intercept_range": [
+        -0.1,
+        0.1
+      ],
+      "maximum_ece_10_equal_count": 0.05
+    },
+    "forcing_family_guardrail": {
+      "maximum_family_brier_degradation_vs_transport": 0.01,
+      "minimum_rows_each_family": 1500
+    },
+    "secondary_failure_endpoints_are_authorization_gates": false
+  },
+  "integrity_and_stop_rules": {
+    "solver_success_fraction": 1.0,
+    "accounting_valid_fraction": 1.0,
+    "bounds_valid_fraction": 1.0,
+    "maximum_probe_invalid_fraction_each_partition": 0.01,
+    "maximum_cross_solver_hosted_mismatches": 0,
+    "minimum_hosted_counts": {
+      "development_fit": 200,
+      "development_tune": 50,
+      "development_calibration": 50,
+      "development_selection": 50,
+      "fresh_validation": 100
+    },
+    "minimum_positive_count_each_failure_endpoint_fresh_validation": 100,
+    "insufficient_event_action": "stop_without_resampling_or_opening_the_final_test_then_amend_prospectively_for_new_fresh_data",
+    "failed_validation_gate_action": "stop_revised_candidate_claim_and_keep_final_test_sealed",
+    "threshold_changes_after_fresh_validation_opening_permitted": false,
+    "additional_candidate_search_after_fresh_validation_opening_confirmatory": false
+  },
+  "required_stage5_1_artifacts": [
+    "frozen_generator_config_and_hash",
+    "partition_manifests_and_sha256",
+    "family_stratum_history_balance_tables",
+    "predictor_availability_audit",
+    "probe_validity_summary",
+    "solver_and_accounting_integrity_summary",
+    "stage3_row_and_seed_nonoverlap_audit"
+  ],
+  "claims_boundary": {
+    "stage5_0_is_preregistration_not_evidence": true,
+    "relational_routing_validated": false,
+    "cvt_confirmed": false,
+    "empirical_domain_claim_permitted": false
+  }
+}
+
