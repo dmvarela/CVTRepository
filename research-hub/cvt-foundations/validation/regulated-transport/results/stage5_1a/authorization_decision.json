@@ -1,0 +1,18 @@
+{
+  "basis": [
+    "stage5_0_protocol_frozen",
+    "stage5_1a_configuration_audit_passed",
+    "stage5_1a_bounded_smoke_integrity_passed"
+  ],
+  "candidate_model_fitting_authorized": false,
+  "confirmatory_final_test_authorized": false,
+  "final_test_generated": false,
+  "final_test_opened": false,
+  "fresh_validation_generation_authorized": false,
+  "fresh_validation_opening_authorized": false,
+  "maximum_stage5_1b_rows": 24000,
+  "stage": "5.1A",
+  "stage5_1b_full_development_generation_authorized": true,
+  "status": "authorized_for_stage5_1b"
+}
+

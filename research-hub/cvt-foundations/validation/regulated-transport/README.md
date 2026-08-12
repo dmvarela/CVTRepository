@@ -1,6 +1,6 @@
 # Regulated-Transport Validation Package
 
-This package implements the native two-compartment transport model, pre-outcome measurements, frozen development evidence, the locked Stage 3.2 validation comparison, the Stage 3.2.5 closure decision, the Stage 4 counterexample and architecture cycle, and the frozen Stage 5.0 relational-routing protocol for the CVT Foundations validation program.
+This package implements the native two-compartment transport model, pre-outcome measurements, frozen development evidence, the locked Stage 3.2 validation comparison, the Stage 3.2.5 closure decision, the Stage 4 counterexample and architecture cycle, the frozen Stage 5.0 relational-routing protocol, and the audited Stage 5.1A fresh-generator implementation for the CVT Foundations validation program.
 
 Current completed scope:
 
@@ -16,11 +16,12 @@ Current completed scope:
 - Stage 4.1 deterministic counterexample anatomy, model-error comparison, and relational-routing hypotheses;
 - Stage 4.2 architecture decision and canonical-manuscript revision plan;
 - Stage 4.3 canonical-manuscript revision and verified build;
-- Stage 5.0 frozen relational-routing preregistration and protocol audit.
+- Stage 5.0 frozen relational-routing preregistration and protocol audit;
+- Stage 5.1A fresh-generator implementation, 12-row smoke audit, and Stage 5.1B authorization.
 
 Still excluded:
 
-- Stage 5 fresh-data generation or revised-model fitting;
+- full Stage 5 development generation or revised-model fitting;
 - generation or use of the untouched final test partition;
 - post-validation alteration of the locked primary winners;
 - claims of empirical or general CVT validation;
@@ -94,6 +95,15 @@ reviews/2026-08-11-stage5-0-relational-routing-protocol.md
 validation/regulated-transport/config/stage5_relational_routing_protocol.json
 validation/regulated-transport/results/stage5_0/
 validation/regulated-transport/src/stage50_protocol_audit.py
+```
+
+The Stage 5.1A generator implementation and smoke review are recorded in:
+
+```text
+reviews/2026-08-11-stage5-1a-generator-implementation-and-smoke-review.md
+validation/regulated-transport/config/stage51a_generator_implementation.json
+validation/regulated-transport/results/stage5_1a/
+validation/regulated-transport/src/stage51a_generator.py
 ```
 
 Run all tests:
@@ -172,6 +182,18 @@ python -m src.stage50_protocol_audit \
 python -m unittest discover -s tests -p 'test_stage50_protocol_audit.py' -v
 ```
 
+Run the Stage 5.1A focused tests and bounded smoke:
+
+```bash
+python -m unittest discover -s tests -p 'test_stage51a_generator.py' -v
+python -m src.stage51a_generator \
+  --protocol config/stage5_relational_routing_protocol.json \
+  --config config/stage51a_generator_implementation.json \
+  --output results/stage5_1a \
+  --smoke \
+  --rows 12
+```
+
 Stage 3.2 locked `CVT-2-minimum` as the primary CVT candidate and `BL-6-full-native-gradient-boosting` as the primary baseline. The four-proxy operationalization did not meet the preregistered thresholds for incremental predictive value, predictive compression, or high-confidence safety-screen utility.
 
 Stage 3.2.5 fairly refit the locked minimum scorer with the primary micro-probe, 2.5x-dose micro-probe, and direct structural capture composite. The dose perturbation left performance effectively unchanged, while the direct composite remained worse after fair calibration.
@@ -180,5 +202,7 @@ Stage 4.1 found 92 hosted rows failing at least one gate and 114 nonhosted rows 
 
 Stage 5.0 prospectively defines a fresh relational-routing test. It freezes independent partitions, 31 encoded pre-outcome input/timing/load/history/probe columns, 12 interactions, an equal-column native comparison, separate routing and failure endpoints, and selection, calibration, uncertainty, integrity, stopping, and validation thresholds. The audit passes 12 invariants and eight focused tests. No Stage 5 data have been generated and no revised model has been fitted.
 
-Revised-model execution remains unauthorized. The final test remains ungenerated, unopened, and not authorized.
+Stage 5.1A implements the generator behind that protocol and executes only a 12-row smoke. Thirteen focused tests pass; all 96 clone-probe measurements are valid; every solver, accounting, bounds, balance, feature, isolation, and portable-protocol-seal check passes. The smoke found and repaired a sampled history-grid endpoint defect before full generation. Stage 5.1B is authorized to generate exactly 24,000 fresh development rows.
+
+Candidate fitting remains unauthorized. Fresh validation remains ungenerated and unopened. The final test remains ungenerated, unopened, and not authorized.
 

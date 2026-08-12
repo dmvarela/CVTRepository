@@ -1,0 +1,43 @@
+{
+  "accounting_valid_fraction": 1.0,
+  "bounds_valid_fraction": 1.0,
+  "candidate_model_fitted": false,
+  "final_test_generated": false,
+  "final_test_opened": false,
+  "finite_native_feature_fraction": 1.0,
+  "finite_relational_feature_fraction": 1.0,
+  "forcing_family_counts": {
+    "constant": 3,
+    "pulse": 3,
+    "ramp": 3,
+    "shock_tail": 3
+  },
+  "forcing_stratum_counts": {
+    "high": 4,
+    "low": 4,
+    "middle": 4
+  },
+  "fresh_validation_generated": false,
+  "full_development_partition_generated": false,
+  "history_class_counts": {
+    "none": 4,
+    "prior_exposure_then_recovery": 4,
+    "subthreshold_prior_exposure": 4
+  },
+  "history_solver_success_fraction": 1.0,
+  "main_solver_success_fraction": 1.0,
+  "maximum_accounting_residual_fraction": 0.07578255225952624,
+  "maximum_probe_isolation_state_difference": 0.0,
+  "native_column_count": 31,
+  "probe_invalid": 0,
+  "probe_invalid_fraction": 0.0,
+  "probe_measurements": 96,
+  "relational_column_count": 31,
+  "rows": 12,
+  "stage": "5.1A",
+  "stage3_row_level_evidence_read": false,
+  "status": "pass",
+  "unique_design_hashes": 12,
+  "unique_row_ids": 12
+}
+

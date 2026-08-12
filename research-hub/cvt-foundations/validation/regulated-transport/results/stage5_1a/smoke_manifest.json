@@ -1,0 +1,38 @@
+{
+  "candidate_model_fitted": false,
+  "configuration_audit": {
+    "candidate_model_fitted": false,
+    "check_count": 7,
+    "checks": [
+      "stage_identity",
+      "dry_run_authorization",
+      "partition_and_namespace_lock",
+      "balanced_design_and_reserved_family",
+      "equal_31_column_contracts",
+      "probe_contract",
+      "upstream_firewall"
+    ],
+    "final_test_generated": false,
+    "final_test_opened": false,
+    "fresh_validation_generated": false,
+    "full_partition_generation_authorized": false,
+    "stage": "5.1A",
+    "status": "pass"
+  },
+  "design_hash_sha256": "e4b3947abb654ebd2dbcbf077533b0af867c025a365ad412e2d5cea9b696dca7",
+  "final_test_generated": false,
+  "final_test_opened": false,
+  "fresh_validation_generated": false,
+  "full_development_partition_generated": false,
+  "implementation_config_canonical_sha256": "668f40f0c02d687a26368f090902071a4c4d274c6aea170d90789442fc80844c",
+  "native_feature_hash_sha256": "55e1a627a42ab9dd6d8f479c6c47d1fced4ca4902cd61b8079ba0a78ff3e374e",
+  "protocol_canonical_sha256": "ba55909588094c49ea87e9fcfb6f42f41e6490cd6179a129a645585f9a4a811c",
+  "relational_feature_hash_sha256": "f308128823943069f2631d6b09ef6f8c7a6e18eb75bafbe8cd764c8c113a98f4",
+  "row_id_sha256": "f9fa579b85aae5aad117b34917b7deb0dcdd8466a69f9f17b9428c8206001d1d",
+  "rows": 12,
+  "smoke_only": true,
+  "stage": "5.1A",
+  "status": "bounded_smoke_complete",
+  "version": "stage5.1a-generator-1.0"
+}
+

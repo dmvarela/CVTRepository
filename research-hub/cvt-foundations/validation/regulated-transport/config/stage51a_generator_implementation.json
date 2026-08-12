@@ -1,0 +1,353 @@
+{
+  "version": "stage5.1a-generator-1.0",
+  "date": "2026-08-11",
+  "stage": "5.1A",
+  "status": "implementation_dry_run_only",
+  "protocol": {
+    "path": "config/stage5_relational_routing_protocol.json",
+    "canonical_json_sha256": "ba55909588094c49ea87e9fcfb6f42f41e6490cd6179a129a645585f9a4a811c"
+  },
+  "authorization": {
+    "stage51a_smoke_generation_authorized": true,
+    "maximum_smoke_rows": 12,
+    "full_development_partition_generation_authorized": false,
+    "candidate_model_fitting_authorized": false,
+    "fresh_validation_generation_authorized": false,
+    "fresh_validation_opening_authorized": false,
+    "confirmatory_final_test_authorized": false,
+    "final_test_generated": false,
+    "final_test_opened": false
+  },
+  "allowed_smoke_partition": "development_fit",
+  "planned_partitions": {
+    "development_fit": {
+      "rows": 12000,
+      "seed_namespace": "cvt-regulated-transport-stage5-v1-development-fit"
+    },
+    "development_tune": {
+      "rows": 4000,
+      "seed_namespace": "cvt-regulated-transport-stage5-v1-development-tune"
+    },
+    "development_calibration": {
+      "rows": 4000,
+      "seed_namespace": "cvt-regulated-transport-stage5-v1-development-calibration"
+    },
+    "development_selection": {
+      "rows": 4000,
+      "seed_namespace": "cvt-regulated-transport-stage5-v1-development-selection"
+    },
+    "fresh_validation": {
+      "rows": 8000,
+      "seed_namespace": "cvt-regulated-transport-stage5-v1-fresh-validation",
+      "generation_requires_candidate_lock": true
+    }
+  },
+  "seed_and_identity": {
+    "derivation": "first_64_bits_of_sha256(seed_namespace:partition:row_index)",
+    "row_id": "s5-{partition}-{first_16_hex_of_same_sha256}",
+    "stage3_master_seeds_forbidden": [
+      20260803,
+      20260804
+    ],
+    "stage3_row_prefixes_forbidden": [
+      "training-",
+      "validation-",
+      "test-"
+    ],
+    "row_level_stage3_access_permitted": false
+  },
+  "balanced_design": {
+    "forcing_families": [
+      "constant",
+      "pulse",
+      "ramp",
+      "shock_tail"
+    ],
+    "reserved_forcing_family": "repeated_pulse",
+    "forcing_strata": {
+      "low": [
+        0.5,
+        2.5
+      ],
+      "middle": [
+        2.5,
+        6.0
+      ],
+      "high": [
+        6.0,
+        10.0
+      ]
+    },
+    "history_classes": [
+      "none",
+      "subthreshold_prior_exposure",
+      "prior_exposure_then_recovery"
+    ],
+    "cell_cycle_rows": 36,
+    "smoke_rows": 12,
+    "smoke_marginal_counts": {
+      "forcing_family_each": 3,
+      "forcing_stratum_each": 4,
+      "history_class_each": 4
+    },
+    "adaptive_outcome_enrichment_permitted": false
+  },
+  "native_parameter_ranges": {
+    "p_cap": [
+      5.0,
+      12.0
+    ],
+    "u_max": [
+      2.0,
+      8.0
+    ],
+    "k_p": [
+      0.4,
+      1.5
+    ],
+    "k_b": [
+      0.2,
+      1.2
+    ],
+    "k_rel": [
+      0.05,
+      0.5
+    ],
+    "k_e": [
+      0.1,
+      1.0
+    ],
+    "s_max": [
+      3.0,
+      10.0
+    ],
+    "r_s": [
+      0.01,
+      0.15
+    ],
+    "k_rep": [
+      0.05,
+      0.5
+    ],
+    "r_q": [
+      0.01,
+      0.15
+    ],
+    "c_safe": [
+      0.5,
+      2.0
+    ],
+    "u_safe_fraction": [
+      0.35,
+      0.9
+    ],
+    "c_q": [
+      1.0,
+      3.0
+    ],
+    "j_safe": [
+      0.5,
+      3.0
+    ],
+    "h": [
+      0.0,
+      1.0
+    ]
+  },
+  "initial_state_ranges": {
+    "c_a0": [
+      0.0,
+      0.8
+    ],
+    "p_fraction0": [
+      0.0,
+      0.5
+    ],
+    "u_fraction0": [
+      0.0,
+      0.8
+    ],
+    "d0": [
+      0.0,
+      0.35
+    ],
+    "s_fraction0": [
+      0.05,
+      1.0
+    ],
+    "q0": [
+      0.35,
+      1.0
+    ]
+  },
+  "log_factor_defaults": {
+    "k_s": 1.0,
+    "k_q": 0.5,
+    "s_export": 1.5,
+    "k_rep_half": 1.0,
+    "k_qs": 1.0,
+    "k_d1": 0.1,
+    "k_d2": 0.08,
+    "k_d3": 0.04,
+    "a_p": 0.06,
+    "a_e": 0.04,
+    "a_b": 0.03,
+    "a_r": 0.08,
+    "b_d": 0.12,
+    "b_l": 0.08
+  },
+  "schedule_ranges": {
+    "permeability": [
+      0.05,
+      1.0
+    ],
+    "pulse_duration": [
+      2.0,
+      5.0
+    ],
+    "shock_duration": [
+      1.0,
+      3.0
+    ],
+    "tail_fraction": [
+      0.2,
+      0.6
+    ],
+    "declared_recovery_horizon": [
+      30.0,
+      30.0
+    ]
+  },
+  "history_ranges": {
+    "prior_peak_fraction_j_safe": [
+      0.1,
+      0.4
+    ],
+    "prior_permeability": [
+      0.05,
+      0.2
+    ],
+    "prior_duration": [
+      0.5,
+      1.5
+    ],
+    "recovery_interval": [
+      2.0,
+      8.0
+    ],
+    "none_recovery_fraction": 1.0
+  },
+  "probe_design": {
+    "implementation": "discarded_sham_adjusted_counterfactual_clones",
+    "timing_states": [
+      "initial_state",
+      "post_history_pre_main_input"
+    ],
+    "dose_multipliers": [
+      1.0,
+      2.5
+    ],
+    "base_c_b": 2.0,
+    "base_permeability": 0.1,
+    "pulse_duration": 0.05,
+    "short_horizon": 1.0,
+    "recovery_horizon": 3.0,
+    "delivered_floor_fraction_pcap": 0.0001,
+    "invalid_fraction_stop": 0.01,
+    "summary_formulas": {
+      "probe_uptake_nominal_posthistory": "posthistory_1x_short_marginal_productive_over_delivered",
+      "probe_uptake_dose_slope": "(posthistory_2.5x_short_uptake-posthistory_1x_short_uptake)/1.5",
+      "probe_rejection_nominal_posthistory": "mass_balance_residual_fraction_at_posthistory_1x_short",
+      "probe_buffering_dose_slope": "(posthistory_2.5x_short_buffer_fraction-posthistory_1x_short_buffer_fraction)/1.5",
+      "probe_damage_dose_slope": "(posthistory_2.5x_short_damage_per_delivered-posthistory_1x_short_damage_per_delivered)/1.5",
+      "probe_integrity_dose_slope": "(posthistory_2.5x_short_integrity_loss_per_delivered-posthistory_1x_short_integrity_loss_per_delivered)/1.5",
+      "probe_recovery_nominal_posthistory": "one_minus_recovery_horizon_disturbance_norm_over_short_horizon_norm_at_posthistory_1x",
+      "probe_recovery_timing_contrast": "posthistory_1x_recovery_fraction_minus_initial_1x_recovery_fraction"
+    }
+  },
+  "relational_columns": [
+    "g_b",
+    "g_q",
+    "g_s",
+    "initial_free_load_fraction",
+    "initial_buffer_load_fraction",
+    "initial_damage_margin",
+    "initial_integrity_margin",
+    "initial_reserve_fraction",
+    "forcing_is_pulse",
+    "forcing_is_ramp",
+    "forcing_is_shock_tail",
+    "scheduled_peak",
+    "scheduled_dose",
+    "active_duration",
+    "input_centroid",
+    "rise_time",
+    "tail_fraction",
+    "declared_recovery_horizon",
+    "history_is_subthreshold_prior_exposure",
+    "history_is_prior_exposure_then_recovery",
+    "prior_scheduled_dose",
+    "time_since_prior_exposure",
+    "precontact_recovery_fraction",
+    "probe_uptake_nominal_posthistory",
+    "probe_uptake_dose_slope",
+    "probe_rejection_nominal_posthistory",
+    "probe_buffering_dose_slope",
+    "probe_damage_dose_slope",
+    "probe_integrity_dose_slope",
+    "probe_recovery_nominal_posthistory",
+    "probe_recovery_timing_contrast"
+  ],
+  "native_columns": [
+    "param_p_cap",
+    "param_u_max",
+    "param_k_p",
+    "param_k_b",
+    "param_k_rel",
+    "param_k_e",
+    "param_s_max",
+    "param_r_s",
+    "param_k_rep",
+    "param_r_q",
+    "param_c_safe",
+    "param_u_safe",
+    "param_c_q",
+    "param_j_safe",
+    "param_h",
+    "state_c_a",
+    "state_p",
+    "state_u",
+    "state_d",
+    "state_s",
+    "state_q",
+    "forcing_is_pulse",
+    "forcing_is_ramp",
+    "forcing_is_shock_tail",
+    "scheduled_peak",
+    "scheduled_dose",
+    "active_duration",
+    "history_is_subthreshold_prior_exposure",
+    "history_is_prior_exposure_then_recovery",
+    "prior_scheduled_dose",
+    "time_since_prior_exposure"
+  ],
+  "smoke_integrity_rules": {
+    "unique_row_fraction": 1.0,
+    "finite_feature_fraction": 1.0,
+    "solver_success_fraction": 1.0,
+    "accounting_valid_fraction": 1.0,
+    "bounds_valid_fraction": 1.0,
+    "maximum_probe_invalid_fraction": 0.01,
+    "maximum_probe_isolation_state_difference": 0.0,
+    "relational_column_count": 31,
+    "native_column_count": 31
+  },
+  "forbidden_actions": [
+    "read_stage3_row_level_evidence",
+    "generate_any_full_stage5_partition",
+    "generate_or_open_fresh_validation",
+    "fit_tune_calibrate_or_select_any_candidate",
+    "generate_modify_or_open_final_test"
+  ]
+}
+
