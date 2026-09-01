@@ -1,0 +1,46 @@
+name: FTLtauA continuity ablation
+
+on:
+  push:
+    branches:
+      - experiment/ftlta-lucian-ablation
+    paths:
+      - "modern-robotics/ftlta-continuity-ablation/**"
+      - ".github/workflows/ftlta-lucian-ablation.yml"
+  pull_request:
+    paths:
+      - "modern-robotics/ftlta-continuity-ablation/**"
+      - ".github/workflows/ftlta-lucian-ablation.yml"
+  workflow_dispatch:
+
+jobs:
+  simulate-and-test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: modern-robotics/ftlta-continuity-ablation
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run synthetic ablation
+        run: python simulate.py --trials 5000 --seed 20260831 --sigma 0.055
+
+      - name: Run tests
+        run: python -m unittest -v test_simulate.py
+
+      - name: Publish result summary
+        run: cat results.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload result artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ftlta-continuity-ablation-results
+          path: |
+            modern-robotics/ftlta-continuity-ablation/results.json
+            modern-robotics/ftlta-continuity-ablation/results.md
