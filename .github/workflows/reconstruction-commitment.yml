@@ -1,0 +1,35 @@
+name: Reconstruction commitment experiments
+
+on:
+  push:
+    branches:
+      - experiment/reconstruction-commitment
+    paths:
+      - "modern-robotics/reconstruction-commitment/**"
+      - ".github/workflows/reconstruction-commitment.yml"
+  pull_request:
+    paths:
+      - "modern-robotics/reconstruction-commitment/**"
+      - ".github/workflows/reconstruction-commitment.yml"
+  workflow_dispatch:
+
+jobs:
+  dynamic-stopping-tests:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: modern-robotics/reconstruction-commitment
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run Toy World 0.5c
+        run: python toy_world_05c.py
+
+      - name: Run Toy World 0.5c tests
+        run: python -m unittest -v test_toy_world_05c.py
