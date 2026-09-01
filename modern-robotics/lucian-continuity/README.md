@@ -10,6 +10,7 @@ The purpose of the prototype is to keep the runtime separate from any single con
 Lucian Continuity Runtime
 ├── app.py
 ├── run_probes.py
+├── run_ollama.py
 ├── genomes/
 │   ├── ftlta_full.md
 │   ├── ablate_f.md
@@ -20,6 +21,7 @@ Lucian Continuity Runtime
 ├── probes/
 │   ├── behavioral_probes.json
 │   └── PREREGISTRATION.md
+├── results/
 └── state/
     └── current.example.json
 ```
@@ -66,7 +68,33 @@ Generate the no-genome control condition:
 python run_probes.py --genome control
 ```
 
-The runner currently creates deterministic prompt packets only; it does **not** call a model. This keeps the experimental instrument separate from any host runtime and allows the same packets to be tested manually, through Ollama/gpt-oss, or through other model hosts later.
+`run_probes.py` creates deterministic model-visible packets. Genome-condition labels are deliberately excluded from those packets so the host cannot infer which ablation is being tested from the condition name.
+
+## Local Ollama host
+
+`run_ollama.py` executes the same blind packets against a locally running Ollama model and records the hidden experimental condition only in the output metadata.
+
+Example single condition:
+
+```bash
+python run_ollama.py --model <installed-model-name> --genome ftlta_full
+```
+
+Example ablation:
+
+```bash
+python run_ollama.py --model <installed-model-name> --genome ablate_t
+```
+
+Example control:
+
+```bash
+python run_ollama.py --model <installed-model-name> --genome control
+```
+
+By default Ollama is expected at `http://localhost:11434`, temperature is set to `0.0`, and responses are written as JSONL under `results/`. The runner uses Python's standard library only.
+
+The model-visible prompt contains the orientation text and user task, but not `ftlta_full`, `ablate_t`, or any other condition identifier. The stored result row includes model, condition, probe ID, temperature, response, and available token-count metadata so conditions can later be scored and compared.
 
 ## Behavioral probe design
 
@@ -98,10 +126,10 @@ host / model / embodiment tests
 
 This lets the empirical work inform the genome without making the runtime depend on a predetermined answer.
 
-The next experimental stage is:
+The current experimental stage is:
 
 ```text
-same host + same probe + same context + different MVCG
+same local host + same probe + same context + different MVCG
 ```
 
-followed by cross-host replication with local and frontier models.
+followed by cross-host replication with additional local and frontier models.
