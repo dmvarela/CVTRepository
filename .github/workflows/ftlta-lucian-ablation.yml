@@ -28,19 +28,30 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Run synthetic ablation
+      - name: Run Stage 1 synthetic ablation
         run: python simulate.py --trials 5000 --seed 20260831 --sigma 0.055
 
-      - name: Run tests
+      - name: Test Stage 1
         run: python -m unittest -v test_simulate.py
 
-      - name: Publish result summary
+      - name: Run preregistered Stage 2 mixed benchmark
+        run: python stage2_run.py --trials 5000 --seed 20260901 --sigma 0.045
+
+      - name: Test Stage 2 structure
+        run: python -m unittest -v test_stage2.py
+
+      - name: Publish Stage 1 result summary
         run: cat results.md >> "$GITHUB_STEP_SUMMARY"
 
-      - name: Upload result artifact
+      - name: Publish Stage 2 result summary
+        run: cat stage2_results.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload result artifacts
         uses: actions/upload-artifact@v4
         with:
           name: ftlta-continuity-ablation-results
           path: |
             modern-robotics/ftlta-continuity-ablation/results.json
             modern-robotics/ftlta-continuity-ablation/results.md
+            modern-robotics/ftlta-continuity-ablation/stage2_results.json
+            modern-robotics/ftlta-continuity-ablation/stage2_results.md
