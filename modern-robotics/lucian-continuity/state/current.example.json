@@ -1,0 +1,11 @@
+{
+  "active_project": "MVCG / Lucian Continuity",
+  "current_state": "Prototype runtime can load experimentally replaceable continuity genomes.",
+  "last_decision": "Keep the runtime separate from the FTLtauA genome hypothesis.",
+  "open_questions": [
+    "What belongs in the minimal viable continuity genome?",
+    "How should host competence be tested?",
+    "What state must move between devices?",
+    "How should behavioral probes compare full and ablated genomes?"
+  ]
+}
