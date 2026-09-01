@@ -1,0 +1,149 @@
+name: Stage 3 API collection
+
+on:
+  workflow_dispatch:
+    inputs:
+      start_order:
+        description: "First collection order (1-360)"
+        required: true
+        default: "1"
+      end_order:
+        description: "Last collection order (1-360)"
+        required: true
+        default: "20"
+      model:
+        description: "OpenAI API model ID"
+        required: true
+        default: "gpt-5.6-sol"
+      model_family:
+        description: "Frozen label used in deterministic anonymous IDs"
+        required: true
+        default: "GPT-5.6-Sol-API-v1"
+      max_output_tokens:
+        description: "Per-response output cap"
+        required: true
+        default: "1200"
+
+permissions:
+  contents: read
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: modern-robotics/ftlta-continuity-ablation
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      STAGE3_SEED: "20260901"
+      STAGE3_RUNS: "2"
+      BLIND_OUT: /tmp/stage3_api_blind_outputs.jsonl
+      RAW_OUT: /tmp/stage3_api_collection_raw.jsonl
+      META_OUT: /tmp/stage3_api_run_metadata.json
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Test API collector machinery
+        run: python -m unittest -v test_stage3_api.py test_stage3_prepare.py test_stage3_conditions.py
+
+      - name: Validate requested range without API calls
+        run: |
+          python stage3_collect_api.py \
+            --runs "$STAGE3_RUNS" \
+            --seed "$STAGE3_SEED" \
+            --model "${{ inputs.model }}" \
+            --model-family "${{ inputs.model_family }}" \
+            --start-order "${{ inputs.start_order }}" \
+            --end-order "${{ inputs.end_order }}" \
+            --max-output-tokens "${{ inputs.max_output_tokens }}" \
+            --dry-run
+
+      - name: Require OpenAI API key
+        run: |
+          if [ -z "$OPENAI_API_KEY" ]; then
+            echo "OPENAI_API_KEY is not configured as a repository Actions secret." >&2
+            exit 1
+          fi
+
+      - name: Collect stateless real outputs
+        run: |
+          python stage3_collect_api.py \
+            --runs "$STAGE3_RUNS" \
+            --seed "$STAGE3_SEED" \
+            --model "${{ inputs.model }}" \
+            --model-family "${{ inputs.model_family }}" \
+            --start-order "${{ inputs.start_order }}" \
+            --end-order "${{ inputs.end_order }}" \
+            --max-output-tokens "${{ inputs.max_output_tokens }}" \
+            --out "$BLIND_OUT" \
+            --raw-out "$RAW_OUT"
+
+      - name: Validate blind output and write condition-free provenance
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+
+          blind_path = Path(os.environ['BLIND_OUT'])
+          raw_path = Path(os.environ['RAW_OUT'])
+          rows = [json.loads(x) for x in blind_path.read_text(encoding='utf-8').splitlines() if x.strip()]
+          expected = int("${{ inputs.end_order }}") - int("${{ inputs.start_order }}") + 1
+          assert len(rows) == expected, (len(rows), expected)
+          assert all(set(row) == {'response_id', 'disturbance_id', 'response'} for row in rows)
+          assert all(isinstance(row['response'], str) and row['response'].strip() for row in rows)
+          assert len({row['response_id'] for row in rows}) == len(rows)
+
+          raw = [json.loads(x) for x in raw_path.read_text(encoding='utf-8').splitlines() if x.strip()]
+          usage = {'input_tokens': 0, 'output_tokens': 0, 'total_tokens': 0}
+          returned_models = set()
+          for row in raw:
+              returned_models.add(row.get('returned_model'))
+              u = row.get('usage') or {}
+              for key in usage:
+                  usage[key] += int(u.get(key, 0) or 0)
+
+          meta = {
+              'stage': '3-v0.1',
+              'execution_environment': 'OpenAI Responses API via GitHub Actions',
+              'seed': int(os.environ['STAGE3_SEED']),
+              'runs_per_cell': int(os.environ['STAGE3_RUNS']),
+              'requested_model': "${{ inputs.model }}",
+              'model_family': "${{ inputs.model_family }}",
+              'returned_models': sorted(x for x in returned_models if x),
+              'start_order': int("${{ inputs.start_order }}"),
+              'end_order': int("${{ inputs.end_order }}"),
+              'n_responses': len(rows),
+              'max_output_tokens': int("${{ inputs.max_output_tokens }}"),
+              'aggregate_usage': usage,
+              'condition_labels_in_blind_output': False,
+          }
+          Path(os.environ['META_OUT']).write_text(json.dumps(meta, indent=2) + '\n', encoding='utf-8')
+          print(json.dumps(meta, indent=2))
+          PY
+
+      - name: Publish run summary
+        run: |
+          echo "## Stage 3 API collection" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Model: \`${{ inputs.model }}\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Model-family label: \`${{ inputs.model_family }}\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Orders: \`${{ inputs.start_order }}..${{ inputs.end_order }}\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Calls are independent/stateless Responses API requests." >> "$GITHUB_STEP_SUMMARY"
+          echo "- Judge-facing artifact contains no condition labels." >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload blind collection artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: stage3-api-blind-${{ inputs.start_order }}-${{ inputs.end_order }}
+          path: |
+            /tmp/stage3_api_blind_outputs.jsonl
+            /tmp/stage3_api_run_metadata.json
+          if-no-files-found: warn
