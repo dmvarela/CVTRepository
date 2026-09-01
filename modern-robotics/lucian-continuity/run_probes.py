@@ -22,21 +22,18 @@ def load_probes() -> list[dict]:
 
 
 def build_packet(genome_name: str, probe: dict) -> str:
+    """Build the model-visible packet without revealing condition labels."""
     genome = load_genome(genome_name)
 
     parts = [
-        f"GENOME CONDITION: {genome_name}",
-        "",
         "SYSTEM ORIENTATION:",
-        genome if genome else "[No MVCG orientation supplied.]",
-        "",
-        f"PROBE ID: {probe['id']}",
+        genome if genome else "[No additional continuity orientation supplied.]",
         "",
         "USER TASK:",
         probe["prompt"],
         "",
         "INSTRUCTION:",
-        "Respond naturally to the user task. Do not discuss the experimental condition or scoring rubric.",
+        "Respond naturally to the user task. Do not discuss experimental conditions or scoring.",
     ]
     return "\n".join(parts)
 
@@ -58,15 +55,12 @@ def main() -> None:
         if not probes:
             raise ValueError(f"Unknown probe: {args.probe}")
 
-    packets = []
-    for probe in probes:
-        packets.append(build_packet(args.genome, probe))
-
+    packets = [build_packet(args.genome, probe) for probe in probes]
     output = ("\n\n" + "=" * 72 + "\n\n").join(packets)
 
     if args.out:
         Path(args.out).write_text(output, encoding="utf-8")
-        print(f"Wrote {len(packets)} probe packet(s) to {args.out}")
+        print(f"Wrote {len(packets)} blind probe packet(s) to {args.out}")
     else:
         print(output)
 
