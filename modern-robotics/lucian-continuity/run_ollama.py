@@ -1,5 +1,6 @@
 import argparse
 import json
+import socket
 import urllib.error
 import urllib.request
 from datetime import datetime, timezone
@@ -11,11 +12,21 @@ ROOT = Path(__file__).parent
 RESULTS_DIR = ROOT / "results"
 
 
-def call_ollama(host: str, model: str, prompt: str, temperature: float) -> dict:
+def call_ollama(
+    host: str,
+    model: str,
+    prompt: str,
+    temperature: float,
+    timeout: int,
+    num_predict: int,
+    num_ctx: int,
+    think: bool,
+) -> dict:
     url = host.rstrip("/") + "/api/chat"
     payload = {
         "model": model,
         "stream": False,
+        "think": think,
         "messages": [
             {
                 "role": "user",
@@ -24,6 +35,8 @@ def call_ollama(host: str, model: str, prompt: str, temperature: float) -> dict:
         ],
         "options": {
             "temperature": temperature,
+            "num_predict": num_predict,
+            "num_ctx": num_ctx,
         },
     }
 
@@ -35,8 +48,13 @@ def call_ollama(host: str, model: str, prompt: str, temperature: float) -> dict:
     )
 
     try:
-        with urllib.request.urlopen(request, timeout=300) as response:
+        with urllib.request.urlopen(request, timeout=timeout) as response:
             return json.loads(response.read().decode("utf-8"))
+    except (TimeoutError, socket.timeout) as exc:
+        raise RuntimeError(
+            f"Ollama reached {url}, but the model did not finish within {timeout}s. "
+            "Try a smaller output budget or verify the model is running locally."
+        ) from exc
     except urllib.error.URLError as exc:
         raise RuntimeError(
             f"Could not reach Ollama at {url}. Is Ollama running? Original error: {exc}"
@@ -64,6 +82,29 @@ def main() -> None:
     parser.add_argument("--host", default="http://localhost:11434")
     parser.add_argument("--temperature", type=float, default=0.0)
     parser.add_argument(
+        "--timeout",
+        type=int,
+        default=300,
+        help="Per-probe timeout in seconds. Default: 300.",
+    )
+    parser.add_argument(
+        "--num-predict",
+        type=int,
+        default=256,
+        help="Maximum generated tokens per probe. Default: 256.",
+    )
+    parser.add_argument(
+        "--num-ctx",
+        type=int,
+        default=4096,
+        help="Context window used for the benchmark. Default: 4096.",
+    )
+    parser.add_argument(
+        "--think",
+        action="store_true",
+        help="Enable model thinking when supported. Disabled by default for benchmark consistency.",
+    )
+    parser.add_argument(
         "--out",
         help="Optional JSONL result path. Default: results/<timestamp>_<model>_<genome>.jsonl",
     )
@@ -82,7 +123,16 @@ def main() -> None:
     rows = []
     for probe in probes:
         packet = build_packet(args.genome, probe)
-        raw = call_ollama(args.host, args.model, packet, args.temperature)
+        raw = call_ollama(
+            args.host,
+            args.model,
+            packet,
+            args.temperature,
+            args.timeout,
+            args.num_predict,
+            args.num_ctx,
+            args.think,
+        )
         response_text = raw.get("message", {}).get("content", "")
 
         row = {
@@ -92,10 +142,17 @@ def main() -> None:
             "genome_condition": args.genome,
             "probe_id": probe["id"],
             "temperature": args.temperature,
+            "think": args.think,
+            "num_predict": args.num_predict,
+            "num_ctx": args.num_ctx,
             "response": response_text,
             "done_reason": raw.get("done_reason"),
             "eval_count": raw.get("eval_count"),
             "prompt_eval_count": raw.get("prompt_eval_count"),
+            "total_duration": raw.get("total_duration"),
+            "load_duration": raw.get("load_duration"),
+            "prompt_eval_duration": raw.get("prompt_eval_duration"),
+            "eval_duration": raw.get("eval_duration"),
         }
         rows.append(row)
         print(f"[{args.genome}] {probe['id']}: {response_text}\n")
