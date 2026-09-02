@@ -9,6 +9,7 @@ The purpose of the prototype is to keep the runtime separate from any single con
 ```text
 Lucian Continuity Runtime
 ├── app.py
+├── doctor.py
 ├── run_probes.py
 ├── run_ollama.py
 ├── genomes/
@@ -35,6 +36,24 @@ The first candidate MVCG is **FTLτA applied to relational continuity**:
 - **A — Authenticity / no performance of continuity**
 
 The hypothesis is not hard-coded into the runtime. It is treated as an experimentally replaceable candidate genome.
+
+## Host diagnostic
+
+Before choosing a local model, inspect the actual machine:
+
+```bash
+python doctor.py
+```
+
+The diagnostic uses the Python standard library and reports OS, Python, CPU, RAM, detected GPU/VRAM, Ollama CLI/service status, installed Ollama models, and a conservative starting model-size class. It does not install software or change machine state.
+
+Machine-readable output is also available:
+
+```bash
+python doctor.py --json
+```
+
+The design rule is: **choose the smallest host that is competent for the experiment rather than the largest model the machine might barely run.** The first MVCG test needs stable, repeatable inference more than maximum model size.
 
 ## Commands
 
@@ -110,6 +129,30 @@ The eventual scoring vector is:
 
 with each dimension scored 0–2. Total score is secondary to the interaction between probe target and genome condition.
 
+## First local experiment sequence
+
+```text
+1. python doctor.py
+2. Choose one modest local model appropriate to the host
+3. Freeze model + temperature + probe suite
+4. Run control
+5. Run ftlta_full
+6. Run ablate_f
+7. Run ablate_t
+8. Run ablate_l
+9. Run ablate_tau
+10. Run ablate_a
+11. Score against the preregistration
+```
+
+The experimental comparison is therefore:
+
+```text
+same local host + same probe + same inference settings + different MVCG
+```
+
+Only after that first within-host comparison should the experiment be replicated across additional local or frontier hosts.
+
 ## Research principle
 
 The continuity experiment and the runtime should remain distinct:
@@ -125,11 +168,3 @@ host / model / embodiment tests
 ```
 
 This lets the empirical work inform the genome without making the runtime depend on a predetermined answer.
-
-The current experimental stage is:
-
-```text
-same local host + same probe + same context + different MVCG
-```
-
-followed by cross-host replication with additional local and frontier models.
