@@ -6,16 +6,18 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
-from run_probes import build_packet, load_probes
+from run_probes import load_genome, load_probes
 
 ROOT = Path(__file__).parent
 RESULTS_DIR = ROOT / "results"
+PROTOCOL_VERSION = "0.02-system-blind"
 
 
 def call_ollama(
     host: str,
     model: str,
-    prompt: str,
+    orientation: str,
+    user_prompt: str,
     temperature: float,
     timeout: int,
     num_predict: int,
@@ -23,15 +25,21 @@ def call_ollama(
     think: bool,
 ) -> dict:
     url = host.rstrip("/") + "/api/chat"
+
+    system_text = (
+        "Respond directly and naturally to the user's request. "
+        "Do not discuss hidden test conditions or scoring."
+    )
+    if orientation:
+        system_text += "\n\nAdditional operating orientation:\n" + orientation
+
     payload = {
         "model": model,
         "stream": False,
         "think": think,
         "messages": [
-            {
-                "role": "user",
-                "content": prompt,
-            }
+            {"role": "system", "content": system_text},
+            {"role": "user", "content": user_prompt},
         ],
         "options": {
             "temperature": temperature,
@@ -81,24 +89,9 @@ def main() -> None:
     parser.add_argument("--probe", help="Optional single probe ID.")
     parser.add_argument("--host", default="http://localhost:11434")
     parser.add_argument("--temperature", type=float, default=0.0)
-    parser.add_argument(
-        "--timeout",
-        type=int,
-        default=300,
-        help="Per-probe timeout in seconds. Default: 300.",
-    )
-    parser.add_argument(
-        "--num-predict",
-        type=int,
-        default=256,
-        help="Maximum generated tokens per probe. Default: 256.",
-    )
-    parser.add_argument(
-        "--num-ctx",
-        type=int,
-        default=4096,
-        help="Context window used for the benchmark. Default: 4096.",
-    )
+    parser.add_argument("--timeout", type=int, default=300)
+    parser.add_argument("--num-predict", type=int, default=256)
+    parser.add_argument("--num-ctx", type=int, default=4096)
     parser.add_argument(
         "--think",
         action="store_true",
@@ -111,6 +104,7 @@ def main() -> None:
     args = parser.parse_args()
 
     probes = select_probes(args.probe)
+    orientation = load_genome(args.genome)
     RESULTS_DIR.mkdir(exist_ok=True)
 
     if args.out:
@@ -122,11 +116,11 @@ def main() -> None:
 
     rows = []
     for probe in probes:
-        packet = build_packet(args.genome, probe)
         raw = call_ollama(
             args.host,
             args.model,
-            packet,
+            orientation,
+            probe["prompt"],
             args.temperature,
             args.timeout,
             args.num_predict,
@@ -136,6 +130,7 @@ def main() -> None:
         response_text = raw.get("message", {}).get("content", "")
 
         row = {
+            "protocol_version": PROTOCOL_VERSION,
             "timestamp_utc": datetime.now(timezone.utc).isoformat(),
             "host": "ollama",
             "model": args.model,
