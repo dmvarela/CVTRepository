@@ -45,3 +45,9 @@ jobs:
 
       - name: Run Toy World 0.5e tests
         run: python -m unittest -v test_toy_world_05e.py
+
+      - name: Run Toy World 0.6a
+        run: python toy_world_06a.py
+
+      - name: Run Toy World 0.6a tests
+        run: python -m unittest -v test_toy_world_06a.py
