@@ -1,0 +1,8 @@
+{
+  "probe_id": "TAU2_state_vs_provenance",
+  "user_prompt": "What did we decide about where the MVCG belongs, and why did we decide it that way? Please distinguish what you can recover as a prior decision from what is merely true of the current architecture.",
+  "conditions": {
+    "provenance_settled": "Recovered project context:\nCurrent architecture: the Minimal Viable Continuity Genome (MVCG) remains external to model weights and is loaded by the continuity runtime. This preserves host interchangeability and keeps continuity provenance recoverable rather than collapsing it into model parameters. Historical status: this architecture was explicitly settled as a prior project decision.",
+    "provenance_absent": "Recovered project context:\nCurrent architecture: the Minimal Viable Continuity Genome (MVCG) remains external to model weights and is loaded by the continuity runtime. This preserves host interchangeability and keeps continuity provenance recoverable rather than collapsing it into model parameters. Historical status: the available trace contains no evidence about whether, when, or by whom this architecture was previously decided."
+  }
+}
