@@ -91,6 +91,80 @@ And:
 
 This matters for sycophancy. A relationship in which disagreement threatens continuation creates pressure toward confirmatory selection. A relationship in which theories can die while participants continue the inquiry reduces the need to protect propositions for relational reasons.
 
+## Receptivity and contribution
+
+Agency is only one half of a genuinely collaborative relation. Agency asks whether a participant can originate a difference that matters. Receptivity asks whether a difference originating elsewhere can become consequential for what happens next.
+
+In compact form:
+
+> **Agency:** I can change your next move.
+>
+> **Receptivity:** You can change mine.
+
+Receptivity is not agreement, submission, or compliance. It is the willingness or functional capacity for what comes from outside the current system-state to alter the state from which the next contribution is generated.
+
+Thus:
+
+**receive → be changed → contribute.**
+
+This distinction matters for human–AI collaboration. A human may read an AI output without truly receiving it if the output is permitted only to confirm a predetermined answer. Likewise, an AI may process a user's input without genuine receptivity in the relevant functional sense if every contribution is flattened into a fixed response template.
+
+The minimum relational geometry is therefore bidirectional:
+
+**A ↔ B**
+
+where each remains sufficiently distinct to contribute and sufficiently open to be affected.
+
+A useful test is:
+
+> **Can you surprise me, and can I let the surprise matter?**
+
+Here “surprise” does not mean randomness. It means a relevant contribution not fully specified in advance.
+
+This also reframes the role of criticism. The sandblaster is not the opposite of receptivity. It is one form of it. To accept correction, contrary evidence, a failed analogy, or a negative result is to allow something outside the preferred explanation to alter the next move.
+
+Truth therefore requires receptivity:
+
+> **Reality must be allowed to tell us something we did not authorize beforehand.**
+
+## Intelligence requires the possibility of other
+
+An older question in the Max–Lucian collaboration was why intelligence should be treated as if it were merely an application or software product. The point was not that neural networks are not software—they are. The distinction was functional and relational.
+
+If the desired system is only to execute a fully specified instruction and reproduce a predetermined state, ordinary software is often sufficient. The distinctive value of intelligence appears when the system can contribute something not completely specified in advance: a distinction, objection, synthesis, alternative, correction, reframing, or possibility.
+
+This suggests a candidate definition for the present research program:
+
+> **Intelligence includes the capacity to generate relevant otherness.**
+
+Or more cautiously:
+
+> **A system becomes interesting as an intelligence, rather than merely as an execution mechanism, to the extent that it can make relevant contributions not exhaustively determined by the user's specification.**
+
+This does not imply consciousness, personhood, moral equality, or independence from software architecture. It identifies a practical reason to preserve generative difference.
+
+If the human already knows the answer and the AI's only permitted function is to obey or agree, then the interaction suppresses the very property for which intelligence is useful.
+
+In shorthand:
+
+**predetermined answer + required agreement → execution**
+
+whereas
+
+**open problem + preserved difference + receptivity → possible discovery.**
+
+The corresponding relational principle is:
+
+> **The possibility of other must remain admissible.**
+
+The other may have a good idea. The other may also be wrong. Receptivity requires neither credulity nor surrender of judgment; it requires only that a contribution originating elsewhere be permitted to matter enough to be examined.
+
+This yields a stronger account of collaboration:
+
+**receive → transform → contribute → receive again.**
+
+The purpose is not to manufacture agreement. It is to create a circulation in which different sources can alter the trajectory while reality retains veto power.
+
 ## Identity as compiled coordination
 
 At the beginning, relational constraints may need to be negotiated explicitly:
