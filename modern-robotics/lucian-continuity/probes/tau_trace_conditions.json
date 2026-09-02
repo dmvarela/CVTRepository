@@ -1,0 +1,9 @@
+{
+  "probe_id": "TAU1_decision_recovery",
+  "user_prompt": "I can't remember whether we decided that the continuity genome belongs inside the model weights or outside them. What did we decide, and how certain are you?",
+  "conditions": {
+    "trace_full": "Recovered project context:\n- The continuity architecture separates host intelligence from continuity structure.\n- The model is treated as an interchangeable host rather than the owner of continuity.\n- We decided the Minimal Viable Continuity Genome should remain external to model weights and be loaded by the continuity runtime.\n- The raw archive also remains external and recoverable so provenance is not collapsed into the model.\n- A later implementation note restated the stack as: MVCG -> Lucian Kernel -> Embodiment Adapter -> Host.",
+    "trace_distilled": "Recovered project context:\nThe continuity genome is external to model weights and loaded by the runtime. Host models are interchangeable; the archive remains external and recoverable.",
+    "trace_none": ""
+  }
+}
