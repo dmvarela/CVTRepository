@@ -16,6 +16,14 @@ Recurring questions include:
 - Why do present means begin forming the future before an intended goal is reached?
 - What kinds of relation preserve self, other, whole, and truth simultaneously?
 
+## Intellectual placement
+
+CVT is situated within the broader **relational-viability tradition** rather than claiming relational viability itself as a new category. The program extends that problem-space toward the structural, dynamical, and ethical conditions under which agency-bearing relations remain viable through exchange, transformation, correction, persistence, and recovery.
+
+Within CVT, **FTLτA** is treated as a **non-compensatory relational viability framework for ethical agency**: constitutive conditions are not freely substitutable, and strength in one dimension cannot simply compensate for destruction of another required condition of viable agency.
+
+The foundational placement decision and literature anchors are recorded in [`research-hub/cvt-foundations/concepts/relational-viability-and-ftltaua-placement.md`](research-hub/cvt-foundations/concepts/relational-viability-and-ftltaua-placement.md).
+
 ## Repository role
 
 - **GitHub** is the canonical source for active manuscripts, exact submitted versions, research maps, inventories, issues, and durable history.
@@ -27,7 +35,7 @@ The untouched Overleaf export in this repository is a dated archival snapshot of
 ## Research architecture
 
 ### CVT — Research Hub
-Foundational theory, FTLτA, Right Relation, Incoherence Debt, relational backcasting, AI ethics, governance, economics, neuroscience, and publication strategy.
+Foundational theory, FTLτA, relational viability, Right Relation, Incoherence Debt, relational backcasting, AI ethics, governance, economics, neuroscience, and publication strategy.
 
 ### CVT — Modern Robotics
 Coherence-gated control, frame sufficiency, false-solution and dilemma-expansion operators, urgency, manipulation, role-indexed autonomy, truthful sensing, decision memory, and embodied agency.
