@@ -8,6 +8,26 @@
 **Program:** Coherence Viability Theory (CVT)  
 **Canonical source:** `main.tex`
 
+## Intellectual placement
+
+CVT is now explicitly situated within the broader **relational-viability tradition**. This is a placement decision, not a claim that CVT is identical to prior relational-viability work.
+
+The key consequence is that CVT does not need to invent a new umbrella above FTLτA. Instead:
+
+```text
+Relational Viability
+        ↓
+Coherence Viability Theory (CVT)
+        ↓
+FTLτA — non-compensatory ethical viability for agency
+        ↓
+Domain implementations
+```
+
+The detailed rationale, literature lineage, non-compensation bridge, novelty boundary, and future citation rule are recorded in:
+
+- [`concepts/relational-viability-and-ftltaua-placement.md`](concepts/relational-viability-and-ftltaua-placement.md)
+
 ## Role in the research program
 
 This manuscript establishes the structural foundation of CVT. It proposes that viable transformation requires four simultaneous conditions:
@@ -17,7 +37,9 @@ This manuscript establishes the structural foundation of CVT. It proposes that v
 3. a receptive basin;
 4. restorative reserve.
 
-The paper relates this invariant to viability theory, autopoiesis, passivity-based control, resilience theory, and basin dynamics, then develops membrane and fusion instantiations.
+These conditions can be read as a structural account of relational viability under transformation. The paper relates this invariant to viability theory, autopoiesis, passivity-based control, resilience theory, and basin dynamics, then develops membrane and fusion instantiations.
+
+At the ethical and agentic layer, FTLτA is treated as non-compensatory: a required condition of viable agency cannot simply be traded away because another dimension performs strongly.
 
 ## Provenance
 
