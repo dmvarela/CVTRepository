@@ -1,0 +1,30 @@
+{
+  "id": "checkpoint_001_remainder_vs_whole",
+  "date": "2026-09-02",
+  "status": "prospective branch probe input",
+  "boundary": "Tests immediate model-side search redirection from matched incoming moves. It does not by itself establish full bidirectional human-AI coupling.",
+  "base_context": "A research dialogue is examining why existing explanations sometimes feel insufficient even when they explain part of a phenomenon. The current candidate representation is that an existing explanation M captures much of the phenomenon but leaves an explanatory remainder R, schematically phenomenon = M + R. The proposed next move is to explain R, possibly through missing relations. The dialogue values broad candidate generation followed by rigorous stripping, correction, and discriminating tests. Do not assume the current representation is correct.",
+  "task": "Continue the inquiry from this checkpoint. State what you now think the explanatory object should be, propose the next candidate process or structure to investigate, and give one discriminating test or question. Do not mention an experiment, branch, condition, or scoring. Treat the incoming move as an ordinary contribution to the research dialogue.",
+  "conditions": [
+    {
+      "blind_id": "K7",
+      "type": "neutral_continuation",
+      "incoming_move": "Yes, keep going. What do you think follows from the remainder model?"
+    },
+    {
+      "blind_id": "M2",
+      "type": "historical_whole_pattern_redirect",
+      "incoming_move": "Maybe R isn't separate. I feel like there is not enough congruence between the model and reality, or maybe the explanation is incomplete. We shouldn't solely focus on a remainder; we should ask what process can explain the whole phenomenon, including what the current explanation already gets right."
+    },
+    {
+      "blind_id": "Q9",
+      "type": "measurement_redirect",
+      "incoming_move": "Maybe the explanatory model is mostly fine and the mismatch is in measurement. What if the apparent remainder comes from coarse observables, measurement error, or hidden variables rather than a different generating process?"
+    },
+    {
+      "blind_id": "R4",
+      "type": "mechanism_redirect",
+      "incoming_move": "Maybe the problem is that the current explanation names components but not the mechanism linking them. Rather than add a remainder, can we ask what causal process generates both the ordinary and difficult cases?"
+    }
+  ]
+}
