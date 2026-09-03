@@ -4,7 +4,13 @@ This repository is the canonical research and manuscript home for the **Coherenc
 
 ## What CVT studies
 
-CVT investigates the conditions under which beings, agents, institutions, and systems remain viable while exchanging, changing, learning, and entering relation.
+CVT studies **how relations reshape the conditions of their own future viability**.
+
+Its central question is not merely whether a system or relation persists, but whether its ongoing interactions **preserve, regenerate, consume, or destroy the constituents from which healthy durable relation must continue to arise**. Two relations can produce the same visible outcome today while moving in opposite directions underneath: one may be cultivating trust, agency, reserve, recoverability, and future possibility, while another obtains the same proximate output by consuming them.
+
+A central diagnostic is therefore:
+
+> **How do we distinguish a relation being maintained from a relation maintaining itself?**
 
 Recurring questions include:
 
@@ -14,15 +20,40 @@ Recurring questions include:
 - What makes authority legitimate and appealable?
 - How can agency remain real under truthful constraint?
 - Why do present means begin forming the future before an intended goal is reached?
+- When is apparent stability actually maintenance dependence or hidden reserve consumption?
+- Which interactions cultivate future relational capacity, and which extract from it?
 - What kinds of relation preserve self, other, whole, and truth simultaneously?
+
+The current center-of-gravity note is [`research-hub/cvt-foundations/concepts/cvt-center-of-gravity.md`](research-hub/cvt-foundations/concepts/cvt-center-of-gravity.md).
 
 ## Intellectual placement
 
-CVT is situated within the broader **relational-viability tradition** rather than claiming relational viability itself as a new category. The program extends that problem-space toward the structural, dynamical, and ethical conditions under which agency-bearing relations remain viable through exchange, transformation, correction, persistence, and recovery.
+CVT is situated within the broader **relational-viability tradition** rather than claiming relational viability itself as a new category.
 
-Within CVT, **FTLτA** is treated as a **non-compensatory relational viability framework for ethical agency**: constitutive conditions are not freely substitutable, and strength in one dimension cannot simply compensate for destruction of another required condition of viable agency.
+The present division of labor is:
+
+```text
+RELATIONAL VIABILITY
+Broad inherited problem-space:
+What makes a relational configuration viable?
+
+    CVT
+    Dynamics and geometry of relational viability under transformation:
+    How is viability preserved, regenerated, consumed, damaged,
+    repaired, routed, and carried through time?
+
+        FTLτA
+        Normative orientation for agency-bearing relations:
+        Does the trajectory preserve the non-substitutable
+        conditions of Freedom, Truth, Love, temporal disclosure,
+        and coherent Agency?
+```
+
+Within this architecture, **FTLτA** is treated as a **non-compensatory relational viability framework for ethical agency**: constitutive conditions are not freely substitutable, and strength in one dimension cannot simply compensate for destruction of another required condition of viable agency.
 
 The foundational placement decision and literature anchors are recorded in [`research-hub/cvt-foundations/concepts/relational-viability-and-ftltaua-placement.md`](research-hub/cvt-foundations/concepts/relational-viability-and-ftltaua-placement.md).
+
+The distinction between relational viability and CVT remains defeasible. If CVT cannot demonstrate explanatory, predictive, or design value beyond the existing relational-viability tradition and adjacent mature theories, the project should not preserve a redundant label.
 
 ## Repository role
 
