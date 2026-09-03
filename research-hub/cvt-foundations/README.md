@@ -10,36 +10,61 @@
 
 ## Intellectual placement
 
-CVT is now explicitly situated within the broader **relational-viability tradition**. This is a placement decision, not a claim that CVT is identical to prior relational-viability work.
+CVT is explicitly situated within the broader **relational-viability tradition**. This is a placement decision, not a claim that CVT is identical to prior relational-viability work.
 
-The key consequence is that CVT does not need to invent a new umbrella above FTLτA. Instead:
+The broader architecture is:
 
 ```text
-Relational Viability
-        ↓
-Coherence Viability Theory (CVT)
-        ↓
-FTLτA — non-compensatory ethical viability for agency
-        ↓
-Domain implementations
+RELATIONAL VIABILITY
+Broad inherited problem-space
+
+    CVT
+    Dynamics and geometry of relational viability under transformation
+
+        FTLτA
+        Non-compensatory normative orientation for agency-bearing relations
 ```
 
-The detailed rationale, literature lineage, non-compensation bridge, novelty boundary, and future citation rule are recorded in:
+The detailed placement rationale, literature lineage, non-compensation bridge, novelty boundary, and future citation rule are recorded in:
 
 - [`concepts/relational-viability-and-ftltaua-placement.md`](concepts/relational-viability-and-ftltaua-placement.md)
 
+The current center-of-gravity formulation of CVT is recorded in:
+
+- [`concepts/cvt-center-of-gravity.md`](concepts/cvt-center-of-gravity.md)
+
+Its concise statement is:
+
+> **CVT studies how relations reshape the conditions of their own future viability.**
+
+Expanded:
+
+> **CVT studies whether relational processes reproduce, restore, or deepen the constituents required for healthy durable relation, or instead consume those constituents while maintaining an apparently successful state.**
+
 ## Role in the research program
 
-This manuscript establishes the structural foundation of CVT. It proposes that viable transformation requires four simultaneous conditions:
+The canonical manuscript began by testing a strong first-generation decomposition of hosted transformation through four candidate conditions:
 
 1. bounded coupling;
-2. preserved distinction;
-3. a receptive basin;
+2. preserved identity-defining organization;
+3. capture readiness / receptive capacity;
 4. restorative reserve.
 
-These conditions can be read as a structural account of relational viability under transformation. The paper relates this invariant to viability theory, autopoiesis, passivity-based control, resilience theory, and basin dynamics, then develops membrane and fusion instantiations.
+The first regulated-transport validation did **not** support the literal four-gate intersection for the measured proxies. That negative result is part of the canonical record and must not be rewritten as confirmation.
 
-At the ethical and agentic layer, FTLτA is treated as non-compensatory: a required condition of viable agency cannot simply be traded away because another dimension performs strongly.
+The surviving CVT program is therefore broader and more dynamical than the original gate model. It asks how relational configurations move through time; how interactions reshape basins, boundaries, reserve, recoverability, and future possibility; and whether apparently successful outcomes are being cultivated by reproducing their generative conditions or maintained by consuming them.
+
+This gives special importance to distinctions such as:
+
+```text
+persistence ≠ health
+continuation ≠ viability
+stability ≠ regenerative durability
+being maintained ≠ maintaining itself
+proximate output ≠ cultivated capacity
+```
+
+At the ethical and agentic layer, FTLτA remains non-compensatory: a required condition of viable agency cannot simply be traded away because another dimension performs strongly.
 
 ## Provenance
 
@@ -66,4 +91,4 @@ The manuscript has entered a bounded scholarly stress-test phase. The first revi
 
 - [`reviews/2026-07-22-claim-ledger.md`](reviews/2026-07-22-claim-ledger.md)
 
-The next scholarly phase is a literature, novelty, and falsifiability stress test. Changes should be made on a bounded branch and merged into this canonical path after review.
+The next scholarly phase is a literature, novelty, and falsifiability stress test, now with the relational-viability lineage and the narrower CVT center of gravity made explicit. Changes should be made on a bounded branch and merged into this canonical path after review.
