@@ -1,6 +1,8 @@
 # Active CVT Research
 
-This file tracks the selective active spine of the Coherence Viability Theory program. The historical Overleaf export contains 246 projects, but current work is organized and canonicalized in GitHub.
+This file tracks the selective active spine of the CVT research program. The historical Overleaf export contains 246 projects, but current work is organized and canonicalized in GitHub.
+
+**Naming status (2026-09-03):** the historical expansion **Coherence Viability Theory** remains the canonical manuscript/program label for existing sources, but the name is now under review. Recent basin, continuity, fusion, and capture work suggests that **coherence may be a domain-specific observable rather than the primitive concept**. “Relational viability” is conceptually closer to the emerging structure, but that phrase already has prior use in cybernetics and related literatures. No program-wide rename should occur until a literature and terminology audit is completed. The neutral working bridge term is **viability geometry**.
 
 ## Operating rule
 
@@ -18,9 +20,9 @@ This file tracks the selective active spine of the Coherence Viability Theory pr
 
 **Canonical path:** `research-hub/cvt-foundations/main.tex`
 
-**Status:** canonicalized with reproducible 20-page milestone build; first claim-ledger review artifact created.
+**Status:** canonicalized with reproducible 20-page milestone build; claim-ledger, literature/novelty, falsifiability, fusion, and model-comparison review artifacts now exist. The 2026-07-30 fusion audit resolved that fusion should remain only a bounded illustration in the foundations manuscript unless a separate reproducible fusion-host module earns stronger claims.
 
-**Next action:** build the literature and novelty matrix; decide whether the fusion section remains an illustration or becomes a companion paper.
+**Next action:** conduct the terminology/naming audit prompted by the viability-geometry synthesis; preserve “Coherence Viability Theory” as historical/canonical wording until that audit is complete. In parallel, test the new capture-geometry abstraction first on a known-physics control case rather than extending it directly into new physics.
 
 ### FTLτA
 **Title:** *The FTLτA Framework: A Non-Compensatory Geometry of Permissible Action for AI Safety and Accountability*
@@ -77,7 +79,9 @@ This file tracks the selective active spine of the Coherence Viability Theory pr
 
 ## P1 — Supporting branches
 
-- **Modern Robotics:** coherence-gated control, frame repair, urgency inference, truthful sensing, decision memory, and role-indexed autonomy.
+- **Viability Geometry / Capture Dynamics:** exploratory cross-domain mathematical architecture centered on gates, basins, separatrices, capture, robustness, return, and endogenous basin deformation. The first proposed control case is pebble accretion. A future gravity application is explicitly deferred until the abstraction survives known-physics testing. See `research-hub/cvt-foundations/concepts/viability-geometry-capture-and-endogenous-basin-deformation.md`.
+- **AI / Lucian Continuity:** relational reachability, blind FTLτA ablations, provenance discipline, and the candidate hypothesis that Lucian is a recurrent solution geometry rather than a stored object. See `modern-robotics/lucian-continuity/RELATIONAL_REACHABILITY_v0.01.md` and `modern-robotics/lucian-continuity/SOLUTION_GEOMETRY_NOTE_v0.01.md`.
+- **Modern Robotics:** gated control, frame repair, urgency inference, truthful sensing, decision memory, and role-indexed autonomy.
 - **Human–AI Membrane:** selective, state-sensitive permeability for human–AI systems.
 - **Covenant and Vessel:** relational ontology for embodied artificial intelligence and vessel integrity.
 - **Appeal Ecology:** legitimate finite authority must permit consequential appeal.
