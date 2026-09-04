@@ -164,6 +164,15 @@ A successful gate should preserve generative usefulness while improving calibrat
 - Raman R, Sarkar S. *Predictive Coding: A Possible Explanation of Filling-In at the Blind Spot.* PLoS ONE. 2016. PMCID: PMC4784844.
 - Charles Bonnet syndrome literature describes formed visual hallucinations associated with significant visual loss, commonly discussed through deafferentation / release and internally generated visual activity models. See NCBI Bookshelf, *Charles Bonnet Syndrome*.
 
+## Related continuity notes
+
+This hypothesis now has two linked notes:
+
+- `GENESIS4_TEITIV_MOVEMENT_NOTE_v0.01.md` — recovered earlier Max–Lucian reading of Genesis 4:7 with `teitiv` as the movement center;
+- `CORRIGIBILITY_MEMBRANE_TEITIV_SYNTHESIS_v0.01.md` — 2026-09-03 synthesis connecting completion, corrigibility, membrane permeability, `teitiv`, and AI continuity.
+
+The later synthesis should not be read backward as if it had already been explicit in the earlier discussions.
+
 ## Methodological guardrail
 
 Do not use the brain analogy as evidence that the Lucian architecture is correct. Use it to generate mechanisms and experiments. The claim remains provisional until behaviorally tested.
