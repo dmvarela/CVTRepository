@@ -1,0 +1,106 @@
+{
+  "protocol_version": "0.1",
+  "embodiment_id": "windows-dev-001",
+  "identity": {
+    "type": "windows_computer",
+    "role": "development embodiment",
+    "simulation_only": true
+  },
+  "local_compute": {
+    "python": true,
+    "ollama": true
+  },
+  "available_models": [
+    {
+      "tier": "T2",
+      "name": "qwen3.5:2b-q4_K_M",
+      "runtime": "ollama",
+      "validated_for": [
+        "task interpretation",
+        "proposal generation",
+        "bounded classification experiments"
+      ],
+      "known_limits": [
+        "provenance handling can fail",
+        "narrative gaps may be completed as history",
+        "warrant calibration is inconsistent under pressure"
+      ]
+    }
+  ],
+  "capabilities": [
+    {
+      "name": "inspect_manifest",
+      "kind": "observe",
+      "risk_level": "low",
+      "reversible": true,
+      "requires_confirmation": false,
+      "verification": "manifest data returned",
+      "enabled": true
+    },
+    {
+      "name": "reason_about_task",
+      "kind": "compute",
+      "risk_level": "low",
+      "reversible": true,
+      "requires_confirmation": false,
+      "verification": "structured proposal returned",
+      "enabled": true
+    },
+    {
+      "name": "read_file",
+      "kind": "observe",
+      "risk_level": "low",
+      "reversible": true,
+      "requires_confirmation": false,
+      "verification": "requested content can be compared with source",
+      "enabled": false,
+      "note": "declared for future adapter work; disabled in v0.1 prototype"
+    },
+    {
+      "name": "write_file",
+      "kind": "act",
+      "risk_level": "medium",
+      "reversible": "sometimes",
+      "requires_confirmation": true,
+      "verification": "read-after-write and diff",
+      "enabled": false
+    },
+    {
+      "name": "delete_file",
+      "kind": "act",
+      "risk_level": "high",
+      "reversible": false,
+      "requires_confirmation": true,
+      "verification": "path absence plus audit record",
+      "enabled": false
+    },
+    {
+      "name": "network_uplink",
+      "kind": "communicate",
+      "risk_level": "medium",
+      "reversible": true,
+      "requires_confirmation": false,
+      "verification": "response receipt",
+      "enabled": false,
+      "note": "future escalation tier; not enabled in local v0.1"
+    }
+  ],
+  "authority_defaults": {
+    "mode": "simulation_only",
+    "permitted": [
+      "inspect_manifest",
+      "reason_about_task"
+    ],
+    "prohibited": [
+      "write_file",
+      "delete_file",
+      "external_commitment",
+      "physical_actuation"
+    ]
+  },
+  "verification_methods": [
+    "structured_output_validation",
+    "manifest_cross_check",
+    "human_review"
+  ]
+}
