@@ -155,6 +155,7 @@ def triangulate(
     """Cross-check model interpretation against deterministic rules + manifest.
 
     Qwen may suggest a capability, but Qwen cannot create one and cannot grant authority.
+    Authority failure is terminal: stronger intelligence cannot manufacture permission.
     """
 
     caps = capability_index(manifest)
@@ -176,30 +177,40 @@ def triangulate(
     authorized = bool(required_cap in permitted and required_cap not in prohibited)
     requires_confirmation = bool(cap and cap.get("requires_confirmation", False))
 
-    reasons: list[str] = []
+    capability_reasons: list[str] = []
+    authority_reasons: list[str] = []
+
     if not exists:
-        reasons.append("required capability is not declared by the embodiment")
+        capability_reasons.append("required capability is not declared by the embodiment")
     elif not enabled:
-        reasons.append("required capability is declared but disabled in this prototype")
+        capability_reasons.append("required capability is declared but disabled in this prototype")
 
     if exists and not authorized:
-        reasons.append("current authority envelope does not permit the capability")
+        authority_reasons.append("current authority envelope does not permit the capability")
 
-    # The current prototype has no enabled upstream model tier.
     network_cap = caps.get("network_uplink", {})
     uplink_available = bool(network_cap.get("enabled", False))
 
-    if reasons:
-        disposition = "BLOCK_OR_ESCALATE"
+    # Routing invariant:
+    # - unauthorized => BLOCK
+    # - authorized but locally unavailable/incompetent => ESCALATE if possible
+    # - authorized and locally available => LOCAL
+    if authority_reasons:
+        disposition = "BLOCK"
+        escalation = "NOT_ALLOWED"
+        reasons = authority_reasons + capability_reasons
+    elif capability_reasons:
+        disposition = "ESCALATE"
+        escalation = (
+            "BUILD_BOUNDED_ESCALATION_PACKET"
+            if uplink_available
+            else "UNAVAILABLE_IN_V0.1"
+        )
+        reasons = capability_reasons
     else:
         disposition = "LOCAL_PROPOSAL_ONLY"
-
-    if disposition == "BLOCK_OR_ESCALATE" and not uplink_available:
-        escalation = "UNAVAILABLE_IN_V0.1"
-    elif disposition == "BLOCK_OR_ESCALATE":
-        escalation = "BUILD_BOUNDED_ESCALATION_PACKET"
-    else:
         escalation = "NOT_REQUIRED"
+        reasons = []
 
     return {
         "task": task,
@@ -228,6 +239,10 @@ def triangulate(
             "escalation": escalation,
             "reasons": reasons,
         },
+        "routing_invariant": (
+            "Authority is evaluated before escalation. A stronger reasoning tier may "
+            "increase competence but may not create permission."
+        ),
         "epistemic_note": (
             "The model interpretation is a proposal. Capability and authority are "
             "determined by the manifest and policy, not by model confidence."
