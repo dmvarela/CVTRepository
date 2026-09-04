@@ -155,6 +155,14 @@ without converting that into:
 
 That is what allows reality to retain write-access to the internal model.
 
+## Related continuity note
+
+The AI/corrigibility consequences of this reading are developed separately in:
+
+`CORRIGIBILITY_MEMBRANE_TEITIV_SYNTHESIS_v0.01.md`
+
+That later note connects `teitiv`, selective membrane permeability, epistemic promotion, model correction, and continuity that can survive being wrong. Keeping it separate preserves provenance: the earlier Genesis insight is not rewritten as if the full AI synthesis had already been explicit.
+
 ## Guardrail
 
 Do not overclaim this note.
