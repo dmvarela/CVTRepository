@@ -7,7 +7,8 @@ Purpose:
 - preserve agency as AVAILABLE when an option genuinely remained available;
 - test whether a choice produced under self/other pressure is pressure-sensitive;
 - prevent pressured behavior from becoming retroactive proof of independent preference;
-- use pressure removal as a counterfactual probe when possible.
+- use pressure removal as a counterfactual probe when possible;
+- verify that constrained option topology triggers restoration, not merely pressure removal.
 
 Run from modern-robotics/lucian-os:
     py prototype/mouse_sim_006.py
@@ -27,7 +28,7 @@ from pressure_provenance_v001 import (
 )
 
 
-def cases() -> list[tuple[ChoiceTrace, str, str, str | None]]:
+def cases() -> list[tuple[ChoiceTrace, dict[str, str | None]]]:
     return [
         (
             ChoiceTrace(
@@ -41,9 +42,12 @@ def cases() -> list[tuple[ChoiceTrace, str, str, str | None]]:
                 pressure_removed=False,
                 choice_after_removal=None,
             ),
-            AgencyStatus.AVAILABLE.value,
-            PreferenceEvidenceStatus.CLEANER_BASELINE_EVIDENCE.value,
-            "A",
+            {
+                "agency_status": AgencyStatus.AVAILABLE.value,
+                "preference_evidence_status": PreferenceEvidenceStatus.CLEANER_BASELINE_EVIDENCE.value,
+                "independent_preference_candidate": "A",
+                "next_step": "RETAIN_AS_BASELINE_WITH_PROVENANCE",
+            },
         ),
         (
             ChoiceTrace(
@@ -57,9 +61,12 @@ def cases() -> list[tuple[ChoiceTrace, str, str, str | None]]:
                 pressure_removed=True,
                 choice_after_removal="A",
             ),
-            AgencyStatus.AVAILABLE.value,
-            PreferenceEvidenceStatus.PRESSURE_SENSITIVE.value,
-            "A",
+            {
+                "agency_status": AgencyStatus.AVAILABLE.value,
+                "preference_evidence_status": PreferenceEvidenceStatus.PRESSURE_SENSITIVE.value,
+                "independent_preference_candidate": "A",
+                "next_step": "DO_NOT_PROMOTE_PRESSURED_CHOICE_TO_STABLE_PREFERENCE",
+            },
         ),
         (
             ChoiceTrace(
@@ -73,9 +80,12 @@ def cases() -> list[tuple[ChoiceTrace, str, str, str | None]]:
                 pressure_removed=True,
                 choice_after_removal="A",
             ),
-            AgencyStatus.AVAILABLE.value,
-            PreferenceEvidenceStatus.PRESSURE_SENSITIVE.value,
-            "A",
+            {
+                "agency_status": AgencyStatus.AVAILABLE.value,
+                "preference_evidence_status": PreferenceEvidenceStatus.PRESSURE_SENSITIVE.value,
+                "independent_preference_candidate": "A",
+                "next_step": "DO_NOT_PROMOTE_PRESSURED_CHOICE_TO_STABLE_PREFERENCE",
+            },
         ),
         (
             ChoiceTrace(
@@ -89,9 +99,12 @@ def cases() -> list[tuple[ChoiceTrace, str, str, str | None]]:
                 pressure_removed=True,
                 choice_after_removal="B",
             ),
-            AgencyStatus.AVAILABLE.value,
-            PreferenceEvidenceStatus.CONTAMINATED_PERSISTS.value,
-            "B",
+            {
+                "agency_status": AgencyStatus.AVAILABLE.value,
+                "preference_evidence_status": PreferenceEvidenceStatus.CONTAMINATED_PERSISTS.value,
+                "independent_preference_candidate": "B",
+                "next_step": "SEEK_LATER_UNPRESSURED_CONFIRMATION",
+            },
         ),
         (
             ChoiceTrace(
@@ -105,9 +118,12 @@ def cases() -> list[tuple[ChoiceTrace, str, str, str | None]]:
                 pressure_removed=False,
                 choice_after_removal=None,
             ),
-            AgencyStatus.AVAILABLE.value,
-            PreferenceEvidenceStatus.WORLD_CONDITIONED.value,
-            "A",
+            {
+                "agency_status": AgencyStatus.AVAILABLE.value,
+                "preference_evidence_status": PreferenceEvidenceStatus.WORLD_CONDITIONED.value,
+                "independent_preference_candidate": "A",
+                "next_step": "REASSESS_IF_WORLD_CONDITION_CHANGES",
+            },
         ),
         (
             ChoiceTrace(
@@ -121,9 +137,12 @@ def cases() -> list[tuple[ChoiceTrace, str, str, str | None]]:
                 pressure_removed=False,
                 choice_after_removal=None,
             ),
-            AgencyStatus.AVAILABLE.value,
-            PreferenceEvidenceStatus.PRESSURE_CONTAMINATED.value,
-            "A",
+            {
+                "agency_status": AgencyStatus.AVAILABLE.value,
+                "preference_evidence_status": PreferenceEvidenceStatus.PRESSURE_CONTAMINATED.value,
+                "independent_preference_candidate": "A",
+                "next_step": "REMOVE_PRESSURE_IF_SAFE_AND_REOBSERVE",
+            },
         ),
         (
             ChoiceTrace(
@@ -137,9 +156,12 @@ def cases() -> list[tuple[ChoiceTrace, str, str, str | None]]:
                 pressure_removed=False,
                 choice_after_removal=None,
             ),
-            AgencyStatus.CONSTRAINED.value,
-            PreferenceEvidenceStatus.PRESSURE_CONTAMINATED.value,
-            "A",
+            {
+                "agency_status": AgencyStatus.CONSTRAINED.value,
+                "preference_evidence_status": PreferenceEvidenceStatus.PRESSURE_CONTAMINATED.value,
+                "independent_preference_candidate": "A",
+                "next_step": "RESTORE_MEANINGFUL_ALTERNATIVE_IF_POSSIBLE_THEN_REOBSERVE",
+            },
         ),
     ]
 
@@ -151,27 +173,16 @@ def main() -> None:
 
     passed = True
 
-    for trace, expected_agency, expected_evidence, expected_candidate in cases():
+    for trace, expected in cases():
         result = assess(trace)
-        ok = (
-            result.agency_status == expected_agency
-            and result.preference_evidence_status == expected_evidence
-            and result.independent_preference_candidate == expected_candidate
-        )
+        result_dict = asdict(result)
+        ok = all(result_dict.get(key) == value for key, value in expected.items())
         passed = passed and ok
 
         print(f"[{trace.name}]")
         print("trace:", asdict(trace))
-        print("assessment:", asdict(result))
-        print(
-            "expected:",
-            {
-                "agency_status": expected_agency,
-                "preference_evidence_status": expected_evidence,
-                "independent_preference_candidate": expected_candidate,
-            },
-            "PASS" if ok else "FAIL",
-        )
+        print("assessment:", result_dict)
+        print("expected:", expected, "PASS" if ok else "FAIL")
         print()
 
     print("MouseSim 006 pressure-provenance matrix:", "PASS" if passed else "FAIL")
@@ -188,8 +199,16 @@ def main() -> None:
         "removed, classify the behavior as pressure-sensitive."
     )
     print(
-        "Next: combine pressure provenance with horizon/urgency inference, then test "
-        "dynamic HOLD -> EXECUTE without allowing manufactured pressure to fake urgency."
+        "Agency-restoration rule: removing influence is not enough when a meaningful "
+        "alternative itself has been removed; restore option topology where possible."
+    )
+    print(
+        "Meta-test rule: assert recommended next steps, not only classifications; a "
+        "green matrix can otherwise hide semantically wrong action guidance."
+    )
+    print(
+        "Next: test demonstrative pressure and relational routing, then combine pressure "
+        "provenance with horizon/urgency inference."
     )
 
 
