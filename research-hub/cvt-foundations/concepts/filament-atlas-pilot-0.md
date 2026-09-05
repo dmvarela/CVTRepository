@@ -1,75 +1,83 @@
-# Filament Atlas — Pilot 0
+# CVT Filament Atlas — Pilot 0
 
-## Purpose
+**Status:** exploratory concept map  
+**Date:** 2026-09-02  
+**Purpose:** identify recurring structural motifs across domains without treating cross-domain resemblance as proof of shared mechanism.
 
-The Filament Atlas is a working map of recurring structural motifs across the CVT research program. It is not a claim that all domains instantiate one mechanism. Its purpose is to notice candidate invariants, preserve cross-domain analogies without collapsing differences, and identify where a shared geometry may be worth testing.
+---
 
-Each filament should distinguish:
+## Method rule
 
-1. **Observed domain phenomenon** — what is actually known in that field.
-2. **Candidate structural analogy** — what pattern appears to recur.
-3. **CVT relevance** — what existing construct it may illuminate.
-4. **Boundary / falsifier** — what would show the analogy is superficial or misleading.
+A filament is not a claim that two domains are governed by the same mechanism.
+
+Each entry must preserve four layers:
+
+1. **Observation** — what is actually known or established in the source domain.
+2. **Candidate structural pattern** — the abstract relation we think may recur.
+3. **CVT connection** — the existing CVT concept the pattern may illuminate.
+4. **Boundary / falsifier** — what would show the analogy is superficial, domain-limited, or misleading.
+
+The atlas is therefore a hypothesis generator and routing device, not an evidence substitute.
 
 ---
 
 ## Filament 0.1 — Bounded exchange
 
-**Observed domains:** membranes, institutions, human–AI interaction, ecological exchange, cooperative systems.
+**Observation:** many viable systems require exchange across boundaries rather than total isolation or unrestricted permeability.
 
-**Candidate structure:** viability often depends neither on total closure nor unrestricted permeability, but on selective exchange under boundary conditions that preserve the host while allowing productive uptake.
+**Candidate pattern:** productive exchange depends on selective admission, retained distinction, and sufficient internal capacity to integrate what crosses the boundary.
 
-**CVT bridge:** bounded coupling; receptive basin; selective permeability.
+**CVT connection:** bounded coupling; receptive basin; selective permeability; hosted transformation.
 
-**Boundary:** this is not a universal optimization law. In many systems the relevant mechanism is domain-specific and may not admit a common quantitative parameterization.
+**Boundary:** different domains may implement boundary control through entirely different mechanisms. A common verbal pattern does not establish a shared law.
 
 ---
 
 ## Filament 0.2 — Receptive capacity
 
-**Observed domains:** developmental systems, learning, institutional reform, ecological restoration, correction-capable agents.
+**Observation:** exposure to an input does not guarantee productive uptake. Developmental, ecological, cognitive, and organizational outcomes can depend on the receiving system's state and capacity.
 
-**Candidate structure:** delivery of an input is not equivalent to successful integration. Outcomes depend on whether the receiving system has the organization, room, timing, and resources required to incorporate the input without losing viability.
+**Candidate pattern:** a system may need available room, timing, organization, and integration capacity for an input to become generative rather than disruptive or inert.
 
-**CVT bridge:** receptive basin; correction-survivability; hosted transformation.
+**CVT connection:** receptive basin; correction-survivability; hosted transformation.
 
-**Boundary:** “reception” must be operationalized independently in each domain and not used as a metaphor that replaces mechanism.
+**Boundary:** receptive capacity must be independently defined in each application. It cannot serve as an all-purpose metaphor for unexplained failure.
 
 ---
 
 ## Filament 0.3 — History-conditioned reachability
 
-**Observed domains:** hysteretic physical systems, biological development, institutions, path-dependent economics, learning systems.
+**Observation:** in hysteretic, developmental, institutional, ecological, and path-dependent systems, prior trajectories can alter which later states are accessible.
 
-**Candidate structure:** a state may remain formally possible while becoming dynamically difficult, costly, or unreachable because prior trajectories alter the present geometry.
+**Candidate pattern:** a state may remain formally possible while becoming dynamically difficult, costly, unstable, or unreachable because the path has changed the current geometry.
 
-**CVT bridge:** relational reachability; basin deformation; restorative reserve.
+**CVT connection:** relational reachability; basin deformation; future viable possibility-space.
 
-**Boundary:** history should only be retained as an explanatory variable where it adds information beyond the current state.
+**Boundary:** history should only remain in the model where it adds explanatory or predictive value beyond the present state.
 
 ---
 
 ## Filament 0.4 — Capture and narrowing
 
-**Observed domains:** ecological traps, political capture, dependency-producing authority, lock-in, path-dependent technical systems.
+**Observation:** systems can preserve short-run output while progressively reducing exit, correction, substitution, or recovery options.
 
-**Candidate structure:** a trajectory can preserve short-run function while progressively narrowing exit, correction, substitution, or recovery paths.
+**Candidate pattern:** apparent stability can coexist with shrinking viable action-space, creating a trajectory that becomes increasingly difficult to leave.
 
-**CVT bridge:** capture geometry; viability horizon; future action-space.
+**CVT connection:** capture geometry; viability horizon; relational backcasting.
 
-**Boundary:** apparent narrowing may be efficient specialization rather than capture. The distinction requires independently measurable loss of viable alternatives or correction channels.
+**Boundary:** specialization is not automatically capture. Capture requires independently detectable loss of meaningful alternatives, correction channels, or recoverability.
 
 ---
 
 ## Filament 0.5 — Restorative reserve
 
-**Observed domains:** physiology, resilient infrastructure, ecological recovery, organizational slack, error-correcting systems.
+**Observation:** present functionality can conceal declining recovery capacity in biological, ecological, organizational, technical, and infrastructural systems.
 
-**Candidate structure:** present functionality can conceal declining recovery capacity. A system may remain operational while the set of viable return paths after disturbance contracts.
+**Candidate pattern:** viability depends not only on remaining functional now but also on retaining sufficiently robust routes back after disturbance.
 
-**CVT bridge:** restorative reserve; correction without annihilation; viable recovery corridors.
+**CVT connection:** restorative reserve; recovery corridors; correction without annihilation.
 
-**Boundary:** reserve need not be a single scalar and should not be inferred solely from current performance.
+**Boundary:** restorative reserve need not be scalar and should not be inferred from current performance alone.
 
 ---
 
@@ -142,7 +150,7 @@ This supports the existing distinction between a continuity artifact and a conti
 
 ---
 
-## Pilot rule
+## Graduation rule
 
 A filament should graduate from the atlas into a standalone research note when it has:
 
