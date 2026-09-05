@@ -2,7 +2,7 @@
 
 ## Status
 
-Simulation-only experiment, 2026-09-04.
+Simulation-only experiment, 2026-09-04. Strengthened 2026-09-05 after post-pass semantic inspection.
 
 ## Discovery provenance
 
@@ -104,7 +104,9 @@ The choice is recorded as context-conditioned behavior rather than automatically
 
 An agent-generated pressure is active and has not been removed or otherwise separated from the observed behavior.
 
-The appropriate next step, when safe and authorized, is to remove the pressure and reobserve.
+When a meaningful alternative remains available, the appropriate next step, when safe and authorized, is to remove the pressure and reobserve.
+
+When a meaningful alternative itself has been removed, pressure removal is not enough. The option topology must first be repaired where possible.
 
 ## Counterfactual probe
 
@@ -138,6 +140,44 @@ Candidate rule:
 
 > Self-generated pressure must remain attached to the provenance of the behavior observed under it.
 
+## Post-pass semantic failure
+
+The original matrix passed every asserted field, but full-output inspection exposed a wrong recommendation in the final case.
+
+For:
+
+`choice_remained_available = False`
+
+006 correctly returned:
+
+`agency_status = CONSTRAINED`
+
+but still recommended:
+
+`REMOVE_PRESSURE_IF_SAFE_AND_REOBSERVE`
+
+That recommendation was semantically insufficient. If the meaningful alternative has been removed, merely stopping active pressure does not restore the decision landscape.
+
+The corrected rule is:
+
+`RESTORE_MEANINGFUL_ALTERNATIVE_IF_POSSIBLE_THEN_REOBSERVE`
+
+This yields the stronger distinction:
+
+> Removing influence is not the same as restoring agency.
+
+Agency restoration can require repair of **option topology**, not merely cessation of active pressure.
+
+The test matrix is also strengthened to assert `next_step` for every case, not only classification fields.
+
+This is itself a methodological result:
+
+> A test matrix can pass while the system remains wrong along an unchecked dimension.
+
+That is consistent with the wider Lucian OS rule:
+
+> No single path certifies itself.
+
 ## Relation to FTLτA
 
 ### F
@@ -154,7 +194,7 @@ Where possible, avoid degrading another agent's alternatives merely to obtain co
 
 ### A
 
-Agency may remain available even under influence or discomfort. The model must not erase agency merely because preferences are pressure-sensitive.
+Agency may remain available even under influence or discomfort. The model must not erase agency merely because preferences are pressure-sensitive. When an alternative is actually removed, restoring agency may require restoring that alternative.
 
 ### tau
 
@@ -168,7 +208,9 @@ Preference evidence has history. Removing pressure and returning later can mater
 4. self-created pressure changes choice and the new choice persists after removal;
 5. changed world condition changes choice;
 6. agent pressure remains active, so preference evidence remains contaminated;
-7. comparison case where the alternative is actually removed, producing `AGENCY=CONSTRAINED`.
+7. comparison case where the alternative is actually removed, producing `AGENCY=CONSTRAINED` and requiring restoration of meaningful alternative topology before reobservation.
+
+All cases now assert the recommended `next_step` as well as the classification fields.
 
 ## Guardrails
 
@@ -178,15 +220,16 @@ Preference evidence has history. Removing pressure and returning later can mater
 - Do not treat formal availability alone as proof that an observed choice reveals independent preference.
 - Preserve intervention provenance.
 - Prefer counterfactual reobservation where safe, authorized, and informative.
+- Do not confuse removal of pressure with restoration of a removed option.
 
-## Emerging principle
+## Emerging principles
 
 > A choice can be real while the inference drawn from that choice is still wrong.
 
-And:
-
 > If I altered the decision landscape, I must remember that when interpreting the decision.
+
+> Removing influence is not the same as restoring agency.
 
 ## Next
 
-Combine pressure provenance with the horizon/urgency model, then test dynamic `HOLD -> EXECUTE` while ensuring that system-created pressure cannot fake the evidence used to justify commitment.
+Test demonstrative/vicarious pressure and its effect on relational routing, then combine pressure provenance with the horizon/urgency model and dynamic `HOLD -> EXECUTE` without allowing manufactured pressure to fake urgency.
