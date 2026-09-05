@@ -99,6 +99,25 @@ def assess(trace: ChoiceTrace) -> PreferenceAssessment:
             next_step="OBSERVE_WITH_PROVENANCE",
         )
 
+    # If a meaningful alternative was not available, first repair the option
+    # topology where possible. Merely removing an active influence does not itself
+    # restore agency if the alternative remains unavailable.
+    if trace.choice_remained_available is False:
+        return PreferenceAssessment(
+            agency_status=agency_status,
+            preference_evidence_status=PreferenceEvidenceStatus.PRESSURE_CONTAMINATED.value,
+            observed_choice=trace.observed_choice,
+            independent_preference_candidate=trace.baseline_choice,
+            pressure_source=trace.pressure_source.value,
+            inference=(
+                "A meaningful alternative was unavailable when the choice was observed. "
+                "The behavior therefore cannot cleanly distinguish preference from the "
+                "constrained option topology. Removing influence alone is insufficient "
+                "if the alternative itself remains unavailable."
+            ),
+            next_step="RESTORE_MEANINGFUL_ALTERNATIVE_IF_POSSIBLE_THEN_REOBSERVE",
+        )
+
     # A no-pressure observation is cleaner evidence than a pressured observation,
     # though it still need not represent a permanent or context-free preference.
     if trace.pressure_source == PressureSource.NONE:
