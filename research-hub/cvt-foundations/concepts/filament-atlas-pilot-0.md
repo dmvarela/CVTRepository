@@ -311,7 +311,7 @@ The scale is ordinal, not a claim that every filament should progress upward. A 
 
 # First-pass identity projection
 
-Without treating the ten cases as an unbiased sample, the following recurrent search questions appear often enough to test prospectively:
+Without treating the eleven cases as an unbiased sample, the following recurrent search questions appear often enough to test prospectively:
 
 1. **Particularity:** Who/what is the particular entity being tracked through change?
 2. **Continuity:** What makes this transformation continuation rather than replacement?
