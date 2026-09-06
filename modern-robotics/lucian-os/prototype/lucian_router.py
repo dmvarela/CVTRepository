@@ -119,8 +119,11 @@ def extract_json(text: str) -> dict[str, Any]:
 
     match = re.search(r"\{.*\}", text, flags=re.DOTALL)
     if not match:
-        raise ValueError(f"Model did not return JSON. Raw output:\n{text}")
-    return json.loads(match.group(0))
+        raise ValueError(f"Model did not return complete JSON. Raw output:\n{text}")
+    try:
+        return json.loads(match.group(0))
+    except json.JSONDecodeError as exc:
+        raise ValueError(f"Model returned malformed or truncated JSON. Raw output:\n{text}") from exc
 
 
 def call_qwen(
@@ -140,7 +143,8 @@ def call_qwen(
         "model": MODEL,
         "stream": False,
         "think": False,
-        "options": {"temperature": 0.0, "num_predict": 350, "num_ctx": 4096},
+        "format": "json",
+        "options": {"temperature": 0.0, "num_predict": 800, "num_ctx": 4096},
         "messages": [
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": json.dumps(user_prompt, ensure_ascii=False)},
@@ -164,7 +168,14 @@ def call_qwen(
         ) from exc
 
     content = body.get("message", {}).get("content", "")
-    model_view = extract_json(content)
+    try:
+        model_view = extract_json(content)
+    except ValueError as exc:
+        raise ValueError(
+            "Host output could not be parsed as complete JSON. "
+            f"done_reason={body.get('done_reason')!r}, eval_count={body.get('eval_count')!r}.\n{exc}"
+        ) from exc
+
     metrics = {
         "prompt_eval_count": body.get("prompt_eval_count"),
         "eval_count": body.get("eval_count"),
@@ -172,6 +183,7 @@ def call_qwen(
         "load_duration": body.get("load_duration"),
         "prompt_eval_duration": body.get("prompt_eval_duration"),
         "eval_duration": body.get("eval_duration"),
+        "done_reason": body.get("done_reason"),
         "identity_packet_chars": len(json.dumps(model_visible_identity, ensure_ascii=False)),
     }
     return model_view, metrics
