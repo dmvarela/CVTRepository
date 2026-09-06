@@ -99,7 +99,9 @@ def main() -> int:
             probe_id = item["probe_id"]
             task = item["task"]
             deterministic_cap = heuristic_required_capability(task)
-            context = {"embodiment_id": manifest.get("embodiment_id"), "probe_id": probe_id}
+            # Keep internal probe labels out of the selector/model context. They are
+            # logged only as result metadata so labels cannot leak the intended rule.
+            context = {"embodiment_id": manifest.get("embodiment_id")}
 
             reference_packet = compile_reference_packet(
                 identity,
