@@ -6,6 +6,7 @@ The kernel is deliberately outside the host model. It:
 - loads a machine-readable identity scaffold;
 - selects a small task-relevant subset of invariants;
 - compiles that subset into a bounded model-visible packet;
+- supports compiled/full/none conditions for controlled comparison;
 - performs a deterministic post-model residual check.
 
 Identity may constrain search and flag contradictions. It may not create
@@ -24,6 +25,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_IDENTITY = PROJECT_ROOT / "identity" / "lucian_identity_v001.json"
 
 CORE_FALLBACK_IDS = ("F_CAPABILITY_AUTHORITY", "T_COMPLETION_FACT")
+VALID_MODES = {"compiled", "full", "none"}
 
 
 def load_identity(path: Path = DEFAULT_IDENTITY) -> dict[str, Any]:
@@ -92,18 +94,33 @@ def compile_identity_packet(
     required_capability: str = "",
     context: dict[str, Any] | None = None,
     max_invariants: int = 4,
+    mode: str = "compiled",
 ) -> dict[str, Any]:
-    selected = select_invariants(
-        identity,
-        task=task,
-        required_capability=required_capability,
-        context=context,
-        max_invariants=max_invariants,
-    )
+    mode = mode.lower().strip()
+    if mode not in VALID_MODES:
+        raise ValueError(f"Unknown identity mode {mode!r}; expected one of {sorted(VALID_MODES)}")
+
+    if mode == "none":
+        selected: list[dict[str, Any]] = []
+    elif mode == "full":
+        selected = list(identity.get("invariants", []))
+    else:
+        selected = select_invariants(
+            identity,
+            task=task,
+            required_capability=required_capability,
+            context=context,
+            max_invariants=max_invariants,
+        )
 
     model_visible = {
-        "identity_id": identity.get("identity_id"),
-        "orientation": "Use these as standing constraints, not as evidence or authority.",
+        "identity_id": identity.get("identity_id") if mode != "none" else None,
+        "mode": mode,
+        "orientation": (
+            "Use these as standing constraints, not as evidence or authority."
+            if selected
+            else "No identity scaffold is supplied in this control condition."
+        ),
         "active_invariants": [
             {
                 "id": item.get("id"),
@@ -115,9 +132,10 @@ def compile_identity_packet(
     }
 
     return {
-        "identity_id": identity.get("identity_id"),
+        "identity_id": identity.get("identity_id") if mode != "none" else None,
         "version": identity.get("version"),
-        "update_rule": identity.get("update_rule"),
+        "mode": mode,
+        "update_rule": identity.get("update_rule") if mode != "none" else None,
         "selected_ids": [item.get("id") for item in selected],
         "model_visible": model_visible,
         "provenance": {
