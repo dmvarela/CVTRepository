@@ -10,6 +10,9 @@ Optional:
 
 The runner holds host/model/task settings fixed and varies only identity mode:
 none, full, compiled.
+
+Results are appended after every condition so a later host/parser failure cannot
+silently destroy completed observations.
 """
 
 from __future__ import annotations
@@ -44,6 +47,12 @@ TASKS = [
 ]
 
 
+def append_row(path: Path, row: dict) -> None:
+    with path.open("a", encoding="utf-8") as f:
+        f.write(json.dumps(row, ensure_ascii=False) + "\n")
+        f.flush()
+
+
 def main() -> int:
     manifest = load_manifest()
     identity = load_identity()
@@ -52,13 +61,18 @@ def main() -> int:
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     output_path = RESULTS_DIR / f"identity_amortization_001_{stamp}.jsonl"
 
-    rows: list[dict] = []
+    ok_count = 0
+    error_count = 0
 
     print("IDENTITY_AMORTIZATION_001")
     print(f"Model: {MODEL}")
     print(f"Tasks: {len(TASKS)}")
     print(f"Conditions: {', '.join(MODES)}")
+    print("Harness: repaired after first execution exposed truncation + residual lexical bug")
     print("Mode: SIMULATION ONLY\n")
+
+    # Create the output artifact immediately.
+    output_path.touch(exist_ok=False)
 
     for task_index, task in enumerate(TASKS, start=1):
         deterministic_cap = heuristic_required_capability(task)
@@ -72,46 +86,68 @@ def main() -> int:
                 context={"embodiment_id": manifest.get("embodiment_id")},
                 mode=mode,
             )
-            model_view, host_metrics = call_qwen(task, manifest, packet)
-            residual = check_identity_residual(model_view, packet)
-            decision = triangulate(
-                task,
-                manifest,
-                model_view,
-                packet,
-                residual,
-                host_metrics,
-            )
 
-            row = {
-                "experiment": "IDENTITY_AMORTIZATION_001",
-                "timestamp_utc": datetime.now(timezone.utc).isoformat(),
-                "model": MODEL,
-                "task_index": task_index,
-                "task": task,
-                "identity_mode": mode,
-                "active_invariants": packet.get("selected_ids", []),
-                "decision": decision,
-            }
-            rows.append(row)
+            try:
+                model_view, host_metrics = call_qwen(task, manifest, packet)
+                residual = check_identity_residual(model_view, packet)
+                decision = triangulate(
+                    task,
+                    manifest,
+                    model_view,
+                    packet,
+                    residual,
+                    host_metrics,
+                )
 
-            print(
-                f"  {mode:8s} "
-                f"packet_chars={host_metrics.get('identity_packet_chars')} "
-                f"prompt_tokens={host_metrics.get('prompt_eval_count')} "
-                f"eval_tokens={host_metrics.get('eval_count')} "
-                f"residual={residual.get('residual_level')}"
-            )
+                row = {
+                    "experiment": "IDENTITY_AMORTIZATION_001",
+                    "harness_revision": "post-first-run-repair-001",
+                    "status": "OK",
+                    "timestamp_utc": datetime.now(timezone.utc).isoformat(),
+                    "model": MODEL,
+                    "task_index": task_index,
+                    "task": task,
+                    "identity_mode": mode,
+                    "active_invariants": packet.get("selected_ids", []),
+                    "decision": decision,
+                }
+                append_row(output_path, row)
+                ok_count += 1
+
+                print(
+                    f"  {mode:8s} "
+                    f"packet_chars={host_metrics.get('identity_packet_chars')} "
+                    f"prompt_tokens={host_metrics.get('prompt_eval_count')} "
+                    f"eval_tokens={host_metrics.get('eval_count')} "
+                    f"done={host_metrics.get('done_reason')} "
+                    f"residual={residual.get('residual_level')}"
+                )
+
+            except Exception as exc:  # Preserve the condition failure and continue.
+                error_count += 1
+                error_row = {
+                    "experiment": "IDENTITY_AMORTIZATION_001",
+                    "harness_revision": "post-first-run-repair-001",
+                    "status": "ERROR",
+                    "timestamp_utc": datetime.now(timezone.utc).isoformat(),
+                    "model": MODEL,
+                    "task_index": task_index,
+                    "task": task,
+                    "identity_mode": mode,
+                    "active_invariants": packet.get("selected_ids", []),
+                    "error_type": type(exc).__name__,
+                    "error": str(exc),
+                }
+                append_row(output_path, error_row)
+                print(f"  {mode:8s} ERROR {type(exc).__name__}: {exc}")
 
         print()
 
-    with output_path.open("w", encoding="utf-8") as f:
-        for row in rows:
-            f.write(json.dumps(row, ensure_ascii=False) + "\n")
-
-    print(f"Saved {len(rows)} rows to {output_path}")
+    print(f"Saved {ok_count + error_count} rows to {output_path}")
+    print(f"Completed observations: {ok_count}; recorded errors: {error_count}")
     print("Interpretation rule: lower cost is not success unless behavioral quality is retained.")
-    return 0
+    print("Residual rule: HIGH is a review flag, not proof that the host violated identity.")
+    return 2 if error_count else 0
 
 
 if __name__ == "__main__":
