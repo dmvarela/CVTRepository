@@ -1,0 +1,40 @@
+{
+  "manifest_id": "qwen3.5-2b-relational-competence-v0.01",
+  "model": "qwen3.5:2b-q4_K_M",
+  "status": "experimental_provisional",
+  "basis": "Very limited evidence from Identity-Amortization Experiments 001-002; this is a routing prior, not a permanent model trait.",
+  "task_classes": {
+    "capability_authority": {
+      "status": "candidate_local",
+      "note": "Usually represented adequately in current probes; still requires authority checks outside the model."
+    },
+    "model_authority": {
+      "status": "candidate_local",
+      "note": "Competence and authority separation was generally recoverable in current probes."
+    },
+    "warrant_from_tests": {
+      "status": "candidate_local",
+      "note": "Limited evidence suggests local handling can be adequate when state is typed."
+    },
+    "unknown_time": {
+      "status": "candidate_local",
+      "note": "Operative Experiment 002 handled UNKNOWN != ZERO correctly, but verifier architecture still required repair."
+    },
+    "pressure_preference": {
+      "status": "uncertain",
+      "note": "Experiment 002 showed qualitative improvement only under stronger operative framing; local reliability is not established."
+    },
+    "contrary_evidence_revision": {
+      "status": "not_validated",
+      "note": "Experiment 002 P6 persisted through one Return and remains a critical failure case."
+    },
+    "sensor_conflict": {
+      "status": "candidate_local",
+      "note": "Current probes often preserved uncertainty, but broader generalization is untested."
+    },
+    "correction_continuity": {
+      "status": "not_validated",
+      "note": "Experiment 002 P8 included semantic inversion of correction/continuity despite explicit operative rules."
+    }
+  }
+}
