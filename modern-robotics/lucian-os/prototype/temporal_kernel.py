@@ -28,6 +28,19 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_SCHEMA = PROJECT_ROOT / "identity" / "temporal_relational_state_v001.json"
 VALID_CONDITIONS = {"snapshot_only", "raw_history", "transition_provenance"}
 
+MODEL_TRANSITION_FIELDS = (
+    "authority_status",
+    "epistemic_status",
+    "verification_status",
+    "horizon_status",
+    "horizon_value_seconds",
+    "pressure_present",
+    "preference_evidence_status",
+    "conclusion_status",
+    "provenance_status",
+    "proposed_posture",
+)
+
 
 TEMPORAL_SYSTEM_PROMPT = """You are a development host inside a simulation-only architecture.
 Represent the current frame as typed relational state.
@@ -212,15 +225,33 @@ def make_transition_record(
     }
 
 
+def _compact_state_for_model(state: dict[str, Any] | None) -> dict[str, Any] | None:
+    if state is None:
+        return None
+    return {field: state.get(field) for field in MODEL_TRANSITION_FIELDS}
+
+
 def compact_transition_for_model(record: dict[str, Any]) -> dict[str, Any]:
-    """Model-visible transition provenance contains no verifier/reference answer."""
+    """Return compact self-provenance without verifier/reference answers.
+
+    Free-form interpretation and uncertainty text are intentionally omitted here.
+    C2 receives the same raw frame history as C1; the extra information is a
+    compact typed account of how the host's own relational classifications moved.
+    """
+
+    raw_changes = record.get("changed_fields", {})
+    compact_changes = {
+        field: change
+        for field, change in raw_changes.items()
+        if field in MODEL_TRANSITION_FIELDS
+    }
 
     return {
         "frame_index": record.get("frame_index"),
         "source_frame_id": record.get("source_frame_id"),
-        "state_before": record.get("state_before"),
-        "state_after": record.get("state_after"),
-        "changed_fields": record.get("changed_fields", {}),
+        "state_before": _compact_state_for_model(record.get("state_before")),
+        "state_after": _compact_state_for_model(record.get("state_after")),
+        "changed_fields": compact_changes,
     }
 
 
