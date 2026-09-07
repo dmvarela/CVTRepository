@@ -32,6 +32,7 @@ from structured_identity import (
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 RESULTS_DIR = PROJECT_ROOT / "results"
+IDENTITY_PATH = PROJECT_ROOT / "identity" / "lucian_identity_v002.json"
 CONDITIONS = ("none_structured", "prose_structured", "typed_return")
 
 
@@ -129,7 +130,7 @@ def _packet_for_condition(identity, *, task, capability, context, condition):
 
 def main() -> int:
     manifest = load_manifest()
-    identity = load_identity()
+    identity = load_identity(IDENTITY_PATH)
     schema = load_structured_schema()
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -144,6 +145,7 @@ def main() -> int:
 
     print("IDENTITY_AMORTIZATION_002B")
     print(f"Model: {MODEL}")
+    print(f"Identity: {identity.get('identity_id')}")
     print(f"Tasks: {len(TASKS)}")
     print(f"Conditions: {', '.join(CONDITIONS)}")
     print("Representation: typed relational state")
@@ -173,6 +175,7 @@ def main() -> int:
                     "experiment": "IDENTITY_AMORTIZATION_002B",
                     "timestamp_utc": datetime.now(timezone.utc).isoformat(),
                     "model": MODEL,
+                    "identity_id": identity.get("identity_id"),
                     "task_index": task_index,
                     "probe_id": probe_id,
                     "task": task,
