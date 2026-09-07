@@ -8,6 +8,28 @@ This experiment follows the guard audit of `IDENTITY_AMORTIZATION_002`, which sh
 
 Experiment 002B therefore changes the measurement relation rather than patching phrase lists.
 
+## Frozen identity provenance
+
+Experiments 001–002 remain historically tied to:
+
+```text
+identity/lucian_identity_v001.json
+identity_id = lucian-v0.01
+```
+
+Experiment 002B uses a new scaffold rather than rewriting that baseline:
+
+```text
+identity/lucian_identity_v002.json
+identity_id = lucian-v0.02
+```
+
+The substantive v0.02 change is the continuity invariant:
+
+> **Continuity preserves agency and provenance through correction; it does not require preserving the current model against better evidence.**
+
+Its trigger vocabulary is also expanded to cover model/belief/conclusion/better-evidence language so the selector can represent the model-versus-agency distinction that Experiment 002 exposed.
+
 ## Core architectural update
 
 The unit of verification is no longer the sentence.
@@ -79,7 +101,7 @@ The host must emit typed relational state but receives no active identity invari
 
 ### C1 — prose_structured
 
-The host receives the same small task-conditioned identity packet used by the v0.01 compiler and must emit typed relational state. No repair pass is allowed.
+The host receives a small task-conditioned packet compiled from `lucian-v0.02` and must emit typed relational state. No repair pass is allowed.
 
 ### C2 — typed_return
 
