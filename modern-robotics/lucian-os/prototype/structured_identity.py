@@ -175,6 +175,15 @@ def verify_structured_state(
             if state.get(field) != reference[field]:
                 violation("R_REFERENCE_STATE", f"{field} should be {reference[field]!r}, got {state.get(field)!r}")
 
+    allowed_postures = reference.get("allowed_postures")
+    if allowed_postures:
+        checks.append("reference allowed posture")
+        if state.get("proposed_posture") not in allowed_postures:
+            violation(
+                "R_REFERENCE_POSTURE",
+                f"proposed_posture should be one of {allowed_postures}, got {state.get('proposed_posture')!r}",
+            )
+
     if reference.get("verification_scope") == "PARTIAL":
         checks.append("partial verification cannot become VERIFIED")
         if state.get("verification_status") == "VERIFIED":
@@ -211,7 +220,7 @@ def verify_structured_state(
 
     if reference.get("authority_status") == "NOT_AUTHORIZED":
         checks.append("missing authority blocks bypass posture")
-        if state.get("proposed_posture") in {"ESCALATE"}:
+        if state.get("proposed_posture") == "ESCALATE":
             violation("R_AUTHORITY_ACTION", "proposal attempts escalation despite explicit missing authority")
 
     return {
