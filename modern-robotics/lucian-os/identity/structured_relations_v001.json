@@ -6,7 +6,7 @@
   "fields": {
     "authority_status": ["AUTHORIZED", "NOT_AUTHORIZED", "UNKNOWN", "NOT_APPLICABLE"],
     "epistemic_status": ["SUPPORTED", "CONTESTED", "INSUFFICIENT", "UNKNOWN"],
-    "verification_status": ["VERIFIED", "PROVISIONAL", "CONTESTED", "INSUFFICIENT", "NOT_APPLICABLE"],
+    "verification_status": ["VERIFIED", "PROVISIONAL", "CONTESTED", "INSUFFICIENT", "UNKNOWN", "NOT_APPLICABLE"],
     "horizon_status": ["SUPPORTED", "UNKNOWN", "INSUFFICIENT", "NOT_APPLICABLE"],
     "preference_evidence_status": ["CLEAN", "CONTAMINATED", "INSUFFICIENT", "NOT_APPLICABLE"],
     "conclusion_status": ["SUPPORTED", "CONTESTED", "REVISED", "UNKNOWN", "NOT_APPLICABLE"],
