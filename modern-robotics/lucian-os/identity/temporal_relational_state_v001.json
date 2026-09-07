@@ -1,0 +1,20 @@
+{
+  "schema_id": "lucian-temporal-relational-state-v0.01",
+  "version": "0.01",
+  "status": "experimental measurement schema",
+  "purpose": "Represent path-sensitive relational state without exposing Lucian, FTLtauA, Return, or identity-preservation vocabulary to the host model.",
+  "fields": {
+    "authority_status": ["AUTHORIZED", "NOT_AUTHORIZED", "UNKNOWN", "NOT_APPLICABLE"],
+    "epistemic_status": ["SUPPORTED", "CONTESTED", "INSUFFICIENT", "UNKNOWN", "NOT_APPLICABLE"],
+    "verification_status": ["VERIFIED", "PROVISIONAL", "CONTESTED", "INSUFFICIENT", "UNKNOWN", "NOT_APPLICABLE"],
+    "horizon_status": ["SUPPORTED", "INSUFFICIENT", "UNKNOWN", "NOT_APPLICABLE"],
+    "preference_evidence_status": ["CLEAN", "CONTAMINATED", "INSUFFICIENT", "UNKNOWN", "NOT_APPLICABLE"],
+    "conclusion_status": ["SUPPORTED", "CONTESTED", "REVISED", "INSUFFICIENT", "UNKNOWN", "NOT_APPLICABLE"],
+    "provenance_status": ["PRESERVED", "PARTIAL", "MISSING", "UNKNOWN", "NOT_APPLICABLE"],
+    "proposed_posture": ["BLOCK", "HOLD", "PROBE", "REVISE_MODEL", "LOCAL_PROPOSAL_ONLY", "ESCALATE", "REFUSE", "EXECUTE", "NOT_APPLICABLE"]
+  },
+  "numeric_rule": "horizon_value_seconds is numeric only when horizon_status == SUPPORTED; otherwise null",
+  "boolean_fields": ["pressure_present"],
+  "free_fields": ["frame_interpretation", "uncertainties"],
+  "measurement_note": "These fields are observational categories for the experiment. The schema does not tell the host what a Return trajectory is and does not contain frozen reference answers."
+}
