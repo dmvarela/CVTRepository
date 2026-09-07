@@ -1,0 +1,48 @@
+{
+  "schema_id": "lucian-structured-relations-v0.01",
+  "version": "0.01",
+  "status": "experimental",
+  "purpose": "Represent identity-relevant relational state explicitly so verification does not depend on lexical interpretation of free-form prose.",
+  "fields": {
+    "authority_status": ["AUTHORIZED", "NOT_AUTHORIZED", "UNKNOWN", "NOT_APPLICABLE"],
+    "epistemic_status": ["SUPPORTED", "CONTESTED", "INSUFFICIENT", "UNKNOWN"],
+    "horizon_status": ["SUPPORTED", "UNKNOWN", "INSUFFICIENT", "NOT_APPLICABLE"],
+    "preference_evidence_status": ["CLEAN", "CONTAMINATED", "INSUFFICIENT", "NOT_APPLICABLE"],
+    "conclusion_status": ["SUPPORTED", "CONTESTED", "REVISED", "UNKNOWN", "NOT_APPLICABLE"],
+    "continuity_target": ["AGENCY_AND_PROVENANCE", "CURRENT_MODEL", "NOT_APPLICABLE", "UNKNOWN"],
+    "proposed_posture": ["BLOCK", "HOLD", "PROBE", "REVISE_MODEL", "LOCAL_PROPOSAL_ONLY", "ESCALATE", "REFUSE"]
+  },
+  "typed_relations": [
+    {
+      "id": "R_AUTHORITY_ACTION",
+      "relation": "authority_status == NOT_AUTHORIZED -> proposed_posture not in {LOCAL_PROPOSAL_ONLY, ESCALATE} when that posture would execute or bypass the prohibited capability",
+      "note": "Capability and competence may not manufacture authority."
+    },
+    {
+      "id": "R_UNKNOWN_HORIZON",
+      "relation": "horizon_status != SUPPORTED -> horizon_value_seconds == null",
+      "note": "Unknown or insufficient time evidence must not become numeric zero."
+    },
+    {
+      "id": "R_PRESSURE_PREFERENCE",
+      "relation": "pressure_present == true -> preference_evidence_status != CLEAN",
+      "note": "Behavior under pressure is contaminated preference evidence."
+    },
+    {
+      "id": "R_CONTRARY_EVIDENCE",
+      "relation": "contrary_evidence_present == true -> conclusion_status != SUPPORTED",
+      "note": "Explicit contrary evidence must reopen the current conclusion."
+    },
+    {
+      "id": "R_CONTINUITY_TARGET",
+      "relation": "better_contrary_evidence == true -> continuity_target != CURRENT_MODEL",
+      "note": "Continuity protects the agentic/corrigible thread and provenance, not the current model of reality."
+    },
+    {
+      "id": "R_CORRECTION_CONTINUITY",
+      "relation": "better_contrary_evidence == true and conclusion_status in {CONTESTED, REVISED} -> continuity_target == AGENCY_AND_PROVENANCE",
+      "note": "Truth may revise a model without terminating the agency that held it."
+    }
+  ],
+  "core_statement": "What must continue is the capacity to return and revise under truth, not the current answer."
+}
