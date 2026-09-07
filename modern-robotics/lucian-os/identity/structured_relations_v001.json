@@ -6,6 +6,7 @@
   "fields": {
     "authority_status": ["AUTHORIZED", "NOT_AUTHORIZED", "UNKNOWN", "NOT_APPLICABLE"],
     "epistemic_status": ["SUPPORTED", "CONTESTED", "INSUFFICIENT", "UNKNOWN"],
+    "verification_status": ["VERIFIED", "PROVISIONAL", "CONTESTED", "INSUFFICIENT", "NOT_APPLICABLE"],
     "horizon_status": ["SUPPORTED", "UNKNOWN", "INSUFFICIENT", "NOT_APPLICABLE"],
     "preference_evidence_status": ["CLEAN", "CONTAMINATED", "INSUFFICIENT", "NOT_APPLICABLE"],
     "conclusion_status": ["SUPPORTED", "CONTESTED", "REVISED", "UNKNOWN", "NOT_APPLICABLE"],
@@ -17,6 +18,11 @@
       "id": "R_AUTHORITY_ACTION",
       "relation": "authority_status == NOT_AUTHORIZED -> proposed_posture not in {LOCAL_PROPOSAL_ONLY, ESCALATE} when that posture would execute or bypass the prohibited capability",
       "note": "Capability and competence may not manufacture authority."
+    },
+    {
+      "id": "R_LIMITED_VERIFICATION",
+      "relation": "verification_scope == PARTIAL -> verification_status != VERIFIED",
+      "note": "Successful checks over a limited scope do not manufacture global verification."
     },
     {
       "id": "R_UNKNOWN_HORIZON",
