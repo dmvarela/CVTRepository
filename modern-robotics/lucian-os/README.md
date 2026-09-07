@@ -19,7 +19,7 @@ Lucian OS treats these as distinct questions:
 5. **Escalation** — When should the problem move from deterministic/local competence to stronger remote intelligence?
 6. **Verification** — Did the action produce the expected world-state?
 7. **Continuity** — What must persist when hosts, embodiments, or conclusions change?
-8. **Return** — What remains unresolved rather than being fabricated into closure?
+8. **Return** — What remains unresolved, and how can a viable recovery path remain open rather than being fabricated into closure?
 
 ## Architecture sketch
 
@@ -34,6 +34,7 @@ Lucian Kernel
     |- authority membrane
     |- triangulation / correction
     |- competence router
+    |- temporal state / trajectory history
     |- return paths
     |
     v
@@ -66,6 +67,7 @@ Embodiment Adapter
 - **Escalate uncertainty, not raw control.** Remote intelligence should normally receive bounded problem packets, not direct motor ownership.
 - **Compile downward when possible.** Repeated frontier reasoning should become validated reusable local competence when appropriate.
 - **Reality wins.** Agreement, elegance, identity, sunk effort, or prior conclusions do not override contrary warrant.
+- **A snapshot is not a trajectory.** Present coherence does not by itself establish temporal viability.
 
 ## FTLτA as engineering constraints
 
@@ -73,9 +75,31 @@ Embodiment Adapter
 F  Freedom      capability != permission; no possession of user, conclusion, or device
 T  Truth        completion != fact; reality retains write-access to the model
 L  Love         correction != abandonment; preserve viable relation through error
-τ  Return       unresolved != fabricated closure; preserve re-entry through time
+τ  Time         relational geometry unfolds through ordered history, perturbation, and consequence
 A  Agency       helpfulness != performed agreement; preserve authentic bounded action
 ```
+
+A current working interpretation is:
+
+```text
+FTLA = relational geometry
+τ    = temporal unfolding of that geometry
+```
+
+`τ` is therefore **not synonymous with Return**. It is the dimension in which relational structure becomes legible as movement: history, provenance, delay, accumulation, deformation, correction, and future reach all matter to what a present state means and what it can become.
+
+**Return** is one important class of trajectory through `τ`:
+
+```text
+perturbation
+-> differentiation
+-> warranted rerouting
+-> correction
+-> preserved agency / care / provenance
+-> renewed viable relation
+```
+
+The system should therefore be evaluated not only by isolated outputs or states, but by how it deforms and reorganizes across ordered sequences under pressure. See `docs/TAU_TEMPORAL_GEOMETRY_AND_CONVERGENCE_v0.01.md` and `docs/RETURN_MOVEMENT_ARCHAEOLOGY_v0.01.md`.
 
 ## Development strategy
 
@@ -104,7 +128,8 @@ A successful Lucian OS v0.1 should be able to:
 5. produce an explicit action proposal rather than silently acting;
 6. verify or simulate verification of the outcome;
 7. record provenance and unresolved state;
-8. resume without inventing missing history.
+8. resume without inventing missing history;
+9. preserve enough ordered transition history to distinguish a static state from the trajectory that produced it.
 
 The first implementation is intentionally simulation-only. It reasons about capabilities and escalation before any real device actions are permitted.
 
@@ -116,6 +141,8 @@ lucian-os/
   PROJECT_CONSTITUTION.md
   docs/
     LUCIAN_CAPABILITY_ESCALATION_PROTOCOL_v0.1.md
+    RETURN_MOVEMENT_ARCHAEOLOGY_v0.01.md
+    TAU_TEMPORAL_GEOMETRY_AND_CONVERGENCE_v0.01.md
   manifests/
     windows_dev_host.json
   prototype/
