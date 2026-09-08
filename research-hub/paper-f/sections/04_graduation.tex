@@ -1,0 +1,101 @@
+\section{Capability Accumulation and Graduation}
+\label{sec:graduation}
+
+Activation is not development by itself. A supported relation can operate for years while remaining exactly as dependent on support as it was at entry. The state variable $q_{e,t}$ is introduced to separate operation from durable learning.
+
+During operation, capability follows equation~\eqref{eq:capability-law}. The term $\Lambda_e(\Omega_t)$ should be interpreted broadly as capability conversion, not merely technical learning. It can include learning-by-doing, quality improvement, managerial routines, supplier development, standards compliance, export competence, absorptive capacity, technology adaptation, and other durable changes that improve future unsupported viability. The term $\delta_e$ captures capability erosion through obsolescence, organizational destruction, supplier loss, worker exit, repeated macroeconomic disruption, or other mechanisms that destroy accumulated productive state.
+
+Unsupported viability requires $q_{e,t}\ge q_e^*(\Omega_t)$. The threshold is reduced form: it can summarize the capability required to operate without the extraordinary policy wedge given the current infrastructure, market access, input structure, and other conditions.
+
+\subsection{Baseline constant-parameter case}
+
+Consider one relation operated continuously during a support interval:
+\begin{equation}
+q_{t+1}=(1-\delta)q_t+\lambda,
+\qquad
+0<\delta<1,
+\quad \lambda>0,
+\quad q_0<q^*.
+\label{eq:baseline}
+\end{equation}
+The solution is
+\begin{equation}
+q_t
+=(1-\delta)^tq_0
++\frac{\lambda}{\delta}
+\left[1-(1-\delta)^t\right].
+\label{eq:closed-form}
+\end{equation}
+Hence
+\begin{equation}
+q_\infty=\frac{\lambda}{\delta}.
+\end{equation}
+
+\begin{proposition}[Graduation feasibility]
+\label{prop:graduation}
+Let $0<\delta<1$ and $q_0<q^*$. If $\lambda/\delta\le q^*$, the relation never reaches $q^*$ in finite time. If $\lambda/\delta>q^*$, a finite graduation time exists.
+\end{proposition}
+
+\begin{proof}
+Equation~\eqref{eq:closed-form} writes $q_t$ as a convex combination of $q_0$ and $q_\infty=\lambda/\delta$. If $q_\infty<q^*$, both endpoints are below $q^*$, so every finite $q_t<q^*$. If $q_\infty=q^*$, then
+\[
+q_t=q^*-(1-\delta)^t(q^*-q_0)<q^*
+\]
+for every finite $t$. If $q_\infty>q^*$, the sequence converges monotonically from $q_0$ to a level strictly above the threshold, so a finite integer crossing time exists.
+\end{proof}
+
+The knife-edge case $\delta=1$ is separate. Then $q_{t+1}=\lambda$ during operation, so graduation occurs after one period if and only if $\lambda\ge q^*$.
+
+\begin{corollary}[Minimum support duration]
+\label{cor:duration}
+Suppose $0<\delta<1$ and
+\[
+q_0<q^*<\frac{\lambda}{\delta}.
+\]
+The minimum integer number of operating periods required to reach unsupported viability is
+\begin{equation}
+k^*
+=
+\left\lceil
+\frac{
+\ln\left(
+\dfrac{\lambda/\delta-q^*}{\lambda/\delta-q_0}
+\right)
+}{
+\ln(1-\delta)
+}
+\right\rceil.
+\label{eq:min-duration}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Rewrite equation~\eqref{eq:closed-form} as
+\[
+q_t
+=
+\frac{\lambda}{\delta}
+-(1-\delta)^t
+\left(
+\frac{\lambda}{\delta}-q_0
+\right).
+\]
+The condition $q_t\ge q^*$ is equivalent to
+\[
+(1-\delta)^t
+\le
+\frac{\lambda/\delta-q^*}{\lambda/\delta-q_0}.
+\]
+Both sides lie in $(0,1)$. Taking logs and dividing by the negative number $\ln(1-\delta)$ yields the stated lower bound on $t$; taking the ceiling gives the minimum integer duration.
+\end{proof}
+
+Define the reduced-form graduation margin
+\begin{equation}
+\gamma
+=
+\frac{\lambda}{\delta q^*}.
+\label{eq:gamma}
+\end{equation}
+For $q_0<q^*$ and $0<\delta<1$, $\gamma>1$ is exactly the condition for eventual finite graduation in the constant-parameter case. The margin is useful as a diagnostic, but it is not a welfare measure and it becomes incomplete when the environment changes endogenously.
+
+The substantive interpretation is simple. A policy can keep an activity alive without changing the state that determines unsupported viability. Lengthening support does not solve that problem. The developmental question is whether operation under support changes $\lambda$, $\delta$, $q^*$, or the accumulated state $q$ sufficiently to create a path out of support.
