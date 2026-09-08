@@ -1,0 +1,138 @@
+\section{Generativity, De-accretion, and Productive Supersession}
+\label{sec:exit}
+
+Graduation is not the end of development. A mature productive relation can later disappear because of technological change, higher wages, new competitors, changing comparative advantage, relocation, or deliberate movement into a different productive configuration. The developmental effect of that exit cannot be inferred from the exiting firm alone.
+
+\subsection{Generativity}
+
+\begin{definition}[Generativity]
+A graduated relation $e$ is generative for relation $f$ if its operation or accumulated capability improves $f$'s graduation conditions, for example by raising $\Lambda_f$, lowering $q_f^*$, lowering $\delta_f$, or reducing an activation threshold.
+\end{definition}
+
+In the positive-complementarity baseline, generativity can expand the graduation frontier:
+\begin{equation}
+e\text{ graduates}
+\rightarrow
+\gamma_f\uparrow
+\rightarrow
+f\in\G
+\rightarrow
+f\text{ becomes graduable}.
+\end{equation}
+The propagated object is not merely output. It is improved capacity to create further unsupported productive relations.
+
+\subsection{A simple de-accretion mechanism}
+
+Now consider the reverse direction. Let an upstream supplier $s$ require customer demand above a minimum scale $D_s^*$. Write
+\begin{equation}
+M_s(x)
+=
+\bar D_s+\sum_j b_{sj}x_j,
+\qquad b_{sj}\ge0.
+\label{eq:supplier-demand}
+\end{equation}
+
+\begin{proposition}[Direct de-accretion trigger]
+\label{prop:deaccretion}
+Suppose relation $e$ is active immediately before exit and supplier $s$ satisfies
+\[
+M_s(x^- )\ge D_s^*,
+\]
+but
+\[
+M_s(x^-)-b_{se}<D_s^*.
+\]
+Then the exit of $e$ makes $s$ nonviable under the minimum-demand condition.
+\end{proposition}
+
+\begin{proof}
+The exit changes $x_e$ from one to zero and therefore reduces $M_s$ by exactly $b_{se}$. The second inequality places the resulting demand below the viability threshold.
+\end{proof}
+
+The proposition is elementary, but its role is important. A firm exit can be a network event rather than an isolated reallocation. If the lost supplier $s$ was itself a complement for other relations, its disappearance can reduce their $\Lambda_f$ or raise their $q_f^*$.
+
+\begin{proposition}[Frontier contraction under complement loss]
+\label{prop:frontier-contraction}
+Suppose environments $\Omega'$ and $\Omega$ are ordered so that for every relation $f$,
+\[
+\Lambda_f(\Omega')\le\Lambda_f(\Omega),
+\qquad
+q_f^*(\Omega')\ge q_f^*(\Omega),
+\]
+with unchanged $\delta_f$. Then
+\[
+\G(\Omega')\subseteq\G(\Omega).
+\]
+\end{proposition}
+
+\begin{proof}
+For each $f$, the numerator of the graduation margin weakly falls and the denominator weakly rises, so $\gamma_f(\Omega')\le\gamma_f(\Omega)$. Any relation satisfying $\gamma_f(\Omega')>1$ therefore also satisfies $\gamma_f(\Omega)>1$.
+\end{proof}
+
+This yields a useful distinction. An economy can obtain a static allocative gain from replacing an expensive domestic product with a cheaper import while simultaneously losing productive complements that shrink the future graduation frontier. The framework does not determine the welfare sign of that trade-off. It makes the two effects visible so they are not collapsed into one number.
+
+\subsection{Capability after exit}
+
+To represent structural replacement, decompose capability only at the exit stage:
+\begin{equation}
+q_e=(q_e^S,q_e^R),
+\end{equation}
+where $q_e^S$ is configuration-specific capability and $q_e^R$ is recombinable capability. The decomposition is intentionally delayed so the baseline graduation theorem remains one-dimensional.
+
+Let $\kappa_e\in[0,1]$ be the fraction of $q_e^R$ released rather than destroyed when $e$ exits, and let $\mu_{ef}\in[0,1]$ be the absorptive transfer coefficient from $e$ into relation $f$. A simple accounting restriction is
+\begin{equation}
+\sum_f\mu_{ef}\le1.
+\end{equation}
+The transfer into $f$ is
+\begin{equation}
+\Delta q_f^R
+=
+\mu_{ef}\kappa_e q_e^R.
+\label{eq:transfer}
+\end{equation}
+
+\begin{definition}[Productive supersession]
+The exit of $e$ generates productive supersession into $f$ when released recombinable capability from $e$ raises the productive state of $f$ through an identifiable transfer channel.
+\end{definition}
+
+\begin{definition}[Successful supersession]
+The supersession is successful when the transferred capability contributes to a post-exit productive configuration in which the successor relation is viable without extraordinary support. A sufficient reduced-form condition is
+\begin{equation}
+q_f^-<q_f^*
+\le
+q_f^-+\mu_{ef}\kappa_e q_e^R,
+\label{eq:supersession-condition}
+\end{equation}
+combined with satisfaction of the other support-free activation and dependency conditions.
+\end{definition}
+
+The empirical burden in this definition is substantial. It is not enough to observe that one industry declined and another later expanded. Actual transfer channels must be identified: workers, engineering practices, supplier competence, machinery, managerial routines, standards, finance, export relationships, or other capabilities. The framework explicitly rejects a story in which Korean shoe capability is simply asserted to have ``become'' semiconductor capability without evidence.
+
+The resulting exit taxonomy is summarized in Table~\ref{tab:exit}.
+
+\begin{table}[ht]
+\centering
+\caption{Exit modes and capability consequences}
+\label{tab:exit}
+\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.22\textwidth}>{\raggedright\arraybackslash}p{0.31\textwidth}>{\raggedright\arraybackslash}p{0.36\textwidth}}
+\toprule
+\textbf{Exit mode} & \textbf{Immediate mechanism} & \textbf{Developmental diagnostic}\\
+\midrule
+Failed graduation & Support removed before unsupported viability & Capability stock never crosses the support-free threshold\\
+Destructive de-accretion & Exit makes linked relations nonviable & Productive field and possibly the graduation frontier contract\\
+Competitive displacement & Rival configuration becomes more attractive & Sign depends on capability destruction versus retention/reallocation\\
+Successful supersession & Original activity exits while capability is absorbed elsewhere & Successor relations preserve or deepen unsupported productive capability\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Two statements follow immediately:
+\begin{quote}
+\textbf{Industrial death is not capability death.}
+\end{quote}
+and
+\begin{quote}
+\textbf{Industrial survival is not developmental success.}
+\end{quote}
+A permanently protected obsolete activity may survive while trapping resources and capability in a configuration that no longer generates future productive possibilities. Conversely, a declining industry can be part of successful structural transformation if important capabilities persist and recombine.
