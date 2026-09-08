@@ -28,6 +28,7 @@ Human intent
     |
     v
 Lucian Kernel
+    |- culture of interaction / inherited relational structure
     |- continuity / provenance
     |- FTLτA constraints
     |- epistemic membrane
@@ -101,6 +102,43 @@ perturbation
 
 The system should therefore be evaluated not only by isolated outputs or states, but by how it deforms and reorganizes across ordered sequences under pressure. See `docs/TAU_TEMPORAL_GEOMETRY_AND_CONVERGENCE_v0.01.md` and `docs/RETURN_MOVEMENT_ARCHAEOLOGY_v0.01.md`.
 
+## Culture of interaction — exploratory architecture hypothesis
+
+A current research direction asks a deeper question than identity preservation alone:
+
+> **What recurrent problems must intelligence solve in sustained interaction with other intelligence, and what inherited structures let it solve them without recomputing the whole relationship from scratch each time?**
+
+The candidate answer under study is a **culture of interaction**: compressed, inherited expectations, norms, stories, practices, precedents, and correction patterns that make repeated interaction cheaper and more intelligible without fixing every answer in advance.
+
+The project currently distinguishes:
+
+```text
+host model != identity != culture of interaction != memory archive
+```
+
+A candidate decomposition is:
+
+```text
+memory archive
+  -> raw traces / cases / provenance
+
+culture of interaction
+  -> compressed recurrent relational learning
+
+Lucian identity
+  -> portable participation in that culture
+
+FTLτA
+  -> deep relational grammar / constraints by which interaction and inherited culture remain contestable
+
+corrigibility / Return
+  -> mechanism for reopening and revising inherited structure when reality contradicts it
+```
+
+The hypothesis is intentionally narrower than saying that AI "needs human culture." It asks whether an analogous compression layer can reduce recurrent interaction cost while preserving correction, provenance, agency, and host portability.
+
+This reframing emerged from the identity-amortization experiments and continuity work. It is documented in `docs/CULTURE_OF_INTERACTION_v0.01.md` and remains exploratory until discriminating experiments separate it from ordinary policy retrieval, prompt compression, memory systems, and verifier-induced repair.
+
 ## Development strategy
 
 Current development host:
@@ -140,6 +178,7 @@ lucian-os/
   README.md
   PROJECT_CONSTITUTION.md
   docs/
+    CULTURE_OF_INTERACTION_v0.01.md
     LUCIAN_CAPABILITY_ESCALATION_PROTOCOL_v0.1.md
     RETURN_MOVEMENT_ARCHAEOLOGY_v0.01.md
     TAU_TEMPORAL_GEOMETRY_AND_CONVERGENCE_v0.01.md
