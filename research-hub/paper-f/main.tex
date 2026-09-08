@@ -1,0 +1,672 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{authblk}
+\usepackage{setspace}
+\usepackage{microtype}
+
+\onehalfspacing
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{remark}{Remark}
+
+\newcommand{\E}{\mathcal{E}}
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\1}{\mathbf{1}}
+
+\title{\textbf{From Protection to Productive Supersession:}\\
+Capability Graduation in a Changing Production Network}
+\author{Daniel Varela Ar\'evalo}
+\date{September 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Industrial policy is often evaluated by whether a supported industry survives after protection is withdrawn. This paper argues that survival is an intermediate criterion rather than the terminal one. We model productive development as a staged process of activation, capability accumulation, graduation, generativity, and structural replacement. An initially nonviable productive relation can operate under temporary support while accumulating a durable capability stock. In the baseline law $q_{t+1}=(1-\delta)q_t+\lambda$, unsupported viability requires $q_t\ge q^*$. If $0<\delta<1$ and $\lambda/\delta\le q^*$, no finite support duration can generate graduation from $q_0<q^*$; if $\lambda/\delta>q^*$, a finite minimum support duration exists. We then allow the capability-conversion rate and unsupported viability threshold to depend on surrounding productive structure, define an unsupported dependency closure to prevent false graduation through permanently supported neighbors, and show how complementarity can shorten the required support horizon. Finally, we distinguish configuration-specific from recombinable capability and separate failed graduation, destructive de-accretion, competitive displacement, and successful supersession. The framework does not claim a general theory of industrial policy. Its narrower contribution is to connect temporary support, network-conditioned graduation, and post-exit capability retention in a common diagnostic language. Development, in this account, is not the preservation of particular industries: it is the accumulation and recombination of productive capability across changing productive configurations.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+
+A familiar industrial-policy question is whether temporary support can create an industry that later survives without it. The question is important because an infant-industry argument loses much of its force if protection merely preserves a permanently high-cost activity. But survival alone is also too strong a terminal criterion. Industries that once became internationally competitive can later shrink, move abroad, be displaced by new technologies, or disappear as wages, techniques, and relative prices change. A developmental regime that treats every mature industry as something to preserve forever would convert yesterday's success into tomorrow's rigidity.
+
+This paper therefore separates three questions that are often compressed into one. First, can a prospective productive relation become active at all? Second, while it operates, does it accumulate a durable capability stock that eventually permits unsupported viability? Third, if the relation later exits, what happens to the capability it helped create and to the surrounding network that depended on it?
+
+The distinction matters because superficially similar factory closures can represent very different structural events. A declining activity may release workers, routines, engineering knowledge, supplier competence, and organizational capacity that are productively absorbed elsewhere. Alternatively, the exit of one large buyer may push an upstream supplier below minimum viable scale and trigger further capability loss. Calling both events ``creative destruction'' obscures precisely the developmental difference of interest.
+
+The paper develops a reduced-form framework around five stages:
+\begin{equation}
+\text{activation}
+\rightarrow
+\text{capability accumulation}
+\rightarrow
+\text{graduation}
+\rightarrow
+\text{generativity}
+\rightarrow
+\text{supersession or de-accretion}.
+\label{eq:stages}
+\end{equation}
+Each arrow is a gate. Activation does not imply learning. Learning does not imply graduation. Graduation does not imply that an industry should survive forever. Exit does not imply that accumulated capability has been destroyed.
+
+The core state variable is $q_{e,t}\ge0$, a reduced-form stock of durable productive capability associated with productive relation $e$. During operation,
+\begin{equation}
+q_{e,t+1}
+=
+(1-\delta_e)q_{e,t}
++x_{e,t}\Lambda_e(\Omega_t),
+\label{eq:capability-law}
+\end{equation}
+where $x_{e,t}\in\{0,1\}$ indicates operation, $\delta_e$ is capability loss, and $\Lambda_e(\Omega_t)$ is the rate at which operating today creates durable productive capability for tomorrow. Unsupported viability requires
+\begin{equation}
+q_{e,t}\ge q_e^*(\Omega_t).
+\label{eq:unsupported-threshold}
+\end{equation}
+The environment $\Omega_t$ can include suppliers, customers, technology access, standards, logistics, finance, external markets, and other productive complements. Thus the same nominal industry can face very different graduation conditions in different productive fields.
+
+The baseline result is deliberately small. Under constant $\lambda$, $\delta$, and $q^*$, the capability stock converges to $\lambda/\delta$. Hence, for $0<\delta<1$, if $\lambda/\delta\le q^*$ and $q_0<q^*$, no amount of time under support produces finite graduation. If $\lambda/\delta>q^*$, finite graduation is possible and a closed-form minimum support duration follows. This gives exact content to the phrase:
+\begin{quote}
+\textbf{Time under protection is not learning.}
+\end{quote}
+Support duration matters only through the capability dynamics it sustains.
+
+The paper then makes three extensions. First, it allows surrounding productive structure to raise $\Lambda_e$ or lower $q_e^*$, yielding a notion of network-conditioned graduation. Second, it defines a support-free dependency closure so that an activity is not declared graduated merely because it remains viable while depending on neighbors that themselves remain under extraordinary support. Third, it models exit as a capability-allocation event. Capability is separated into a configuration-specific component and a recombinable component that may be absorbed by successor relations.
+
+The framework is intentionally narrower than the large literatures it touches. Big-push models own coordination failure; Hirschman owns backward and forward linkage reasoning; infant-industry theory owns temporary protection under learning; the Korean development literature owns much of the argument about export discipline and selective support; evolutionary economics and Schumpeterian theory own creative destruction and industrial replacement; economic-complexity and product-space work own related diversification; production-network models own general equilibrium propagation through input-output structure. The contribution claimed here is not a replacement for these traditions. It is a particular diagnostic seam: \emph{how temporary support becomes a capability state, how that state graduates under network-conditioned thresholds, and how capability survives or fails to survive the exit of the original productive configuration}.
+
+The paper proceeds as follows. Section~\ref{sec:literature} positions the argument. Section~\ref{sec:formation} gives a restricted complementarity-based activation gate. Section~\ref{sec:graduation} develops the capability law and baseline graduation results. Section~\ref{sec:network} introduces network conditioning and unsupported dependency closure. Section~\ref{sec:exit} develops generativity, de-accretion, and productive supersession. Section~\ref{sec:politics} states a political-economy extension without overclaiming a theorem. Section~\ref{sec:cases} uses South Korean footwear and the 2026 FATE closure in Argentina as diagnostic cases. Section~\ref{sec:discussion} states limitations and the handoff to the separate reproductive-accretion analysis. Section~\ref{sec:conclusion} concludes.
+
+\section{Related Literature and Contribution Boundary}
+\label{sec:literature}
+
+The logic of coordinated industrialization predates the present framework. Rosenstein-Rodan's big-push argument formalized the possibility that individually unattractive investments can become viable when undertaken together. Hirschman's strategy of unbalanced growth placed particular emphasis on induced investment through backward and forward linkages. The present paper uses complementarity in a much narrower way: only as an entry gate for productive relations whose supply, demand, or input conditions are jointly activated. The fixed-point mathematics is inherited and is not itself a contribution.
+
+The capability state in equation~\eqref{eq:capability-law} belongs to the broad learning-by-doing and technological-capability tradition. Arrow formalized learning-by-doing as an endogenous productivity mechanism. Pack and Westphal placed technological change and capability accumulation at the center of industrialization, and the literature on East Asian development has repeatedly emphasized the interaction among selective support, exports, imported technology, and learning. Westphal's account of Korea, for example, argues that selective intervention operated within an export-propelled system and contributed to the achievement of international competitiveness in a number of industries. The World Bank's historical assessments similarly stress that Korea combined protection of selected infant activities with strong export incentives and pressure to become internationally competitive. These literatures already own the broad proposition that temporary support can be developmental when it generates learning rather than permanent dependence.
+
+Modern industrial-policy work also emphasizes design and political economy rather than a simple intervention-versus-laissez-faire dichotomy. Harrison and Rodr\'iguez-Clare review both the theoretical rationales and the weak empirical basis for many hard interventions, while allowing an important role for softer cluster-level coordination. Aghion and coauthors find that sectoral policies can be more productivity-enhancing when they are competition-friendly. Liu shows how distortions and policy effects propagate through production networks. These contributions are important boundaries on the present exercise: a reduced-form graduation condition is not a welfare theorem and does not establish that a particular subsidy, tariff, or credit allocation is optimal.
+
+The post-exit part of the paper sits near evolutionary economics, structural transformation, and the literature on related diversification. Schumpeter's creative destruction makes industrial replacement central to capitalist development. Nelson and Winter emphasize routines and the evolutionary persistence of firm capabilities. Hidalgo and coauthors show empirically that countries tend to move into products related to capabilities already present. Global-value-chain research studies upgrading, governance, and the relocation of production functions across firms and countries. The present term \emph{successful supersession} is therefore not a claim to have discovered that capabilities can migrate. It is a bookkeeping device used to distinguish capability-preserving exit from capability-destroying exit inside the same staged framework that begins with temporary support.
+
+The narrowest potential contribution of the paper is consequently threefold. First, it places an explicit capability state between supported activation and unsupported viability and derives a minimum support duration from that state law. Second, it adds an unsupported dependency closure so that graduation is evaluated at the network level rather than inferred from a single protected node. Third, it makes the fate of capability after industry exit an explicit terminal diagnostic, allowing the same model to distinguish failed graduation, destructive de-accretion, and successful supersession.
+
+\section{Formation as an Entrance Gate}
+\label{sec:formation}
+
+Let $\E=\{1,\ldots,n\}$ index prospective productive relations. A relation may represent a supplier--buyer pairing, a technology--adopter pairing, a specialized capability--user relation, or another economically meaningful productive connection. Let $x\in\{0,1\}^n$ denote the set of active relations.
+
+For each $e\in\E$, define reduced-form supply/readiness and demand/adoption conditions
+\begin{align}
+S_e(x;u)
+&=
+\bar s_e+u_e^S+\sum_{f\neq e}C^S_{ef}x_f,
+\\
+D_e(x;u)
+&=
+\bar d_e+u_e^D+\sum_{f\neq e}C^D_{ef}x_f,
+\end{align}
+where $u$ is extraordinary support and $C^S_{ef},C^D_{ef}\ge0$ in the baseline complementarity case. The zero-diagonal convention prevents a relation from mechanically activating itself through its own status.
+
+Define the activation operator
+\begin{equation}
+T_u(x)_e
+=
+\1\{S_e(x;u)\ge\theta_e^S\}
+\1\{D_e(x;u)\ge\theta_e^D\}.
+\label{eq:activation-operator}
+\end{equation}
+With nonnegative complementarity terms, $T_u$ is monotone on the finite lattice $\{0,1\}^n$. Tarski's theorem therefore guarantees fixed points, including least and greatest fixed points. The conservative bottom-up closure is
+\begin{equation}
+\underline x(u)
+=
+\lim_{k\to\infty}T_u^k(0).
+\label{eq:bottom-up}
+\end{equation}
+We call fixed points \emph{self-consistent activation configurations}, not Nash equilibria: no strategic agents or payoff functions have been specified.
+
+The activation model is deliberately restricted. It is not intended to represent crowding out, competition for labor or capital, exchange-rate effects, or negative supplier shocks. Its only role is to answer an entrance question: can the relation operate in the present configuration? Once structural change and exit begin, signed and nonmonotone effects become relevant and the monotone baseline must no longer be treated as general.
+
+\section{Capability Accumulation and Graduation}
+\label{sec:graduation}
+
+Activation is not development by itself. A supported relation can operate for years while remaining exactly as dependent on support as it was at entry. The state variable $q_{e,t}$ is introduced to separate operation from durable learning.
+
+During operation, capability follows equation~\eqref{eq:capability-law}. The term $\Lambda_e(\Omega_t)$ should be interpreted broadly as capability conversion, not merely technical learning. It can include learning-by-doing, quality improvement, managerial routines, supplier development, standards compliance, export competence, absorptive capacity, technology adaptation, and other durable changes that improve future unsupported viability. The term $\delta_e$ captures capability erosion through obsolescence, organizational destruction, supplier loss, worker exit, repeated macroeconomic disruption, or other mechanisms that destroy accumulated productive state.
+
+Unsupported viability requires $q_{e,t}\ge q_e^*(\Omega_t)$. The threshold is reduced form: it can summarize the capability required to operate without the extraordinary policy wedge given the current infrastructure, market access, input structure, and other conditions.
+
+\subsection{Baseline constant-parameter case}
+
+Consider one relation operated continuously during a support interval:
+\begin{equation}
+q_{t+1}=(1-\delta)q_t+\lambda,
+\qquad
+0<\delta<1,
+\quad \lambda>0,
+\quad q_0<q^*.
+\label{eq:baseline}
+\end{equation}
+The solution is
+\begin{equation}
+q_t
+=(1-\delta)^tq_0
++\frac{\lambda}{\delta}
+\left[1-(1-\delta)^t\right].
+\label{eq:closed-form}
+\end{equation}
+Hence
+\begin{equation}
+q_\infty=\frac{\lambda}{\delta}.
+\end{equation}
+
+\begin{proposition}[Graduation feasibility]
+\label{prop:graduation}
+Let $0<\delta<1$ and $q_0<q^*$. If $\lambda/\delta\le q^*$, the relation never reaches $q^*$ in finite time. If $\lambda/\delta>q^*$, a finite graduation time exists.
+\end{proposition}
+
+\begin{proof}
+Equation~\eqref{eq:closed-form} writes $q_t$ as a convex combination of $q_0$ and $q_\infty=\lambda/\delta$. If $q_\infty<q^*$, both endpoints are below $q^*$, so every finite $q_t<q^*$. If $q_\infty=q^*$, then
+\[
+q_t=q^*-(1-\delta)^t(q^*-q_0)<q^*
+\]
+for every finite $t$. If $q_\infty>q^*$, the sequence converges to a level strictly above the threshold; since $q_t$ is continuous in the real-valued time exponent and monotone upward from $q_0$ in this case, a finite integer crossing time exists.
+\end{proof}
+
+The knife-edge case $\delta=1$ is separate. Then $q_{t+1}=\lambda$ during operation, so graduation occurs after one period if and only if $\lambda\ge q^*$.
+
+\begin{corollary}[Minimum support duration]
+\label{cor:duration}
+Suppose $0<\delta<1$ and
+\[
+q_0<q^*<\frac{\lambda}{\delta}.
+\]
+The minimum integer number of operating periods required to reach unsupported viability is
+\begin{equation}
+k^*
+=
+\left\lceil
+\frac{
+\ln\left(
+\dfrac{\lambda/\delta-q^*}{\lambda/\delta-q_0}
+\right)
+}{
+\ln(1-\delta)
+}
+\right\rceil.
+\label{eq:min-duration}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Rewrite equation~\eqref{eq:closed-form} as
+\[
+q_t
+=
+\frac{\lambda}{\delta}
+-(1-\delta)^t
+\left(
+\frac{\lambda}{\delta}-q_0
+\right).
+\]
+The condition $q_t\ge q^*$ is equivalent to
+\[
+(1-\delta)^t
+\le
+\frac{\lambda/\delta-q^*}{\lambda/\delta-q_0}.
+\]
+Both sides lie in $(0,1)$. Taking logs and dividing by the negative number $\ln(1-\delta)$ yields the stated lower bound on $t$; taking the ceiling gives the minimum integer duration.
+\end{proof}
+
+Define the reduced-form graduation margin
+\begin{equation}
+\gamma
+=
+\frac{\lambda}{\delta q^*}.
+\label{eq:gamma}
+\end{equation}
+For $q_0<q^*$ and $0<\delta<1$, $\gamma>1$ is exactly the condition for eventual finite graduation in the constant-parameter case. The margin is useful as a diagnostic, but it is not a welfare measure and it becomes incomplete when the environment changes endogenously.
+
+The substantive interpretation is simple. A policy can keep an activity alive without changing the state that determines unsupported viability. Lengthening support does not solve that problem. The developmental question is whether operation under support changes $\lambda$, $\delta$, $q^*$, or the accumulated state $q$ sufficiently to create a path out of support.
+
+\section{Network-Conditioned Graduation}
+\label{sec:network}
+
+The baseline becomes more useful when the capability-conversion rate and unsupported threshold depend on surrounding productive structure. Let
+\begin{equation}
+\Lambda_e(\Omega_t)
+=
+\bar\lambda_e
++\sum_{f\neq e}a_{ef}q_{f,t}
++z_e(\omega_t),
+\qquad a_{ef}\ge0,
+\label{eq:network-lambda}
+\end{equation}
+where $\omega_t$ denotes external productive accessibility and $z_e(\cdot)$ summarizes access to external demand, technology, finance, suppliers, standards, logistics, or other complements. Let $q_e^*(\Omega_t)$ be weakly decreasing in productive complementarity in the baseline case.
+
+This formulation captures a basic point: graduation is not purely an intrinsic property of an industry. A relation surrounded by demanding customers, capable suppliers, accessible machinery, technical standards, and finance can convert operation into durable capability faster than the nominally same activity in a thin productive field. Likewise, infrastructure or market access can lower the capability threshold required for unsupported operation.
+
+\begin{proposition}[Complementarity weakly shortens the support horizon]
+\label{prop:path-dominance}
+Consider two constant environments for the same relation with the same $q_0$ and $\delta$. Suppose environment $B$ satisfies
+\[
+\lambda_B\ge\lambda_A,
+\qquad
+q_B^*\le q_A^*.
+\]
+If graduation is feasible in both environments, then the minimum support duration in $B$ is no greater than in $A$.
+\end{proposition}
+
+\begin{proof}
+Starting from the same $q_0$, the recursions satisfy $q^B_t\ge q^A_t$ for every $t$ by induction because $\lambda_B\ge\lambda_A$. Environment $B$ also requires crossing a weakly lower threshold. Therefore any date at which $A$ has graduated is a date by which $B$ has also graduated. Hence $k_B^*\le k_A^*$.
+\end{proof}
+
+Define the time-$t$ candidate graduation frontier
+\begin{equation}
+\G_t
+=
+\left\{
+ e\in\E:
+\frac{\Lambda_e(\Omega_t)}{\delta_e q_e^*(\Omega_t)}>1
+\right\}.
+\label{eq:frontier}
+\end{equation}
+Within the constant local approximation, $\G_t$ is the set of relations that can in principle graduate if activated and operated. It is a proposed diagnostic, not an established development index. It also does not yet solve a serious problem: a relation can appear individually viable while relying on neighbors that remain dependent on extraordinary support.
+
+\subsection{Unsupported dependency closure}
+
+To prevent false graduation, consider the active configuration $x^0$ at the moment extraordinary support is removed. Define a support-free survival operator
+\begin{equation}
+\mathcal S_0(x;q)_e
+=
+x_e\,
+\1\{q_e\ge q_e^*(\Omega(x))\}
+\1\{S_e(x;0)\ge\theta_e^S\}
+\1\{D_e(x;0)\ge\theta_e^D\}.
+\label{eq:survival-operator}
+\end{equation}
+Under the pure-complementarity assumptions, $\mathcal S_0$ is monotone and satisfies $\mathcal S_0(x;q)\le x$ componentwise. Starting from $x^0$, iterate
+\begin{equation}
+x^{k+1}=\mathcal S_0(x^k;q).
+\end{equation}
+
+\begin{lemma}[Finite unsupported closure]
+\label{lem:closure}
+The sequence $\{x^k\}$ is weakly decreasing and reaches a fixed point in at most $n$ strict-removal rounds.
+\end{lemma}
+
+\begin{proof}
+By construction $x^{k+1}\le x^k$. Because $x^k\in\{0,1\}^n$, every nonstationary iteration removes at least one active relation. At most $n$ relations can be removed. Therefore the sequence stabilizes after at most $n$ strict-removal rounds.
+\end{proof}
+
+\begin{definition}[Unsupported dependency closure]
+The fixed point
+\begin{equation}
+\C_0(x^0;q)
+=
+\lim_{k\to\infty}\mathcal S_0^k(x^0;q)
+\label{eq:closure}
+\end{equation}
+is the unsupported dependency closure of the current active configuration.
+\end{definition}
+
+\begin{definition}[Network graduation]
+Relation $e$ is network-graduated at withdrawal if $[\C_0(x^0;q)]_e=1$.
+\end{definition}
+
+This definition is stronger than checking $q_e\ge q_e^*$ in the supported configuration. A relation that survives only because a permanently supported supplier or buyer remains active is not yet network-graduated. The closure therefore separates \emph{supported coexistence} from \emph{unsupported productive configuration}.
+
+\section{Generativity, De-accretion, and Productive Supersession}
+\label{sec:exit}
+
+Graduation is not the end of development. A mature productive relation can later disappear because of technological change, higher wages, new competitors, changing comparative advantage, relocation, or deliberate movement into a different productive configuration. The developmental effect of that exit cannot be inferred from the exiting firm alone.
+
+\subsection{Generativity}
+
+\begin{definition}[Generativity]
+A graduated relation $e$ is generative for relation $f$ if its operation or accumulated capability improves $f$'s graduation conditions, for example by raising $\Lambda_f$, lowering $q_f^*$, lowering $\delta_f$, or reducing an activation threshold.
+\end{definition}
+
+In the positive-complementarity baseline, generativity can expand the graduation frontier:
+\begin{equation}
+e\text{ graduates}
+\rightarrow
+\gamma_f\uparrow
+\rightarrow
+f\in\G
+\rightarrow
+f\text{ becomes graduable}.
+\end{equation}
+The propagated object is not merely output. It is improved capacity to create further unsupported productive relations.
+
+\subsection{A simple de-accretion mechanism}
+
+Now consider the reverse direction. Let an upstream supplier $s$ require customer demand above a minimum scale $D_s^*$. Write
+\begin{equation}
+M_s(x)
+=
+\bar D_s+\sum_j b_{sj}x_j,
+\qquad b_{sj}\ge0.
+\label{eq:supplier-demand}
+\end{equation}
+
+\begin{proposition}[Direct de-accretion trigger]
+\label{prop:deaccretion}
+Suppose relation $e$ is active immediately before exit and supplier $s$ satisfies
+\[
+M_s(x^- )\ge D_s^*,
+\]
+but
+\[
+M_s(x^-)-b_{se}<D_s^*.
+\]
+Then the exit of $e$ makes $s$ nonviable under the minimum-demand condition.
+\end{proposition}
+
+\begin{proof}
+The exit changes $x_e$ from one to zero and therefore reduces $M_s$ by exactly $b_{se}$. The second inequality places the resulting demand below the viability threshold.
+\end{proof}
+
+The proposition is elementary, but its role is important. A firm exit can be a network event rather than an isolated reallocation. If the lost supplier $s$ was itself a complement for other relations, its disappearance can reduce their $\Lambda_f$ or raise their $q_f^*$.
+
+\begin{proposition}[Frontier contraction under complement loss]
+\label{prop:frontier-contraction}
+Suppose environments $\Omega'$ and $\Omega$ are ordered so that for every relation $f$,
+\[
+\Lambda_f(\Omega')\le\Lambda_f(\Omega),
+\qquad
+q_f^*(\Omega')\ge q_f^*(\Omega),
+\]
+with unchanged $\delta_f$. Then
+\[
+\G(\Omega')\subseteq\G(\Omega).
+\]
+\end{proposition}
+
+\begin{proof}
+For each $f$, the numerator of the graduation margin weakly falls and the denominator weakly rises, so $\gamma_f(\Omega')\le\gamma_f(\Omega)$. Any relation satisfying $\gamma_f(\Omega')>1$ therefore also satisfies $\gamma_f(\Omega)>1$.
+\end{proof}
+
+This yields a useful distinction. An economy can obtain a static allocative gain from replacing an expensive domestic product with a cheaper import while simultaneously losing productive complements that shrink the future graduation frontier. The framework does not determine the welfare sign of that trade-off. It makes the two effects visible so they are not collapsed into one number.
+
+\subsection{Capability after exit}
+
+To represent structural replacement, decompose capability only at the exit stage:
+\begin{equation}
+q_e=(q_e^S,q_e^R),
+\end{equation}
+where $q_e^S$ is configuration-specific capability and $q_e^R$ is recombinable capability. The decomposition is intentionally delayed so the baseline graduation theorem remains one-dimensional.
+
+Let $\kappa_e\in[0,1]$ be the fraction of $q_e^R$ released rather than destroyed when $e$ exits, and let $\mu_{ef}\in[0,1]$ be the absorptive transfer coefficient from $e$ into relation $f$. A simple accounting restriction is
+\begin{equation}
+\sum_f\mu_{ef}\le1.
+\end{equation}
+The transfer into $f$ is
+\begin{equation}
+\Delta q_f^R
+=
+\mu_{ef}\kappa_e q_e^R.
+\label{eq:transfer}
+\end{equation}
+
+\begin{definition}[Productive supersession]
+The exit of $e$ generates productive supersession into $f$ when released recombinable capability from $e$ raises the productive state of $f$ through an identifiable transfer channel.
+\end{definition}
+
+\begin{definition}[Successful supersession]
+The supersession is successful when the transferred capability contributes to a post-exit productive configuration in which the successor relation is viable without extraordinary support. A sufficient reduced-form condition is
+\begin{equation}
+q_f^-<q_f^*
+\le
+q_f^-+\mu_{ef}\kappa_e q_e^R,
+\label{eq:supersession-condition}
+\end{equation}
+combined with satisfaction of the other support-free activation and dependency conditions.
+\end{definition}
+
+The empirical burden in this definition is substantial. It is not enough to observe that one industry declined and another later expanded. Actual transfer channels must be identified: workers, engineering practices, supplier competence, machinery, managerial routines, standards, finance, export relationships, or other capabilities. The framework explicitly rejects a story in which Korean shoe capability is simply asserted to have ``become'' semiconductor capability without evidence.
+
+The resulting exit taxonomy is summarized in Table~\ref{tab:exit}.
+
+\begin{table}[ht]
+\centering
+\caption{Exit modes and capability consequences}
+\label{tab:exit}
+\begin{tabular}{p{0.24\textwidth}p{0.31\textwidth}p{0.35\textwidth}}
+\toprule
+\textbf{Exit mode} & \textbf{Immediate mechanism} & \textbf{Developmental diagnostic}\\
+\midrule
+Failed graduation & Support removed before unsupported viability & Capability stock never crosses the support-free threshold\\
+Destructive de-accretion & Exit makes linked relations nonviable & Productive field and possibly the graduation frontier contract\\
+Competitive displacement & Rival configuration becomes more attractive & Sign depends on capability destruction versus retention/reallocation\\
+Successful supersession & Original activity exits while capability is absorbed elsewhere & Successor relations preserve or deepen unsupported productive capability\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Two statements follow immediately:
+\begin{quote}
+\textbf{Industrial death is not capability death.}
+\end{quote}
+and
+\begin{quote}
+\textbf{Industrial survival is not developmental success.}
+\end{quote}
+A permanently protected obsolete activity may survive while trapping resources and capability in a configuration that no longer generates future productive possibilities. Conversely, a declining industry can be part of successful structural transformation if important capabilities persist and recombine.
+
+\section{Political Economy: Capability Investment versus Capture}
+\label{sec:politics}
+
+The baseline model takes $\Lambda_e$ as given. That assumption hides a central political-economy question: why should firms use the protected interval to invest in future unsupported capability rather than in preserving the policy that creates current rents?
+
+Let support generate rent $R_{e,t}$ and write, schematically,
+\begin{equation}
+R_{e,t}
+=
+I^q_{e,t}
++I^c_{e,t}
++C_{e,t},
+\end{equation}
+where $I^q$ is productive capability investment, $I^c$ is political or capture investment aimed at preserving the protected position, and $C$ denotes other uses. Let
+\begin{equation}
+\Lambda_e
+=
+\Lambda_e(I^q_{e,t},\Omega_t),
+\qquad
+\frac{\partial \Lambda_e}{\partial I^q}>0.
+\end{equation}
+Capture investment may raise the probability that extraordinary support continues. This produces two stylized survival strategies:
+\begin{align*}
+\text{productive route: }&R\rightarrow I^q\rightarrow q\uparrow\rightarrow\text{graduation},\\
+\text{political route: }&R\rightarrow I^c\rightarrow\text{support persists}\rightarrow\text{dependence persists}.
+\end{align*}
+
+This paper does not yet microfound the firm's choice between $I^q$ and $I^c$, so it does not claim a theorem that credible withdrawal necessarily raises capability investment. The proposed mechanism is narrower: if political preservation of the rent is an available substitute for productive graduation, then the credibility and design of withdrawal can affect the relative return to capability investment. Export performance, quality standards, cost convergence, or other external tests may matter because they make continuation less dependent on domestic bargaining alone.
+
+The institutional phrase that best captures the intended distinction is:
+\begin{quote}
+\textbf{Stable rules, contestable positions.}
+\end{quote}
+Policy stability need not mean policy constancy. A predictable developmental regime can contain tariffs that decline, firms that fail, technologies that disappear, and sectors that lose support. What must be stable is the rule governing change, not the permanence of incumbency.
+
+This political-economy extension is important, but it should remain outside the core theorem until the investment and capture technologies are explicitly specified.
+
+\section{Two Diagnostic Cases}
+\label{sec:cases}
+
+The cases in this section are not used as proof of the model. They illustrate how the framework changes the questions an empirical researcher asks.
+
+\subsection{South Korean footwear: decline is not enough to establish supersession}
+
+South Korea's footwear industry, centered heavily in Busan, became a major export cluster and then contracted sharply as wages and land costs rose and labor-intensive production shifted to lower-cost locations. Lim documents the restructuring problem already in the early 1990s. The OECD's territorial review of Busan describes a steep fall in footwear exports and substantial relocation of production abroad, while also noting continued local specialization. Later historical work describes attempts at automation, own-brand development, specialization, and niche production during the industry's decline.
+
+For the present framework, the important point is methodological. Sectoral decline is not automatically evidence of developmental failure, because rising wages and changing comparative advantage can make mass labor-intensive assembly a poor use of accumulated capability. But the opposite inference is also invalid: the fact that Korea later became a high-technology economy does not prove that footwear capabilities migrated directly into semiconductors or automobiles.
+
+The case therefore requires tracing what survived the old configuration. Relevant evidence would include worker transitions, design and engineering routines, supplier capabilities, logistics and export competence, retained brand or niche specialization, capital redeployment, and the destinations of firms that moved production abroad. The Korean case is useful precisely because it may contain all three outcomes at once: destroyed capability, retained and upgraded footwear capability, and recombinable organizational or export competence.
+
+\subsection{FATE and synthetic rubber in Argentina: a visible de-accretion edge}
+
+A sharper negative-linkage example appeared in Argentina in 2026. FATE, a long-standing Argentine tire producer, ceased production at its Virreyes plant in February 2026 and dismissed roughly 920 workers. Contemporary reporting cited a combination of weak domestic demand, declining competitiveness, rising imports, and prolonged labor conflict. The framework does not presume that the plant should therefore have been protected. The relevant question is what happened to the productive network around it.
+
+In July 2026 Pampa Energ\'ia announced the closure of its synthetic-rubber production line at Puerto General San Mart\'in. Contemporary reports stated that the domestic market for the product had fallen sharply after FATE's closure and identified FATE as a principal local customer. The rubber line employed roughly 130 workers before the closure/redeployment process.
+
+This sequence is a concrete example of Proposition~\ref{prop:deaccretion}: a downstream buyer exits; demand for an upstream specialized input falls; the upstream relation can cross below minimum viable scale. It does not by itself establish the aggregate welfare cost of FATE's closure, nor does it prove that all synthetic-rubber capability was permanently destroyed. It does establish that the relevant unit of analysis is larger than the exiting factory.
+
+An empirical evaluation should therefore ask at least four separate questions. First, what consumer or downstream efficiency gains came from cheaper or more abundant tire imports? Second, which FATE-specific capabilities were destroyed, retained, or redeployed? Third, which upstream capabilities lost viability because the buyer disappeared? Fourth, did alternative domestic, regional, or export demand emerge quickly enough to preserve those capabilities? The model permits the answer to be mixed: static allocative gains and developmental capability losses can occur simultaneously.
+
+This is why the paper does not equate protection with development or liberalization with development. The diagnostic is whether a policy transition creates a viable path through activation, capability accumulation, graduation, and subsequent structural change without unnecessarily destroying valuable productive state.
+
+\section{Discussion, Scope, and the Handoff to Reproductive Accretion}
+\label{sec:discussion}
+
+Several limitations are deliberate.
+
+First, the capability stock $q$ is reduced form. It bundles technical, organizational, labor, supplier, managerial, and market-facing capabilities that would need separate measurement in empirical work. The scalar state is retained because it makes the graduation mechanism transparent. The split into $(q^S,q^R)$ occurs only when the paper reaches exit, where transferability becomes unavoidable.
+
+Second, the activation model assumes nonnegative complementarity. That is useful for the entrance problem but cannot describe the whole economy. Competition for labor and capital, import competition, exchange-rate effects, congestion, and demand displacement are signed interactions. A fuller structural-change model would need something like $J=J^+-J^-$ or a general-equilibrium production-network environment. The paper therefore does not invoke Tarski-style monotonicity after signed dynamics enter.
+
+Third, the graduation frontier in equation~\eqref{eq:frontier} is a local possibility set, not a measured national development index. A country may have many relations with $\gamma>1$ that are never coordinated into existence. Conversely, a relation with $\gamma<1$ today may become graduable after infrastructure, external access, technology transfer, or the graduation of complements changes its environment.
+
+Fourth, the model does not establish a welfare criterion for preserving strategic capability. Whether a country should retain a high-cost domestic industry because of reconstitution time, geopolitical risk, or supply-chain leverage is a separate problem. That question requires comparing the cost of maintaining capability with the expected value of resilience, substitution, and strategic options. It is therefore left to a subsequent paper rather than folded into the present one.
+
+Fifth, the model does not make industrial persistence synonymous with human welfare. A regime could raise capability conversion by imposing extreme pressure on workers or students. The welfare layer must distinguish discipline applied to firms or supported positions from the viability and agency of people. A useful policy principle is ``hard discipline for firms; real transition possibilities for people,'' but that principle is not part of the positive theorem developed here.
+
+The paper's natural endpoint is the production of an evolving set of graduated, generative, displaced, and recombined productive relations. A separate analysis of reproductive accretion asks a different question: when do such relations form a higher-order network capable of reproducing its productive state, and how robust is that closure to edge or node loss? Conceptually, the handoff is
+\begin{equation}
+\underbrace{
+\text{activation}\rightarrow\text{capability}\rightarrow\text{graduation}\rightarrow\text{supersession/de-accretion}
+}_{\text{this paper}}
+\rightarrow
+\underbrace{
+\text{accretion}\rightarrow\text{reproductive closure}\rightarrow\text{robustness}
+}_{\text{separate analysis}}.
+\end{equation}
+The formal map between the two remains open. A plausible bridge is a time-varying productive-reinforcement weight $w_{ef,t}=\phi_{ef}(q_t,x_t,\Omega_t)$, but specifying and validating that map is beyond the scope of the present draft.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+Temporary industrial support is often evaluated by asking whether the supported activity survives once the policy is withdrawn. This paper has argued that the question should be split into stages.
+
+First, support can solve an activation problem without solving a capability problem. Second, operating under support can accumulate durable capability, but finite graduation occurs only if the supported operating regime can generate a long-run capability level above the unsupported viability threshold. In the baseline model, this condition is $\lambda/\delta>q^*$, and the implied minimum support duration follows in closed form. Third, surrounding productive structure matters because it can raise capability conversion and lower unsupported thresholds. Graduation should therefore be tested after removing extraordinary support from the relevant dependency closure, not inferred node by node.
+
+Finally, graduation is not the terminal developmental criterion. Mature productive relations can and should sometimes disappear. The relevant question is what happens to the capabilities and relations around them. Exit can represent failed graduation, destructive de-accretion, competitive displacement, or successful supersession. The distinction matters because industrial survival and industrial death are both ambiguous signals.
+
+The central claim can therefore be stated compactly:
+\begin{quote}
+\textbf{Development is not the preservation of successful industries. It is the accumulation, graduation, and recombination of productive capability through successive productive forms.}
+\end{quote}
+Or, more sharply:
+\begin{quote}
+\textbf{Development succeeds when productive capability can outlive the productive configurations that created it.}
+\end{quote}
+These claims are proposed as a research program, not as established empirical laws. Their value depends on whether capability stocks, dependency closures, transfer channels, and de-accretion cascades can be identified in actual historical and contemporary episodes.
+
+\begin{thebibliography}{99}
+
+\bibitem{aghion2015}
+Aghion, P., Cai, J., Dewatripont, M., Du, L., Harrison, A., and Legros, P. (2015).
+Industrial Policy and Competition.
+\emph{American Economic Journal: Macroeconomics}, 7(4), 1--32.
+
+\bibitem{amsden1989}
+Amsden, A. H. (1989).
+\emph{Asia's Next Giant: South Korea and Late Industrialization}.
+Oxford University Press.
+
+\bibitem{arrow1962}
+Arrow, K. J. (1962).
+The Economic Implications of Learning by Doing.
+\emph{Review of Economic Studies}, 29(3), 155--173.
+
+\bibitem{gereffi2005}
+Gereffi, G., Humphrey, J., and Sturgeon, T. (2005).
+The Governance of Global Value Chains.
+\emph{Review of International Political Economy}, 12(1), 78--104.
+
+\bibitem{harrison2010}
+Harrison, A., and Rodr\'iguez-Clare, A. (2010).
+Trade, Foreign Investment, and Industrial Policy for Developing Countries.
+In D. Rodrik and M. Rosenzweig (eds.), \emph{Handbook of Development Economics}, Vol. 5, 4039--4214.
+Elsevier.
+
+\bibitem{hidalgo2007}
+Hidalgo, C. A., Klinger, B., Barab\'asi, A.-L., and Hausmann, R. (2007).
+The Product Space Conditions the Development of Nations.
+\emph{Science}, 317(5837), 482--487.
+
+\bibitem{hirschman1958}
+Hirschman, A. O. (1958).
+\emph{The Strategy of Economic Development}.
+Yale University Press.
+
+\bibitem{irwin1998}
+Irwin, D. A. (1998).
+Did Late Nineteenth Century U.S. Tariffs Promote Infant Industries? Evidence from the Tinplate Industry.
+NBER Working Paper 6835.
+
+\bibitem{lim1994}
+Lim, J. D. (1994).
+Restructuring of the Footwear Industry and the Industrial Adjustment of the Pusan Economy.
+\emph{Environment and Planning A}, 26(4), 567--581.
+
+\bibitem{liu2019}
+Liu, E. (2019).
+Industrial Policies in Production Networks.
+\emph{Quarterly Journal of Economics}, 134(4), 1883--1948.
+
+\bibitem{nelsonwinter1982}
+Nelson, R. R., and Winter, S. G. (1982).
+\emph{An Evolutionary Theory of Economic Change}.
+Harvard University Press.
+
+\bibitem{oecd2005}
+OECD (2005).
+\emph{OECD Territorial Reviews: Busan, Korea 2005}.
+OECD Publishing.
+
+\bibitem{packwestphal1986}
+Pack, H., and Westphal, L. E. (1986).
+Industrial Strategy and Technological Change: Theory versus Reality.
+\emph{Journal of Development Economics}, 22(1), 87--128.
+
+\bibitem{rosenstein1943}
+Rosenstein-Rodan, P. N. (1943).
+Problems of Industrialisation of Eastern and South-Eastern Europe.
+\emph{Economic Journal}, 53(210/211), 202--211.
+
+\bibitem{schumpeter1942}
+Schumpeter, J. A. (1942).
+\emph{Capitalism, Socialism and Democracy}.
+Harper \& Brothers.
+
+\bibitem{wade1990}
+Wade, R. (1990).
+\emph{Governing the Market: Economic Theory and the Role of Government in East Asian Industrialization}.
+Princeton University Press.
+
+\bibitem{westphal1990}
+Westphal, L. E. (1990).
+Industrial Policy in an Export-Propelled Economy: Lessons from South Korea's Experience.
+\emph{Journal of Economic Perspectives}, 4(3), 41--59.
+
+\bibitem{fate2026}
+La Naci\'on (2026).
+``En crisis, cierra FATE y 920 trabajadores perder\'an su empleo,'' 18 February 2026.
+Working-draft contemporary source; archival/primary verification required before submission.
+
+\bibitem{pampa2026}
+La Naci\'on (2026).
+``Pampa Energ\'ia cierra su planta de caucho en Santa Fe,'' 22 July 2026.
+Working-draft contemporary source; company filing and primary documentation should replace or supplement this citation before submission.
+
+\end{thebibliography}
+
+\end{document}
