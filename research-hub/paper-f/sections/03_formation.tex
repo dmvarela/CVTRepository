@@ -1,0 +1,35 @@
+\section{Formation as an Entrance Gate}
+\label{sec:formation}
+
+Let $\E=\{1,\ldots,n\}$ index prospective productive relations. A relation may represent a supplier--buyer pairing, a technology--adopter pairing, a specialized capability--user relation, or another economically meaningful productive connection. Let $x\in\{0,1\}^n$ denote the set of active relations.
+
+For each $e\in\E$, define reduced-form supply/readiness and demand/adoption conditions
+\begin{align}
+S_e(x;u)
+&=
+\bar s_e+u_e^S+\sum_{f\neq e}C^S_{ef}x_f,
+\\
+D_e(x;u)
+&=
+\bar d_e+u_e^D+\sum_{f\neq e}C^D_{ef}x_f,
+\end{align}
+where $u$ is extraordinary support and $C^S_{ef},C^D_{ef}\ge0$ in the baseline complementarity case. The zero-diagonal convention prevents a relation from mechanically activating itself through its own status.
+
+Define the activation operator
+\begin{equation}
+T_u(x)_e
+=
+\1\{S_e(x;u)\ge\theta_e^S\}
+\1\{D_e(x;u)\ge\theta_e^D\}.
+\label{eq:activation-operator}
+\end{equation}
+With nonnegative complementarity terms, $T_u$ is monotone on the finite lattice $\{0,1\}^n$. Tarski's theorem therefore guarantees fixed points, including least and greatest fixed points. The conservative bottom-up closure is
+\begin{equation}
+\underline x(u)
+=
+\lim_{k\to\infty}T_u^k(0).
+\label{eq:bottom-up}
+\end{equation}
+We call fixed points \emph{self-consistent activation configurations}, not Nash equilibria: no strategic agents or payoff functions have been specified.
+
+The activation model is deliberately restricted. It is not intended to represent crowding out, competition for labor or capital, exchange-rate effects, or negative supplier shocks. Its only role is to answer an entrance question: can the relation operate in the present configuration? Once structural change and exit begin, signed and nonmonotone effects become relevant and the monotone baseline must no longer be treated as general.
