@@ -1,0 +1,52 @@
+\section{Introduction}
+\label{sec:intro}
+
+A familiar industrial-policy question is whether temporary support can create an industry that later survives without it. The question is important because an infant-industry argument loses much of its force if protection merely preserves a permanently high-cost activity. But survival alone is also too strong a terminal criterion. Industries that once became internationally competitive can later shrink, move abroad, be displaced by new technologies, or disappear as wages, techniques, and relative prices change. A developmental regime that treats every mature industry as something to preserve forever would convert yesterday's success into tomorrow's rigidity.
+
+This paper therefore separates three questions that are often compressed into one. First, can a prospective productive relation become active at all? Second, while it operates, does it accumulate a durable capability stock that eventually permits unsupported viability? Third, if the relation later exits, what happens to the capability it helped create and to the surrounding network that depended on it?
+
+The distinction matters because superficially similar factory closures can represent very different structural events. A declining activity may release workers, routines, engineering knowledge, supplier competence, and organizational capacity that are productively absorbed elsewhere. Alternatively, the exit of one large buyer may push an upstream supplier below minimum viable scale and trigger further capability loss. Calling both events ``creative destruction'' obscures precisely the developmental difference of interest.
+
+The paper develops a reduced-form framework around five stages:
+\begin{equation}
+\begin{aligned}
+\text{activation}
+&\rightarrow
+\text{capability accumulation}
+\rightarrow
+\text{graduation}\\
+&\rightarrow
+\text{generativity}
+\rightarrow
+\text{supersession or de-accretion}.
+\end{aligned}
+\label{eq:stages}
+\end{equation}
+Each arrow is a gate. Activation does not imply learning. Learning does not imply graduation. Graduation does not imply that an industry should survive forever. Exit does not imply that accumulated capability has been destroyed.
+
+The core state variable is $q_{e,t}\ge0$, a reduced-form stock of \emph{durable} productive capability associated with productive relation $e$. During operation,
+\begin{equation}
+q_{e,t+1}
+=
+(1-\delta_e)q_{e,t}
++x_{e,t}\Lambda_e(\Omega_t),
+\label{eq:capability-law}
+\end{equation}
+where $x_{e,t}\in\{0,1\}$ indicates operation, $\delta_e$ is capability loss, and $\Lambda_e(\Omega_t)$ is the rate at which operating today creates durable productive capability for tomorrow. Unsupported viability requires
+\begin{equation}
+q_{e,t}\ge q_e^*(\Omega_t).
+\label{eq:unsupported-threshold}
+\end{equation}
+The environment $\Omega_t$ can include active suppliers, customers, technology access, standards, logistics, finance, external markets, and other productive complements. Thus the same nominal industry can face very different graduation conditions in different productive fields.
+
+The baseline result is deliberately small. Under constant $\lambda$, $\delta$, and $q^*$, the capability stock converges to $\lambda/\delta$. Hence, for $0<\delta<1$, if $\lambda/\delta\le q^*$ and $q_0<q^*$, no amount of time under support produces finite graduation. If $\lambda/\delta>q^*$, finite graduation is possible and a closed-form minimum support duration follows. This gives exact content to the phrase:
+\begin{quote}
+\textbf{Time under protection is not learning.}
+\end{quote}
+Support duration matters only through the capability dynamics it sustains.
+
+The paper then makes four extensions. First, it allows surrounding productive structure to raise $\Lambda_e$ or lower $q_e^*$, yielding a notion of network-conditioned graduation. Second, it distinguishes durable capability from contemporaneous dependence and from the causal provenance of capability: learning created through a supported neighbor can be genuinely durable even if that neighbor later disappears. Third, it defines a support-free dependency closure so that an activity is not declared graduated merely because it currently relies on neighbors that themselves remain support-dependent. Fourth, it makes the capability network itself endogenous. Under a fixed active configuration, the vector of capability stocks follows a positive affine recursion whose stability is governed by a spectral-radius condition.
+
+The framework is intentionally narrower than the large literatures it touches. Big-push models own coordination failure; Hirschman owns backward and forward linkage reasoning; infant-industry theory owns temporary protection under learning; the Korean development literature owns much of the argument about export discipline and selective support; evolutionary economics and Schumpeterian theory own creative destruction and industrial replacement; economic-complexity and product-space work own related diversification; production-network models own general-equilibrium propagation through input-output structure. The contribution claimed here is not a replacement for these traditions. It is a particular diagnostic seam: \emph{how temporary support becomes a capability state, how that state graduates under network-conditioned thresholds, how capability can propagate through a productive field, and how capability survives or fails to survive the exit of the original productive configuration}.
+
+The paper proceeds as follows. Section~\ref{sec:literature} positions the argument. Section~\ref{sec:formation} gives a restricted complementarity-based activation gate. Section~\ref{sec:graduation} develops the capability law and baseline graduation results. Section~\ref{sec:network} introduces network conditioning, the capability/dependence/provenance distinction, the coupled capability system, and unsupported dependency closure. Section~\ref{sec:exit} develops generativity, de-accretion, and productive supersession. Section~\ref{sec:politics} states a political-economy extension without overclaiming a theorem. Section~\ref{sec:cases} uses South Korean footwear and the 2026 FATE closure in Argentina as diagnostic cases. Section~\ref{sec:discussion} states limitations and the handoff to the separate reproductive-accretion analysis. Section~\ref{sec:conclusion} concludes.
