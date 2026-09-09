@@ -55,10 +55,12 @@ A trajectory note rotates the development object from a level/state representati
 
 The adaptive-memory note asks what happens when productive trajectories alter the network they traverse. After hostile review, its scope is now explicitly narrower: `(Q_t,W_t)` is a candidate **productive-memory/pathway-formation module**, not a complete theory of development. The revised note separates exploration, successful reinforcement, failed-transaction damage, and decay; treats bilateral complementarity as a possible source of threshold dynamics rather than assuming bistability from `Q <-> W`; and requires scarce/feasible exploration rather than universal edge seeding.
 
-The earlier smooth generativity construction based on `H_ij = partial gamma_j / partial x_i`, `H^k`, and `K=RH` has been withdrawn because Paper F's activation variable is binary. The current bridge candidate is discrete:
+The earlier smooth generativity construction based on `H_ij = partial gamma_j / partial x_i`, `H^k`, and `K=RH` has been withdrawn because Paper F's activation variable is binary. The current bridge is discrete:
 
-`Paper F graduation -> generative viability cascade -> Paper E reproductive closure`.
+`Paper F graduation -> generative graduation cascade -> Paper E reproductive closure`.
+
+The discrete cascade note formalizes a graduated set `A`, a Paper-F-style graduation gate `g_e(A)`, the inflationary operator `Phi(A)`, finite generative graduation closure `C_G(A_0)`, sequential cascade layers `L_k`, cascade depth, seed generativity, joint-seed/nucleation problems, resource-constrained realizations, and the explicit distinction `graduation != propagation != reproductive closure`. It treats the bridge as a positive-complementarity benchmark and records where signed interactions, scarce coordination, changing environments, and the still-open economic map into Paper E can break the simple closure logic.
 
 A dedicated hostile-review record preserves the failed constructions, the referee objections, and the current adjudication so discarded claims are not quietly reintroduced later.
 
-See [`ARCHITECTURE.md`](ARCHITECTURE.md), [`DEVELOPMENT_MECHANISM.md`](DEVELOPMENT_MECHANISM.md), [`DEVELOPMENT_AS_TRAJECTORY.md`](DEVELOPMENT_AS_TRAJECTORY.md), [`ADAPTIVE_PRODUCTIVE_MEMORY.md`](ADAPTIVE_PRODUCTIVE_MEMORY.md), and [`ADAPTIVE_PRODUCTIVE_MEMORY_HOSTILE_REVIEW.md`](ADAPTIVE_PRODUCTIVE_MEMORY_HOSTILE_REVIEW.md).
+See [`ARCHITECTURE.md`](ARCHITECTURE.md), [`DEVELOPMENT_MECHANISM.md`](DEVELOPMENT_MECHANISM.md), [`DEVELOPMENT_AS_TRAJECTORY.md`](DEVELOPMENT_AS_TRAJECTORY.md), [`ADAPTIVE_PRODUCTIVE_MEMORY.md`](ADAPTIVE_PRODUCTIVE_MEMORY.md), [`ADAPTIVE_PRODUCTIVE_MEMORY_HOSTILE_REVIEW.md`](ADAPTIVE_PRODUCTIVE_MEMORY_HOSTILE_REVIEW.md), and [`GENERATIVE_GRADUATION_CASCADE.md`](GENERATIVE_GRADUATION_CASCADE.md).
