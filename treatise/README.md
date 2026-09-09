@@ -53,4 +53,6 @@ This sequence currently provides the clearest bridge between the formation dynam
 
 A newer trajectory note rotates the development object from a level/state representation toward an ongoing process of propagation, self-maintenance, supersession, and adaptation in a changing capability landscape. It introduces healing-front mathematics only as a candidate propagation model and distinguishes development from convergence by comparing domestic developmental-front speed with a moving external frontier.
 
-See [`ARCHITECTURE.md`](ARCHITECTURE.md), [`DEVELOPMENT_MECHANISM.md`](DEVELOPMENT_MECHANISM.md), and [`DEVELOPMENT_AS_TRAJECTORY.md`](DEVELOPMENT_AS_TRAJECTORY.md).
+A companion adaptive-memory note asks what happens when productive trajectories alter the network they traverse. It treats capability `Q_t` and coupling `W_t` as coevolving state variables, introduces reinforcement and decay of productive pathways, distinguishes income-generating from generative nodes, and records the candidate ideas that **the trajectory writes back into the landscape** and that **an economy remembers partly in its productive pathways**. It also treats generative recursion through `H, H^2, H^3, ...` as an open formal program rather than an established result.
+
+See [`ARCHITECTURE.md`](ARCHITECTURE.md), [`DEVELOPMENT_MECHANISM.md`](DEVELOPMENT_MECHANISM.md), [`DEVELOPMENT_AS_TRAJECTORY.md`](DEVELOPMENT_AS_TRAJECTORY.md), and [`ADAPTIVE_PRODUCTIVE_MEMORY.md`](ADAPTIVE_PRODUCTIVE_MEMORY.md).
