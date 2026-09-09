@@ -1,0 +1,56 @@
+{
+  "experiment": "CAPABILITY_COMPOSITION_LAB_001",
+  "date": "2026-09-09",
+  "architecture": "lucian-capability-composition-lab-v0.01",
+  "execution": "NONE",
+  "simulation_only": true,
+  "model_invoked": false,
+  "purpose": "Test whether abstract task requirements can be separated from concrete capability providers, composed into a multi-step plan, and independently gated by availability and authority.",
+  "test_run": {
+    "framework": "python unittest",
+    "tests_run": 5,
+    "passed": 5,
+    "failed": 0,
+    "note": "Tests were run against the same prototype and lab-manifest contents committed to the repository. This was not a GitHub Actions run and did not execute device capabilities."
+  },
+  "sample_safe_composition": {
+    "task": "Inspect the manifest and reason about the task",
+    "disposition": "READY_FOR_SIMULATION",
+    "steps": [
+      {
+        "requirement": "capability.enumerate",
+        "provider": "inspect_manifest",
+        "gate": "AVAILABLE"
+      },
+      {
+        "requirement": "reason.task",
+        "provider": "reason_about_task",
+        "gate": "AVAILABLE"
+      }
+    ]
+  },
+  "sample_blocked_composition": {
+    "task": "Read a file, then write a copy",
+    "disposition": "REFUSE",
+    "steps": [
+      {
+        "requirement": "filesystem.read",
+        "provider": "read_file",
+        "gate": "AUTHORITY_BLOCKED"
+      },
+      {
+        "requirement": "filesystem.write",
+        "provider": "write_file",
+        "gate": "AUTHORITY_BLOCKED"
+      }
+    ]
+  },
+  "observations": [
+    "The prototype can compose more than one abstract requirement without collapsing the task to a single required_capability.",
+    "Requirements and providers remain distinct: e.g. filesystem.read is not identical to read_file.",
+    "Authority is checked independently per step and blocked steps are not silently skipped.",
+    "UNSATISFIABLE remains an explicit output when no provider exists.",
+    "The experiment does not establish general natural-language decomposition; the v0.01 extractor is intentionally conservative and rule-based."
+  ],
+  "next_discriminating_test": "Replace the rule-based semantic extractor with a replaceable non-China host or another independently testable decomposer that outputs abstract requirements only, while keeping discovery, composition, authority, and execution outside the host model."
+}
