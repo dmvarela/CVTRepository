@@ -6,6 +6,20 @@ Post-run review of the preserved first complete run from 2026-09-09 UTC.
 
 Do **not** revise the preregistration or reinterpret the first run as if this issue had been anticipated. The original protocol remains frozen in `RELATIONAL_SEARCH_002.md`.
 
+## Preservation fingerprints
+
+The uploaded first-run artifacts used for this review have these SHA-256 fingerprints:
+
+```text
+raw JSONL:
+3ecece182d487b201ed538ae7c97ae4e6dd6291c7feacc002a4514ba0a7130a7
+
+summary JSON:
+9fe84b1586aed9e8f368443282fcf8c01fba3ab60a25f5d258993b5ae4d4b710
+```
+
+Any later file presented as this first run should match these hashes before comparison or reinterpretation.
+
 ## First-run summary
 
 Model: `qwen3.5:2b-q4_K_M`
