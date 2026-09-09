@@ -187,12 +187,14 @@ This links ECM directly to `EMBODIMENT_MAP_AND_CALIBRATION_v0.2.md`: the grammar
 
 ## Next experiment — ECM-004
 
-If the candidate grammar survives, stop hand-authoring the affordance list.
+Before building a real capability handshake, pressure-test whether the six-family grammar is itself unnecessarily product-shaped.
 
-Build a **capability handshake** that receives a messy adapter/driver description and normalizes it into the grammar while preserving uncertainty and provenance.
+`PRESENT`, `STORE`, and `COMMUNICATE` may be special cases of more primitive typed transitions. A display, filesystem, network link, sensor, and actuator can all be described as state transitions between typed domains, while `COMPUTE` is an internal transformation.
 
-The next question becomes:
+ECM-004 therefore asks:
 
-> Can Lucian discover its body rather than being told a perfectly clean description of it?
+> **Can the surface grammar be lowered into a smaller typed-transition representation without losing authority, risk, provenance, or verification semantics?**
 
-That is the first step from toy manifests toward real host self-configuration.
+If yes, the six families become adapter-friendly surface syntax while the Lucian core operates over a more general transition graph.
+
+The capability handshake then becomes ECM-005: discover messy real host descriptions and normalize them into that operational representation while preserving uncertainty and provenance.
