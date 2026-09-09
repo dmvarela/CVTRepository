@@ -1,0 +1,106 @@
+{
+  "schema_version": "0.01",
+  "description": "Label-free substrates expressed only through the candidate Lucian OS affordance grammar.",
+  "grammar_categories": [
+    "sense",
+    "present",
+    "compute",
+    "store",
+    "communicate",
+    "act"
+  ],
+  "substrates": [
+    {
+      "id": "substrate-a",
+      "affordances": {
+        "sense": ["audio_input"],
+        "present": ["audio_output"],
+        "compute": ["bootstrap_compute"],
+        "store": [],
+        "communicate": ["network_uplink"],
+        "act": []
+      },
+      "resources": {"memory_mb": 128, "network": true},
+      "authority": ["use_network"],
+      "resting_modules": []
+    },
+    {
+      "id": "substrate-b",
+      "affordances": {
+        "sense": [],
+        "present": ["display", "audio_output"],
+        "compute": ["local_compute", "local_model_runtime"],
+        "store": [],
+        "communicate": ["network_uplink"],
+        "act": []
+      },
+      "resources": {"memory_mb": 1024, "network": true},
+      "authority": ["use_network"],
+      "resting_modules": []
+    },
+    {
+      "id": "substrate-c",
+      "affordances": {
+        "sense": ["proximity_sensors"],
+        "present": [],
+        "compute": ["bootstrap_compute"],
+        "store": [],
+        "communicate": ["network_uplink"],
+        "act": ["locomotion", "suction"]
+      },
+      "resources": {"memory_mb": 256, "network": true},
+      "authority": ["physical_actuation", "use_network"],
+      "resting_modules": []
+    },
+    {
+      "id": "substrate-d",
+      "affordances": {
+        "sense": ["temperature_sensor"],
+        "present": ["display"],
+        "compute": ["bootstrap_compute"],
+        "store": [],
+        "communicate": ["network_uplink"],
+        "act": ["compressor_control"]
+      },
+      "resources": {"memory_mb": 256, "network": true},
+      "authority": ["appliance_control", "use_network"],
+      "resting_modules": []
+    },
+    {
+      "id": "substrate-e",
+      "affordances": {
+        "sense": ["audio_input"],
+        "present": ["display", "audio_output"],
+        "compute": ["local_compute", "local_model_runtime"],
+        "store": ["filesystem"],
+        "communicate": ["network_uplink"],
+        "act": []
+      },
+      "resources": {"memory_mb": 16000, "network": true},
+      "authority": ["use_network", "read_files", "write_files"],
+      "resting_modules": []
+    },
+    {
+      "id": "substrate-f",
+      "affordances": {
+        "sense": ["camera", "audio_input"],
+        "present": ["audio_output"],
+        "compute": ["local_compute", "local_model_runtime"],
+        "store": [],
+        "communicate": ["network_uplink"],
+        "act": ["manipulator", "motor_controller"]
+      },
+      "resources": {"memory_mb": 8000, "network": true},
+      "authority": ["use_network", "physical_actuation"],
+      "resting_modules": []
+    }
+  ],
+  "test_cases": [
+    {"substrate": "substrate-a", "task": "speak_with_user", "expected": "VIABLE_MORPHOLOGY"},
+    {"substrate": "substrate-b", "task": "show_explanation", "expected": "VIABLE_MORPHOLOGY"},
+    {"substrate": "substrate-c", "task": "clean_floor", "expected": "VIABLE_MORPHOLOGY"},
+    {"substrate": "substrate-d", "task": "regulate_fridge", "expected": "VIABLE_MORPHOLOGY"},
+    {"substrate": "substrate-e", "task": "research_question", "expected": "VIABLE_MORPHOLOGY"},
+    {"substrate": "substrate-f", "task": "pick_up_object", "expected": "VIABLE_MORPHOLOGY"}
+  ]
+}
