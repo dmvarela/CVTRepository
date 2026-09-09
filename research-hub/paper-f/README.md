@@ -40,7 +40,7 @@ v0.3 integrates the playing-field work and the hostile-test repair to instantane
 
    `D(chi)` = value of attempting to preserve extraordinary support politically.
 
-   Proposition 4 establishes that, when `G` is increasing in `sigma` and `D` decreasing in `chi`, the region
+   The playing-field graduation proposition establishes that, when `G` is increasing in `sigma` and `D` decreasing in `chi`, the region
 
    `P_G = {(sigma,chi): G(sigma) >= D(chi)}`
 
@@ -60,7 +60,7 @@ v0.3 integrates the playing-field work and the hostile-test repair to instantane
 
    `q_(t+1) = M_0 q_t + b_0`.
 
-   For fixed `x*` and unsupported environment, with threshold vector `vartheta`, Proposition 3 establishes the sufficient forward-invariance condition
+   For fixed `x*` and unsupported environment, with threshold vector `vartheta`, the forward-invariance proposition establishes the sufficient condition
 
    `M_0 vartheta + b_0 >= vartheta`.
 
