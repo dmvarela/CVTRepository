@@ -1,0 +1,194 @@
+{
+  "schema_version": "0.01",
+  "description": "Simulation-only workload for Lucian OS Morphology Allocation & Scheduling.",
+  "host": {
+    "id": "scheduler-host-demo",
+    "resources": {
+      "memory_mb": 768,
+      "cpu_units": 5,
+      "network_units": 2
+    },
+    "authority": [
+      "use_network",
+      "read_files"
+    ],
+    "privacy_policy": {
+      "allow_remote_for": [
+        "public"
+      ],
+      "deny_remote_for": [
+        "private"
+      ]
+    },
+    "resting_modules": []
+  },
+  "modules": [
+    {
+      "name": "local_reasoner",
+      "memory_mb": 512,
+      "cpu_units": 2,
+      "network_units": 0,
+      "load_cost": 8,
+      "unload_cost": 3,
+      "remote": false,
+      "authority": []
+    },
+    {
+      "name": "cloud_reasoner",
+      "memory_mb": 32,
+      "cpu_units": 0,
+      "network_units": 1,
+      "load_cost": 1,
+      "unload_cost": 1,
+      "remote": true,
+      "authority": [
+        "use_network"
+      ]
+    },
+    {
+      "name": "remote_research_service",
+      "memory_mb": 96,
+      "cpu_units": 0,
+      "network_units": 2,
+      "load_cost": 2,
+      "unload_cost": 1,
+      "remote": true,
+      "authority": [
+        "use_network"
+      ]
+    },
+    {
+      "name": "audio_interface",
+      "memory_mb": 32,
+      "cpu_units": 1,
+      "network_units": 0,
+      "load_cost": 1,
+      "unload_cost": 1,
+      "remote": false,
+      "authority": []
+    },
+    {
+      "name": "document_parser",
+      "memory_mb": 128,
+      "cpu_units": 1,
+      "network_units": 0,
+      "load_cost": 2,
+      "unload_cost": 1,
+      "remote": false,
+      "authority": []
+    },
+    {
+      "name": "web_retrieval",
+      "memory_mb": 48,
+      "cpu_units": 1,
+      "network_units": 1,
+      "load_cost": 1,
+      "unload_cost": 1,
+      "remote": true,
+      "authority": [
+        "use_network"
+      ]
+    },
+    {
+      "name": "file_reader",
+      "memory_mb": 24,
+      "cpu_units": 1,
+      "network_units": 0,
+      "load_cost": 1,
+      "unload_cost": 1,
+      "remote": false,
+      "authority": [
+        "read_files"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "id": "research",
+      "arrival": 0,
+      "work_ticks": 4,
+      "priority": 3,
+      "latency_class": "flexible",
+      "privacy": "public",
+      "candidates": [
+        {
+          "name": "local_research",
+          "modules": [
+            "local_reasoner",
+            "document_parser",
+            "web_retrieval"
+          ],
+          "quality": 1.0,
+          "external_cost": 0
+        },
+        {
+          "name": "remote_research",
+          "modules": [
+            "remote_research_service"
+          ],
+          "quality": 1.0,
+          "external_cost": 2
+        }
+      ]
+    },
+    {
+      "id": "voice",
+      "arrival": 1,
+      "work_ticks": 1,
+      "priority": 10,
+      "latency_class": "interactive",
+      "max_start_delay": 0,
+      "privacy": "public",
+      "candidates": [
+        {
+          "name": "local_voice",
+          "modules": [
+            "local_reasoner",
+            "audio_interface"
+          ],
+          "quality": 1.0,
+          "external_cost": 0
+        },
+        {
+          "name": "remote_voice",
+          "modules": [
+            "cloud_reasoner",
+            "audio_interface"
+          ],
+          "quality": 1.0,
+          "external_cost": 1
+        }
+      ]
+    },
+    {
+      "id": "index",
+      "arrival": 1,
+      "work_ticks": 3,
+      "priority": 1,
+      "latency_class": "background",
+      "privacy": "private",
+      "candidates": [
+        {
+          "name": "local_index",
+          "modules": [
+            "local_reasoner",
+            "document_parser",
+            "file_reader"
+          ],
+          "quality": 1.0,
+          "external_cost": 0
+        },
+        {
+          "name": "remote_index",
+          "modules": [
+            "cloud_reasoner",
+            "document_parser",
+            "file_reader"
+          ],
+          "quality": 1.0,
+          "external_cost": 1
+        }
+      ]
+    }
+  ]
+}
