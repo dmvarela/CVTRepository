@@ -51,4 +51,6 @@ The development-economics strand has recently exposed a gated propagation struct
 
 This sequence currently provides the clearest bridge between the formation dynamics being developed in Paper F and the closure/robustness results developed in Paper E.
 
-See [`ARCHITECTURE.md`](ARCHITECTURE.md) and [`DEVELOPMENT_MECHANISM.md`](DEVELOPMENT_MECHANISM.md).
+A newer trajectory note rotates the development object from a level/state representation toward an ongoing process of propagation, self-maintenance, supersession, and adaptation in a changing capability landscape. It introduces healing-front mathematics only as a candidate propagation model and distinguishes development from convergence by comparing domestic developmental-front speed with a moving external frontier.
+
+See [`ARCHITECTURE.md`](ARCHITECTURE.md), [`DEVELOPMENT_MECHANISM.md`](DEVELOPMENT_MECHANISM.md), and [`DEVELOPMENT_AS_TRAJECTORY.md`](DEVELOPMENT_AS_TRAJECTORY.md).
