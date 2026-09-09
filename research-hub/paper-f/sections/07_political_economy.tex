@@ -1,36 +1,112 @@
-\section{Political Economy: Capability Investment versus Capture}
+\section{Political Economy: The Playing Field and Credible Graduation}
 \label{sec:politics}
 
-The baseline model takes $\Lambda_e$ as technologically given conditional on productive structure. That assumption hides a central political-economy question: why should firms use the protected interval to invest in future unsupported capability rather than in preserving the policy that creates current rents?
+The capability model takes the conversion process $\Lambda_e$ as technologically given conditional on productive structure. That assumption hides a prior political-economy question: even when graduation is technologically feasible, why should firms treat capability accumulation as the preferred route to surviving the end of support rather than attempt to preserve the protected position itself?
 
-Let support generate rent $R_{e,t}$ and write, schematically,
+The relevant institutional object is not only the current support level. Let $\mathcal K$ denote the publicly legible rule governing support, performance tests, exceptions, and withdrawal. Two credibility dimensions matter:
+\begin{itemize}[leftmargin=*]
+\item $\sigma\in[0,1]$: \emph{support credibility}, the credibility that the announced learning/support window will be honored while the public rule says it should be;
+\item $\chi\in[0,1]$: \emph{withdrawal credibility}, the credibility that announced graduation or withdrawal cannot be overturned by incumbent-specific political pressure when the public rule calls for exit.
+\end{itemize}
+High $\chi$ does not mean that policy can never change. A credible rule can contain state-contingent exceptions for recessions, wars, supply shocks, or other publicly specified events. The distinction is between rule-governed adaptation and incumbent-specific discretionary override. In this sense, policy stability need not imply policy constancy.
+
+\subsection{Graduation versus political dependence}
+
+Conditional on technological feasibility of graduation as characterized in Section~\ref{sec:graduation}, define $G(\sigma)$ as the optimized private value of a strategy that reaches unsupported viability. A simple microfoundation is
 \begin{equation}
-R_{e,t}
+G(\sigma)
 =
-I^q_{e,t}
-+I^c_{e,t}
-+C_{e,t},
+\max_{I^q:\,q(I^q)\ge q^*}
+\left\{
+\sigma V\bigl(q(I^q)\bigr)-c_q(I^q)
+\right\},
+\label{eq:graduation-route-value}
 \end{equation}
-where $I^q$ is productive capability investment, $I^c$ is political or capture investment aimed at preserving the protected position, and $C$ denotes other uses. Let
+where $I^q$ is capability investment. Let $D(\chi)$ be the optimized private value of attempting to preserve extraordinary support through political investment:
 \begin{equation}
-\Lambda_e
+D(\chi)
 =
-\Lambda_e(I^q_{e,t},\Omega_t),
+\max_{I^c\ge0}
+\left\{
+B\,p(I^c;\chi)-c_c(I^c)
+\right\},
+\label{eq:dependence-route-value}
+\end{equation}
+where $B>0$ is the value of continued protection, $p_{I^c}>0$, and $p_{\chi}<0$. The reduced-form assumptions used below are therefore
+\begin{equation}
+G'(\sigma)\ge0,
 \qquad
-\frac{\partial \Lambda_e}{\partial I^q}>0.
+D'(\chi)\le0
+\label{eq:credibility-monotonicity}
 \end{equation}
-Capture investment may raise the probability that extraordinary support continues. This produces two stylized survival strategies:
-\begin{align*}
-\text{productive route: }&R\rightarrow I^q\rightarrow q\uparrow\rightarrow\text{graduation},\\
-\text{political route: }&R\rightarrow I^c\rightarrow\text{support persists}\rightarrow\text{dependence persists}.
-\end{align*}
+whenever the derivatives exist.
 
-This paper does not yet microfound the firm's choice between $I^q$ and $I^c$, so it does not claim a theorem that credible withdrawal necessarily raises capability investment. The proposed mechanism is narrower: if political preservation of the rent is an available substitute for productive graduation, then the credibility and design of withdrawal can affect the relative return to capability investment. Export performance, quality standards, cost convergence, or other external tests may matter because they make continuation less dependent on domestic bargaining alone.
+The firm prefers the graduation route when
+\begin{equation}
+G(\sigma)\ge D(\chi).
+\label{eq:graduation-preferred}
+\end{equation}
+This separates two distinct failures. A relation may fail because graduation is technologically infeasible---for example because $\lambda/\delta\le q^*$ in the baseline model---or because graduation is feasible but political dependence remains the privately more attractive survival strategy.
 
-The institutional phrase that best captures the intended distinction is:
+\begin{proposition}[Playing-field graduation region]
+\label{prop:playing-field}
+Suppose $G$ is weakly increasing in $\sigma$ and $D$ is weakly decreasing in $\chi$. Define
+\begin{equation}
+\mathcal P_G
+=
+\left\{(\sigma,\chi)\in[0,1]^2:
+G(\sigma)\ge D(\chi)
+\right\}.
+\end{equation}
+Then $\mathcal P_G$ is upward closed: if $(\sigma,\chi)\in\mathcal P_G$ and $\sigma'\ge\sigma$, $\chi'\ge\chi$, then $(\sigma',\chi')\in\mathcal P_G$.
+
+If, in addition, $G$ and $D$ are differentiable with $G'(\sigma)>0$ and $D'(\chi)<0$, and an interior boundary $\chi_G(\sigma)$ is defined by
+\begin{equation}
+G(\sigma)=D\bigl(\chi_G(\sigma)\bigr),
+\end{equation}
+then
+\begin{equation}
+\chi_G'(\sigma)
+=
+\frac{G'(\sigma)}{D'\bigl(\chi_G(\sigma)\bigr)}
+<0.
+\label{eq:playing-field-frontier}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+If $(\sigma,\chi)\in\mathcal P_G$, then $G(\sigma)\ge D(\chi)$. For $\sigma'\ge\sigma$, monotonicity gives $G(\sigma')\ge G(\sigma)$; for $\chi'\ge\chi$, monotonicity gives $D(\chi')\le D(\chi)$. Hence $G(\sigma')\ge D(\chi')$, so $(\sigma',\chi')\in\mathcal P_G$. The derivative of the interior boundary follows from implicit differentiation of $G(\sigma)=D(\chi_G(\sigma))$.
+\end{proof}
+
+The proposition is deliberately weaker than the claim that credible withdrawal necessarily raises productive investment dollar for dollar. Suppose support rents satisfy
+\begin{equation}
+R=I^q+I^c+C,
+\end{equation}
+where $C$ includes payouts, cash retention, debt reduction, or other uses. Making capture less attractive can reduce $I^c$ without increasing $I^q$ if resources flow into $C$. Credible withdrawal therefore does not mechanically force learning. Its narrower role is to make political dependence a less attractive substitute for productive graduation.
+
+This yields the institutional interpretation:
+\begin{quote}
+\textbf{The credible removal of protection is part of the protection policy itself.}
+\end{quote}
+The support path changes current behavior because firms optimize against the expected rule governing its continuation and end.
+
+\subsection{Stable rules, contestable positions}
+
+The playing-field formulation is:
 \begin{quote}
 \textbf{Stable rules, contestable positions.}
 \end{quote}
-Policy stability need not mean policy constancy. A predictable developmental regime can contain tariffs that decline, firms that fail, technologies that disappear, and sectors that lose support. What must be stable is the rule governing change, not the permanence of incumbency.
+A tariff path such as $30\%\rightarrow20\%\rightarrow10\%\rightarrow0$ can be more institutionally stable than an unchanged tariff whose continuation depends on lobbying or political access. What must be sufficiently stable is the rule governing change, not the permanence of the incumbent productive configuration.
 
-This political-economy extension is important, but it should remain outside the core theorem until the investment and capture technologies are explicitly specified.
+A developmental regime therefore requires two forms of credibility that can fail in opposite directions. If $\sigma$ is too low, firms may face premature-discipline risk: the state is not trusted to honor the learning window it announced. If $\chi$ is too low, the system approaches a soft-budget or capture trap: firms expect the terminal condition to be renegotiable. The developmental region combines enough credibility to learn with enough credibility to exit.
+
+The verbal summary is:
+\begin{quote}
+\textbf{Support enough to learn, pressure enough to adapt, stability enough to plan.}
+\end{quote}
+Or, at the level of institutional design:
+\begin{quote}
+\textbf{The developmental state should stabilize the rules of change, not stabilize the existing composition of production.}
+\end{quote}
+
+These results remain reduced form. They do not establish optimal support, rule design, or a welfare theorem, and they do not rule out cases in which political coordination and capability investment are complements. Their role is narrower: to separate technological graduability from the incentive compatibility of actually pursuing graduation.
