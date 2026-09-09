@@ -162,10 +162,78 @@ The fixed point
 is the unsupported dependency closure of the current active configuration.
 \end{definition}
 
-\begin{definition}[Network graduation]
+\begin{definition}[Network graduation at withdrawal]
 Relation $e$ is network-graduated at withdrawal if $[\C_0(x^0;q)]_e=1$.
 \end{definition}
 
-This definition is stronger than checking $q_e\ge q_e^*$ in the supported configuration. A relation that survives only because a currently support-dependent supplier or buyer remains active is not yet network-graduated. The closure therefore separates \emph{supported coexistence} from \emph{unsupported productive configuration}.
+This definition is stronger than checking $q_e\ge q_e^*$ in the supported configuration. A relation that survives only because a currently support-dependent supplier or buyer remains active is not yet network-graduated. The closure therefore separates \emph{supported coexistence} from \emph{instantaneous unsupported productive configuration}.
 
 It is equally important to state what the closure does \emph{not} test. It does not ask whether the accumulated durable stock $q_e$ would have been the same in a world where support had never existed. That is the provenance question in equation~\eqref{eq:provenance}. The closure asks whether the productive relation can stand in the present without extraordinary support after contemporaneous dependencies are recursively removed.
+
+\subsection{Dynamic unsupported viability}
+\label{subsec:dynamic-viability}
+
+Passing the withdrawal closure is still not enough to establish durability through time. The closure freezes the accumulated capability vector while support-dependent relations are recursively removed. After withdrawal, however, capability continues to depreciate, learning rates can change, and the unsupported configuration may fail one period later even though it survives instantaneously.
+
+Let
+\begin{equation}
+x^*=\C_0(x^0;q_T)
+\end{equation}
+be the support-free configuration selected at withdrawal time $T$. Restrict attention to its active coordinates and hold $x^*$ and the external unsupported environment fixed. Let post-withdrawal capability follow
+\begin{equation}
+q_{t+1}=M_0q_t+b_0,
+\qquad M_0\ge0,
+\qquad b_0\ge0,
+\label{eq:post-withdrawal-dynamics}
+\end{equation}
+where $M_0$ and $b_0$ are evaluated under the support-free configuration. Define the capability-threshold vector
+\begin{equation}
+\vartheta
+=
+\bigl(q_e^*(\Omega(x^*))\bigr)_{e:x_e^*=1}
+\end{equation}
+and the corresponding viability orthant
+\begin{equation}
+\mathcal V(x^*)
+=
+\{q\ge0:q\ge\vartheta\}.
+\label{eq:viability-orthant}
+\end{equation}
+The activation and demand conditions in equation~\eqref{eq:survival-operator} are assumed to remain satisfied for the fixed support-free configuration and environment over the interval considered.
+
+\begin{proposition}[Forward-invariant unsupported capability region]
+\label{prop:forward-invariance}
+Suppose $M_0\ge0$ and $b_0\ge0$. If
+\begin{equation}
+M_0\vartheta+b_0\ge\vartheta
+\label{eq:threshold-reproduction}
+\end{equation}
+componentwise, then $\mathcal V(x^*)$ is forward invariant under equation~\eqref{eq:post-withdrawal-dynamics}. That is, $q_t\in\mathcal V(x^*)$ implies $q_{t+1}\in\mathcal V(x^*)$.
+\end{proposition}
+
+\begin{proof}
+Take any $q_t\ge\vartheta$. Because $M_0\ge0$,
+\[
+M_0q_t+b_0
+\ge
+M_0\vartheta+b_0.
+\]
+Condition~\eqref{eq:threshold-reproduction} therefore implies
+\[
+q_{t+1}=M_0q_t+b_0\ge\vartheta.
+\]
+Hence $q_{t+1}\in\mathcal V(x^*)$.
+\end{proof}
+
+Condition~\eqref{eq:threshold-reproduction} is sufficient, not necessary. Its interpretation is direct:
+\begin{quote}
+\textbf{At the threshold of unsupported viability, the productive configuration must reproduce at least its own capability requirements.}
+\end{quote}
+The proposition distinguishes two tests that should not be collapsed:
+\begin{align*}
+\text{withdrawal survival: }&x^*=\C_0(x^0;q_T),\\
+\text{dynamic graduation: }&q_T\in\mathcal V(x^*)\text{ and }\mathcal V(x^*)\text{ is forward invariant.}
+\end{align*}
+A relation can therefore be network-graduated at the instant support is removed and still fail dynamic graduation if its unsupported capability dynamics carry it back below the relevant thresholds.
+
+The fixed-configuration assumption is intentionally strong. If post-withdrawal supply, demand, thresholds, external access, or the active set themselves evolve with $q_t$, then the relevant invariant object is a joint set in $(x,q,\Omega)$ rather than the orthant in equation~\eqref{eq:viability-orthant}. The present proposition isolates the smallest defensible dynamic repair to the instantaneous closure test.
