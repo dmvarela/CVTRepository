@@ -220,7 +220,7 @@ def main() -> int:
     category_tests = {
         "sense": ("substrate-f", "pick_up_object"),
         "present": ("substrate-b", "show_explanation"),
-        "compute": ("substrate-b", "show_explanation"),
+        "compute": ("substrate-f", "pick_up_object"),
         "store": ("substrate-e", "organize_files"),
         "communicate": ("substrate-a", "speak_with_user"),
         "act": ("substrate-c", "clean_floor"),
