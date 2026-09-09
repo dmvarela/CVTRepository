@@ -27,7 +27,7 @@ The architecture is defeasible. It is a map of the current object, not a commitm
 
 - **Treatise:** carries the full conceptual architecture, cross-paper dependencies, confidence layers, open questions, and connections among applications.
 - **Papers:** isolate claims mature enough for proof, formal analysis, empirical identification, or journal-level argument.
-- **Notes:** preserve excavations, analogies, counterexamples, and candidate structures that may later be promoted or discarded.
+- **Notes:** preserve excavations, analogies, counterexamples, adversarial reviews, and candidate structures that may later be promoted or discarded.
 
 ## Epistemic discipline
 
@@ -51,8 +51,14 @@ The development-economics strand has recently exposed a gated propagation struct
 
 This sequence currently provides the clearest bridge between the formation dynamics being developed in Paper F and the closure/robustness results developed in Paper E.
 
-A newer trajectory note rotates the development object from a level/state representation toward an ongoing process of propagation, self-maintenance, supersession, and adaptation in a changing capability landscape. It introduces healing-front mathematics only as a candidate propagation model and distinguishes development from convergence by comparing domestic developmental-front speed with a moving external frontier.
+A trajectory note rotates the development object from a level/state representation toward an ongoing process of propagation, self-maintenance, supersession, and adaptation in a changing capability landscape. It introduces healing-front mathematics only as a candidate propagation model and distinguishes development from convergence by comparing domestic developmental-front speed with a moving external frontier.
 
-A companion adaptive-memory note asks what happens when productive trajectories alter the network they traverse. It treats capability `Q_t` and coupling `W_t` as coevolving state variables, introduces reinforcement and decay of productive pathways, distinguishes income-generating from generative nodes, and records the candidate ideas that **the trajectory writes back into the landscape** and that **an economy remembers partly in its productive pathways**. It also treats generative recursion through `H, H^2, H^3, ...` as an open formal program rather than an established result.
+The adaptive-memory note asks what happens when productive trajectories alter the network they traverse. After hostile review, its scope is now explicitly narrower: `(Q_t,W_t)` is a candidate **productive-memory/pathway-formation module**, not a complete theory of development. The revised note separates exploration, successful reinforcement, failed-transaction damage, and decay; treats bilateral complementarity as a possible source of threshold dynamics rather than assuming bistability from `Q <-> W`; and requires scarce/feasible exploration rather than universal edge seeding.
 
-See [`ARCHITECTURE.md`](ARCHITECTURE.md), [`DEVELOPMENT_MECHANISM.md`](DEVELOPMENT_MECHANISM.md), [`DEVELOPMENT_AS_TRAJECTORY.md`](DEVELOPMENT_AS_TRAJECTORY.md), and [`ADAPTIVE_PRODUCTIVE_MEMORY.md`](ADAPTIVE_PRODUCTIVE_MEMORY.md).
+The earlier smooth generativity construction based on `H_ij = partial gamma_j / partial x_i`, `H^k`, and `K=RH` has been withdrawn because Paper F's activation variable is binary. The current bridge candidate is discrete:
+
+`Paper F graduation -> generative viability cascade -> Paper E reproductive closure`.
+
+A dedicated hostile-review record preserves the failed constructions, the referee objections, and the current adjudication so discarded claims are not quietly reintroduced later.
+
+See [`ARCHITECTURE.md`](ARCHITECTURE.md), [`DEVELOPMENT_MECHANISM.md`](DEVELOPMENT_MECHANISM.md), [`DEVELOPMENT_AS_TRAJECTORY.md`](DEVELOPMENT_AS_TRAJECTORY.md), [`ADAPTIVE_PRODUCTIVE_MEMORY.md`](ADAPTIVE_PRODUCTIVE_MEMORY.md), and [`ADAPTIVE_PRODUCTIVE_MEMORY_HOSTILE_REVIEW.md`](ADAPTIVE_PRODUCTIVE_MEMORY_HOSTILE_REVIEW.md).
