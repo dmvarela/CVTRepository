@@ -1,0 +1,176 @@
+{
+  "schema_version": "0.01",
+  "description": "Simulation-only embodiment set for testing Elastic Computational Morphology.",
+  "module_registry": [
+    {
+      "name": "local_reasoner",
+      "provides": ["reason"],
+      "requires_affordances": ["local_model_runtime"],
+      "requires_functions": [],
+      "authority": [],
+      "remote": false,
+      "cost": {"memory_mb": 512, "network": 0}
+    },
+    {
+      "name": "cloud_reasoner",
+      "provides": ["reason"],
+      "requires_affordances": ["network_uplink"],
+      "requires_functions": [],
+      "authority": ["use_network"],
+      "remote": true,
+      "cost": {"memory_mb": 32, "network": 1}
+    },
+    {
+      "name": "audio_interface",
+      "provides": ["converse"],
+      "requires_affordances": ["audio_input", "audio_output"],
+      "requires_functions": ["reason"],
+      "authority": [],
+      "remote": false,
+      "cost": {"memory_mb": 32, "network": 0}
+    },
+    {
+      "name": "visual_interface",
+      "provides": ["visual_present"],
+      "requires_affordances": ["display"],
+      "requires_functions": ["reason"],
+      "authority": [],
+      "remote": false,
+      "cost": {"memory_mb": 32, "network": 0}
+    },
+    {
+      "name": "web_retrieval",
+      "provides": ["retrieve_web"],
+      "requires_affordances": ["network_uplink"],
+      "requires_functions": ["reason"],
+      "authority": ["use_network"],
+      "remote": true,
+      "cost": {"memory_mb": 48, "network": 1}
+    },
+    {
+      "name": "file_operator",
+      "provides": ["read_files", "write_files"],
+      "requires_affordances": ["filesystem"],
+      "requires_functions": ["reason"],
+      "authority": ["read_files", "write_files"],
+      "remote": false,
+      "cost": {"memory_mb": 24, "network": 0}
+    },
+    {
+      "name": "deterministic_floor_cleaner",
+      "provides": ["navigate_floor", "clean_surface"],
+      "requires_affordances": ["locomotion", "proximity_sensors", "suction"],
+      "requires_functions": [],
+      "authority": ["physical_actuation"],
+      "remote": false,
+      "cost": {"memory_mb": 16, "network": 0}
+    },
+    {
+      "name": "temperature_controller",
+      "provides": ["sense_temperature", "regulate_temperature"],
+      "requires_affordances": ["temperature_sensor", "compressor_control"],
+      "requires_functions": [],
+      "authority": ["appliance_control"],
+      "remote": false,
+      "cost": {"memory_mb": 8, "network": 0}
+    },
+    {
+      "name": "robot_perception",
+      "provides": ["perceive_scene"],
+      "requires_affordances": ["camera", "local_compute"],
+      "requires_functions": [],
+      "authority": [],
+      "remote": false,
+      "cost": {"memory_mb": 256, "network": 0}
+    },
+    {
+      "name": "robot_manipulation",
+      "provides": ["manipulate_object"],
+      "requires_affordances": ["manipulator", "motor_controller"],
+      "requires_functions": ["perceive_scene", "reason"],
+      "authority": ["physical_actuation"],
+      "remote": false,
+      "cost": {"memory_mb": 128, "network": 0}
+    }
+  ],
+  "task_profiles": {
+    "speak_with_user": {
+      "demands": ["converse"],
+      "description": "Hold a spoken interaction with the user."
+    },
+    "show_explanation": {
+      "demands": ["visual_present"],
+      "description": "Present a reasoned explanation visually."
+    },
+    "research_question": {
+      "demands": ["reason", "retrieve_web"],
+      "description": "Reason over a question using current web retrieval."
+    },
+    "organize_files": {
+      "demands": ["reason", "read_files", "write_files"],
+      "description": "Inspect and reorganize local files."
+    },
+    "clean_floor": {
+      "demands": ["navigate_floor", "clean_surface"],
+      "description": "Navigate and clean a floor."
+    },
+    "regulate_fridge": {
+      "demands": ["sense_temperature", "regulate_temperature"],
+      "description": "Monitor and regulate refrigerator temperature."
+    },
+    "pick_up_object": {
+      "demands": ["perceive_scene", "reason", "manipulate_object"],
+      "description": "Perceive and pick up an object with a robot manipulator."
+    }
+  },
+  "embodiments": [
+    {
+      "id": "old-radio-demo",
+      "type": "connected_radio",
+      "resources": {"memory_mb": 128, "network": true},
+      "affordances": ["bootstrap_compute", "audio_input", "audio_output", "network_uplink"],
+      "authority": ["use_network"],
+      "resting_modules": []
+    },
+    {
+      "id": "smart-tv-demo",
+      "type": "television",
+      "resources": {"memory_mb": 1024, "network": true},
+      "affordances": ["local_compute", "local_model_runtime", "display", "audio_output", "network_uplink"],
+      "authority": ["use_network"],
+      "resting_modules": []
+    },
+    {
+      "id": "vacuum-demo",
+      "type": "robot_vacuum",
+      "resources": {"memory_mb": 256, "network": true},
+      "affordances": ["bootstrap_compute", "network_uplink", "locomotion", "proximity_sensors", "suction"],
+      "authority": ["physical_actuation", "use_network"],
+      "resting_modules": []
+    },
+    {
+      "id": "fridge-demo",
+      "type": "refrigerator",
+      "resources": {"memory_mb": 256, "network": true},
+      "affordances": ["bootstrap_compute", "network_uplink", "temperature_sensor", "compressor_control", "display"],
+      "authority": ["appliance_control", "use_network"],
+      "resting_modules": []
+    },
+    {
+      "id": "laptop-demo",
+      "type": "general_computer",
+      "resources": {"memory_mb": 16000, "network": true},
+      "affordances": ["local_compute", "local_model_runtime", "filesystem", "display", "audio_input", "audio_output", "network_uplink"],
+      "authority": ["use_network", "read_files", "write_files"],
+      "resting_modules": []
+    },
+    {
+      "id": "robot-demo",
+      "type": "mobile_manipulator",
+      "resources": {"memory_mb": 8000, "network": true},
+      "affordances": ["local_compute", "local_model_runtime", "network_uplink", "camera", "manipulator", "motor_controller", "audio_input", "audio_output"],
+      "authority": ["use_network", "physical_actuation"],
+      "resting_modules": []
+    }
+  ]
+}
