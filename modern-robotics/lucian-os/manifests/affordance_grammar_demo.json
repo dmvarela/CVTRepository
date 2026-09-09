@@ -101,6 +101,7 @@
     {"substrate": "substrate-c", "task": "clean_floor", "expected": "VIABLE_MORPHOLOGY"},
     {"substrate": "substrate-d", "task": "regulate_fridge", "expected": "VIABLE_MORPHOLOGY"},
     {"substrate": "substrate-e", "task": "research_question", "expected": "VIABLE_MORPHOLOGY"},
+    {"substrate": "substrate-e", "task": "organize_files", "expected": "VIABLE_MORPHOLOGY"},
     {"substrate": "substrate-f", "task": "pick_up_object", "expected": "VIABLE_MORPHOLOGY"}
   ]
 }
