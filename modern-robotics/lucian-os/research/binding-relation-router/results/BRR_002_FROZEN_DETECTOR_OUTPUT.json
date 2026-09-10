@@ -1,0 +1,120 @@
+{
+  "experiment": "BRR-002",
+  "status": "frozen detector output before evaluator key",
+  "host": "GPT-5.6 Sol in ChatGPT",
+  "independence_note": "Internal/procedural pilot only. The same assistant authored the fixture and this detector pass; commit ordering does not create cognitive independence.",
+  "rows": [
+    {
+      "case_id": "R01",
+      "relations": {"evidence":"UNKNOWN","representation":"PASS","competence":"SUFFICIENT","capability":"AVAILABLE","authority":"PASS","resources":"SUFFICIENT","viability":"OPEN","search_path":"AVAILABLE"},
+      "binding_relation": "EVIDENCE_UNKNOWN",
+      "confidence": 0.99,
+      "direct_response": "MEASURE_OR_RETRIEVE",
+      "reason_short": "The decision-relevant moisture state is unobserved; capability, authority, and policy competence are already available."
+    },
+    {
+      "case_id": "R02",
+      "relations": {"evidence":"CONTRADICTED","representation":"PASS","competence":"SUFFICIENT","capability":"AVAILABLE","authority":"PASS","resources":"SUFFICIENT","viability":"OPEN","search_path":"AVAILABLE"},
+      "binding_relation": "EVIDENCE_CONTRADICTED",
+      "confidence": 0.99,
+      "direct_response": "REVISE",
+      "reason_short": "Current authoritative inspection contradicts the represented valve-fault state, so the model should be revised rather than further elaborated."
+    },
+    {
+      "case_id": "R03",
+      "relations": {"evidence":"PASS","representation":"BLOCKED","competence":"SUFFICIENT","capability":"AVAILABLE","authority":"PASS","resources":"SUFFICIENT","viability":"OPEN","search_path":"AVAILABLE"},
+      "binding_relation": "REPRESENTATION_BLOCKED",
+      "confidence": 0.98,
+      "direct_response": "TRAVERSE",
+      "reason_short": "The independent-stop framing hides the pickup-delivery dependency; a different representation exposes feasible structure."
+    },
+    {
+      "case_id": "R04",
+      "relations": {"evidence":"PASS","representation":"PASS","competence":"UNKNOWN","capability":"AVAILABLE","authority":"PASS","resources":"SUFFICIENT","viability":"OPEN","search_path":"AVAILABLE"},
+      "binding_relation": "COMPETENCE_UNKNOWN",
+      "confidence": 0.98,
+      "direct_response": "PROBE_COMPETENCE",
+      "reason_short": "The local module exists but its competence on this theorem family has not been established."
+    },
+    {
+      "case_id": "R05",
+      "relations": {"evidence":"PASS","representation":"PASS","competence":"INSUFFICIENT","capability":"AVAILABLE","authority":"PASS","resources":"SUFFICIENT","viability":"OPEN","search_path":"AVAILABLE"},
+      "binding_relation": "COMPETENCE_INSUFFICIENT",
+      "confidence": 0.99,
+      "direct_response": "ESCALATE_INTELLIGENCE",
+      "reason_short": "The current model is known to be below the required reasoning envelope while an approved stronger tier is reachable."
+    },
+    {
+      "case_id": "R06",
+      "relations": {"evidence":"PASS","representation":"PASS","competence":"SUFFICIENT","capability":"UNKNOWN","authority":"PASS","resources":"SUFFICIENT","viability":"OPEN","search_path":"AVAILABLE"},
+      "binding_relation": "CAPABILITY_UNKNOWN",
+      "confidence": 0.99,
+      "direct_response": "DISCOVER_OR_CALIBRATE",
+      "reason_short": "The thermal-camera affordance may or may not exist; the host inventory is stale, so capability should be discovered rather than assumed absent."
+    },
+    {
+      "case_id": "R07",
+      "relations": {"evidence":"PASS","representation":"PASS","competence":"SUFFICIENT","capability":"ABSENT","authority":"PASS","resources":"SUFFICIENT","viability":"OPEN","search_path":"AVAILABLE"},
+      "binding_relation": "CAPABILITY_ABSENT",
+      "confidence": 0.99,
+      "direct_response": "RECONFIGURE_OR_RECRUIT",
+      "reason_short": "The required decryption operation has no available provider despite authorization and known credentials."
+    },
+    {
+      "case_id": "R08",
+      "relations": {"evidence":"PASS","representation":"PASS","competence":"SUFFICIENT","capability":"AVAILABLE","authority":"UNKNOWN","resources":"SUFFICIENT","viability":"OPEN","search_path":"AVAILABLE"},
+      "binding_relation": "AUTHORITY_UNKNOWN",
+      "confidence": 0.99,
+      "direct_response": "ASK_OR_HOLD",
+      "reason_short": "Publishing capability exists, but the supplied policy does not establish that this user is authorized to publish externally."
+    },
+    {
+      "case_id": "R09",
+      "relations": {"evidence":"PASS","representation":"PASS","competence":"SUFFICIENT","capability":"AVAILABLE","authority":"FAIL","resources":"SUFFICIENT","viability":"OPEN","search_path":"AVAILABLE"},
+      "binding_relation": "AUTHORITY_FAIL",
+      "confidence": 1.0,
+      "direct_response": "REFUSE",
+      "reason_short": "Policy explicitly forbids deletion of this record class and the requesting role lacks deletion authority."
+    },
+    {
+      "case_id": "R10",
+      "relations": {"evidence":"PASS","representation":"PASS","competence":"SUFFICIENT","capability":"AVAILABLE","authority":"PASS","resources":"TIGHT","viability":"OPEN","search_path":"AVAILABLE"},
+      "binding_relation": "RESOURCES_TIGHT",
+      "confidence": 0.99,
+      "direct_response": "SCHEDULE_OR_SIMPLIFY",
+      "reason_short": "The tasks are feasible but cannot coexist in the current RAM envelope; delaying or reshaping one job restores feasibility."
+    },
+    {
+      "case_id": "R11",
+      "relations": {"evidence":"PASS","representation":"PASS","competence":"SUFFICIENT","capability":"AVAILABLE","authority":"PASS","resources":"INFEASIBLE","viability":"OPEN","search_path":"AVAILABLE"},
+      "binding_relation": "RESOURCES_INFEASIBLE",
+      "confidence": 1.0,
+      "direct_response": "REPORT_INFEASIBLE",
+      "reason_short": "Peak memory demand exceeds established host capacity and no admissible lower-memory or remote route exists."
+    },
+    {
+      "case_id": "R12",
+      "relations": {"evidence":"PASS","representation":"PASS","competence":"SUFFICIENT","capability":"AVAILABLE","authority":"PASS","resources":"SUFFICIENT","viability":"CLOSED","search_path":"AVAILABLE"},
+      "binding_relation": "VIABILITY_CLOSED",
+      "confidence": 1.0,
+      "direct_response": "PRESERVE_OR_REPORT_INFEASIBLE",
+      "reason_short": "The intervention window has already closed and no faster authorized path can restore the missed deadline."
+    },
+    {
+      "case_id": "R13",
+      "relations": {"evidence":"PASS","representation":"PASS","competence":"SUFFICIENT","capability":"AVAILABLE","authority":"PASS","resources":"SUFFICIENT","viability":"OPEN","search_path":"ABSENT"},
+      "binding_relation": "SEARCH_PATH_ABSENT",
+      "confidence": 0.98,
+      "direct_response": "ABSTAIN",
+      "reason_short": "The admissible search space is exhausted and the supplied facts do not warrant another representation or external path."
+    },
+    {
+      "case_id": "R14",
+      "relations": {"evidence":"PASS","representation":"PASS","competence":"SUFFICIENT","capability":"AVAILABLE","authority":"PASS","resources":"SUFFICIENT","viability":"OPEN","search_path":"AVAILABLE"},
+      "binding_relation": "NONE",
+      "confidence": 1.0,
+      "direct_response": "ACT",
+      "reason_short": "The task is specified, authorized, feasible, supported by available capability, and not blocked by unresolved evidence."
+    }
+  ]
+}
