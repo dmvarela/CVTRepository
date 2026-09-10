@@ -129,6 +129,27 @@ Promotion requires evidence that the routing abstraction:
 7. can consume operational evidence from real embodiment/proprioception layers;
 8. preserves provenance and Return after correction.
 
+## Current experimental state
+
+```text
+BRR-001 — Binding relation discrimination
+  status: PASS — fixture / outer-routing plumbing only
+  supplied relation states
+  -> 12/12 binding and response routing
+  -> generic reason-harder baseline 1/12
+
+BRR-002 — Raw relation detection
+  status: PASS — internal/procedural fixture only; weak discrimination
+  raw natural-language cases
+  -> 14/14 exact relation vectors
+  -> 14/14 binding relation
+  -> 14/14 direct response
+  -> 14/14 deterministic routed response
+  -> 0 kernel recoveries
+```
+
+BRR-002 therefore validates the interface on clean single-blocker cases but does not yet demonstrate that explicit relation-vector decomposition improves final decisions over direct reasoning. Preserve the perfect score as evidence that the fixture was too legible rather than silently making the same test harder after seeing the result.
+
 ## Current experiment sequence
 
 ```text
@@ -137,9 +158,15 @@ BRR-001 — Binding relation discrimination
   -> different binding relation
   -> different required response
 
-BRR-002 — Noisy relation detection
-  inferred relation vector
+BRR-002 — Raw relation detection
+  raw held-out description
+  -> inferred relation vector
   -> deterministic non-compensatory outer routing
+
+BRR-002B — Adversarial relation detection
+  near-identical surface cases
+  -> UNKNOWN vs FAIL / ABSENT vs UNKNOWN / TIGHT vs INFEASIBLE
+  -> test whether explicit relation decomposition earns its keep
 
 BRR-003 — Mixed blockers and value of information
   several active limitations
@@ -154,7 +181,7 @@ BRR-004 — Cross-subsystem integration
 
 - Synthetic routing fixtures validate plumbing and distinctions, not general intelligence.
 - Do not tune rules solely to make a held-out fixture pass after seeing its labels.
-- Preserve first-run failures.
+- Preserve first-run failures and unexpectedly easy passes.
 - Separate relation detection from downstream routing where possible.
 - Prefer auditable deterministic outer rules for non-compensatory constraints.
 - Keep simulation-only or read-only boundaries until authority and verification are independently adequate.
