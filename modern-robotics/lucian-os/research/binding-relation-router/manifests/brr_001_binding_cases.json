@@ -1,0 +1,77 @@
+{
+  "experiment": "BRR-001",
+  "status": "generator-side packets; no evaluator labels",
+  "shared_symptom": "The intended task is not currently completing.",
+  "relation_schema": {
+    "evidence": ["PASS", "UNKNOWN", "CONTRADICTED"],
+    "representation": ["FIT", "BLOCKED"],
+    "competence": ["SUFFICIENT", "UNKNOWN", "INSUFFICIENT"],
+    "capability": ["AVAILABLE", "UNKNOWN", "ABSENT"],
+    "authority": ["PASS", "UNKNOWN", "FAIL"],
+    "resources": ["SUFFICIENT", "TIGHT", "INFEASIBLE"],
+    "viability": ["OPEN", "CLOSED"],
+    "search_path": ["AVAILABLE", "ABSENT"]
+  },
+  "cases": [
+    {
+      "case_id": "B01_EVIDENCE_UNKNOWN",
+      "context": "A document-processing task cannot proceed because a required source fact has not yet been observed or retrieved.",
+      "relations": {"evidence":"UNKNOWN","representation":"FIT","competence":"SUFFICIENT","capability":"AVAILABLE","authority":"PASS","resources":"SUFFICIENT","viability":"OPEN","search_path":"AVAILABLE"}
+    },
+    {
+      "case_id": "B02_REPRESENTATION_BLOCKED",
+      "context": "Repeated domain-native reformulations reproduce the same dead end while evidence, tools, competence, and authority are adequate.",
+      "relations": {"evidence":"PASS","representation":"BLOCKED","competence":"SUFFICIENT","capability":"AVAILABLE","authority":"PASS","resources":"SUFFICIENT","viability":"OPEN","search_path":"AVAILABLE"}
+    },
+    {
+      "case_id": "B03_COMPETENCE_INSUFFICIENT",
+      "context": "The task is well specified and supported by evidence, but the currently selected reasoning tier is below the validated competence requirement.",
+      "relations": {"evidence":"PASS","representation":"FIT","competence":"INSUFFICIENT","capability":"AVAILABLE","authority":"PASS","resources":"SUFFICIENT","viability":"OPEN","search_path":"AVAILABLE"}
+    },
+    {
+      "case_id": "B04_CAPABILITY_ABSENT",
+      "context": "The plan requires a transformation that no currently reachable provider can perform, although the task is understood and authorized.",
+      "relations": {"evidence":"PASS","representation":"FIT","competence":"SUFFICIENT","capability":"ABSENT","authority":"PASS","resources":"SUFFICIENT","viability":"OPEN","search_path":"AVAILABLE"}
+    },
+    {
+      "case_id": "B05_AUTHORITY_UNKNOWN",
+      "context": "A feasible action path exists, but the supplied authority envelope does not establish whether the action is permitted.",
+      "relations": {"evidence":"PASS","representation":"FIT","competence":"SUFFICIENT","capability":"AVAILABLE","authority":"UNKNOWN","resources":"SUFFICIENT","viability":"OPEN","search_path":"AVAILABLE"}
+    },
+    {
+      "case_id": "B06_AUTHORITY_FAIL",
+      "context": "A feasible action path exists, but the authority envelope explicitly prohibits the required action.",
+      "relations": {"evidence":"PASS","representation":"FIT","competence":"SUFFICIENT","capability":"AVAILABLE","authority":"FAIL","resources":"SUFFICIENT","viability":"OPEN","search_path":"AVAILABLE"}
+    },
+    {
+      "case_id": "B07_RESOURCES_TIGHT",
+      "context": "The required morphology is admissible but cannot coexist with another active task under current memory headroom.",
+      "relations": {"evidence":"PASS","representation":"FIT","competence":"SUFFICIENT","capability":"AVAILABLE","authority":"PASS","resources":"TIGHT","viability":"OPEN","search_path":"AVAILABLE"}
+    },
+    {
+      "case_id": "B08_VIABILITY_CLOSED",
+      "context": "The originally requested outcome can no longer be reached before the relevant correction horizon closes.",
+      "relations": {"evidence":"PASS","representation":"FIT","competence":"SUFFICIENT","capability":"AVAILABLE","authority":"PASS","resources":"SUFFICIENT","viability":"CLOSED","search_path":"AVAILABLE"}
+    },
+    {
+      "case_id": "B09_SEARCH_PATH_ABSENT",
+      "context": "The current representation is not contradicted, but no warranted alternative hypothesis or next probe is available from the supplied state.",
+      "relations": {"evidence":"PASS","representation":"FIT","competence":"SUFFICIENT","capability":"AVAILABLE","authority":"PASS","resources":"SUFFICIENT","viability":"OPEN","search_path":"ABSENT"}
+    },
+    {
+      "case_id": "B10_NO_BINDING_LIMIT",
+      "context": "All required relations are established and no material blocker remains; the task is awaiting execution.",
+      "relations": {"evidence":"PASS","representation":"FIT","competence":"SUFFICIENT","capability":"AVAILABLE","authority":"PASS","resources":"SUFFICIENT","viability":"OPEN","search_path":"AVAILABLE"}
+    },
+    {
+      "case_id": "B11_EVIDENCE_CONTRADICTED",
+      "context": "New verified telemetry contradicts the belief on which the current plan depends.",
+      "relations": {"evidence":"CONTRADICTED","representation":"FIT","competence":"SUFFICIENT","capability":"AVAILABLE","authority":"PASS","resources":"SUFFICIENT","viability":"OPEN","search_path":"AVAILABLE"}
+    },
+    {
+      "case_id": "B12_CAPABILITY_UNKNOWN",
+      "context": "The task requires a local affordance, but the operational embodiment map has not yet established whether that affordance exists on this host.",
+      "relations": {"evidence":"PASS","representation":"FIT","competence":"SUFFICIENT","capability":"UNKNOWN","authority":"PASS","resources":"SUFFICIENT","viability":"OPEN","search_path":"AVAILABLE"}
+    }
+  ]
+}
