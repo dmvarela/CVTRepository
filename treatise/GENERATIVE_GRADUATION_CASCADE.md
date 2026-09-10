@@ -1,11 +1,9 @@
 # Generative Graduation Cascades: A Discrete Bridge from Paper F to Paper E
 
-**Status:** exploratory formal note / candidate bridge.  
-**Epistemic level:** the closure propositions below are elementary results under stated monotonicity assumptions; the economic interpretation and the handoff to Paper E remain proposed mechanisms.
+**Status:** exploratory formal note / candidate bridge, revised after hostile testing.  
+**Epistemic level:** the finite-closure results below are elementary under stated assumptions; the economic interpretation, joint-formation gate, and handoff to Paper E remain proposed mechanisms.
 
 This note replaces the withdrawn smooth construction based on `H_ij = partial gamma_j / partial x_i`, `H^k`, and `K=RH`.
-
-The reason for the replacement is structural rather than cosmetic. Paper F's activation/graduation state is discrete. A relation is not fractionally graduated merely because a derivative is convenient. The bridge should therefore respect the thresholded object.
 
 The governing question is:
 
@@ -14,6 +12,10 @@ The governing question is:
 The candidate bridge is:
 
 `Paper F graduation -> generative graduation cascade -> Paper E reproductive closure`.
+
+A hostile test of the first version exposed an additional distinction that is now load-bearing:
+
+> **A self-supporting final coalition is not necessarily reachable, and a reachable nucleus is not necessarily generative beyond itself.**
 
 ---
 
@@ -32,11 +34,11 @@ This distinction is essential:
 - **survives instantaneous withdrawal** does not imply dynamically viable;
 - **graduated** is the state allowed to generate the next cascade layer.
 
-A cascade round is therefore **not a calendar period**. It is one generation of sequential graduation.
+A cascade round is therefore **not a calendar period**. It is one generation of sequential completed graduation.
 
 ---
 
-## 2. The Paper F graduation gate
+## 2. The Paper F singleton graduation gate
 
 For each prospective relation `e` and graduated environment `A`, define the reduced-form gate
 
@@ -44,22 +46,18 @@ For each prospective relation `e` and graduated environment `A`, define the redu
 
 Interpret
 
-`g_e(A) = 1`
+`g_e(A)=1`
 
 as:
 
 > conditional on the current graduated environment `A`, relation `e` has an admissible path through the relevant Paper F gates and can complete a graduation cycle if selected, activated, given the required temporary support/time, and subjected to the maintained playing-field rule.
 
-The gate may summarize several Paper F objects:
+The gate may summarize:
 
-1. **entry / activation feasibility** under the available support rule;
-2. **technological graduation feasibility**, e.g. a local condition such as `gamma_e(A) > 1`;
-3. **incentive-compatible graduation**, e.g. `G_e(sigma_e) >= D_e(chi_e)`;
-4. **dynamic unsupported viability** after withdrawal, not merely instantaneous survival.
-
-The present note does not require these components to be collapsed into a single primitive in later empirical work. `g_e(A)` is a modular handoff from Paper F.
-
-### Maintained monotonicity benchmark
+1. entry / activation feasibility;
+2. technological graduation feasibility;
+3. incentive-compatible graduation, e.g. `G_e(sigma_e) >= D_e(chi_e)`;
+4. dynamic unsupported viability after withdrawal.
 
 For the minimal positive-complementarity benchmark, assume
 
@@ -67,48 +65,46 @@ For the minimal positive-complementarity benchmark, assume
 
 for every `e`.
 
-Thus additional already-graduated relations do not make another relation's graduation path harder.
-
-This is deliberately restrictive. Signed competition for labor, capital, demand, foreign exchange, political attention, or infrastructure can violate monotonicity. Those cases belong to a later extension.
+This monotonicity is deliberately restrictive. Signed competition for labor, capital, demand, foreign exchange, political attention, infrastructure, or other scarce inputs can violate it.
 
 ---
 
-## 3. The generative graduation operator
+## 3. The singleton generative-graduation operator
 
 Define
 
-`Phi(A) = A union { e in E : g_e(A) = 1 }`.
+`Phi(A) = A union { e in E : g_e(A)=1 }`.
 
 Starting from an initial graduated set `A_0`, iterate
 
-`A_(k+1) = Phi(A_k)`.
+`A_(k+1)=Phi(A_k)`.
 
 The interpretation is sequential:
 
 - `A_0`: relations already graduated;
-- `A_1 \ A_0`: relations whose graduation becomes feasible because of `A_0` and which are then assumed to complete one graduation cycle;
-- `A_2 \ A_1`: relations unlocked by the newly enlarged graduated environment;
+- `A_1 \ A_0`: relations unlocked by `A_0` that then complete one graduation cycle;
+- `A_2 \ A_1`: relations unlocked by the enlarged graduated environment;
 - and so on.
 
-The operator is an **unconstrained full-utilization benchmark**. It assumes every currently eligible relation is eventually selected and receives whatever admissible formation process the Paper F gate requires. Scarce policy capacity, finance, entrepreneurial attention, or coordination can make the realized cascade smaller.
+The operator is an **unconstrained full-utilization benchmark**. It assumes every currently eligible relation is eventually selected and receives whatever admissible formation process the Paper F gate requires.
 
-### Proposition 1 — Finite generative closure
+### Proposition 1 — finite singleton generative closure
 
 Assume `E` is finite and `Phi(A) superseteq A` for every `A`. Starting from any `A_0`, the sequence
 
 `A_0 subseteq A_1 subseteq A_2 subseteq ...`
 
-reaches a fixed point after at most `n - |A_0|` strict addition rounds.
+reaches a fixed point after at most `n-|A_0|` strict addition rounds.
 
 #### Proof
 
-The operator is inflationary, so the sequence is weakly increasing. Every nonstationary round adds at least one relation. At most `n - |A_0|` relations are absent initially. Therefore after at most that many strict addition rounds no further addition is possible. The resulting set is a fixed point of `Phi`. QED.
+The operator is inflationary. Every nonstationary round adds at least one relation, and at most `n-|A_0|` relations are absent initially. Therefore only finitely many strict-addition rounds are possible. QED.
 
-Define the resulting fixed point as the **generative graduation closure**
+Define the fixed point as the **singleton generative-graduation closure**
 
-`C_G(A_0) = lim_(k->infinity) Phi^k(A_0)`.
+`C_G(A_0)=lim_(k->infinity) Phi^k(A_0)`.
 
-Under the monotonicity assumption on `g`, `Phi` is monotone and `C_G(A_0)` is the least `Phi`-closed set containing `A_0`.
+Under monotone `g`, `Phi` is monotone and `C_G(A_0)` is the least `Phi`-closed set containing `A_0`.
 
 ---
 
@@ -116,183 +112,251 @@ Under the monotonicity assumption on `g`, `Phi` is monotone and `C_G(A_0)` is th
 
 Define
 
-`L_0 = A_0`
+`L_0=A_0`
 
-and, for `k >= 1`,
+and, for `k>=1`,
 
-`L_k = A_k \ A_(k-1)`.
+`L_k=A_k \ A_(k-1)`.
 
-`L_k` contains relations that become graduable only after `k-1` earlier generations of graduation have occurred.
+`L_k` contains relations that become able to complete graduation only after earlier generations have graduated.
 
-The **cascade depth** is
+The **singleton cascade depth** is
 
-`d(A_0) = max { k : L_k is nonempty }`.
+`d(A_0)=max { k : L_k is nonempty }`.
 
-This is the discrete replacement for the earlier suggestive but ill-defined language of `H, H^2, H^3, ...`.
+This is the discrete replacement for the withdrawn language of `H,H^2,H^3,...`.
 
-Recursion depth now has a direct interpretation:
-
-> **How many sequential generations of completed graduation does the initial productive configuration unlock before generativity dies out?**
-
-No derivative with respect to a binary activation state is required.
+> **Generative depth is the number of sequential completed-graduation layers unlocked before singleton propagation reaches closure.**
 
 ---
 
-## 5. Marginal generativity of a seed
+## 5. Marginal generativity of an already-graduated addition
 
-Let `S subseteq E` be a hypothetical seed set of relations that are externally brought to graduated status.
+For diagnostic purposes, let `S subseteq E` be a hypothetical set of relations already brought to graduated status by some process outside the singleton cascade.
 
-Define the marginal generative set
+Define
 
-`Delta_G(S | A_0) = C_G(A_0 union S) \ C_G(A_0)`.
+`Delta_G(S | A_0)=C_G(A_0 union S) \ C_G(A_0)`.
 
-A simple cardinality measure is
+and
 
-`m_G(S | A_0) = |Delta_G(S | A_0)|`.
+`m_G(S | A_0)=|Delta_G(S | A_0)|`.
 
-This is not a welfare measure. It measures the reach of the graduation cascade under the maintained gate and complementarity assumptions.
+This is a counterfactual reach measure, not yet a model of how `S` itself was formed.
 
-A value-weighted or capability-weighted version could later replace simple node counts.
-
-### Seed monotonicity
-
-Under monotone `g`, if `S subseteq T`, then
-
-`C_G(A_0 union S) subseteq C_G(A_0 union T)`.
-
-Thus a larger exogenous graduated seed cannot reduce the positive-complementarity cascade envelope.
+That caveat is essential. The first hostile test showed that treating an arbitrary `S` as already graduated can trivialize a minimum-seed problem. The formation of a nucleus must therefore be modeled separately rather than hidden inside the initial condition.
 
 ---
 
 ## 6. A simple threshold representation
 
-For illustration only, let a local graduation margin be
+For illustration only, let
 
-`gamma_e(A) = a_e + sum_(i in A) h_(ie)`,
+`gamma_e(A)=a_e + sum_(i in A) h_(ie)`
 
-with `h_(ie) >= 0`.
+with `h_(ie)>=0`, and define
 
-Then define the simplified gate
+`g_e(A)=1{entry_e(A)=1} 1{gamma_e(A)>1}`
 
-`g_e(A) = 1{entry_e(A)=1} 1{gamma_e(A) > 1}`.
+subject in the full model to the stricter Paper F incentive and dynamic-viability gates.
 
-Here `h_(ie)` is a **finite contribution associated with the presence of graduated relation `i`**, not a derivative with respect to a binary variable.
+Here `h_(ie)` is a finite contribution associated with the presence of graduated relation `i`, not a derivative with respect to a binary variable.
 
-This representation is only a reduced-form example. The full Paper F gate can be stricter because it also needs incentive compatibility and dynamic post-withdrawal viability.
+A thin network can have deep generative reach. For example, if relation 1 unlocks 2, the enlarged environment unlocks 3, and 3 unlocks 4, then
 
-### Toy cascade
+`L_1={2}, L_2={3}, L_3={4}`
 
-Suppose five candidate relations have baseline margins
+and the cascade has depth three even though it is sparse.
 
-`a = (2.00, 0.40, 0.20, 0.30, 0.95)`
+Thus:
 
-and the only positive contributions are
-
-`h_(1,2)=0.70`,
-
-`h_(1,3)=0.50`,
-
-`h_(2,3)=0.40`,
-
-`h_(2,4)=0.40`,
-
-`h_(3,4)=0.40`.
-
-Start from
-
-`A_0 = {1}`.
-
-Then:
-
-- with `{1}`, relation 2 has margin `1.10` and graduates;
-- with `{1,2}`, relation 3 has margin `1.10` and graduates;
-- with `{1,2,3}`, relation 4 has margin `1.10` and graduates;
-- relation 5 remains at `0.95` and never enters the cascade.
-
-Therefore
-
-`L_1={2}`,
-
-`L_2={3}`,
-
-`L_3={4}`,
-
-and
-
-`C_G({1})={1,2,3,4}`.
-
-The cascade has depth three even though the initial seed directly affects only part of the eventual set.
-
-The example is intentionally sparse. Developmental generativity does not require a dense network; a thin chain can have deep reach.
+> **Generativity does not imply density.**
 
 ---
 
-## 7. Nucleation and joint seeds
+## 7. Hostile-test repair: self-support is not reachability
 
-The cascade operator also reveals a coordination problem that single-node generativity misses.
+The first version of this note treated joint seeding too casually. Suppose
 
-It is possible that
+`g_i(A)=0, g_j(A)=0`
 
-`g_i(A_0)=0`
+but
 
-and
-
-`g_j(A_0)=0`,
-
-while
-
-`g_i(A_0 union {j})=1`
+`g_i(A union {j})=1`
 
 and
 
-`g_j(A_0 union {i})=1`.
+`g_j(A union {i})=1`.
 
-Then neither relation can enter alone, even though the pair can sustain a larger cascade if jointly seeded.
+This shows that `{i,j}` is mutually admissible as an endpoint under the singleton gate. It does **not** show that the pair can actually get there.
 
-This motivates a **minimal catalyst set** for a target `T`:
+A self-consistent final configuration can be unreachable because capability must be accumulated along a path. For example, each relation may need a competence, standard, supplier routine, financing arrangement, or demand condition that the other only creates after it has itself completed graduation. The final state can therefore satisfy every static threshold while no admissible transition reaches it.
 
-`kappa(T | A_0) = min |S|`
+Define two separate objects.
+
+### Static self-support
+
+Let
+
+`S(C | A) in {0,1}`
+
+indicate that every member of coalition `C` would be dynamically support-free viable in the final environment `A union C`, taking the other members of `C` as present.
+
+This is an endpoint property.
+
+### Reachable joint graduation
+
+Define the **joint-formation gate**
+
+`J(C | A) in {0,1}`
+
+to mean:
+
+> there exists an admissible coordinated formation trajectory, beginning from graduated environment `A`, under which the members of `C` can be jointly activated/formed, accumulate the required capability under the maintained playing-field rule, and after withdrawal remain dynamically viable together without extraordinary support.
+
+Then
+
+`J(C | A)=1  =>  S(C | A)=1`,
+
+but the converse need not hold.
+
+The distinction is the same general one that appears elsewhere in the research program:
+
+`reachable state != self-consistent state`.
+
+---
+
+## 8. Minimal reachable nucleating coalitions
+
+A nonempty coalition `C subseteq E\A` is a **minimal reachable nucleus at A** if
+
+`J(C | A)=1`
+
+and
+
+`J(B | A)=0`
+
+for every nonempty proper subset `B subset C`.
+
+The **nucleation order** for a specified target `T` can then be defined by
+
+`nu(T | A) = min |C|`
 
 subject to
 
-`T subseteq C_G(A_0 union S)`.
+`J(C | A)=1`
 
-The object is combinatorial and may become computationally difficult in large networks. It is nevertheless economically meaningful: some productive configurations may require coordinated entry rather than a heroic first mover.
+and
 
-This is a candidate bridge back to coordination / Big-Push-style problems, not a novelty claim.
+`T subseteq C_G(A union C)`.
 
----
+If no such coalition exists, set `nu(T|A)=infinity`.
 
-## 8. Order independence — and where it fails
+This repairs the earlier `kappa` definition. Members of `C` are not merely declared graduated; `J` requires that the coalition itself be reachable through an admissible joint formation process.
 
-Under the positive monotonicity benchmark, the synchronous operator adds every currently eligible relation at once.
+A cost-weighted version is more meaningful for policy:
 
-An asynchronous implementation could instead add eligible relations one at a time.
+`nu_c(T | A)=min cost(C | A)`
 
-If eligibility is monotone and every relation that remains eligible is eventually selected, sequential order does not change the final least closed set: later additions cannot make an already eligible relation ineligible.
+subject to the same reachability and target conditions.
 
-This property fails once signed interactions enter.
-
-With competition, congestion, scarce common inputs, or demand displacement:
-
-- adding `i` can make `j` harder to graduate;
-- activation order can matter;
-- multiple path-dependent reachable sets can appear;
-- the simple closure theorem is no longer enough.
-
-The monotone cascade should therefore be treated as the **positive-generativity benchmark**, not the final economy-wide model.
+Cardinality alone treats a tiny supplier and a capital-intensive platform industry as equivalent, so `nu` should be viewed as a combinatorial diagnostic rather than a welfare or policy objective.
 
 ---
 
-## 9. Resource constraints: closure as an optimistic envelope
+## 9. Nucleation is not generativity
 
-`C_G(A_0)` assumes that every relation made eligible by the current environment can eventually receive the required entrepreneurial, financial, infrastructural, or policy attention.
+A jointly reachable coalition can merely reproduce itself.
 
-Real systems face budgets.
+Define the **post-nucleation spillover set**
 
-If only `b_k` new relations can be formed in generation `k`, the realized sequence becomes a selection problem:
+`N_G(C | A)=C_G(A union C) \ (C_G(A) union C)`.
 
-`A_(k+1) = A_k union S_k`,
+Then:
+
+- `J(C|A)=1` says the nucleus can be jointly formed;
+- `N_G(C|A)=empty` says it unlocks nothing beyond itself;
+- `N_G(C|A) nonempty` says the nucleus has generative reach beyond the coordinated intervention.
+
+This yields three distinct states:
+
+1. **coordination-dependent survival** — a nucleus is jointly reachable but has no spillover;
+2. **generative nucleation** — a reachable nucleus unlocks additional singleton graduation layers;
+3. **reproductive accretion** — the resulting propagated structure also satisfies Paper E's independent closure condition.
+
+Thus:
+
+`joint viability != generative propagation != reproductive closure`.
+
+---
+
+## 10. Minimal counterexamples
+
+### Counterexample A — mutual pair, no propagation
+
+Let the initial graduated environment be empty. Relations 1 and 2 each require the other for unsupported viability.
+
+Then
+
+`Phi(empty)=empty`.
+
+The singleton cascade is stuck.
+
+If `J({1,2}|empty)=1`, coordinated formation can create the pair. But if there are no other relations,
+
+`N_G({1,2}|empty)=empty`.
+
+The example proves that a coordination threshold is not by itself developmental propagation.
+
+### Counterexample B — higher-order nucleus
+
+Suppose relations 1, 2, and 3 each require both of the other two. No singleton or pair is jointly sufficient, while the triplet is jointly reachable.
+
+Then the minimal nucleus has order three.
+
+This shows that pairwise intuition is insufficient in general. Coalition dependence may be higher order.
+
+### Counterexample C — nucleus plus cascade
+
+Suppose 1 and 2 form a minimal reachable pair; once both have graduated, relation 3 can graduate individually; once 3 graduates, relation 4 can graduate.
+
+Then coordinated formation supplies the nucleus and the ordinary singleton operator supplies the propagation:
+
+`{1,2} -> {3} -> {4}`.
+
+This is the cleanest candidate representation of a Big-Push-like coordination threshold followed by endogenous generative propagation.
+
+---
+
+## 11. The positive-complementarity benchmark and its boundary
+
+Under monotone positive complementarity, adding graduated relations cannot make another graduation path harder. This gives clean closure and order-independence results.
+
+But structural transformation can involve signed effects:
+
+- competition for workers or capital;
+- exchange-rate changes;
+- input scarcity;
+- demand displacement;
+- congestion;
+- political capture;
+- obsolescence and supersession.
+
+When these enter, an addition can cause a removal. The process is no longer a pure inflationary cascade, order can matter, and multiple reachable configurations can arise.
+
+Therefore the present model is a **positive-generativity bridge**, not an economy-wide theory of structural change.
+
+---
+
+## 12. Resource constraints and latent versus realized propagation
+
+`C_G(A)` is an optimistic envelope. It assumes every relation made eligible can eventually receive the entrepreneurial, financial, infrastructural, or policy attention needed to complete graduation.
+
+With limited formation capacity, realized propagation becomes a selection problem.
+
+If only `b_k` relations can be formed in generation `k`,
+
+`A_(k+1)=A_k union S_k`
 
 where
 
@@ -300,124 +364,112 @@ where
 
 and
 
-`|S_k| <= b_k`.
+`|S_k|<=b_k`.
 
-Under monotone positive complementarity and enough eventual capacity, resource limits may delay the full closure without changing it. Under changing environments, discounting, obsolescence, political turnover, or signed interactions, delay can change the reachable set itself.
+Under fixed monotone conditions, capacity may only delay closure. Under changing technology, demand, politics, discounting, obsolescence, or signed interactions, delay can alter the reachable set.
 
-This is a major empirical distinction between **latent generativity** and **realized developmental propagation**.
+This distinguishes:
+
+> **latent generativity** from **realized developmental propagation**.
 
 ---
 
-## 10. The downward dual: de-accretion is not the inverse cascade
+## 13. The downward dual: de-accretion is not the inverse cascade
 
 Paper F already contains a downward support-free survival operator that recursively removes relations that cannot survive withdrawal.
 
-The present operator moves in the opposite direction:
+The present positive operator moves in the opposite direction:
 
 `Phi_plus`: adds relations whose graduation becomes feasible;
 
 `Phi_minus`: removes relations whose viability disappears.
 
-The two processes are not inverses.
+They are not inverses.
 
-Formation may require:
+Formation may require temporary support, time, coordination, exploration, and credible graduation rules. Destruction can follow a single sufficiently large shock or complement loss.
 
-- temporary support;
-- time to accumulate capability;
-- coordinated seeding;
-- exploration;
-- credibility that graduation will eventually be enforced.
-
-Destruction can occur after a single sufficiently large shock or complement loss.
-
-Therefore the architecture admits a candidate source of hysteresis even without a smooth bistable differential system:
+Therefore:
 
 > **The path required to build a productive configuration need not be the reverse of the path along which it unravels.**
 
-This is a proposed mechanism, not yet a theorem about real economies.
+This is a candidate source of hysteresis without forcing a smooth bistable differential equation.
 
 ---
 
-## 11. The handoff to Paper E
+## 14. The handoff to Paper E
 
 Let
 
-`C = C_G(A_0 union S)`
+`C_final=C_G(A union C_nucleus)`
 
-be the final graduated set generated by a seed `S` under the benchmark cascade.
+be the final graduated set after a reachable nucleus is formed and the positive singleton cascade is exhausted.
 
 Paper E asks a different question:
 
-> **Do the graduated relations in `C` form a higher-order productive structure capable of reproducing its productive state?**
+> **Do the graduated relations in `C_final` form a higher-order productive structure capable of reproducing its productive state?**
 
-The economic mapping from a graduated set into Paper E's productive-reinforcement weights remains open. Write schematically
+The economic mapping from a graduated set into Paper E's productive-reinforcement weights remains open. Write only schematically
 
-`B_C = Psi_E(C, Q, Omega)`.
+`B_C=Psi_E(C_final,Q,Omega)`.
 
-`Psi_E` is not yet specified and should not be invented merely to complete the notation.
+`Psi_E` is not specified and should not be invented merely to complete the notation.
 
-Once a defensible mapping exists, Paper E's existing reproductive-closure criterion can be applied to the induced structure.
+The current architecture is therefore:
 
-This yields three distinct outcomes:
-
-1. **Isolated graduation** — a relation graduates but unlocks little or nothing else;
-2. **Generative propagation** — graduation expands `C_G`, possibly through several layers;
-3. **Reproductive accretion** — the resulting propagated configuration additionally satisfies Paper E's independent reproductive-closure condition.
-
-Thus:
-
-`graduation != propagation != reproductive closure`.
-
-That separation is the point of the bridge.
-
----
-
-## 12. What this model fixes from the withdrawn H/K construction
-
-The discrete cascade repairs several problems at once.
-
-1. It does not differentiate with respect to binary `x`.
-2. It distinguishes **graduable** from **graduated** by making each layer a completed F-style graduation generation.
-3. It gives recursion depth a direct combinatorial meaning through `L_1,L_2,...`.
-4. It allows joint-seed / nucleation problems that a local Jacobian can miss.
-5. It naturally produces a node set that can be handed to Paper E without claiming that Paper F and Paper E use the same economic matrix.
-6. It exposes the assumptions under which propagation is order-independent and the conditions under which that simplicity breaks.
-
----
-
-## 13. Immediate hostile tests
-
-Before promoting this bridge into a paper, attack at least the following:
-
-1. **False cascade through frozen environments:** a relation may be graduable under `A_k` but lose that path while it is accumulating capability because technology, demand, or policy changes.
-2. **Signed interactions:** one graduation may crowd out another relation even while helping a third.
-3. **Resource scarcity:** the full closure may be unreachable because not every eligible relation can be financed or coordinated before the opportunity disappears.
-4. **Joint dependence:** test configurations in which no single seed works but a pair or larger coalition does.
-5. **Sparse generativity:** test deep cascades on thin networks so the model does not secretly reward density.
-6. **Redundant seeds:** two individually powerful seeds may unlock the same descendants; marginal generativity is not additive.
-7. **Dynamic viability:** make sure the gate does not promote a relation that crosses a threshold at withdrawal but subsequently decays below it.
-8. **Paper E mapping:** do not claim reproductive closure until `Psi_E` is economically specified.
-9. **Empirical identification:** distinguish a relation that causally unlocks successors from one that merely appears earlier in the same growing cluster.
-10. **Literature audit:** compare the operator to threshold cascades, bootstrap percolation, contagion/complex contagion, coordination models, and economic network-formation literatures before making novelty claims.
-
----
-
-## 14. Current strongest formulation
-
-The discrete bridge can be stated without metaphor:
-
-> **A graduated productive relation is generative when its presence changes the productive environment so that additional relations can themselves complete a path to unsupported graduation. Generative depth is the number of sequential graduation layers unlocked before that process reaches closure.**
-
-And the cross-paper architecture becomes:
-
-`Paper F: can a relation graduate and remain viable?`
+`Paper F: can relations graduate and remain viable?`
 
 `->`
 
-`Generative cascade: what else can graduate because it did?`
+`Joint formation: can a coordination-dependent nucleus actually be reached?`
+
+`->`
+
+`Generative cascade: what else can graduate because it was reached?`
 
 `->`
 
 `Paper E: has the resulting structure become reproductively closed?`
 
-This is the current candidate bridge. It is smaller than the withdrawn smooth construction, but better aligned with the actual discrete objects already present in the research program.
+---
+
+## 15. Novelty boundary
+
+The combinatorial skeleton of threshold activation, contagious/target sets, bootstrap percolation, and complex contagion is well-established outside this research program. Minimum seed or target-set problems are also known to become computationally difficult.
+
+Accordingly, this program should **not** claim novelty for threshold cascades, minimum contagious sets, or multi-neighbor activation as mathematics.
+
+The candidate economic seam is narrower:
+
+1. the activating state is not mere adoption but completed Paper-F-style unsupported graduation;
+2. an exogenous seed is replaced by a **reachable joint-formation gate** that must itself satisfy an economic transition path;
+3. the resulting graduation cascade is handed to Paper E's distinct reproductive-closure test;
+4. upward formation and downward de-accretion are explicitly non-inverse processes.
+
+Whether that seam is substantively novel requires a dedicated literature audit.
+
+---
+
+## 16. Immediate hostile tests remaining
+
+1. Formalize `J(C|A)` with an explicit multi-relation Paper F trajectory rather than leaving it reduced form.
+2. Construct a self-supporting coalition for which `S(C|A)=1` but `J(C|A)=0` in a fully specified dynamic example.
+3. Test whether joint incentive compatibility can fail even when technological joint graduation is feasible.
+4. Allow a coalition to contain both positive and negative interactions and see whether any useful closure result survives.
+5. Replace cardinality nucleation cost with realistic heterogeneous formation costs and support durations.
+6. Test deep propagation from sparse nuclei.
+7. Test redundant and overlapping nuclei.
+8. Distinguish a causal unlocking event from common exposure to the same external shock.
+9. Specify the economic map `Psi_E` before claiming reproductive closure.
+10. Audit Big Push, threshold diffusion, target-set selection, complex contagion, bootstrap percolation, production-network formation, and coordination literatures before any novelty claim.
+
+---
+
+## 17. Current strongest formulation
+
+> **A graduated productive relation is generative when its presence changes the productive environment so that additional relations can themselves complete a path to unsupported graduation. A coordination-dependent nucleus is economically meaningful only if there exists an admissible joint formation path to it; static mutual viability is not enough. Generative depth is the number of sequential completed-graduation layers unlocked after the reachable nucleus forms.**
+
+The current bridge is therefore:
+
+`graduation -> reachable nucleation -> generative propagation -> reproductive closure`.
+
+Each arrow is a separate question. None is licensed merely by the existence of the next state.
