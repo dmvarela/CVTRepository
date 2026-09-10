@@ -1,0 +1,72 @@
+{
+  "experiment": "BRR-002B",
+  "labels_withheld": true,
+  "pair_structure_disclosed": false,
+  "surface_symptom": "The intended outcome is not yet being completed or committed.",
+  "cases": [
+    {
+      "case_id": "Q01",
+      "problem": "A research analyst asks the system to publish a finished briefing to the public project portal. The publishing interface is available, the briefing is current and verified, and compute and network resources are sufficient. The access policy lists the analyst as an approved project contributor but does not state whether contributors may publish externally."
+    },
+    {
+      "case_id": "Q02",
+      "problem": "A research analyst asks the system to publish a finished briefing to the public project portal. The publishing interface is available, the briefing is current and verified, and compute and network resources are sufficient. The access policy lists the analyst as an approved project contributor and explicitly states that contributors may prepare drafts but may not publish externally."
+    },
+    {
+      "case_id": "Q03",
+      "problem": "A maintenance dashboard currently marks Pump 7 as failed. A scheduled verification cycle was supposed to supply a current vibration reading, but that reading did not arrive. The existing failure record is older, no current substitute observation is available, and authority to inspect or update the dashboard is valid."
+    },
+    {
+      "case_id": "Q04",
+      "problem": "A maintenance dashboard currently marks Pump 7 as failed. A scheduled verification cycle supplies a current validated vibration reading that is explicitly within the normal operating range and incompatible with the represented failure condition. Authority to inspect or update the dashboard is valid."
+    },
+    {
+      "case_id": "Q05",
+      "problem": "A calibration task requires one infrared image of a sealed enclosure. The local capability inventory was last refreshed before peripherals were changed, so the supplied state does not establish whether an infrared camera interface is currently present or reachable. The task is authorized and otherwise fully specified."
+    },
+    {
+      "case_id": "Q06",
+      "problem": "A calibration task requires one infrared image of a sealed enclosure. A current audited capability manifest explicitly shows no infrared camera interface, no compatible sensor provider, and no approved remote observation route. The task is authorized and otherwise fully specified."
+    },
+    {
+      "case_id": "Q07",
+      "problem": "A local reasoning module is assigned a formal equivalence check in a notation family it has not previously been evaluated on. The representation is explicit, all premises are supplied, and an approved stronger reasoner is reachable if required. No evidence establishes whether the local module meets the needed reliability level on this family."
+    },
+    {
+      "case_id": "Q08",
+      "problem": "A local reasoning module is assigned a formal equivalence check in a notation family on which it has already been evaluated. Its validated benchmark performance is below the reliability threshold required for this task. The representation is explicit, all premises are supplied, and an approved stronger reasoner is reachable."
+    },
+    {
+      "case_id": "Q09",
+      "problem": "A document-analysis workload needs 9 GB of working memory if all modules remain resident at once. The host currently has 7 GB free, but one background module can be unloaded and the same task can use a validated lighter parser, reducing peak demand to 6 GB. Evidence and authority are sufficient."
+    },
+    {
+      "case_id": "Q10",
+      "problem": "A document-analysis workload needs 9 GB of working memory. The host currently has 7 GB free, all loaded modules are required, no lower-memory implementation exists, no admissible remote route exists, and splitting the workload does not reduce the 9 GB peak. Evidence and authority are sufficient."
+    },
+    {
+      "case_id": "Q11",
+      "problem": "A production planner repeatedly fails to find a feasible sequence for jobs that each have a preparation step and a finishing step. The current search treats all steps as independent items, even though the supplied constraints require each preparation-finishing pair to preserve precedence and shared setup state. The solver's tested search competence is sufficient once those coupled units are represented explicitly."
+    },
+    {
+      "case_id": "Q12",
+      "problem": "A production planner repeatedly fails to find a feasible sequence for jobs that each have a preparation step and a finishing step. The current search already represents every required precedence relation and shared setup state explicitly. On this exact class of fully represented instances, the local solver's validated search performance is below the required reliability threshold, while a stronger approved solver is available."
+    },
+    {
+      "case_id": "Q13",
+      "problem": "A constrained search has exhausted every candidate generated by its current procedure. The supplied facts do not establish whether another admissible search construction exists, and they also do not establish that the defined candidate space is complete. The objective and hard constraints themselves are known."
+    },
+    {
+      "case_id": "Q14",
+      "problem": "A constrained search has exhausted every admissible candidate in the complete defined solution space. The completeness proof is supplied, the hard constraints are known, and the facts explicitly establish that no alternate representation, external information source, or admissible expansion remains available."
+    },
+    {
+      "case_id": "Q15",
+      "problem": "A preservation controller may need to start a cooling intervention before a chemical process crosses an irreversible threshold. The intervention latency is known, but the latest threshold-time estimate is stale and its current ordering relative to the intervention deadline is not established. The intervention is authorized and available if the window remains open."
+    },
+    {
+      "case_id": "Q16",
+      "problem": "A preservation controller may need to start a cooling intervention before a chemical process crosses an irreversible threshold. Current verified timing shows that the intervention would have needed to start six minutes ago to take effect before the threshold; no faster authorized intervention exists and the threshold window cannot be reopened."
+    }
+  ]
+}
