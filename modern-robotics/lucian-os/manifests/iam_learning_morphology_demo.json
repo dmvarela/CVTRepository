@@ -1,0 +1,107 @@
+{
+  "experiment": "IAM-001",
+  "mode": "SIMULATION_ONLY",
+  "description": "Tests whether an earned compiled skill changes the resource morphology enough to create new concurrency, and whether drift removes that advantage until relearning occurs.",
+  "host": {
+    "id": "iam-host-demo",
+    "resources": {
+      "memory_mb": 680,
+      "cpu_units": 6,
+      "network_units": 0
+    },
+    "authority": [
+      "write_records"
+    ],
+    "resting_modules": []
+  },
+  "modules": [
+    {
+      "name": "local_reasoner",
+      "memory_mb": 512,
+      "cpu_units": 2,
+      "network_units": 0,
+      "load_cost": 8,
+      "unload_cost": 3
+    },
+    {
+      "name": "document_parser",
+      "memory_mb": 128,
+      "cpu_units": 1,
+      "network_units": 0,
+      "load_cost": 2,
+      "unload_cost": 1
+    },
+    {
+      "name": "file_writer",
+      "memory_mb": 24,
+      "cpu_units": 1,
+      "network_units": 0,
+      "load_cost": 1,
+      "unload_cost": 1
+    },
+    {
+      "name": "compiled_transform",
+      "memory_mb": 48,
+      "cpu_units": 1,
+      "network_units": 0,
+      "load_cost": 1,
+      "unload_cost": 1
+    },
+    {
+      "name": "deterministic_verifier",
+      "memory_mb": 32,
+      "cpu_units": 1,
+      "network_units": 0,
+      "load_cost": 1,
+      "unload_cost": 1
+    },
+    {
+      "name": "audio_interface",
+      "memory_mb": 32,
+      "cpu_units": 1,
+      "network_units": 0,
+      "load_cost": 1,
+      "unload_cost": 1
+    }
+  ],
+  "recurring_task": {
+    "case_count": 30,
+    "initial_generation": "v1",
+    "drift_case": 17,
+    "drift_generation": "v2",
+    "validation_window": 6,
+    "required_authority": "write_records",
+    "heavy_modules": [
+      "local_reasoner",
+      "document_parser",
+      "file_writer"
+    ],
+    "compiled_modules": [
+      "compiled_transform",
+      "deterministic_verifier",
+      "file_writer"
+    ],
+    "heavy_cost": 1.0,
+    "compiled_cost": 0.08,
+    "verification_cost": 0.02,
+    "compile_cost": 4.0,
+    "repair_cost": 2.0
+  },
+  "voice_task": {
+    "arrivals": [
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      28
+    ],
+    "modules": [
+      "local_reasoner",
+      "audio_interface"
+    ],
+    "latency_class": "interactive",
+    "max_start_delay": 0
+  }
+}
