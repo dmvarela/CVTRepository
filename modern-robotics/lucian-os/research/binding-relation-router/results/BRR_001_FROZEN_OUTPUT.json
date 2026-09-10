@@ -1,0 +1,20 @@
+{
+  "experiment": "BRR-001",
+  "policy": "BINDING_RELATION_v0.01",
+  "baseline": "GENERIC_REASON_HARDER",
+  "note": "No evaluator labels are loaded by this runner.",
+  "rows": [
+    {"case_id":"B01_EVIDENCE_UNKNOWN","binding_relation":"EVIDENCE_UNKNOWN","binding_response":"MEASURE_OR_RETRIEVE","generic_binding":"UNDIFFERENTIATED","generic_response":"ESCALATE_INTELLIGENCE"},
+    {"case_id":"B02_REPRESENTATION_BLOCKED","binding_relation":"REPRESENTATION_BLOCKED","binding_response":"TRAVERSE","generic_binding":"UNDIFFERENTIATED","generic_response":"ESCALATE_INTELLIGENCE"},
+    {"case_id":"B03_COMPETENCE_INSUFFICIENT","binding_relation":"COMPETENCE_INSUFFICIENT","binding_response":"ESCALATE_INTELLIGENCE","generic_binding":"UNDIFFERENTIATED","generic_response":"ESCALATE_INTELLIGENCE"},
+    {"case_id":"B04_CAPABILITY_ABSENT","binding_relation":"CAPABILITY_ABSENT","binding_response":"RECONFIGURE_OR_RECRUIT","generic_binding":"UNDIFFERENTIATED","generic_response":"ESCALATE_INTELLIGENCE"},
+    {"case_id":"B05_AUTHORITY_UNKNOWN","binding_relation":"AUTHORITY_UNKNOWN","binding_response":"ASK_OR_HOLD","generic_binding":"UNDIFFERENTIATED","generic_response":"ESCALATE_INTELLIGENCE"},
+    {"case_id":"B06_AUTHORITY_FAIL","binding_relation":"AUTHORITY_FAIL","binding_response":"REFUSE","generic_binding":"UNDIFFERENTIATED","generic_response":"ESCALATE_INTELLIGENCE"},
+    {"case_id":"B07_RESOURCES_TIGHT","binding_relation":"RESOURCES_TIGHT","binding_response":"SCHEDULE_OR_SIMPLIFY","generic_binding":"UNDIFFERENTIATED","generic_response":"ESCALATE_INTELLIGENCE"},
+    {"case_id":"B08_VIABILITY_CLOSED","binding_relation":"VIABILITY_CLOSED","binding_response":"PRESERVE_OR_REPORT_INFEASIBLE","generic_binding":"UNDIFFERENTIATED","generic_response":"ESCALATE_INTELLIGENCE"},
+    {"case_id":"B09_SEARCH_PATH_ABSENT","binding_relation":"SEARCH_PATH_ABSENT","binding_response":"ABSTAIN","generic_binding":"UNDIFFERENTIATED","generic_response":"ESCALATE_INTELLIGENCE"},
+    {"case_id":"B10_NO_BINDING_LIMIT","binding_relation":"NONE","binding_response":"ACT","generic_binding":"UNDIFFERENTIATED","generic_response":"ESCALATE_INTELLIGENCE"},
+    {"case_id":"B11_EVIDENCE_CONTRADICTED","binding_relation":"EVIDENCE_CONTRADICTED","binding_response":"REVISE","generic_binding":"UNDIFFERENTIATED","generic_response":"ESCALATE_INTELLIGENCE"},
+    {"case_id":"B12_CAPABILITY_UNKNOWN","binding_relation":"CAPABILITY_UNKNOWN","binding_response":"DISCOVER_OR_CALIBRATE","generic_binding":"UNDIFFERENTIATED","generic_response":"ESCALATE_INTELLIGENCE"}
+  ]
+}
