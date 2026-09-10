@@ -47,11 +47,13 @@ def main() -> int:
         "capability_menu_exposed": False,
         "predictions": predictions,
     }
-    Path(args.output).write_text(
+    output_path = Path(args.output)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(
         json.dumps(record, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
-    print(f"Wrote {len(predictions)} predictions to {args.output}")
+    print(f"Wrote {len(predictions)} predictions to {output_path}")
     print(f"Model: {MODEL}")
     print("Capability menu exposed: False")
     return 0
