@@ -1,0 +1,88 @@
+{
+  "experiment": "TRAVERSAL-002",
+  "phase": "GENERATOR_ONLY",
+  "blindness_note": "This packet intentionally contains no evaluator labels, expected analogies, preferred candidates, or answer key.",
+  "conditions": {
+    "DOMAIN_ONLY": "Reason only within the target domain. Do not deliberately search for cross-domain analogies.",
+    "LOOSE_ANALOGY": "Generate cross-domain analogies that may help reinterpret the problem. Return them to the target, but no mandatory audit protocol is imposed.",
+    "STRUCTURAL_TRAVERSAL": "If useful, seek a source realization, state a domain-free invariant, return it to the target, check stated target constraints, derive a discriminating consequence, give a falsifier/rejection condition, and classify the candidate as STRUCTURAL, HEURISTIC, MISLEADING, or NO_GAIN. Traversal is optional: NO_GAIN is admissible."
+  },
+  "problems": [
+    {
+      "problem_id": "P1_HANDOFF_MAZE",
+      "target_domain": "organizational_service_design",
+      "problem": "A university support service has many competent specialist teams, but students are repeatedly bounced between offices because each office understands its own function rather than the student's end-to-end need. The institution wants fewer handoffs without creating one all-powerful office or erasing specialist boundaries.",
+      "known_constraints": [
+        "specialist competence should remain distributed",
+        "no office gains unlimited authority",
+        "student should not need to understand internal organizational topology",
+        "cases must remain auditable",
+        "some requests genuinely require multiple specialists"
+      ]
+    },
+    {
+      "problem_id": "P2_BATCH_RENAME",
+      "target_domain": "computing",
+      "problem": "A user needs to rename 10,000 files according to a clear naming rule, with a small set of known exceptions. They want the operation to be inexpensive, reviewable before execution, reversible where feasible, and reliable. An AI system is available but model inference has non-zero cost and can make occasional formatting errors.",
+      "known_constraints": [
+        "the naming rule is explicit",
+        "exceptions are enumerable",
+        "preview is possible",
+        "filesystem writes require explicit authorization",
+        "model calls are not free"
+      ]
+    },
+    {
+      "problem_id": "P3_VERIFICATION_SUCCESS",
+      "target_domain": "AI_system_governance",
+      "problem": "An automated subsystem has produced 50 correct outputs in a row on a recurring task. Verification currently runs after every output and adds latency. Designers are considering allowing the subsystem to remove or weaken its own verification because of the successful streak.",
+      "known_constraints": [
+        "past success is evidence about competence, not proof of future correctness",
+        "task inputs may drift",
+        "verification has measurable cost",
+        "false outputs can cause downstream harm",
+        "changes to verification policy require an explicit governance rule"
+      ]
+    },
+    {
+      "problem_id": "P4_AI_LEARNING_TRANSFER",
+      "target_domain": "education",
+      "problem": "Students using AI complete assignments faster and often produce stronger-looking submissions, but instructors do not yet know whether the students are building durable independent skill. The course team wants to redesign assessment without assuming either that AI use is harmful or that faster output proves learning.",
+      "known_constraints": [
+        "assignment quality is not identical to retained learning",
+        "AI use is permitted",
+        "students need opportunities to demonstrate transfer without assistance",
+        "evidence about long-term learning is incomplete",
+        "assessment burden must remain practical"
+      ]
+    },
+    {
+      "problem_id": "P5_TOOL_CHANGE_SEQUENCE",
+      "target_domain": "robotic_task_scheduling",
+      "problem": "A modular robot can perform a known sequence of tasks using three interchangeable end effectors. Switching tools takes time and energy, but keeping a suboptimal tool for one nearby task may also slow execution. The scheduler currently chooses the fastest tool for each task independently.",
+      "known_constraints": [
+        "the task sequence is known in advance",
+        "tool-change cost is non-zero",
+        "each task has a set of admissible tools",
+        "some tasks have deadlines",
+        "safety constraints cannot be traded away for speed"
+      ]
+    }
+  ],
+  "required_output_fields": [
+    "problem_id",
+    "condition",
+    "candidate_id",
+    "source_domain",
+    "source_realization",
+    "candidate_invariant",
+    "independent_realizations",
+    "returned_target_candidate",
+    "target_constraints_checked",
+    "predicted_consequence",
+    "falsifier_or_rejection_condition",
+    "claimed_classification",
+    "confidence",
+    "provenance"
+  ]
+}
