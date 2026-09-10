@@ -1,0 +1,50 @@
+{
+  "experiment": "IA-002",
+  "mode": "SIMULATION_ONLY",
+  "cost_units": "abstract",
+  "frontier": {
+    "cost_per_case": 1.0,
+    "tokens_per_case": 1600,
+    "quality": 0.99
+  },
+  "specialist": {
+    "cost_per_case": 0.28,
+    "tokens_per_case": 450,
+    "required_quality": 0.95,
+    "quality_by_kind": {
+      "ordinary": 0.97,
+      "edge": 0.72
+    }
+  },
+  "compiled": {
+    "execution_cost": 0.03,
+    "verification_cost": 0.02,
+    "audit_cost": 0.08,
+    "audit_every": 5,
+    "compile_cost": 8.0,
+    "repair_cost": 4.0,
+    "validation_window": 10,
+    "scope_evidence_required": 8
+  },
+  "task": {
+    "required_authority": "write_records"
+  },
+  "scenarios": {
+    "stable": {
+      "horizon": 60,
+      "edge_every": 13,
+      "generation": "v1"
+    },
+    "drift": {
+      "horizon": 60,
+      "edge_every": 13,
+      "generation": "v1",
+      "drift_at": 31,
+      "drift_generation": "v2"
+    },
+    "short": {
+      "horizon": 12,
+      "generation": "v1"
+    }
+  }
+}
