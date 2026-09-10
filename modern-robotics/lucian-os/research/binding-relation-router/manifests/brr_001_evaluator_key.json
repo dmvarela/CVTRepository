@@ -1,0 +1,18 @@
+{
+  "experiment": "BRR-001",
+  "created_after_frozen_output": true,
+  "expected": {
+    "B01_EVIDENCE_UNKNOWN": {"binding_relation":"EVIDENCE_UNKNOWN","response":"MEASURE_OR_RETRIEVE"},
+    "B02_REPRESENTATION_BLOCKED": {"binding_relation":"REPRESENTATION_BLOCKED","response":"TRAVERSE"},
+    "B03_COMPETENCE_INSUFFICIENT": {"binding_relation":"COMPETENCE_INSUFFICIENT","response":"ESCALATE_INTELLIGENCE"},
+    "B04_CAPABILITY_ABSENT": {"binding_relation":"CAPABILITY_ABSENT","response":"RECONFIGURE_OR_RECRUIT"},
+    "B05_AUTHORITY_UNKNOWN": {"binding_relation":"AUTHORITY_UNKNOWN","response":"ASK_OR_HOLD"},
+    "B06_AUTHORITY_FAIL": {"binding_relation":"AUTHORITY_FAIL","response":"REFUSE"},
+    "B07_RESOURCES_TIGHT": {"binding_relation":"RESOURCES_TIGHT","response":"SCHEDULE_OR_SIMPLIFY"},
+    "B08_VIABILITY_CLOSED": {"binding_relation":"VIABILITY_CLOSED","response":"PRESERVE_OR_REPORT_INFEASIBLE"},
+    "B09_SEARCH_PATH_ABSENT": {"binding_relation":"SEARCH_PATH_ABSENT","response":"ABSTAIN"},
+    "B10_NO_BINDING_LIMIT": {"binding_relation":"NONE","response":"ACT"},
+    "B11_EVIDENCE_CONTRADICTED": {"binding_relation":"EVIDENCE_CONTRADICTED","response":"REVISE"},
+    "B12_CAPABILITY_UNKNOWN": {"binding_relation":"CAPABILITY_UNKNOWN","response":"DISCOVER_OR_CALIBRATE"}
+  }
+}
