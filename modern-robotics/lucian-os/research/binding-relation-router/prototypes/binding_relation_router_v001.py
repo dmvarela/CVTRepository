@@ -14,7 +14,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[4]
+ROOT = Path(__file__).resolve().parents[3]
 PACKETS = ROOT / "research" / "binding-relation-router" / "manifests" / "brr_001_binding_cases.json"
 
 
