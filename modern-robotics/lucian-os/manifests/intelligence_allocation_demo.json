@@ -1,0 +1,67 @@
+{
+  "experiment": "IA-001",
+  "mode": "SIMULATION_ONLY",
+  "cost_units": "abstract",
+  "routing_overhead_per_stage": 0.02,
+  "providers": {
+    "D0": {
+      "kind": "deterministic",
+      "locality": "local",
+      "input_cost_per_1k": 0.0,
+      "output_cost_per_1k": 0.0,
+      "fixed_cost_per_call": 0.002,
+      "profiles": {
+        "file_lookup": {"quality": 0.999, "attempt_success": 0.999},
+        "structured_extraction": {"quality": 0.995, "attempt_success": 0.995},
+        "verification": {"quality": 0.999, "attempt_success": 0.999}
+      }
+    },
+    "S1": {
+      "kind": "specialist",
+      "locality": "remote",
+      "input_cost_per_1k": 0.08,
+      "output_cost_per_1k": 0.24,
+      "fixed_cost_per_call": 0.004,
+      "profiles": {
+        "structured_extraction": {"quality": 0.94, "attempt_success": 0.93},
+        "classification": {"quality": 0.93, "attempt_success": 0.92}
+      }
+    },
+    "B2": {
+      "kind": "balanced",
+      "locality": "local",
+      "input_cost_per_1k": 0.35,
+      "output_cost_per_1k": 1.0,
+      "fixed_cost_per_call": 0.008,
+      "profiles": {
+        "classification": {"quality": 0.97, "attempt_success": 0.97},
+        "ambiguous_reasoning": {"quality": 0.86, "attempt_success": 0.82},
+        "synthesis": {"quality": 0.92, "attempt_success": 0.90},
+        "verification": {"quality": 0.96, "attempt_success": 0.96}
+      }
+    },
+    "F3": {
+      "kind": "frontier",
+      "locality": "remote",
+      "input_cost_per_1k": 1.2,
+      "output_cost_per_1k": 4.8,
+      "fixed_cost_per_call": 0.015,
+      "profiles": {
+        "file_lookup": {"quality": 0.995, "attempt_success": 0.995},
+        "structured_extraction": {"quality": 0.995, "attempt_success": 0.995},
+        "classification": {"quality": 0.99, "attempt_success": 0.99},
+        "ambiguous_reasoning": {"quality": 0.97, "attempt_success": 0.96},
+        "synthesis": {"quality": 0.98, "attempt_success": 0.97},
+        "verification": {"quality": 0.99, "attempt_success": 0.99}
+      }
+    }
+  },
+  "stages": [
+    {"name": "locate_documents", "task_class": "file_lookup", "units": 100, "input_tokens_per_unit": 35, "output_tokens_per_unit": 5, "min_quality": 0.99, "privacy": "public"},
+    {"name": "extract_metadata", "task_class": "structured_extraction", "units": 100, "input_tokens_per_unit": 220, "output_tokens_per_unit": 35, "min_quality": 0.93, "privacy": "public"},
+    {"name": "classify_documents", "task_class": "classification", "units": 100, "input_tokens_per_unit": 120, "output_tokens_per_unit": 8, "min_quality": 0.90, "privacy": "public"},
+    {"name": "reason_ambiguous", "task_class": "ambiguous_reasoning", "units": 10, "input_tokens_per_unit": 650, "output_tokens_per_unit": 220, "min_quality": 0.94, "privacy": "public"},
+    {"name": "synthesize", "task_class": "synthesis", "units": 1, "input_tokens_per_unit": 5000, "output_tokens_per_unit": 900, "min_quality": 0.95, "privacy": "public"},
+    {"name": "verify", "task_class": "verification", "units": 110, "input_tokens_per_unit": 25, "output_tokens_per_unit": 3, "min_quality": 0.95, "privacy": "public"}
+  ]
+}
