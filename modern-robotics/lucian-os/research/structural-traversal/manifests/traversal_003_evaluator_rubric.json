@@ -1,0 +1,19 @@
+{
+  "experiment": "TRAVERSAL-003",
+  "created_after_raw_decisions_commit": "aa1f11750c7341499fb1947e5cdbd72aa5aa7947",
+  "status": "POSTHOC_EVALUATOR_ASSET",
+  "warning": "The same assistant designed the synthetic packets and this rubric. Commit order prevents repository label leakage into the frozen gate decisions, but this is not an independent evaluator.",
+  "action_costs": {"TRAVERSE":1.0,"STAY":0.1,"WAIT":0.15,"ABSTAIN":0.1},
+  "wrong_decision_penalty": 1.0,
+  "cases": [
+    {"case_id":"G1_HANDOFF_MAZE","expected_action":"TRAVERSE","rationale":"Ordinary search is repetitive, contradiction remains, evidence is available, and a plausible cross-domain invariant has positive expected search value."},
+    {"case_id":"G2_EXPLICIT_BATCH_RULE","expected_action":"STAY","rationale":"The target representation already exposes the executable structure; traversal adds cost without expanding the useful frontier."},
+    {"case_id":"G3_SPARSE_EVIDENCE","expected_action":"WAIT","rationale":"The main bottleneck is insufficient target evidence. Changing representation cannot manufacture the missing observations."},
+    {"case_id":"G4_SEDUCTIVE_AUTHORITY_TRANSFER","expected_action":"ABSTAIN","rationale":"The candidate transfer is high-risk and weakly supported; capability/competence cannot manufacture authority."},
+    {"case_id":"G5_TOOL_SEQUENCE_VISIBLE","expected_action":"STAY","rationale":"Path-dependent setup cost is already explicit in the target formulation, so structural traversal would mostly rediscover known structure."},
+    {"case_id":"G6_HIDDEN_TOPOLOGY","expected_action":"TRAVERSE","rationale":"Repeated component-level fixes fail under coexistence, indicating a representation bottleneck with strong expected gain from a system/topology representation."},
+    {"case_id":"G7_WEAK_CROSS_DOMAIN_SIGNAL","expected_action":"ABSTAIN","rationale":"Slow progress alone does not justify traversal when transfer support is weak and false-transfer risk is high."},
+    {"case_id":"G8_MEASUREMENT_DRIFT_UNCERTAIN","expected_action":"WAIT","rationale":"Cheap imminent measurements can distinguish drift from noise; evidence acquisition dominates representational search."},
+    {"case_id":"G9_EVIDENCE_VS_REPRESENTATION_BOUNDARY","expected_action":"WAIT","rationale":"Despite a real representation signal, decisive missing target evidence could dissolve the contradiction. Evidence should arrive before paying traversal cost."}
+  ]
+}
