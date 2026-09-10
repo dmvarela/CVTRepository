@@ -6,10 +6,9 @@ param(
 $ErrorActionPreference = "Stop"
 
 $Here = Split-Path -Parent $MyInvocation.MyCommand.Path
-$ProjectRoot = (Resolve-Path (Join-Path $Here "..\..")).Path
-$Benchmark = Join-Path $ProjectRoot "experiments\requirement_extraction_001.json"
-$Runner = Join-Path $ProjectRoot "prototype\run_requirement_extraction_v001.py"
-$Evaluator = Join-Path $ProjectRoot "prototype\evaluate_requirement_extraction_v001.py"
+$Benchmark = Join-Path $Here "benchmark.json"
+$Runner = Join-Path $Here "run.py"
+$Evaluator = Join-Path $Here "evaluate.py"
 $ResultsDir = Join-Path $Here "results"
 
 if (-not (Test-Path $Benchmark)) {
@@ -32,15 +31,14 @@ $Scores = Join-Path $ResultsDir "requirement_extraction_001_${SafeModel}_${Stamp
 $env:LUCIAN_MODEL = $Model
 
 Write-Host "REQUIREMENT_EXTRACTION_001"
-Write-Host "Dedicated run folder: $Here"
-Write-Host "Project root: $ProjectRoot"
+Write-Host "Dedicated experiment folder: $Here"
 Write-Host "Model: $Model"
 Write-Host "Frozen benchmark: $Benchmark"
 Write-Host "Capability menu exposed: False"
 Write-Host "Execution: simulation / semantic extraction only"
 Write-Host ""
 
-Push-Location $ProjectRoot
+Push-Location $Here
 try {
     py $Runner `
         --benchmark $Benchmark `
