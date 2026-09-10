@@ -1,0 +1,51 @@
+{
+  "experiment": "CP-001",
+  "mode": "SIMULATION_ONLY",
+  "host": {
+    "memory_mb": 680
+  },
+  "morphologies": {
+    "local": {
+      "operating_cost": 0.1,
+      "declared_memory_mb": 620,
+      "actual_memory_mb": 620
+    },
+    "remote": {
+      "operating_cost": 1.1,
+      "declared_memory_mb": 100,
+      "actual_memory_mb": 100
+    },
+    "compiled_probe": {
+      "operating_cost": 0.04,
+      "declared_memory_mb": 300,
+      "actual_memory_mb": 590
+    }
+  },
+  "voice": {
+    "memory_mb": 120
+  },
+  "transition_prior": {
+    "local_to_remote": 0.2,
+    "remote_to_local": 0.2
+  },
+  "scenario_sparse": {
+    "pressures": [3, 10],
+    "work_units": 12,
+    "delay_cost": 1.6,
+    "actual_switch_cost": 4.0
+  },
+  "scenario_drift": {
+    "pressures": [3, 9, 12],
+    "work_units": 14,
+    "delay_cost": 2.5,
+    "low_cost": 1.0,
+    "drift_tick": 8,
+    "high_cost": 5.0
+  },
+  "scenario_new_host": {
+    "pressures": [3, 10],
+    "work_units": 12,
+    "delay_cost": 2.5,
+    "actual_switch_cost": 0.5
+  }
+}
