@@ -1,0 +1,59 @@
+{
+  "experiment": "MAS-002",
+  "mode": "SIMULATION_ONLY",
+  "host": {"memory_mb": 680},
+  "voice": {"memory_mb": 120},
+  "scheduler": {
+    "lookahead_horizon": 6,
+    "delay_cost_per_pending_unit": 0.30,
+    "sticky_min_dwell": 4,
+    "sticky_switch_multiplier": 2.5
+  },
+  "modes": {
+    "local": {
+      "memory_mb": 620,
+      "operating_cost": 0.10,
+      "load_cost": 2,
+      "unload_cost": 2,
+      "remote": false
+    },
+    "remote": {
+      "memory_mb": 100,
+      "operating_cost": 1.10,
+      "load_cost": 1,
+      "unload_cost": 1,
+      "remote": true
+    },
+    "compiled": {
+      "memory_mb": 300,
+      "operating_cost": 0.04,
+      "load_cost": 2,
+      "unload_cost": 1,
+      "remote": false
+    },
+    "idle": {
+      "memory_mb": 0,
+      "operating_cost": 0.0,
+      "load_cost": 0,
+      "unload_cost": 0,
+      "remote": false
+    }
+  },
+  "scenarios": {
+    "clustered_pressure": {
+      "work_units": 12,
+      "voice_ticks": [3, 5],
+      "compiled_available_at": null
+    },
+    "sparse_pressure": {
+      "work_units": 12,
+      "voice_ticks": [3, 10],
+      "compiled_available_at": null
+    },
+    "learned_morphology": {
+      "work_units": 12,
+      "voice_ticks": [4, 8, 12],
+      "compiled_available_at": 6
+    }
+  }
+}
