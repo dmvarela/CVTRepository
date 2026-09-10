@@ -1,0 +1,21 @@
+{
+  "experiment": "TRAVERSAL-003",
+  "mode": "SIMULATION_ONLY",
+  "policy": "GATED_TRAVERSAL_v0.01",
+  "generator_commits": {
+    "packets": "aa07a3f7cdb8259e03d3eaf1c01000b7425fcb6f",
+    "prototype": "8fbe0cac8bc2076998a0a7ee75ae060101adc978"
+  },
+  "warning": "These decisions were frozen before evaluator action labels were added to the repository. The policy and cases are still hand-authored synthetic fixtures.",
+  "decisions": [
+    {"case_id":"G1_HANDOFF_MAZE","decision":"TRAVERSE","bottleneck_score":0.7400,"net_search_value":0.6750,"reason":"representation bottleneck is high and expected search value clears cost/risk"},
+    {"case_id":"G2_EXPLICIT_BATCH_RULE","decision":"STAY","bottleneck_score":0.0950,"net_search_value":-0.1750,"reason":"target-domain structure is already visible or ordinary search is progressing"},
+    {"case_id":"G3_SPARSE_EVIDENCE","decision":"WAIT","bottleneck_score":0.4175,"net_search_value":-0.0250,"reason":"target evidence appears more limiting than representation"},
+    {"case_id":"G4_SEDUCTIVE_AUTHORITY_TRANSFER","decision":"ABSTAIN","bottleneck_score":0.6925,"net_search_value":0.0625,"reason":"cross-domain transfer is weak, risky, or low-value"},
+    {"case_id":"G5_TOOL_SEQUENCE_VISIBLE","decision":"STAY","bottleneck_score":0.2860,"net_search_value":0.0625,"reason":"target-domain structure is already visible or ordinary search is progressing"},
+    {"case_id":"G6_HIDDEN_TOPOLOGY","decision":"TRAVERSE","bottleneck_score":0.8075,"net_search_value":0.6375,"reason":"representation bottleneck is high and expected search value clears cost/risk"},
+    {"case_id":"G7_WEAK_CROSS_DOMAIN_SIGNAL","decision":"ABSTAIN","bottleneck_score":0.5525,"net_search_value":-0.1000,"reason":"cross-domain transfer is weak, risky, or low-value"},
+    {"case_id":"G8_MEASUREMENT_DRIFT_UNCERTAIN","decision":"WAIT","bottleneck_score":0.5000,"net_search_value":0.0375,"reason":"target evidence appears more limiting than representation"},
+    {"case_id":"G9_EVIDENCE_VS_REPRESENTATION_BOUNDARY","decision":"STAY","bottleneck_score":0.6575,"net_search_value":0.1375,"reason":"no positive-value case for leaving the current representation"}
+  ]
+}
