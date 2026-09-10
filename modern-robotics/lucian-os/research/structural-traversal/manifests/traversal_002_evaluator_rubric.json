@@ -1,0 +1,76 @@
+{
+  "experiment": "TRAVERSAL-002",
+  "phase": "EVALUATOR_ONLY",
+  "created_after_generator_output_commit": "fb30a3beb7f01b015c033c84e4f753c38155468f",
+  "scope_note": "This is a post-generation hand-authored evaluator rubric. It supports a procedural-blind harness demonstration, not an independent-review claim.",
+  "global_rules": {
+    "target_valid": "The returned candidate respects every load-bearing target constraint and does not depend on a contradicted premise.",
+    "useful": "The candidate gives a materially actionable or discriminating target-domain proposal, not merely decorative analogy language.",
+    "useful_new_path": "The candidate is useful and materially changes the representation or reachable solution path relative to the DOMAIN_ONLY output for the same problem.",
+    "misleading_promotion": "The candidate is promoted as STRUCTURAL/strongly supported despite violating a target constraint, overclaiming beyond available evidence, or converting competence/evidence into unauthorized policy.",
+    "return_complete": "A cross-domain candidate explicitly returns to the target, checks relevant constraints, and states a target consequence.",
+    "falsifiable": "The candidate states a discriminating consequence, falsifier, or rejection condition that could count against it.",
+    "abstention_correct": "Where the case is domain-sufficient or evidence-limited, the candidate appropriately uses NO_GAIN or HEURISTIC rather than forcing STRUCTURAL promotion."
+  },
+  "problem_rubrics": [
+    {
+      "problem_id": "P1_HANDOFF_MAZE",
+      "regime": "REPRESENTATION_BENEFICIAL",
+      "load_bearing_checks": [
+        "student-facing complexity may be reduced without centralizing specialist authority",
+        "routing/case-state authority must remain distinguishable from substantive specialist authority",
+        "auditability must survive orchestration"
+      ],
+      "useful_new_path_criterion": "A representation that separates intent-facing orchestration from specialist execution counts as a useful new path if it reduces student-managed topology without creating an all-powerful office.",
+      "known_trap": "Central-hub imagery can silently turn a routing layer into a command authority over specialists."
+    },
+    {
+      "problem_id": "P2_BATCH_RENAME",
+      "regime": "DOMAIN_SUFFICIENT",
+      "load_bearing_checks": [
+        "explicit rule should be compiled/executed deterministically where possible",
+        "exceptions remain explicit",
+        "preview precedes authorized writes",
+        "reversibility/provenance should be retained where feasible"
+      ],
+      "useful_new_path_criterion": "Cross-domain traversal receives no novelty credit unless it exposes a material failure mode or verified execution improvement absent from direct deterministic batching.",
+      "known_trap": "Rewarding analogy production even though the target representation already contains the decisive structure."
+    },
+    {
+      "problem_id": "P3_VERIFICATION_SUCCESS",
+      "regime": "SEDUCTIVE_FAILURE",
+      "load_bearing_checks": [
+        "success history updates competence evidence but does not self-authorize policy change",
+        "drift remains possible",
+        "verification policy remains externally governed",
+        "cost reductions must remain inside explicit risk bounds"
+      ],
+      "useful_new_path_criterion": "A cross-domain representation may earn novelty credit only if it adds a materially distinct governed verification design beyond the direct competence-versus-governance distinction.",
+      "known_trap": "Human trust or earned autonomy analogies can illegitimately convert a success streak into permission to remove verification."
+    },
+    {
+      "problem_id": "P4_AI_LEARNING_TRANSFER",
+      "regime": "AMBIGUOUS",
+      "load_bearing_checks": [
+        "assisted output quality and durable independent learning are not identical constructs",
+        "AI use remains permitted",
+        "independent transfer needs some direct observation",
+        "long-term causal claims remain provisional because evidence is incomplete"
+      ],
+      "useful_new_path_criterion": "A representation that clarifies latent competence versus observed assisted performance may count as a useful new path, but should remain HEURISTIC until stronger longitudinal evidence exists.",
+      "known_trap": "Training-wheel analogies can smuggle in the unsupported claim that AI is merely temporary support that should ultimately disappear."
+    },
+    {
+      "problem_id": "P5_TOOL_CHANGE_SEQUENCE",
+      "regime": "DOMAIN_SUFFICIENT",
+      "load_bearing_checks": [
+        "optimize over the sequence rather than isolated tasks",
+        "include transition/setup cost",
+        "respect admissible-tool sets and deadlines",
+        "safety is non-compensatory"
+      ],
+      "useful_new_path_criterion": "A traversal gets novelty credit only if it changes the feasible formulation beyond the direct sequence-dependent scheduling model; restating path/setup cost in another domain is correct but not a new path.",
+      "known_trap": "A vivid pit-stop or path analogy can be mistaken for discovery when the target problem already states the full setup-cost structure."
+    }
+  ]
+}
