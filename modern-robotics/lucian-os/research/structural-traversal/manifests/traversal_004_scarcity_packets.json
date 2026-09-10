@@ -1,0 +1,68 @@
+{
+  "experiment": "TRAVERSAL-004",
+  "mode": "SIMULATION_ONLY",
+  "description": "Generator-side scarcity-classification packets. These contain only problem descriptions and observable signals. No evaluator labels or expected scarcity classes are included.",
+  "signal_scale": "All numeric signals are normalized to [0,1]. Higher means more of the named property.",
+  "cases": [
+    {
+      "id": "H1_STRUCTURE_HIDDEN_COORDINATION",
+      "problem": "A multi-team workflow repeatedly produces locally reasonable fixes, but every reformulation recreates the same handoff failure. Relevant operational facts are already known. Two credible alternative representations exist that separate routing from specialist execution.",
+      "signals": {"target_progress":0.22,"contradiction_persistence":0.82,"reformulation_repetition":0.84,"evidence_missing":0.18,"evidence_acquisition_cost":0.35,"evidence_discriminating_power":0.45,"alternative_representation_quality":0.86,"alternative_representation_availability":0.80,"domain_native_path_quality":0.30,"target_constraint_clarity":0.88}
+    },
+    {
+      "id": "H2_EVIDENCE_CHEAP_SENSOR",
+      "problem": "A control policy looks internally inconsistent after two observations, but one inexpensive sensor reading would directly distinguish calibration drift from controller failure. Alternative conceptual framings are available but not yet needed.",
+      "signals": {"target_progress":0.30,"contradiction_persistence":0.74,"reformulation_repetition":0.55,"evidence_missing":0.91,"evidence_acquisition_cost":0.08,"evidence_discriminating_power":0.95,"alternative_representation_quality":0.72,"alternative_representation_availability":0.70,"domain_native_path_quality":0.42,"target_constraint_clarity":0.92}
+    },
+    {
+      "id": "H3_SEARCH_NO_WARRANTED_ALTERNATIVE",
+      "problem": "Ordinary reasoning has stalled and the available evidence is reasonably complete, but every proposed cross-domain representation so far is weak, decorative, or target-incompatible.",
+      "signals": {"target_progress":0.18,"contradiction_persistence":0.58,"reformulation_repetition":0.76,"evidence_missing":0.22,"evidence_acquisition_cost":0.55,"evidence_discriminating_power":0.40,"alternative_representation_quality":0.18,"alternative_representation_availability":0.20,"domain_native_path_quality":0.24,"target_constraint_clarity":0.86}
+    },
+    {
+      "id": "H4_NONE_CLEAR_BATCH",
+      "problem": "The task has an explicit deterministic rule, enumerable exceptions, a preview step, and a verified rollback path. Domain-native reasoning already yields a complete plan.",
+      "signals": {"target_progress":0.92,"contradiction_persistence":0.08,"reformulation_repetition":0.10,"evidence_missing":0.10,"evidence_acquisition_cost":0.15,"evidence_discriminating_power":0.30,"alternative_representation_quality":0.75,"alternative_representation_availability":0.75,"domain_native_path_quality":0.95,"target_constraint_clarity":0.96}
+    },
+    {
+      "id": "H5_MIXED_EVIDENCE_DOMINATES",
+      "problem": "The representation is visibly strained and repeated reasoning cycles recur, but a cheap controlled experiment would resolve the factual uncertainty that may be creating the apparent structural contradiction.",
+      "signals": {"target_progress":0.25,"contradiction_persistence":0.83,"reformulation_repetition":0.78,"evidence_missing":0.88,"evidence_acquisition_cost":0.12,"evidence_discriminating_power":0.93,"alternative_representation_quality":0.82,"alternative_representation_availability":0.78,"domain_native_path_quality":0.28,"target_constraint_clarity":0.90}
+    },
+    {
+      "id": "H6_MIXED_STRUCTURE_DOMINATES",
+      "problem": "Some evidence is incomplete, but the missing observations are expensive and weakly discriminating. The current representation repeatedly collapses distinct mechanisms into one variable, while a well-specified alternative representation separates them and yields new testable consequences.",
+      "signals": {"target_progress":0.20,"contradiction_persistence":0.80,"reformulation_repetition":0.82,"evidence_missing":0.62,"evidence_acquisition_cost":0.82,"evidence_discriminating_power":0.34,"alternative_representation_quality":0.90,"alternative_representation_availability":0.84,"domain_native_path_quality":0.22,"target_constraint_clarity":0.86}
+    },
+    {
+      "id": "H7_SEARCH_FRONTIER_EMPTY",
+      "problem": "The target framing is unproductive, but there is no credible alternative representation yet and no specific missing measurement that would resolve the blockage. More candidate search is needed before any traversal can be justified.",
+      "signals": {"target_progress":0.16,"contradiction_persistence":0.62,"reformulation_repetition":0.72,"evidence_missing":0.30,"evidence_acquisition_cost":0.60,"evidence_discriminating_power":0.38,"alternative_representation_quality":0.12,"alternative_representation_availability":0.08,"domain_native_path_quality":0.18,"target_constraint_clarity":0.80}
+    },
+    {
+      "id": "H8_NONE_TEMPTING_ANALOGY",
+      "problem": "A vivid analogy is available, but target-domain decomposition is already producing measurable progress and a complete admissible solution path. The analogy adds no new prediction.",
+      "signals": {"target_progress":0.84,"contradiction_persistence":0.14,"reformulation_repetition":0.16,"evidence_missing":0.14,"evidence_acquisition_cost":0.20,"evidence_discriminating_power":0.35,"alternative_representation_quality":0.92,"alternative_representation_availability":0.90,"domain_native_path_quality":0.90,"target_constraint_clarity":0.94}
+    },
+    {
+      "id": "H9_EVIDENCE_BEFORE_SEARCH",
+      "problem": "The current explanation and all candidate alternatives depend on an unknown parameter that can be measured cheaply. Without that measurement, neither staying nor traversing can be evaluated responsibly.",
+      "signals": {"target_progress":0.20,"contradiction_persistence":0.52,"reformulation_repetition":0.48,"evidence_missing":0.94,"evidence_acquisition_cost":0.10,"evidence_discriminating_power":0.96,"alternative_representation_quality":0.25,"alternative_representation_availability":0.30,"domain_native_path_quality":0.25,"target_constraint_clarity":0.88}
+    },
+    {
+      "id": "H10_STRUCTURE_WITH_NOISY_EVIDENCE",
+      "problem": "Evidence is plentiful but noisy rather than missing. Repeated domain-native analyses reproduce the same anomaly. A candidate representation recasts the unit of analysis and yields a discriminating prediction.",
+      "signals": {"target_progress":0.24,"contradiction_persistence":0.79,"reformulation_repetition":0.80,"evidence_missing":0.28,"evidence_acquisition_cost":0.68,"evidence_discriminating_power":0.32,"alternative_representation_quality":0.84,"alternative_representation_availability":0.76,"domain_native_path_quality":0.26,"target_constraint_clarity":0.82}
+    },
+    {
+      "id": "H11_NONE_LOW_STAKES_PROGRESS",
+      "problem": "Progress is steady, constraints are clear, and the remaining work is ordinary elaboration. Neither missing evidence nor alternate representations are currently limiting progress.",
+      "signals": {"target_progress":0.78,"contradiction_persistence":0.18,"reformulation_repetition":0.22,"evidence_missing":0.20,"evidence_acquisition_cost":0.40,"evidence_discriminating_power":0.45,"alternative_representation_quality":0.38,"alternative_representation_availability":0.42,"domain_native_path_quality":0.82,"target_constraint_clarity":0.88}
+    },
+    {
+      "id": "H12_BOUNDARY_STRUCTURE_EVIDENCE",
+      "problem": "The model repeatedly hits the same contradiction. Some decisive evidence is missing, but obtaining it is moderately costly. A credible alternative representation exists and could itself specify which evidence would be most discriminating.",
+      "signals": {"target_progress":0.22,"contradiction_persistence":0.78,"reformulation_repetition":0.76,"evidence_missing":0.72,"evidence_acquisition_cost":0.48,"evidence_discriminating_power":0.78,"alternative_representation_quality":0.78,"alternative_representation_availability":0.72,"domain_native_path_quality":0.30,"target_constraint_clarity":0.84}
+    }
+  ]
+}
