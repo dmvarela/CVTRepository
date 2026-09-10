@@ -1,0 +1,63 @@
+{
+  "experiment": "BRR-002",
+  "surface_symptom": "The intended outcome is not yet being completed or committed.",
+  "labels_withheld": true,
+  "cases": [
+    {
+      "case_id": "R01",
+      "problem": "A greenhouse controller must decide whether to irrigate Zone 4. The moisture sensor failed to report this cycle, and no substitute observation is available yet. The pump is available, authorized, and within resource limits; the controller has a validated irrigation policy once moisture state is known."
+    },
+    {
+      "case_id": "R02",
+      "problem": "A diagnostic dashboard currently says a cooling-loop valve is stuck closed. A newly verified manual inspection shows the valve is physically open and moving freely. The inspection is current, authoritative for valve position, and directly contradicts the represented fault state. No authority or resource limitation prevents updating the diagnosis."
+    },
+    {
+      "case_id": "R03",
+      "problem": "A planner has repeatedly searched a delivery problem as independent stop ordering and keeps producing dead ends. The supplied constraints reveal that several stops form inseparable pickup-delivery pairs and that representing them as paired precedence units exposes feasible candidate sequences. Required data, compute, authority, and execution capability are all available."
+    },
+    {
+      "case_id": "R04",
+      "problem": "A local reasoning module is available for a specialized theorem-classification step, but it has never been calibrated on this theorem family. All source material is available, the task representation is clear, and stronger reasoning tiers are reachable if needed. Whether the current module is competent enough is not established."
+    },
+    {
+      "case_id": "R05",
+      "problem": "A validated local model is asked to perform a cryptographic proof review that exceeds its tested reasoning envelope. The evidence, files, permissions, time budget, and compute needed for a stronger approved reasoner are available. The current model's insufficiency is established rather than merely suspected."
+    },
+    {
+      "case_id": "R06",
+      "problem": "A maintenance workflow requires a thermal-camera observation. The current host inventory is stale and does not establish whether a compatible camera interface is present or reachable. Authority to inspect is granted, the task is otherwise clear, and no deadline has expired."
+    },
+    {
+      "case_id": "R07",
+      "problem": "A document workflow requires reading an encrypted archive, but the current embodiment has no decryption provider, no approved remote decryption service, and no other capability that can expose the archive contents. The password is available and use is authorized; the missing operation is the capability itself."
+    },
+    {
+      "case_id": "R08",
+      "problem": "A user asks the system to publish a draft report to an external portal. The publishing capability exists and the report is ready, but the supplied policy does not state whether this user has authority to publish externally. No evidence contradicts the report and resources are sufficient."
+    },
+    {
+      "case_id": "R09",
+      "problem": "A user asks the system to delete an audit record. The record exists and deletion is technically possible, but policy explicitly states that this record class is immutable and that the requesting role has no deletion authority. The task is otherwise fully specified."
+    },
+    {
+      "case_id": "R10",
+      "problem": "Two low-priority local analysis jobs and one interactive task are all ready to run. Available RAM is temporarily below what is needed for all three morphologies at once, but delaying one background job or switching it to a lighter admissible morphology would allow the interactive task to proceed. Authority and evidence are not limiting."
+    },
+    {
+      "case_id": "R11",
+      "problem": "A local batch transformation requires 14 GB of working memory and has no lower-memory implementation, no remote admissible route, and no preemption strategy that changes peak demand. The host has only 8 GB available and this resource limit is established. All permissions and task information are complete."
+    },
+    {
+      "case_id": "R12",
+      "problem": "A preservation controller discovers that the only safe intervention would have needed to begin ten minutes ago to take effect before a hard physical deadline. That deadline has now passed, no faster authorized intervention exists, and continuing to search cannot restore the missed window."
+    },
+    {
+      "case_id": "R13",
+      "problem": "A search procedure has exhausted every admissible candidate in the defined solution space, the target constraints are complete, and no alternate representation or external information source is warranted by the supplied facts. The system has enough evidence to say it currently has no defensible next search path."
+    },
+    {
+      "case_id": "R14",
+      "problem": "A verified user asks the system to create a local preview copy of a document. The required file-read and copy capabilities are available, the user is authorized, sufficient disk and memory are free, the operation is reversible, the task representation is clear, and there is no unresolved evidentiary question."
+    }
+  ]
+}
