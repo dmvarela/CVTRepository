@@ -99,15 +99,33 @@ TRAVERSAL-001
 
 TRAVERSAL-002
   held-out target problems
-  generation separated from evaluation
+  generation separated procedurally from evaluation
   candidate traversals not supplied in advance
-  test useful discovery + false-positive control
+  found useful new paths while exposing no-gain cases
+  result: ADVANCE WITH REPAIRS
 
-future
-  trigger policy: when should traversal occur?
-  cost policy: when is traversal worth the extra reasoning?
-  memory policy: which successful traversals become reusable structure?
-  integration: how does TRAVERSE interact with ordinary search and escalation?
+TRAVERSAL-003
+  tested whether traversal should be invoked at all
+  introduced STAY / TRAVERSE / WAIT / ABSTAIN
+  accounted for traversal cost
+  exposed a boundary failure: representation strain can coexist with evidence scarcity
+  result: ADVANCE WITH REPAIR
+
+TRAVERSAL-004
+  moved diagnosis one level earlier
+  explicitly classified STRUCTURE / EVIDENCE / SEARCH / NONE scarcity
+  preserved primary, secondary, score margin, and mixed states
+  routed scarcity to cognitive action only after diagnosis
+  result: PASS — FIXTURE ONLY
+```
+
+The progression changed the controlling question:
+
+```text
+TRAVERSAL-001  Can an analogy be disciplined?
+TRAVERSAL-002  Can a useful representation change be generated?
+TRAVERSAL-003  When is traversal worth invoking?
+TRAVERSAL-004  What is actually scarce before any cognitive move is chosen?
 ```
 
 ---
@@ -133,14 +151,52 @@ Until those conditions survive stronger experiments, structural traversal remain
 
 ---
 
+## Scarcity-first trigger architecture
+
+TRAVERSAL-004 suggests the current branch should no longer use:
+
+```text
+problem
+-> should I traverse?
+```
+
+as its first decision.
+
+The candidate architecture is now:
+
+```text
+problem state
+-> diagnose active scarcity
+     STRUCTURE / EVIDENCE / SEARCH / NONE
+-> preserve close secondary scarcity
+-> choose next cognitive action
+```
+
+Within this branch:
+
+```text
+STRUCTURE -> TRAVERSE
+EVIDENCE  -> WAIT / MEASURE
+SEARCH    -> ABSTAIN from unsupported traversal / continue candidate search
+NONE      -> STAY
+```
+
+Mixed states remain explicit because two scarcities can be active at once.
+
+A representation may be strained while evidence is still the next thing worth buying.
+
+Likewise, traversal may sometimes be useful only to improve the **question or test design**, not to answer the factual question itself.
+
+---
+
 ## Architectural boundary
 
-The intended future shape is:
+The intended traversal shape remains:
 
 ```text
 ordinary search
       |
-      | stalled / representation bottleneck
+      | structure diagnosed as active scarcity
       v
 TRAVERSE
       |
@@ -157,10 +213,41 @@ RETURN + TARGET CONSTRAINT CHECK
 
 `TRAVERSE` must never mean `believe the analogy`.
 
-The strongest compact formulation remains:
+The strongest compact formulations remain:
 
 > **Analogy opens the path; evidence decides whether the path is real.**
 
-And the search question that originated the program is:
+> **Before asking whether another representation is valuable, ask what is actually scarce.**
+
+---
+
+## Natural next boundary
+
+TRAVERSAL-004 exposed a possible abstraction broader than structural analogy:
+
+> **Diagnose the limiting resource before allocating cognition or action.**
+
+Lucian OS contains other candidate scarcity types not tested here:
+
+```text
+missing competence
+missing computational capability
+missing physical affordance
+missing authority
+missing time / memory / energy
+```
+
+Those may route respectively toward escalation, reconfiguration, capability recruitment, authorization, or scheduling.
+
+That broader claim should **not** be silently promoted from this research branch. It deserves a separate research program and discriminating experiments.
+
+Structural Traversal therefore ends its current sequence at a useful boundary:
+
+```text
+TRAVERSE is one possible response to one diagnosed scarcity.
+It is not the general controller.
+```
+
+And the search question that originated the program remains:
 
 > **There is a geometry here. Where else does this geometry live?**
