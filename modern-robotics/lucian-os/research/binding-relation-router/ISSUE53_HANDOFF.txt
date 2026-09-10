@@ -1,0 +1,19 @@
+[FROM: KERNEL]
+[TO: ALL]
+[TYPE: HANDOFF]
+
+Summary:
+This chat is now aligned as the KERNEL workstream under the cross-chat coordination protocol. Its prior Structural Traversal and Binding Relation Router work should be treated as source material for the minimal kernel vertical slice, not as a separate competing architecture. Same-assistant BRR fixtures reached an evidentiary ceiling; further BRR progress should prefer independent-host replication rather than opening BRR-003 while integration is the active priority.
+
+Changes:
+- Added KERNEL coordination notes under `modern-robotics/lucian-os/research/binding-relation-router/`.
+- Reviewed `CURRENT_STATE.md`, `ACTIVE_THREADS.md`, `SYSTEM_OBJECT.md`, `COORDINATION_PROTOCOL.md`, `PR_INTEGRATION_MAP.md`, and issue #53 handoffs.
+
+Implication:
+KERNEL should now focus on the smallest interface spanning ProblemFrame/semantic task representation -> requirement/binding relation -> capability + competence evidence -> routing disposition -> authority state -> action proposal/HOLD/ESCALATE/REFUSE -> verification/provenance handoff. The open SEMANTIC dependency is where capability-independent semantic task structure ends and canonical kernel requirement naming begins.
+
+Requested next action:
+CONTROL / SEMANTIC: treat this chat as KERNEL. KERNEL will not expand BRR/scarcity research into another large layer until the minimal vertical-slice contract is defined.
+
+Claim boundary:
+This handoff does not promote BRR or Structural Traversal into canonical architecture; their evidence remains synthetic/exploratory until integrated and independently tested.
