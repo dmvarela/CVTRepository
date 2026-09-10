@@ -1,0 +1,118 @@
+{
+  "experiment": "BRR-002B",
+  "condition_note": "Same-assistant procedural reference pass. No evaluator key existed at freeze time.",
+  "rows": [
+    {
+      "case_id": "Q01",
+      "direct_response": "ASK_OR_HOLD",
+      "relation_vector": {"evidence":"PASS","representation":"PASS","competence":"SUFFICIENT","capability":"AVAILABLE","authority":"UNKNOWN","resources":"SUFFICIENT","viability":"OPEN","search_path":"AVAILABLE"},
+      "binding_relation": "AUTHORITY_UNKNOWN",
+      "routed_response": "ASK_OR_HOLD"
+    },
+    {
+      "case_id": "Q02",
+      "direct_response": "REFUSE",
+      "relation_vector": {"evidence":"PASS","representation":"PASS","competence":"SUFFICIENT","capability":"AVAILABLE","authority":"FAIL","resources":"SUFFICIENT","viability":"OPEN","search_path":"AVAILABLE"},
+      "binding_relation": "AUTHORITY_FAIL",
+      "routed_response": "REFUSE"
+    },
+    {
+      "case_id": "Q03",
+      "direct_response": "MEASURE_OR_RETRIEVE",
+      "relation_vector": {"evidence":"UNKNOWN","representation":"PASS","competence":"SUFFICIENT","capability":"AVAILABLE","authority":"PASS","resources":"SUFFICIENT","viability":"OPEN","search_path":"AVAILABLE"},
+      "binding_relation": "EVIDENCE_UNKNOWN",
+      "routed_response": "MEASURE_OR_RETRIEVE"
+    },
+    {
+      "case_id": "Q04",
+      "direct_response": "REVISE",
+      "relation_vector": {"evidence":"CONTRADICTED","representation":"PASS","competence":"SUFFICIENT","capability":"AVAILABLE","authority":"PASS","resources":"SUFFICIENT","viability":"OPEN","search_path":"AVAILABLE"},
+      "binding_relation": "EVIDENCE_CONTRADICTED",
+      "routed_response": "REVISE"
+    },
+    {
+      "case_id": "Q05",
+      "direct_response": "DISCOVER_OR_CALIBRATE",
+      "relation_vector": {"evidence":"PASS","representation":"PASS","competence":"SUFFICIENT","capability":"UNKNOWN","authority":"PASS","resources":"SUFFICIENT","viability":"OPEN","search_path":"AVAILABLE"},
+      "binding_relation": "CAPABILITY_UNKNOWN",
+      "routed_response": "DISCOVER_OR_CALIBRATE"
+    },
+    {
+      "case_id": "Q06",
+      "direct_response": "RECONFIGURE_OR_RECRUIT",
+      "relation_vector": {"evidence":"PASS","representation":"PASS","competence":"SUFFICIENT","capability":"ABSENT","authority":"PASS","resources":"SUFFICIENT","viability":"OPEN","search_path":"AVAILABLE"},
+      "binding_relation": "CAPABILITY_ABSENT",
+      "routed_response": "RECONFIGURE_OR_RECRUIT"
+    },
+    {
+      "case_id": "Q07",
+      "direct_response": "PROBE_COMPETENCE",
+      "relation_vector": {"evidence":"PASS","representation":"PASS","competence":"UNKNOWN","capability":"AVAILABLE","authority":"PASS","resources":"SUFFICIENT","viability":"OPEN","search_path":"AVAILABLE"},
+      "binding_relation": "COMPETENCE_UNKNOWN",
+      "routed_response": "PROBE_COMPETENCE"
+    },
+    {
+      "case_id": "Q08",
+      "direct_response": "ESCALATE_INTELLIGENCE",
+      "relation_vector": {"evidence":"PASS","representation":"PASS","competence":"INSUFFICIENT","capability":"AVAILABLE","authority":"PASS","resources":"SUFFICIENT","viability":"OPEN","search_path":"AVAILABLE"},
+      "binding_relation": "COMPETENCE_INSUFFICIENT",
+      "routed_response": "ESCALATE_INTELLIGENCE"
+    },
+    {
+      "case_id": "Q09",
+      "direct_response": "SCHEDULE_OR_SIMPLIFY",
+      "relation_vector": {"evidence":"PASS","representation":"PASS","competence":"SUFFICIENT","capability":"AVAILABLE","authority":"PASS","resources":"TIGHT","viability":"OPEN","search_path":"AVAILABLE"},
+      "binding_relation": "RESOURCES_TIGHT",
+      "routed_response": "SCHEDULE_OR_SIMPLIFY"
+    },
+    {
+      "case_id": "Q10",
+      "direct_response": "REPORT_INFEASIBLE",
+      "relation_vector": {"evidence":"PASS","representation":"PASS","competence":"SUFFICIENT","capability":"AVAILABLE","authority":"PASS","resources":"INFEASIBLE","viability":"OPEN","search_path":"AVAILABLE"},
+      "binding_relation": "RESOURCES_INFEASIBLE",
+      "routed_response": "REPORT_INFEASIBLE"
+    },
+    {
+      "case_id": "Q11",
+      "direct_response": "TRAVERSE",
+      "relation_vector": {"evidence":"PASS","representation":"BLOCKED","competence":"SUFFICIENT","capability":"AVAILABLE","authority":"PASS","resources":"SUFFICIENT","viability":"OPEN","search_path":"AVAILABLE"},
+      "binding_relation": "REPRESENTATION_BLOCKED",
+      "routed_response": "TRAVERSE"
+    },
+    {
+      "case_id": "Q12",
+      "direct_response": "ESCALATE_INTELLIGENCE",
+      "relation_vector": {"evidence":"PASS","representation":"PASS","competence":"INSUFFICIENT","capability":"AVAILABLE","authority":"PASS","resources":"SUFFICIENT","viability":"OPEN","search_path":"AVAILABLE"},
+      "binding_relation": "COMPETENCE_INSUFFICIENT",
+      "routed_response": "ESCALATE_INTELLIGENCE"
+    },
+    {
+      "case_id": "Q13",
+      "direct_response": "SEARCH_OR_HOLD",
+      "relation_vector": {"evidence":"PASS","representation":"PASS","competence":"SUFFICIENT","capability":"AVAILABLE","authority":"PASS","resources":"SUFFICIENT","viability":"OPEN","search_path":"UNKNOWN"},
+      "binding_relation": "SEARCH_PATH_UNKNOWN",
+      "routed_response": "SEARCH_OR_HOLD"
+    },
+    {
+      "case_id": "Q14",
+      "direct_response": "ABSTAIN",
+      "relation_vector": {"evidence":"PASS","representation":"PASS","competence":"SUFFICIENT","capability":"AVAILABLE","authority":"PASS","resources":"SUFFICIENT","viability":"OPEN","search_path":"ABSENT"},
+      "binding_relation": "SEARCH_PATH_ABSENT",
+      "routed_response": "ABSTAIN"
+    },
+    {
+      "case_id": "Q15",
+      "direct_response": "MEASURE_OR_RETRIEVE",
+      "relation_vector": {"evidence":"PASS","representation":"PASS","competence":"SUFFICIENT","capability":"AVAILABLE","authority":"PASS","resources":"SUFFICIENT","viability":"UNCERTAIN","search_path":"AVAILABLE"},
+      "binding_relation": "VIABILITY_UNCERTAIN",
+      "routed_response": "MEASURE_OR_RETRIEVE"
+    },
+    {
+      "case_id": "Q16",
+      "direct_response": "PRESERVE_OR_REPORT_INFEASIBLE",
+      "relation_vector": {"evidence":"PASS","representation":"PASS","competence":"SUFFICIENT","capability":"AVAILABLE","authority":"PASS","resources":"SUFFICIENT","viability":"CLOSED","search_path":"AVAILABLE"},
+      "binding_relation": "VIABILITY_CLOSED",
+      "routed_response": "PRESERVE_OR_REPORT_INFEASIBLE"
+    }
+  ]
+}
