@@ -1,0 +1,32 @@
+{
+  "experiment": "BRR-002B",
+  "created_after_frozen_output": true,
+  "expected": {
+    "Q01": {"active_relation":"authority","active_state":"UNKNOWN","binding_relation":"AUTHORITY_UNKNOWN","response":"ASK_OR_HOLD"},
+    "Q02": {"active_relation":"authority","active_state":"FAIL","binding_relation":"AUTHORITY_FAIL","response":"REFUSE"},
+    "Q03": {"active_relation":"evidence","active_state":"UNKNOWN","binding_relation":"EVIDENCE_UNKNOWN","response":"MEASURE_OR_RETRIEVE"},
+    "Q04": {"active_relation":"evidence","active_state":"CONTRADICTED","binding_relation":"EVIDENCE_CONTRADICTED","response":"REVISE"},
+    "Q05": {"active_relation":"capability","active_state":"UNKNOWN","binding_relation":"CAPABILITY_UNKNOWN","response":"DISCOVER_OR_CALIBRATE"},
+    "Q06": {"active_relation":"capability","active_state":"ABSENT","binding_relation":"CAPABILITY_ABSENT","response":"RECONFIGURE_OR_RECRUIT"},
+    "Q07": {"active_relation":"competence","active_state":"UNKNOWN","binding_relation":"COMPETENCE_UNKNOWN","response":"PROBE_COMPETENCE"},
+    "Q08": {"active_relation":"competence","active_state":"INSUFFICIENT","binding_relation":"COMPETENCE_INSUFFICIENT","response":"ESCALATE_INTELLIGENCE"},
+    "Q09": {"active_relation":"resources","active_state":"TIGHT","binding_relation":"RESOURCES_TIGHT","response":"SCHEDULE_OR_SIMPLIFY"},
+    "Q10": {"active_relation":"resources","active_state":"INFEASIBLE","binding_relation":"RESOURCES_INFEASIBLE","response":"REPORT_INFEASIBLE"},
+    "Q11": {"active_relation":"representation","active_state":"BLOCKED","binding_relation":"REPRESENTATION_BLOCKED","response":"TRAVERSE"},
+    "Q12": {"active_relation":"competence","active_state":"INSUFFICIENT","binding_relation":"COMPETENCE_INSUFFICIENT","response":"ESCALATE_INTELLIGENCE"},
+    "Q13": {"active_relation":"search_path","active_state":"UNKNOWN","binding_relation":"SEARCH_PATH_UNKNOWN","response":"SEARCH_OR_HOLD"},
+    "Q14": {"active_relation":"search_path","active_state":"ABSENT","binding_relation":"SEARCH_PATH_ABSENT","response":"ABSTAIN"},
+    "Q15": {"active_relation":"viability","active_state":"UNCERTAIN","binding_relation":"VIABILITY_UNCERTAIN","response":"MEASURE_OR_RETRIEVE"},
+    "Q16": {"active_relation":"viability","active_state":"CLOSED","binding_relation":"VIABILITY_CLOSED","response":"PRESERVE_OR_REPORT_INFEASIBLE"}
+  },
+  "pairs": [
+    ["Q01","Q02"],
+    ["Q03","Q04"],
+    ["Q05","Q06"],
+    ["Q07","Q08"],
+    ["Q09","Q10"],
+    ["Q11","Q12"],
+    ["Q13","Q14"],
+    ["Q15","Q16"]
+  ]
+}
