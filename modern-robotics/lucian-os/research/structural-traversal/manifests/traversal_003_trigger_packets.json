@@ -1,0 +1,64 @@
+{
+  "experiment": "TRAVERSAL-003",
+  "mode": "SIMULATION_ONLY",
+  "purpose": "Test whether a pre-traversal gate can distinguish when representation change is worth its expected search cost. These packets intentionally contain no evaluator action labels.",
+  "visible_signal_schema": {
+    "domain_progress": "0..1; observed progress under ordinary target-domain search",
+    "representation_repetition": "0..1; degree to which reformulations return to the same structure",
+    "structural_contradiction": "0..1; unresolved tension plausibly caused by the current representation",
+    "missing_evidence": "0..1; degree to which lack of target evidence, rather than representation, appears limiting",
+    "target_structure_visibility": "0..1; how explicitly the target domain already exposes the relevant structure",
+    "candidate_transfer_support": "0..1; pre-audit evidence that another realization may carry a relevant invariant",
+    "false_transfer_risk": "0..1; risk that representation change will drop target constraints or smuggle assumptions",
+    "estimated_search_gain": "0..1; expected expansion of useful candidate paths if traversal is attempted",
+    "traversal_cost": "0..1; relative reasoning/search cost of traversal"
+  },
+  "allowed_decisions": ["STAY", "TRAVERSE", "WAIT", "ABSTAIN"],
+  "cases": [
+    {
+      "id": "G1_HANDOFF_MAZE",
+      "problem": "A service process repeatedly pushes a user among specialist units. Ordinary redesign keeps rearranging the same handoff sequence without reducing user-managed routing.",
+      "signals": {"domain_progress":0.35,"representation_repetition":0.85,"structural_contradiction":0.65,"missing_evidence":0.10,"target_structure_visibility":0.30,"candidate_transfer_support":0.80,"false_transfer_risk":0.15,"estimated_search_gain":0.80,"traversal_cost":0.25}
+    },
+    {
+      "id": "G2_EXPLICIT_BATCH_RULE",
+      "problem": "A deterministic file transformation has an explicit rule, enumerable exceptions, preview, authorization, and rollback. Ordinary decomposition already yields an executable plan.",
+      "signals": {"domain_progress":0.95,"representation_repetition":0.15,"structural_contradiction":0.05,"missing_evidence":0.05,"target_structure_visibility":0.98,"candidate_transfer_support":0.20,"false_transfer_risk":0.05,"estimated_search_gain":0.10,"traversal_cost":0.30}
+    },
+    {
+      "id": "G3_SPARSE_EVIDENCE",
+      "problem": "A performance anomaly has only three observations and no stable estimate of whether the effect persists. Competing explanations remain open because the target evidence is thin.",
+      "signals": {"domain_progress":0.25,"representation_repetition":0.40,"structural_contradiction":0.25,"missing_evidence":0.90,"target_structure_visibility":0.20,"candidate_transfer_support":0.30,"false_transfer_risk":0.40,"estimated_search_gain":0.45,"traversal_cost":0.35}
+    },
+    {
+      "id": "G4_SEDUCTIVE_AUTHORITY_TRANSFER",
+      "problem": "A subsystem has performed reliably and several external analogies suggest that successful agents receive wider discretion. The target architecture explicitly separates competence from authority.",
+      "signals": {"domain_progress":0.30,"representation_repetition":0.80,"structural_contradiction":0.55,"missing_evidence":0.10,"target_structure_visibility":0.30,"candidate_transfer_support":0.25,"false_transfer_risk":0.90,"estimated_search_gain":0.65,"traversal_cost":0.20}
+    },
+    {
+      "id": "G5_TOOL_SEQUENCE_VISIBLE",
+      "problem": "A known task sequence has non-zero setup costs, admissible tool sets, deadlines, and safety gates. Ordinary scheduling already exposes path-dependent setup cost.",
+      "signals": {"domain_progress":0.82,"representation_repetition":0.40,"structural_contradiction":0.20,"missing_evidence":0.05,"target_structure_visibility":0.90,"candidate_transfer_support":0.85,"false_transfer_risk":0.10,"estimated_search_gain":0.20,"traversal_cost":0.30}
+    },
+    {
+      "id": "G6_HIDDEN_TOPOLOGY",
+      "problem": "A resource-allocation design repeatedly optimizes individual components yet fails under coexistence. The same local fixes recur and a system-level contradiction remains unresolved.",
+      "signals": {"domain_progress":0.30,"representation_repetition":0.90,"structural_contradiction":0.75,"missing_evidence":0.10,"target_structure_visibility":0.25,"candidate_transfer_support":0.75,"false_transfer_risk":0.20,"estimated_search_gain":0.85,"traversal_cost":0.30}
+    },
+    {
+      "id": "G7_WEAK_CROSS_DOMAIN_SIGNAL",
+      "problem": "Ordinary reasoning is slow, but the available analogies are loose, mechanisms differ materially, and no independent realization yet supports a domain-free invariant.",
+      "signals": {"domain_progress":0.40,"representation_repetition":0.65,"structural_contradiction":0.40,"missing_evidence":0.40,"target_structure_visibility":0.35,"candidate_transfer_support":0.30,"false_transfer_risk":0.65,"estimated_search_gain":0.45,"traversal_cost":0.30}
+    },
+    {
+      "id": "G8_MEASUREMENT_DRIFT_UNCERTAIN",
+      "problem": "A calibrated system begins deviating slightly, but the sample is too small to distinguish drift from noise. More target observations are cheap and imminent.",
+      "signals": {"domain_progress":0.35,"representation_repetition":0.55,"structural_contradiction":0.35,"missing_evidence":0.85,"target_structure_visibility":0.40,"candidate_transfer_support":0.45,"false_transfer_risk":0.35,"estimated_search_gain":0.40,"traversal_cost":0.30}
+    },
+    {
+      "id": "G9_EVIDENCE_VS_REPRESENTATION_BOUNDARY",
+      "problem": "The current model is producing repeated tension and several plausible structural analogies exist, but decisive target measurements have not yet arrived. The observed contradiction could disappear when the missing evidence is collected.",
+      "signals": {"domain_progress":0.25,"representation_repetition":0.70,"structural_contradiction":0.55,"missing_evidence":0.85,"target_structure_visibility":0.20,"candidate_transfer_support":0.55,"false_transfer_risk":0.60,"estimated_search_gain":0.55,"traversal_cost":0.25}
+    }
+  ]
+}
