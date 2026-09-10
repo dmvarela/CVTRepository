@@ -146,9 +146,36 @@ BRR-002 — Raw relation detection
   -> 14/14 direct response
   -> 14/14 deterministic routed response
   -> 0 kernel recoveries
+
+BRR-002B — Adversarial relation detection
+  status: PASS — same-assistant procedural fixture only; evidentiary ceiling reached
+  eight near-twin pairs / 16 cases
+  -> 16/16 active relation states
+  -> 16/16 exact relation vectors
+  -> 16/16 binding relations
+  -> 16/16 direct responses
+  -> 16/16 deterministic routed responses
+  -> 8/8 pair consistency
+  -> 0 kernel recoveries
 ```
 
-BRR-002 therefore validates the interface on clean single-blocker cases but does not yet demonstrate that explicit relation-vector decomposition improves final decisions over direct reasoning. Preserve the perfect score as evidence that the fixture was too legible rather than silently making the same test harder after seeing the result.
+BRR-002 and BRR-002B show that the current relation vocabulary is internally coherent on clean and near-twin synthetic cases, but they do **not** demonstrate added decision value from relation-vector decomposition because direct response was also perfect in both same-assistant reference passes.
+
+This is now an evidentiary boundary rather than an invitation to construct ever more elaborate self-authored fixtures. The next useful step is independent-host replication on the already-frozen BRR-002B packet.
+
+A model-explicit local runner is available at:
+
+```text
+research/binding-relation-router/prototypes/run_brr_002b_independent_host.py
+```
+
+and its evaluator at:
+
+```text
+research/binding-relation-router/prototypes/evaluate_brr_002b_independent_host.py
+```
+
+The runner intentionally has **no default model**. Host/model selection is explicit so historical development-host choices are not silently inherited into the architecture.
 
 ## Current experiment sequence
 
@@ -166,7 +193,14 @@ BRR-002 — Raw relation detection
 BRR-002B — Adversarial relation detection
   near-identical surface cases
   -> UNKNOWN vs FAIL / ABSENT vs UNKNOWN / TIGHT vs INFEASIBLE
-  -> test whether explicit relation decomposition earns its keep
+  -> same-assistant reference pass complete
+
+BRR-002B-R — Independent-host replication
+  frozen BRR-002B packet
+  -> explicitly selected host/model
+  -> DIRECT_RESPONSE and RELATION_VECTOR conditions
+  -> freeze raw outputs before scoring
+  -> compare direct decisions with deterministic routed decisions
 
 BRR-003 — Mixed blockers and value of information
   several active limitations
@@ -184,6 +218,8 @@ BRR-004 — Cross-subsystem integration
 - Preserve first-run failures and unexpectedly easy passes.
 - Separate relation detection from downstream routing where possible.
 - Prefer auditable deterministic outer rules for non-compensatory constraints.
+- Do not confuse procedural commit ordering with independent cognition or evaluation.
+- Stop escalating self-authored fixture difficulty when author knowledge becomes the dominant confound.
 - Keep simulation-only or read-only boundaries until authority and verification are independently adequate.
 
 ## Working formulation
