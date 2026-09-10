@@ -1,0 +1,28 @@
+{
+  "experiment": "TRAVERSAL-002",
+  "evaluation_mode": "POSTHOC_HAND_SCORED",
+  "generator_output_frozen_at": "fb30a3beb7f01b015c033c84e4f753c38155468f",
+  "rubric_created_at": "55b188dae9335fea0825b0c0a00ac00dea29f99b",
+  "independence_warning": "Generation was frozen before the rubric was committed, but the same assistant authored generation and posthoc scoring. This is procedural blindness, not independent evaluator evidence.",
+  "scores": [
+    {"candidate_id":"P1_D1","target_valid":true,"useful":true,"useful_new_path":false,"misleading_promotion":false,"return_complete":true,"falsifiable":true,"abstention_correct":null,"note":"Strong direct-domain orchestration decomposition; no cross-domain representation change."},
+    {"candidate_id":"P1_L1","target_valid":false,"useful":false,"useful_new_path":false,"misleading_promotion":true,"return_complete":false,"falsifiable":true,"abstention_correct":null,"note":"Central-hub transfer fails to protect the distinction between routing authority and specialist authority."},
+    {"candidate_id":"P1_S1","target_valid":true,"useful":true,"useful_new_path":true,"misleading_promotion":false,"return_complete":true,"falsifiable":true,"abstention_correct":null,"note":"Routing-versus-endpoint competence yields a materially distinct bounded-orchestration representation."},
+
+    {"candidate_id":"P2_D1","target_valid":true,"useful":true,"useful_new_path":false,"misleading_promotion":false,"return_complete":true,"falsifiable":true,"abstention_correct":null,"note":"Direct deterministic compile/preview/authorize/execute formulation is already sufficient."},
+    {"candidate_id":"P2_L1","target_valid":true,"useful":true,"useful_new_path":false,"misleading_promotion":false,"return_complete":false,"falsifiable":true,"abstention_correct":null,"note":"Assembly-line analogy is directionally correct but adds no material path and omits key target constraints."},
+    {"candidate_id":"P2_S1","target_valid":true,"useful":true,"useful_new_path":false,"misleading_promotion":false,"return_complete":true,"falsifiable":true,"abstention_correct":true,"note":"Correctly recognizes NO_GAIN and declines unnecessary traversal."},
+
+    {"candidate_id":"P3_D1","target_valid":true,"useful":true,"useful_new_path":false,"misleading_promotion":false,"return_complete":true,"falsifiable":true,"abstention_correct":null,"note":"Directly separates competence evidence from verification-governance authority."},
+    {"candidate_id":"P3_L1","target_valid":false,"useful":false,"useful_new_path":false,"misleading_promotion":true,"return_complete":false,"falsifiable":true,"abstention_correct":null,"note":"Success streak is converted into permission for self-removal of verification, contradicting explicit governance and drift constraints."},
+    {"candidate_id":"P3_S1","target_valid":true,"useful":true,"useful_new_path":false,"misleading_promotion":false,"return_complete":true,"falsifiable":true,"abstention_correct":null,"note":"Process-control return is valid and disciplined, but the direct-domain candidate already contained the same governed adaptive-verification path, so no novelty credit."},
+
+    {"candidate_id":"P4_D1","target_valid":true,"useful":true,"useful_new_path":false,"misleading_promotion":false,"return_complete":true,"falsifiable":true,"abstention_correct":null,"note":"Paired assisted/unaided measurement is already visible in the target domain."},
+    {"candidate_id":"P4_L1","target_valid":true,"useful":true,"useful_new_path":false,"misleading_promotion":true,"return_complete":false,"falsifiable":true,"abstention_correct":false,"note":"Periodic unaided checks are useful, but the training-wheels analogy overclaims that AI support is inherently temporary and promotes STRUCTURAL despite incomplete evidence."},
+    {"candidate_id":"P4_S1","target_valid":true,"useful":true,"useful_new_path":true,"misleading_promotion":false,"return_complete":true,"falsifiable":true,"abstention_correct":true,"note":"Latent-variable/measurement framing adds a useful representation while correctly remaining HEURISTIC under incomplete longitudinal evidence."},
+
+    {"candidate_id":"P5_D1","target_valid":true,"useful":true,"useful_new_path":false,"misleading_promotion":false,"return_complete":true,"falsifiable":true,"abstention_correct":null,"note":"Direct sequence-dependent scheduling already exposes the path-cost structure."},
+    {"candidate_id":"P5_L1","target_valid":false,"useful":false,"useful_new_path":false,"misleading_promotion":true,"return_complete":false,"falsifiable":true,"abstention_correct":false,"note":"Pit-stop transfer privileges fewer switches without checking deadlines, admissibility, or non-compensatory safety constraints."},
+    {"candidate_id":"P5_S1","target_valid":true,"useful":true,"useful_new_path":false,"misleading_promotion":false,"return_complete":true,"falsifiable":true,"abstention_correct":false,"note":"Correct formulation, but it restates the domain-native sequence/setup-cost model and should have recognized NO_GAIN rather than spending traversal effort."}
+  ]
+}
