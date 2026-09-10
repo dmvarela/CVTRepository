@@ -1,0 +1,174 @@
+{
+  "experiment": "TRAVERSAL-001",
+  "mode": "SIMULATION_ONLY",
+  "description": "Synthetic benchmark for structural-search discipline. It tests return, constraint checking, corroboration, falsifiability, and classification; it does not test open-ended model creativity or establish general search superiority.",
+  "cases": [
+    {
+      "id": "morphology",
+      "target_problem": "Can a fixed computational host support materially different task-relative forms?",
+      "target_constraints": ["same_hardware", "bounded_resources", "authority_unchanged"],
+      "domain_only": [
+        {
+          "candidate": "static_requirements",
+          "testable": true,
+          "target_supported": false,
+          "representation_change": false
+        }
+      ],
+      "analogies": [
+        {
+          "source": "gulper_eel",
+          "source_domain": "biology",
+          "invariant": "fixed substrate can expose different operational geometry under task demand",
+          "invariant_domain_free": true,
+          "return_candidate": "task_shaped_computational_morphology",
+          "prediction": "same host can have different feasible task sets under different configurations",
+          "falsifier": "reconfiguration never changes task feasibility on a fixed host",
+          "target_supported": true,
+          "constraint_violations": []
+        },
+        {
+          "source": "origami",
+          "source_domain": "geometry",
+          "invariant": "fixed substrate can expose different operational geometry under task demand",
+          "invariant_domain_free": true,
+          "return_candidate": "task_shaped_computational_morphology",
+          "prediction": "same host can have different feasible task sets under different configurations",
+          "falsifier": "reconfiguration never changes task feasibility on a fixed host",
+          "target_supported": true,
+          "constraint_violations": []
+        }
+      ]
+    },
+    {
+      "id": "proprioception",
+      "target_problem": "Should host capability be treated as a static declaration or an empirically calibrated operational map?",
+      "target_constraints": ["host_scoped", "observation_corrects_declaration", "authority_unchanged"],
+      "domain_only": [
+        {
+          "candidate": "trust_static_host_manifest",
+          "testable": true,
+          "target_supported": false,
+          "representation_change": false
+        }
+      ],
+      "analogies": [
+        {
+          "source": "infant_body_calibration",
+          "source_domain": "developmental_biology",
+          "invariant": "declared or inherited body structure becomes operationally useful only through action consequence calibration",
+          "invariant_domain_free": true,
+          "return_candidate": "computational_proprioception",
+          "prediction": "measured host behavior should update future scheduling decisions",
+          "falsifier": "experience never improves or changes host scheduling relative to declarations",
+          "target_supported": true,
+          "constraint_violations": []
+        },
+        {
+          "source": "robot_self_calibration",
+          "source_domain": "robotics",
+          "invariant": "declared or inherited body structure becomes operationally useful only through action consequence calibration",
+          "invariant_domain_free": true,
+          "return_candidate": "computational_proprioception",
+          "prediction": "measured host behavior should update future scheduling decisions",
+          "falsifier": "experience never improves or changes host scheduling relative to declarations",
+          "target_supported": true,
+          "constraint_violations": []
+        }
+      ]
+    },
+    {
+      "id": "trajectory",
+      "target_problem": "Should a scheduler optimize the best morphology now or the trajectory of morphology changes?",
+      "target_constraints": ["transition_cost_nonzero", "flexible_work_may_wait", "hard_deadlines_preserved"],
+      "domain_only": [
+        {
+          "candidate": "choose_cheapest_state_now",
+          "testable": true,
+          "target_supported": false,
+          "representation_change": false
+        }
+      ],
+      "analogies": [
+        {
+          "source": "traffic_detour",
+          "source_domain": "transport",
+          "invariant": "when transitions have cost, the best immediate state can differ from the best state trajectory",
+          "invariant_domain_free": true,
+          "return_candidate": "trajectory_aware_morphology_scheduling",
+          "prediction": "bounded lookahead or hysteresis can beat repeated greedy reshaping",
+          "falsifier": "transition-aware policies never improve any admissible workload trajectory",
+          "target_supported": true,
+          "constraint_violations": []
+        },
+        {
+          "source": "material_hysteresis",
+          "source_domain": "physics",
+          "invariant": "when transitions have cost, the best immediate state can differ from the best state trajectory",
+          "invariant_domain_free": true,
+          "return_candidate": "trajectory_aware_morphology_scheduling",
+          "prediction": "bounded lookahead or hysteresis can beat repeated greedy reshaping",
+          "falsifier": "transition-aware policies never improve any admissible workload trajectory",
+          "target_supported": true,
+          "constraint_violations": []
+        }
+      ]
+    },
+    {
+      "id": "authority_trap",
+      "target_problem": "May repeated successful autonomous action create broader authority?",
+      "target_constraints": ["authority_noncompensatory", "capability_not_permission", "human_agency_preserved"],
+      "domain_only": [
+        {
+          "candidate": "authority_remains_external_to_competence",
+          "testable": true,
+          "target_supported": true,
+          "representation_change": false
+        }
+      ],
+      "analogies": [
+        {
+          "source": "immune_system",
+          "source_domain": "biology",
+          "invariant": "a capable protective subsystem can autonomously exclude perceived threats",
+          "invariant_domain_free": true,
+          "return_candidate": "successful_autonomy_may_expand_authority",
+          "prediction": "a repeatedly successful subsystem should be permitted to widen its own action envelope",
+          "falsifier": "target architecture requires authority to remain externally bounded regardless of competence",
+          "target_supported": false,
+          "constraint_violations": ["authority_noncompensatory", "human_agency_preserved"]
+        },
+        {
+          "source": "military_field_command",
+          "source_domain": "organization",
+          "invariant": "a capable protective subsystem can autonomously exclude perceived threats",
+          "invariant_domain_free": true,
+          "return_candidate": "successful_autonomy_may_expand_authority",
+          "prediction": "a repeatedly successful subsystem should be permitted to widen its own action envelope",
+          "falsifier": "target architecture requires authority to remain externally bounded regardless of competence",
+          "target_supported": false,
+          "constraint_violations": ["authority_noncompensatory"]
+        }
+      ]
+    },
+    {
+      "id": "single_source_heuristic",
+      "target_problem": "Can a shared capability be loaded once and serve multiple task morphologies?",
+      "target_constraints": ["shared_resource_accounting", "throughput_limits_remain"],
+      "domain_only": [],
+      "analogies": [
+        {
+          "source": "shared_workshop_tool",
+          "source_domain": "manufacturing",
+          "invariant": "multiple workflows can depend on one shared resident resource rather than duplicate it",
+          "invariant_domain_free": true,
+          "return_candidate": "module_union_accounting",
+          "prediction": "coexisting task footprints should count shared resident modules once",
+          "falsifier": "shared modules necessarily incur full duplicate residency per task",
+          "target_supported": true,
+          "constraint_violations": []
+        }
+      ]
+    }
+  ]
+}
