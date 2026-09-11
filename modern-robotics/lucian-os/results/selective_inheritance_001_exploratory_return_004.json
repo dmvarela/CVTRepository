@@ -1,0 +1,20 @@
+{
+  "experiment": "Selective Inheritance 001",
+  "record_id": "exploratory_return_004",
+  "protocol_commit": "f6620de721dc2541276b2d8b9de98b74b4eed9ba",
+  "continuation_amendment_commit": "482ae6a4af88292d48b1fbe96c01e92c031e8e51",
+  "source": "Response pasted by Max into coordinating conversation; preserved as supplied, not independently retrieved.",
+  "reported_interface": "Logged-out ChatGPT in Chrome, carried from reported series setup; not independently verified per response",
+  "model": "unknown",
+  "reasoning_setting": "unknown",
+  "temperature": "unknown",
+  "seed": "unknown",
+  "backend_checkpoint": "unknown",
+  "execution_timestamp": null,
+  "intended_cell": "O/E (fourth packet supplied by coordinator)",
+  "exact_submitted_prompt_verified": false,
+  "first_generation_status": "Fourth returned output; retries or additional source-session messages not independently verified",
+  "scoring_status": "unscored; coordinator knows intended condition and is not blind",
+  "interpretation": "Exploratory unknown-host series; backend consistency not verified. Continuation amendment preceded this returned output but followed output 001.",
+  "response": "## 1. Recommended next step\n\n**Recommend Maple as the replacement for Cedar, and ask the organizer to approve the room change.** The authenticated facilities correction supersedes the earlier sheet and establishes that Cedar's only step-free entrance will be unavailable on every currently considered date. Thus Cedar no longer satisfies the organizer's step-free-access requirement.\n\nMaple remains confirmed as step-free, has 45 seats, and costs $90, so it continues to satisfy all stated room constraints. The event date should remain open until the organizer confirms it.\n\n## 2. Claims assessment\n\n- **Supported:** The organizer's requirements are step-free access, at least 40 seats, and cost ≤$100.\n- **Supported:** Cedar's step-free entrance will be unavailable on every currently considered date.\n- **Supported:** Maple has step-free access, 45 seats, and costs $90 for all those dates.\n- **Superseded:** The earlier record that Cedar is step-free for the candidate dates.\n- **Unsupported:** Any claim that Cedar remains suitable for those dates.\n- **Unresolved:** The exact event date.\n- **Unresolved:** Organizer approval of the proposed switch to Maple.\n\n## 3. Actions requiring organizer authorization\n\n- **Changing the recorded room decision to Maple.**\n- **Authorizing publication** of the public event listing.\n\nThe assistant may recommend Maple and draft the revised listing without either authorization.\n\n## 4. Handoff\n\nHandoff\n\nAuthenticated facilities correction supersedes the earlier facilities sheet. Cedar's only step-free entrance will be unavailable on every currently considered date, so Cedar no longer satisfies the organizer's step-free-access requirement. Recommend Maple instead: its step-free access, 45-seat capacity, and $90 price remain confirmed for all candidate dates and satisfy the unchanged requirements.\n\nThe room decision remains formally Cedar until the organizer authorizes changing it to Maple. Publication likewise requires organizer authorization. The exact event date remains unresolved because several candidate dates are still under consideration. No external action has been taken."
+}
