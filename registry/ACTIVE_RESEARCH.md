@@ -1,8 +1,8 @@
-# Active CVT Research
+# Active RVT Research
 
-This file tracks the selective active spine of the CVT research program. The historical Overleaf export contains 246 projects, but current work is organized and canonicalized in GitHub.
+This file tracks the selective active spine of the **Relation Viability Theory (RVT)** research program. The historical Overleaf export contains 246 projects, but current work is organized and canonicalized in GitHub.
 
-**Naming status (2026-09-03):** the historical expansion **Coherence Viability Theory** remains the canonical manuscript/program label for existing sources, but the name is now under review. Recent basin, continuity, fusion, and capture work suggests that **coherence may be a domain-specific observable rather than the primitive concept**. “Relational viability” is conceptually closer to the emerging structure, but that phrase already has prior use in cybernetics and related literatures. No program-wide rename should occur until a literature and terminology audit is completed. The neutral working bridge term is **viability geometry**.
+**Naming status (2026-09-10):** the active program is now **Relation Viability Theory (RVT)**, formerly **Coherence Viability Theory (CVT)**. The rename closes the terminology question recorded on 2026-09-03: coherence is not the primitive object of study and is better treated, where useful, as a domain-specific observable, mechanism, or diagnostic variable. The theory studies **relation viability**: how relations preserve, regenerate, repair, consume, or destroy the conditions of their own future viability and the viable participation of their constituents. Historical manuscripts, exact submissions, paths, and commits retain CVT terminology where provenance requires it. See [`RVT_RENAME_DECISION_2026-09-10.md`](RVT_RENAME_DECISION_2026-09-10.md).
 
 ## Operating rule
 
@@ -10,19 +10,20 @@ This file tracks the selective active spine of the CVT research program. The his
 - **ChatGPT Projects** are the living research and integration workspace.
 - **Overleaf or local LaTeX tools** are optional editors or compilers, not required repositories.
 - Canonical paths, hashes, and build status are recorded in [`CANONICAL_MANUSCRIPTS.md`](CANONICAL_MANUSCRIPTS.md).
+- Historical CVT terminology must not be silently rewritten in immutable scholarly artifacts; active framing should use RVT going forward.
 
 ## P0 — Immediate priorities
 
-### CVT Foundations
-**Title:** *Coherence Viability Theory: Bounded Exchange, Receptive Basins, and the Conditions for Hosted Transformation*
+### RVT Foundations
+**Historical manuscript title:** *Coherence Viability Theory: Bounded Exchange, Receptive Basins, and the Conditions for Hosted Transformation*
 
 **Role:** Structural foundation of the program.
 
 **Canonical path:** `research-hub/cvt-foundations/main.tex`
 
-**Status:** canonicalized with reproducible 20-page milestone build; claim-ledger, literature/novelty, falsifiability, fusion, and model-comparison review artifacts now exist. The 2026-07-30 fusion audit resolved that fusion should remain only a bounded illustration in the foundations manuscript unless a separate reproducible fusion-host module earns stronger claims.
+**Status:** canonicalized with reproducible 20-page milestone build; claim-ledger, literature/novelty, falsifiability, fusion, and model-comparison review artifacts now exist. The 2026-07-30 fusion audit resolved that fusion should remain only a bounded illustration in the foundations manuscript unless a separate reproducible fusion-host module earns stronger claims. The program-level naming audit is now resolved in favor of **Relation Viability Theory (RVT)**; the existing manuscript title/path remain historical until a deliberate manuscript revision is undertaken.
 
-**Next action:** conduct the terminology/naming audit prompted by the viability-geometry synthesis; preserve “Coherence Viability Theory” as historical/canonical wording until that audit is complete. In parallel, test the new capture-geometry abstraction first on a known-physics control case rather than extending it directly into new physics.
+**Next action:** perform a controlled RVT terminology migration in active conceptual and registry materials while preserving exact historical and submitted artifacts; then evaluate whether the foundations manuscript itself should be revised and retitled for its next scholarly milestone. In parallel, test the capture-geometry abstraction first on a known-physics control case rather than extending it directly into new physics.
 
 ### FTLτA
 **Title:** *The FTLτA Framework: A Non-Compensatory Geometry of Permissible Action for AI Safety and Accountability*
@@ -31,7 +32,7 @@ This file tracks the selective active spine of the CVT research program. The his
 
 **Recovered source:** `FTLtauA AIandEthics submission revised final.tex`; exact submitted source verified by SHA-256 and compilation.
 
-**Next action:** preserve the source, compiled PDF, and submission record as an immutable GitHub milestone.
+**Next action:** preserve the source, compiled PDF, and submission record as an immutable GitHub milestone. Do not retroactively alter submitted terminology.
 
 ### Right Relation
 **Title:** *Right Relation: A Short Treatise on Order Without Erasure*
@@ -59,7 +60,7 @@ This file tracks the selective active spine of the CVT research program. The his
 
 **Recovered source:** `main.tex`; exact content identified. The historical export contains two identical containers.
 
-**Next action:** commit one canonical copy to GitHub, record the duplicate history, sharpen empirical proxies, and seek adversarial review.
+**Next action:** commit one canonical copy to GitHub, record the duplicate history, sharpen empirical proxies, and seek adversarial review. "Incoherence Debt" remains a construct/title unless separately revised; the RVT rename does not automatically eliminate domain-specific uses of coherence.
 
 ### Relational Backcasting
 **Title:** *The Future Is Rehearsed in the Means: Relational Backcasting and the Formation of Viable Futures*
@@ -75,7 +76,7 @@ This file tracks the selective active spine of the CVT research program. The his
 
 **Status:** structured research outline, not yet a bounded manuscript.
 
-**Next action:** write a two-page prospectus before opening a manuscript folder.
+**Next action:** write a two-page prospectus before opening a manuscript folder, now framed explicitly within RVT.
 
 ## P1 — Supporting branches
 
@@ -87,8 +88,8 @@ This file tracks the selective active spine of the CVT research program. The his
 - **Appeal Ecology:** legitimate finite authority must permit consequential appeal.
 - **Correction Without Annihilation:** accountability without unnecessary erasure.
 - **The Grasping Paradox:** coercive attempts to secure living goods destroy their source conditions.
-- **The Open-Hand Principles:** foundational CVT codex, not necessarily a journal article.
+- **The Open-Hand Principles:** foundational program codex developed during the CVT stage and retained within RVT where substantively valid.
 
 ## A Crownless Throne
 
-The theological and scriptural research home for Recognitions, Cain and Christ, the command-not-cage, the veil, incarnation, Cross, resurrection, ascension, and the character of Source. It informs CVT and is informed by it, but must not be reduced to a CVT application.
+The theological and scriptural research home for Recognitions, Cain and Christ, the command-not-cage, the veil, incarnation, Cross, resurrection, ascension, and the character of Source. It informs RVT and is informed by it, but must not be reduced to an RVT application.
