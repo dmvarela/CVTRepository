@@ -1,28 +1,57 @@
-# CVT Migration Rules
+# RVT Migration Rules
 
 ## 1. Naming history
 
-Some early manuscripts use **Unified Resonance Framework (URF)**. URF was a provisional label, not a predecessor theory.
+The research program has used three principal labels during its development:
 
-> The research existed first. URF temporarily named it. As the work became more precise, **Coherence Viability Theory (CVT)** became the accurate name.
+1. **Unified Resonance Framework (URF)** — an early provisional label, not a predecessor theory.
+2. **Coherence Viability Theory (CVT)** — the substantive program name used while the theory's center of gravity was being clarified.
+3. **Relation Viability Theory (RVT)** — adopted on 2026-09-10 as the active program name after determining that coherence is not the primitive object of study.
 
-Therefore, classify manuscripts by substantive content rather than by the label they carry.
+The governing principle is:
 
-## 2. Migration categories
+> **The research existed before each label. Names should track the object actually being studied, while historical artifacts retain truthful provenance.**
+
+RVT studies how relations reshape the conditions of their own future viability. Coherence may remain a domain-specific observable, mechanism, or construct, but it is no longer the concept that names the entire program.
+
+The formal naming decision is recorded in [`RVT_RENAME_DECISION_2026-09-10.md`](RVT_RENAME_DECISION_2026-09-10.md).
+
+Therefore, classify manuscripts by substantive content and scholarly status rather than by the label they carry.
+
+## 2. Terminology migration rule
+
+Use **RVT / Relation Viability Theory** in new program-level writing.
+
+Do **not** mechanically replace every occurrence of CVT or coherence.
+
+Preserve older terminology when it is historically or substantively correct, including:
+
+- exact submitted manuscripts;
+- published or archived versions;
+- historical decision notes and commits;
+- legacy canonical paths needed for reproducibility;
+- specific constructs whose names genuinely involve coherence, such as **Incoherence Debt**, unless those constructs are separately revised.
+
+Where an active document is revised from CVT to RVT, record the change in Git history and avoid implying that the earlier terminology never existed.
+
+## 3. Migration categories
 
 ### Migrate directly
-The manuscript is substantively CVT and mainly needs terminology or notation updates. Preserve the original history and move the revised source into its active GitHub branch.
+The manuscript is substantively RVT and mainly needs terminology or notation updates. Preserve the original history and move the revised source into its active GitHub branch or next milestone.
 
 ### Revise before migration
-The manuscript contains viable CVT insights alongside unsupported or obsolete framing. Isolate the defensible argument, revise it under CVT, and retain the original in the archive.
+The manuscript contains viable RVT insights alongside unsupported, obsolete, or coherence-dependent framing. Isolate the defensible argument, revise it under RVT, and retain the original in the archive or Git history.
+
+### Retain as historical CVT
+The manuscript or note accurately records the CVT stage of development and should remain unchanged for provenance, even if a later RVT formulation supersedes its program-level terminology.
 
 ### Retain as adjacent work
-The manuscript explores a subject whose relation to canonical CVT remains unproven. Preserve it without presenting it as established CVT.
+The manuscript explores a subject whose relation to canonical RVT remains unproven. Preserve it without presenting it as established RVT.
 
 ### Archive
 The manuscript duplicates another project, no longer represents the research, or cannot be responsibly supported in its present form. Preserve it as history but do not use it as evidence for current claims.
 
-## 3. Canonical-source rule
+## 4. Canonical-source rule
 
 Every active manuscript must identify one current source of truth:
 
@@ -40,7 +69,7 @@ Meaningful milestones should be preserved by tag, release, or immutable mileston
 - revised manuscript;
 - published version.
 
-## 4. Project architecture
+## 5. Project architecture
 
 - **ChatGPT Project** = conversational research and integration workspace.
 - **GitHub manuscript folder** = canonical source, bibliography, figures, metadata, and build instructions.
@@ -51,7 +80,9 @@ Meaningful milestones should be preserved by tag, release, or immutable mileston
 
 Each manuscript has one canonical GitHub home even when it influences several research branches.
 
-## 5. Manuscript-folder standard
+Legacy `cvt-` folder names may remain temporarily when renaming them would break canonical paths, build instructions, citations, or historical traceability. New paths should prefer `rvt-` where a clean migration is possible and useful.
+
+## 6. Manuscript-folder standard
 
 Each active manuscript folder should contain, as applicable:
 
@@ -64,15 +95,15 @@ Each active manuscript folder should contain, as applicable:
 
 Do not maintain competing files named `final`, `final2`, or `new final`. Use Git history, tags, and registry entries.
 
-## 6. Theological register
+## 7. Theological register
 
-**A Crownless Throne** is the theological and scriptural research project. It must not be reduced to a mere application of CVT. The traffic is bidirectional:
+**A Crownless Throne** is the theological and scriptural research project. It must not be reduced to a mere application of RVT. The traffic is bidirectional:
 
-> scriptural recognition ↔ relational principle ↔ CVT formulation
+> scriptural recognition ↔ relational principle ↔ RVT formulation
 
 Distinguish theological, philosophical, structural, and empirical claims when preparing academic work.
 
-## 7. Duplicate handling
+## 8. Duplicate handling
 
 1. Compare source content, not only project names.
 2. Identify the newest meaningful manuscript, not merely the newest export date.
