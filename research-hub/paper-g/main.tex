@@ -1,0 +1,202 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{microtype}
+
+\title{Reproductive Breadth: Capability Migration, Recombination, and Development in Changing Production Networks}
+\author{Daniel Varela Ar\'evalo}
+\date{Working draft --- 12 September 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This paper develops a network account of development centered on the fate of productive capability under structural change. Firm exit, sectoral decline, frontier-sector growth, export growth, and aggregate output are individually insufficient to distinguish productive transformation from productive erosion. The central claim is that development depends on an economy's capacity to reproduce, recombine, and propagate productive capability through changing configurations. We introduce the concept of \emph{reproductive breadth}: the extent to which economically consequential capabilities are embedded in viable relations that regenerate capability through time. The framework distinguishes productive supersession, in which capability migrates from declining configurations into viable successors, from basin erosion, in which embodied capability disperses faster than new reproductive structures form. This distinction yields a stronger condition for creative destruction: exit is developmentally improving only when transferable capability can migrate and recombine with new complements at sufficient reproductive value. The paper also identifies a two-clock problem between short market-survival horizons and long capability-formation horizons, and distinguishes frontier growth from reproductive-frontier propagation. Argentina's simultaneous effort to commercialize accumulated nuclear capabilities around the RA-10 reactor and contraction in covered employer units provides a motivating, not dispositive, case. The empirical program is to trace workers, productive assets, supplier relationships, technical routines, institutions, and successor firms after exit in order to distinguish restructuring from de-accretion.
+\end{abstract}
+
+\section{Introduction}
+
+Development debates often treat the survival or disappearance of firms and sectors as if these outcomes carried an unambiguous sign. One view emphasizes discipline: inefficient firms must be allowed to fail so that labour and capital can move toward more productive uses. Another emphasizes productive structure: premature exposure may destroy firms, suppliers, skills, and institutions that are costly to rebuild. Both positions identify real mechanisms. Neither firm survival nor firm exit is, by itself, a sufficient statistic for development.
+
+The missing object is the fate of \emph{capability} when productive configurations change.
+
+A firm can disappear while much of what it learned survives: workers move to successor firms, managers found new enterprises, machinery is redeployed, suppliers find new clients, technical routines migrate, and institutions continue to train specialized people. In such a case, destruction of the original organizational form can be consistent with productive supersession. Conversely, a firm can disappear and leave behind unemployment, deskilling, scrapped equipment, broken supplier relations, loss of certification and routines, emigration of specialized workers, and permanent substitution by imports. In that case, resources have been released but productive capability may have been destroyed.
+
+This paper therefore proposes a different development criterion:
+
+\begin{quote}
+\textbf{Development is the expansion of an economy's capacity to reproduce, recombine, and propagate productive capability through a changing network of relations.}
+\end{quote}
+
+The corresponding state variable is not the number of incumbent firms, the survival of a particular sector, or aggregate output alone. We call it \emph{reproductive breadth}: the extent to which productive capability is embedded in viable relations that can reproduce capability through time and across changing organizational configurations.
+
+This produces a sharper interpretation of creative destruction. Destruction is not development merely because assets and workers become available for alternative use. Development requires that enough of the capability embodied in the old configuration can migrate, recombine, or be reconstituted in successor configurations. The distinction is between
+\[
+\text{destruction} \rightarrow \text{recombination} \rightarrow \text{higher reproductive capacity}
+\]
+and
+\[
+\text{destruction} \rightarrow \text{dispersion} \rightarrow \text{basin erosion}.
+\]
+
+The theory also allows a country to contain frontier technological nodes while its wider productive ecology thins. A sophisticated sector can be locally viable, technologically complex, and internationally competitive without generating broad domestic reproductive embedding. Aggregate supercriticality therefore need not imply broad reproductive development.
+
+Argentina provides a useful motivating contrast. In September 2026, officials described the RA-10 multipurpose nuclear reactor as a platform for radioisotope production, silicon doping, materials testing, and research, with a proposed commercial structure designed to scale production while preserving CNEA's research role. The project sits within a nuclear ecosystem accumulated over decades across CNEA, INVAP, technical institutes, engineering teams, laboratories, suppliers, and international projects. At nearly the same moment, official labour-risk-system data reported a net decline in covered employer/productive units alongside industrial weakness. These observations do not establish either successful transformation or developmental failure. They pose the paper's question in unusually concrete form: can expanding frontier capabilities reproduce a sufficiently broad network of new relations to outrun the erosion of declining ones?
+
+The paper makes four contributions. First, it separates productive configuration from productive capability and models exit as a transformation of a capability network rather than simple node deletion. Second, it defines reproductive breadth and distinguishes frontier-node growth from reproductive-frontier propagation. Third, it introduces capability migration and recombination as the condition that separates productive supersession from basin erosion. Fourth, it identifies a two-clock problem: advanced capabilities may require continuity over horizons much longer than ordinary market-survival or financing horizons, creating a role for institutions that preserve transferable capability without freezing incumbent positions.
+
+\section{From Productive Configurations to Capability Networks}
+
+Let the productive economy at time $t$ be represented by a directed weighted graph
+\[
+G_t=(V_t,E_t),
+\]
+where nodes represent productive configurations or capability-bearing units and edges represent economically consequential complementarities, learning flows, supplier-customer relations, labour-skill transfer, institutional support, or other relations relevant to capability reproduction.
+
+Each node $i\in V_t$ carries a capability vector
+\[
+q_i(t)\in\mathbb{R}_+^K.
+\]
+The central distinction is between the identity of a productive configuration and the capabilities currently embodied in it. A firm or sector may disappear while some components of $q_i$ remain transferable.
+
+For an exiting configuration $i$, let
+\[
+T_{i\to j}(q_i)
+\]
+denote the capability transmitted to successor configuration $j$. Transfer may occur through worker movement, entrepreneurship, redeployed capital equipment, supplier reorientation, organizational routines, certification, intellectual property, financing relationships, or institutions. Capability not transferred, maintained in latent recoverable form, or regenerated is treated as de-accreted.
+
+This formulation allows exit to be represented as a network transformation operator rather than as simple deletion of $i$.
+
+\section{Reproductive Capacity and Reproductive Breadth}
+
+A productive node matters developmentally not merely because it produces output today, but because it participates in relations capable of regenerating productive capability tomorrow.
+
+Let $\mathcal{R}_t\subseteq V_t$ denote the set of nodes that belong to at least one viable capability-reproduction path or strongly connected component under the relevant technological, financial, human-capital, and institutional constraints. A provisional measure of reproductive breadth is
+\[
+RB_t = \frac{\sum_{i\in\mathcal{R}_t}\omega_i}{\sum_{i\in V_t}\omega_i},
+\]
+where $\omega_i$ is a theoretically and empirically justified weight. Candidate weights include employment, value added, complexity, strategic option value, or a composite measure. The substantive claim does not depend on this exact index; the empirical construction of $RB_t$ is an open task.
+
+The key implication is that two economies with similar GDP, exports, or measured complexity may differ sharply in how broadly productive capability is embedded in self-renewing relations.
+
+\subsection{Frontier nodes and reproductive frontiers}
+
+A frontier node is a high-capability or high-productivity activity. A \emph{reproductive frontier} is a frontier node whose expansion generates durable capability cycles in a widening neighborhood, for example
+\[
+\text{projects}\rightarrow\text{learning}\rightarrow\text{people/suppliers}
+\rightarrow\text{harder projects}\rightarrow\text{expanded capability}\rightarrow\text{new projects}.
+\]
+
+This distinction permits frontier growth without reproductive embedding. A country can experience strong growth in mining, energy, agriculture, finance, or a technological niche while domestic supplier, labour, and institutional relations weaken elsewhere.
+
+\section{Capability Migration and Productive Supersession}
+
+Let $X_t$ be a set of exiting configurations and $Y_{t+1}$ the set of successor configurations receiving or recombining capability. Let $RV(q)$ denote the reproductive value of capability vector $q$: its contribution to future viable capability reproduction, not merely its current market value. Let $L_T$ denote transition losses.
+
+A candidate condition for productive supersession is
+\[
+\sum_{j\in Y_{t+1}} RV\!\left(q_j^{\mathrm{inherited}}+q_j^{\mathrm{new}}\right)-L_T
+>
+\sum_{i\in X_t} RV\!\left(q_i^{\mathrm{lost}}\right).
+\]
+
+This expression is intentionally provisional. Its purpose is to make explicit what ordinary ``resource reallocation'' language leaves implicit: released resources need not preserve the capability embodied in their previous organization.
+
+We distinguish four regimes:
+
+\begin{enumerate}
+    \item \textbf{Productive supersession}: declining configurations disappear while enough capability migrates and recombines into higher-value reproductive structures.
+    \item \textbf{Neutral churn}: entry and exit occur with little persistent change in reproductive capacity.
+    \item \textbf{Basin erosion}: productive relations disappear and embodied capability disperses faster than successor structures form.
+    \item \textbf{Entrenched preservation}: incumbents survive despite weak contribution to future reproductive capacity because policy or political capture prevents reconfiguration.
+\end{enumerate}
+
+The framework therefore rejects the symmetric errors that all exit is healthy discipline or that all survival is developmentally valuable.
+
+\section{The Playing Field: Exit, Entry, Mobility, Recombination}
+
+A developmentally useful playing field supports four operations:
+\[
+\text{exit}+\text{entry}+\text{mobility}+\text{recombination}.
+\]
+Exit prevents indefinite preservation of nonviable configurations. Entry allows new configurations to form. Mobility permits people, capital, knowledge, and organizational resources to leave obsolete structures. Recombination allows inherited capability to couple with new complements instead of repeatedly starting from zero.
+
+The corresponding institutional principle is:
+
+\begin{quote}
+\textbf{Stable rules, contestable positions, transferable capability.}
+\end{quote}
+
+This formulation separates support for the persistence of productive capability from support for the persistence of incumbent firms.
+
+\section{Two Clocks}
+
+Let $\tau_m$ denote the relevant market-survival or financing horizon and $\tau_c$ the horizon required to form and reproduce a productive capability. For some advanced activities,
+\[
+\tau_c \gg \tau_m.
+\]
+
+This creates a two-clock problem. Institutions may improve development when they allow capability formation to span horizons that ordinary financing, demand shocks, or organizational turnover cannot sustain. But such bridging institutions can also become mechanisms of incumbent preservation. The theoretical problem is therefore to characterize when long-horizon continuity preserves transferable capability and when it merely shields nonviable configurations.
+
+This is not a general argument for permanent protection. It is a demand to distinguish capability formation from incumbent survival.
+
+\section{Empirical Strategy: Restructuring or Erosion?}
+
+The proposed empirical test is to follow the fate of capability released by shrinking or exiting firms and sectors. Relevant outcomes include worker transitions by occupation, wage, industry, formality, and geography; duration until re-employment; new-firm formation by former workers and managers; redeployment or scrapping of machinery; survival of supplier and customer relations; continuity of technical teams and certifications; changes in local establishment density; substitution of formerly domestic intermediate inputs by imports; persistence of specialized training pipelines; and the time required to reconstitute lost capabilities.
+
+A transition is more consistent with recombination when displaced capability appears in viable successor configurations. It is more consistent with erosion when capability exits the productive network through prolonged non-employment, unrelated informality, deskilling, emigration, scrapping, supplier disappearance, or persistent import replacement without domestic capability formation.
+
+Argentina is a motivating case rather than a predetermined verdict. RA-10 illustrates accumulated capability and attempted propagation. Contraction in covered employer units and industrial activity indicates stress. The central empirical question is where labour, capital, knowledge, suppliers, and organizational routines released by shrinking activities actually go.
+
+\section{Relationship to Paper F}
+
+Paper F studies
+\[
+\text{activation}\rightarrow\text{capability accumulation}\rightarrow\text{graduation}
+\rightarrow\text{unsupported viability}\rightarrow\text{generativity}
+\rightarrow\text{supersession/de-accretion}.
+\]
+
+This paper begins at that boundary and moves to system scale:
+\[
+\text{exit/change}\rightarrow\text{capability migration}\rightarrow\text{recombination}
+\rightarrow\text{reproductive breadth}\rightarrow\text{development trajectory}.
+\]
+
+Paper F asks whether a productive relation can graduate and what survives its exit. Paper G asks whether the economy becomes better at reusing what it learns.
+
+\section{Research Agenda and Falsification Targets}
+
+The framework must survive at least five hostile tests. First, reproductive breadth must add information beyond economic complexity, related variety, production-network centrality, and input-output density. Second, broad networks cannot be presumed desirable: dense low-productivity traps are possible, so viability and quality must enter the measure. Third, international embedding must be treated as a potentially valid reproductive relation rather than as evidence of domestic incompleteness. Fourth, capability migration must be measurable enough to distinguish supersession from erosion. Fifth, the two-clock problem must identify a specific coordination or financing failure before it can support an institutional intervention.
+
+The empirical and formal development of these tests is the next stage of the paper.
+
+\section{Conclusion}
+
+Development is not the preservation of today's firms, nor the celebration of their disappearance. It is not the existence of isolated frontier sectors, and it is not adequately summarized by aggregate output. The relevant question is whether productive capability survives structural change by migrating, recombining, and entering new self-reproducing relations.
+
+The strongest version of the claim is therefore simple:
+
+\begin{quote}
+\textbf{Development succeeds when an economy becomes better at reusing what it learns.}
+\end{quote}
+
+\begin{thebibliography}{9}
+
+\bibitem{ambitoRA10}
+\emph{Reactor RA-10 y exportaci\'on de bienes y servicios: Ramos Napoli detall\'o la estrategia de la pol\'itica nuclear}, \emph{\'Ambito}, 11 September 2026.\\
+\url{https://www.ambito.com/energia/reactor-ra-10-y-exportacion-bienes-y-servicios-ramos-napoli-detallo-la-estrategia-la-politica-nuclear-n6321328}
+
+\bibitem{cneaRA10}
+Comisi\'on Nacional de Energ\'ia At\'omica, \emph{El RA-10 se pondr\'a en marcha en 2027 con un modelo de producci\'on de radiois\'otopos con inversi\'on privada}, 4 September 2026.\\
+\url{https://www.argentina.gob.ar/noticias/el-ra-10-se-pondra-en-marcha-en-2027-con-un-modelo-de-produccion-de-radioisotopos-con}
+
+\bibitem{ambitoFirms}
+\emph{Cierre de empresas: en el primer semestre de 2026 se destruyeron casi 8.800 compa\~n\'ias}, \emph{\'Ambito}, 11 September 2026.\\
+\url{https://www.ambito.com/economia/cierre-empresas-el-primer-semestre-2026-se-destruyeron-casi-8800-companias-n6320900}
+
+\end{thebibliography}
+
+\end{document}
