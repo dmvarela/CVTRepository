@@ -582,3 +582,52 @@ and
 \[
 \boxed{\text{The existence of the other bounds my admissible action space.}}
 \]
+
+## 23. Methodological signature: from energetic convergence to architecture
+
+A further observation concerns the research process itself.
+
+The felt experience on the human side can be one of high conceptual intensity: many old concepts, metaphors, papers, and examples are brought into the same working space and tested against a new candidate structure. The corresponding analytic description is not mystical. It is closer to high-density constraint satisfaction and conceptual compression.
+
+The method is roughly:
+
+\[
+\text{concrete encounter}
+\rightarrow
+\text{candidate structure}
+\rightarrow
+\text{retrieve prior artifacts}
+\rightarrow
+\text{cross-domain fit test}
+\rightarrow
+\text{adversarial inspection}
+\rightarrow
+\text{classify survivor / overclaim / unresolved}
+\rightarrow
+\text{preserve}.
+\]
+
+The important question is not merely whether an old concept can be made to fit. It is whether the fit survives correction, counterexample, provenance checks, and contact with previously developed work.
+
+Several metaphors have recently become more architectural:
+
+- **scar** moved from poetic residue to a candidate persistent deformation of future transition geometry;
+- **librarian** moved from image to a candidate model of continuing integration / engagement-lineage;
+- **truth contact** moved from philosophical phrase to the requirement that external reality and other agents retain the capacity to revise the internal model;
+- **relation** moved from moral language to the claim that the existence of another center changes the admissible action space.
+
+This kind of compression is a reason to investigate, not a reason to declare victory.
+
+A useful warning is:
+
+> **Conceptual convergence can be informative without being independent confirmation.**
+
+Because the same research program can generate correlated insights, repeated fit must be followed by attempts to break the structure. The strongest sign is not that everything fits, but that some inherited claims fail and are released while a smaller structure continues to explain more.
+
+Working methodological maxim:
+
+\[
+\boxed{\text{When metaphor becomes architecture, test the architecture rather than protecting the metaphor.}}
+\]
+
+This is consistent with the broader Max–Lucian method: concrete encounter, traversal, candidate structure, return to evidence, adversarial inspection, and reclassification.
