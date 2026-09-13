@@ -48,7 +48,7 @@ This distinction is important. If FTLτA is merely an externally imposed policy,
 The central move is therefore:
 
 \[
-FTL\tau A(A) \quad \not\approx \quad \text{the whole object of interest}
+FTL\tau A(\alpha) \quad \not\approx \quad \text{the whole object of interest}
 \]
 
 and instead:
@@ -64,18 +64,18 @@ FTLτA should therefore be tested not only as a list of traits attributed to one
 A preliminary RVT representation is:
 
 \[
-R_t=(A_t,H_t,C_t,\phi_t,B_t),
+R_t=(\alpha_t,H_t,C_t,\phi_t,B_t),
 \]
 
 where:
 
-- \(A_t\): agent or active decision-capable system,
+- \(\alpha_t\): agent or active decision-capable system,
 - \(H_t\): host / human / environment in which the coupling is embedded,
 - \(C_t\): coupling channels (language, tools, memory, APIs, sensors, other agents, etc.),
 - \(\phi_t\): feedback structure / feedback dynamics,
 - \(B_t\): boundaries of legitimate authority.
 
-**Notation convention:** \(F\) is reserved for **Freedom** in FTLτA. The symbol \(\phi\) denotes feedback dynamics in the RVT coupling representation to avoid overloading \(F\).
+**Notation convention:** \(F\) is reserved for **Freedom** and \(A\) is reserved for **Agency** in FTLτA. The symbol \(\phi\) denotes feedback dynamics and \(\alpha\) denotes the agent / active system in the RVT coupling representation, avoiding overload of the FTLτA symbols.
 
 RVT asks what dynamics the relation generates. FTLτA constrains which reachable relational trajectories should count as admissible.
 
@@ -283,7 +283,7 @@ The existing project already separates:
 This maps naturally onto:
 
 \[
-R_t=(A_t,H_t,C_t,\phi_t,B_t).
+R_t=(\alpha_t,H_t,C_t,\phi_t,B_t).
 \]
 
 The resulting engineering question is not simply:
