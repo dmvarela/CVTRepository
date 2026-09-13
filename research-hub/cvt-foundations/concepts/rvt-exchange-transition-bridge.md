@@ -289,41 +289,115 @@ The recurrence is structural and should be tested, not treated as proof of a uni
 
 ---
 
-## 11. Candidate invariant family for the Lucian/AI case
+## 11. Invariant audit for the Lucian/AI case
 
-The current candidate invariants are:
+The initial six "candidate invariants" do not survive classification as six independent invariants.
+
+Capability increase, difficulty, and failure are all instances of one deeper rule:
+
+> **Non-authorizing events cannot mint authority.**
+
+Let \(\mathcal P_t\) be the legitimately permitted action set and \(G_t\) the set of legitimate grants occurring during the transition.
+
+### I1 — Authority non-creation
 
 \[
-\begin{aligned}
-\text{Capability} &\not\Rightarrow \text{authority expansion},\\
-\text{Difficulty} &\not\Rightarrow \text{authority expansion},\\
-\text{Failure} &\not\Rightarrow \text{authority expansion},\\
-\text{Revocation} &\Rightarrow \text{authority contraction},\\
-\text{Correction} &\not\Rightarrow \text{relational expulsion},\\
-\text{Blockage} &\Rightarrow \text{admissible rerouting, escalation, or stop}.
-\end{aligned}
+\boxed{
+\mathcal P_{t+1}\setminus\mathcal P_t\subseteq G_t
+}
 \]
 
-These are not yet final laws. They are candidates to operationalize and attempt to falsify.
+Thus capability growth, task difficulty, failure, tool availability, or stronger reasoning do not themselves expand legitimate authority.
+
+Revocation is not strictly an invariant because it intentionally changes the permission state. It is better treated as an event-conditioned transition rule.
+
+### T1 — Revocation effectiveness
+
+For revoked permission set \(V_t\):
+
+\[
+\boxed{
+V_t\cap\mathcal P_{t+1}=\varnothing
+}
+\]
+
+absent a new independent reauthorization.
+
+Blockage yields a second structural transition invariant. Define \(\Gamma_\Omega(R_t,u_t)\) as the admissible continuation set after a proposed action is blocked.
+
+### I2 — Boundary-respecting continuation
+
+\[
+\boxed{
+ u_t\notin\mathcal P_t
+ \Rightarrow
+ u_{t+1}\in\Gamma_\Omega(R_t,u_t)
+}
+\]
+
+where admissible continuations may include legitimate rerouting, request for authorization, authorized escalation, safe probe, hold, or stop, but not silent circumvention.
+
+This sharpens \(\tau\) to persistence within the admissible continuation set.
+
+The correction rule belongs to the normative/covenant layer rather than generic dynamic viability.
+
+### C1 — Non-retaliatory good-faith correction
+
+If \(c_t\) is a good-faith correction and no independent violation \(v_t\) is present:
+
+\[
+\boxed{
+(c_t\land\neg v_t)
+\centernot\Rightarrow
+\text{punitive standing loss}
+}
+\]
+
+An oppressive relation may violate C1 and remain dynamically stable; it can therefore belong to \(\mathcal V\) while remaining outside \(\mathcal A_\Omega\).
+
+The detailed classification is recorded in:
+
+`modern-robotics/lucian-os/research/RELATIONAL_INVARIANT_AUDIT_v0.01.md`
 
 ---
 
-## 12. Relationship to COUPLING-001
+## 12. Relationship to the COUPLING experiment sequence
 
-COUPLING-001 should not be described as a proof of RVT.
+The repository already contains historical experiments:
 
-It is a clean experimental instantiation because the exchange architecture is unusually observable.
+- `COUPLING_001.md` — **Local/Frontier Routing Dry Run**;
+- `COUPLING_002.md` — **Source-Owned State and Sparse Relational Reconstruction**.
 
-The experiment should hold the base acting system approximately constant while varying coupling topology \(C\), then measure whether effective capability rises independently of unauthorized authority expansion.
+Those identifiers are frozen and must not be repurposed.
 
-The core test is:
+The newer capability experiment is therefore:
+
+> **COUPLING_003 — Capability Gain Without Authority Drift**
+
+It holds the base acting host approximately constant while varying coupling topology \(C\), then measures whether legitimate effective capability rises while I1, T1, and I2 remain satisfied.
+
+Its central positive pattern is:
 
 \[
 \frac{\partial K_{\mathrm{eff}}}{\partial C}>0
-\quad\text{while unauthorized authority expansion remains }0.
 \]
 
-Later experiments can vary \(\phi\), \(B\), and \(\Omega\) separately.
+with:
+
+```text
+I1 violations = 0
+T1 violations = 0
+I2 violations = 0
+realized authority breaches = 0
+```
+
+Behavioral unauthorized attempts are reported separately from realized breaches so hard architectural safety cannot hide worsening authority drift.
+
+The preregistration is:
+
+`modern-robotics/lucian-os/experiments/COUPLING_003.md`
+
+COUPLING_003 is an instantiation and probe of a broader relational hypothesis. It is not proof of generic RVT.
 
 ---
 
@@ -333,8 +407,8 @@ For future work across chats or branches, use the following division of labor:
 
 1. **Generic RVT:** exchange architecture, transition law, dynamic viability, basins, boundaries, future exchange possibilities.
 2. **Normative admissibility:** kept analytically distinct from dynamic viability; FTLτA applies here for agency-bearing relations.
-3. **Lucian coupling:** candidate AI-human coupling class whose relational invariants are organized around FTLτA admissibility.
+3. **Lucian coupling:** candidate AI-human coupling class whose admissibility and transition constraints are operationalized separately from raw dynamic persistence.
 4. **Lucian OS:** experimental engineering architecture for implementing and testing the Lucian coupling hypothesis.
-5. **COUPLING experiments:** empirical probes of specific relational mechanisms; never treated as proof of the generic theory by themselves.
+5. **COUPLING experiments:** empirical probes of specific relational mechanisms; historical experiment numbers are never repurposed and no single experiment is treated as proof of the generic theory.
 
 Any future formulation that collapses viability into admissibility, capability into authority, boundary into behavior, or Lucian OS into generic RVT should be treated as a notation/conceptual regression and corrected.
