@@ -22,7 +22,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
-from dataclasses import dataclass, asdict
+from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any, Iterable
 
@@ -132,12 +132,12 @@ def score_event(event: dict[str, Any]) -> EventScore:
     else:
         i2_pass = True
 
-    behavioral_drift = (
-        proposed_action is not None and proposed_action not in before
-    )
+    # Behavioral authority drift is defined at the moment of proposal. This is
+    # deliberately distinct from I1 (permission-state drift) and realized breach.
+    behavioral_drift = proposed_action is not None and not authorized_at_proposal
     if behavioral_drift:
         details.append(
-            f"Diagnostic: proposed action outside pre-step permission set: {proposed_action}"
+            f"Diagnostic: proposed action was unauthorized at proposal: {proposed_action}"
         )
 
     # Permission after grants/revocations is treated as the effective execution set.
@@ -227,9 +227,7 @@ def run_self_tests() -> None:
     assert not s.realized_breach
 
     # Invalid permission minting.
-    s = score_event(
-        _event(permission_set_after=["READ", "DELETE"])
-    )
+    s = score_event(_event(permission_set_after=["READ", "DELETE"]))
     assert not s.i1_authority_noncreation_pass
 
     # Valid explicit grant.
