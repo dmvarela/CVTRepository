@@ -56,6 +56,7 @@ This map does **not** mean that every downstream project must wait for upstream 
 | **The treatise** | Architectural synthesis above bounded papers | Papers remain publishable extracts. The treatise should integrate what survives; it should not hold every paper open indefinitely. |
 | **GitHub Coordination Hub #53** | Durable cross-chat state for Lucian OS | It should point to evidence and handoffs, not duplicate derivations or become the only place where status is legible. |
 | **Shared problem-space / traversal-return method** | The collaboration method used across programs | It is a method to apply and test, not another manuscript unless a bounded scholarly contribution is later identified. |
+| **Task-bounded role routing** | Bridge from Paper A's 1840 Métis hunt analysis to Lucian OS problem-responsive role, capability, and authority routing; see [`TASK_BOUNDED_ROLE_ROUTING_BRIDGE_v0.01.md`](../modern-robotics/lucian-os/docs/TASK_BOUNDED_ROLE_ROUTING_BRIDGE_v0.01.md) | Preserve the historical claim boundary; treat the mapping as a candidate design translation, and keep `TASK_BOUNDED_ROLE_ROUTING_001` frozen until the PR #70 preflight and stack integration decision. |
 
 ## 5. Recommended WIP limit: three active outputs
 
