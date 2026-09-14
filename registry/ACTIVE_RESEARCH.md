@@ -12,6 +12,35 @@ This file tracks the selective active spine of the **Relation Viability Theory (
 - Canonical paths, hashes, and build status are recorded in [`CANONICAL_MANUSCRIPTS.md`](CANONICAL_MANUSCRIPTS.md).
 - Historical CVT terminology must not be silently rewritten in immutable scholarly artifacts; active framing should use RVT going forward.
 
+## Portfolio operating state — 2026-09-14
+
+The research program now sits inside a larger connected portfolio. The canonical cross-program map is [`PORTFOLIO_ATLAS.md`](PORTFOLIO_ATLAS.md).
+
+### Active Delivery — WIP limit: three outputs
+
+Only three outputs should be treated as actively deliverable at one time:
+
+1. **JR Shaw School of Business AI concept note** — finish the bounded decision document for the associate deans. This institutional artifact is tracked here only as a portfolio dependency; its working documents need not live in this research repository.
+2. **Lucian OS integrated MVP evidence** — perform the exact read-only preflight for PR #70 at frozen head `da2295d669acc9d9b14f9eb6584f48b881429413`, then decide how to consolidate the diverged stacked PR family. No new implementation rung should open before that decision.
+3. **RVT-MIN-001** — freeze parameters and build the preregistered minimal simulator for the same-shock comparison, `H -> R` ablation, and augmented-state baseline.
+
+### Next
+
+- Paper F v0.3 hostile review and reproducible two-pass build.
+- Minimum AI-literacy course architecture derived from *Your AI and You*.
+- Spanish-edition publication pass.
+- Financial Compass scenario-coach repair and privacy-preserving pilot specification.
+- First fully discriminating FTLτA search-geometry study.
+
+### Portfolio holds
+
+- **New Lucian OS PRs:** paused until the existing stack receives an integration decision.
+- **CVT Foundations Stage 5.1B generation:** hold pending a relevance audit against the current RVT theoretical object. The prior authorization to generate 24,000 development rows remains part of the historical protocol, but should not be exercised automatically after the RVT reframing.
+- **Recovered-manuscript migration:** retained as a scheduled maintenance sprint, not a set of simultaneous research obligations.
+- **New veins:** capture in the Incubator unless one of the three active outputs explicitly leaves Active Delivery.
+
+This operating state is a reversible allocation decision, not a ranking of scholarly value. The P0/P1 entries below remain the detailed scholarly inventory and provenance record; they do not override the portfolio WIP limit.
+
 ## P0 — Immediate priorities
 
 ### RVT Foundations
@@ -23,7 +52,7 @@ This file tracks the selective active spine of the **Relation Viability Theory (
 
 **Status:** canonicalized with reproducible 20-page milestone build; claim-ledger, literature/novelty, falsifiability, fusion, and model-comparison review artifacts now exist. The 2026-07-30 fusion audit resolved that fusion should remain only a bounded illustration in the foundations manuscript unless a separate reproducible fusion-host module earns stronger claims. The program-level naming audit is now resolved in favor of **Relation Viability Theory (RVT)**; the existing manuscript title/path remain historical until a deliberate manuscript revision is undertaken.
 
-**Next action:** perform a controlled RVT terminology migration in active conceptual and registry materials while preserving exact historical and submitted artifacts; then evaluate whether the foundations manuscript itself should be revised and retitled for its next scholarly milestone. In parallel, test the capture-geometry abstraction first on a known-physics control case rather than extending it directly into new physics.
+**Next action:** execute `RVT-MIN-001` first: freeze parameters and build the preregistered minimal simulator before adding another general theory note. Preserve the controlled terminology migration and known-physics control-case agenda, but hold Stage 5.1B generation until its relevance to the current RVT object is explicitly audited.
 
 ### FTLτA
 **Title:** *The FTLτA Framework: A Non-Compensatory Geometry of Permissible Action for AI Safety and Accountability*
