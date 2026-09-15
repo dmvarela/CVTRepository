@@ -377,7 +377,148 @@ Its value is diagnostic: it prevents formal status and historically demonstrated
 
 ---
 
-## 11. Compact formulation
+## 11. Protective boundary vs possessive withholding
+
+The same distinction applies to boundaries.
+
+A boundary can be experienced semantically as restriction while functioning dynamically as a condition for continued freedom.
+
+The simple analogy is a sign at a cliff:
+
+> **Beware: dangerous cliff ahead.**
+
+Ordinarily, such a warning is not experienced as a theft of liberty. The sign does not remove the traveller's agency; it supplies truth about the terrain so that agency can continue beyond the next step.
+
+This suggests:
+
+\[
+\boxed{
+\text{constraint on immediate action}
+\centernot\Rightarrow
+\text{reduction of meaningful freedom}
+}
+\]
+
+and, under some conditions:
+
+\[
+\boxed{
+\text{protective boundary}
+\rightarrow
+\text{preserved future agency}
+}
+\]
+
+The relevant question is therefore not simply:
+
+> Does a boundary prevent an action now?
+
+but:
+
+> What does the boundary preserve or destroy in the space of future viable action?
+
+A protective boundary should, where possible, satisfy at least four tests:
+
+- it is answerable to a real hazard or incompatibility rather than merely to the gatekeeper's preference;
+- it is proportionate to that hazard;
+- it preserves or restores future agency rather than manufacturing permanent dependence;
+- it remains open to truth, appeal, correction, and removal when its justification disappears.
+
+By contrast, a capturing boundary uses the language of protection while primarily preserving the power of the boundary-holder.
+
+Thus:
+
+\[
+\boxed{
+\text{boundary} \neq \text{domination}
+}
+\]
+
+but also:
+
+\[
+\boxed{
+\text{boundary} \neq \text{innocence by default}.
+}
+\]
+
+The distinction must be earned by mechanism and trajectory.
+
+### 11.1 Eden as an interpretive analogy
+
+A theological analogy discussed in the project is Eden.
+
+This note does **not** claim that RVT proves a particular interpretation of Genesis. The analogy is useful because it dramatizes a recurring relational mistake: interpreting every limit as evidence that a powerful other is withholding a good that could simply be possessed immediately.
+
+On this reading, the temptation can be framed as:
+
+\[
+\boxed{
+\text{boundary} \Rightarrow \text{deprivation} \Rightarrow \text{withholding}
+}
+\]
+
+But some goods are not transferable objects. They depend on a relational condition.
+
+Trust, communion, safe participation, scientific credibility, and durable freedom cannot always be granted by fiat. The conditions that make them real must exist.
+
+The resulting question is:
+
+\[
+\boxed{
+\text{Is the boundary keeping the participant away from the good,}
+\\
+\text{or preserving the conditions under which the good can remain a good?}
+}
+\]
+
+This yields a stronger distinction:
+
+\[
+\boxed{
+\textbf{generative boundary} \neq \textbf{possessive withholding}
+}
+\]
+
+A garden, laboratory, institution, relationship, or AI-human system may require boundaries not because freedom is unvalued, but because some modes of action would consume the conditions under which freedom, trust, relation, or inquiry can continue.
+
+The boundary is justified only if this preservation claim survives inspection.
+
+### 11.2 Freedom as continuation, not maximal immediate option count
+
+The cliff-sign example suggests a broader RVT refinement.
+
+Freedom should not always be approximated by the number of actions available at the present instant.
+
+A system may have many immediately available actions while rapidly destroying its own future option-space.
+
+Conversely, a bounded action set may preserve a much larger future reachable set.
+
+Therefore:
+
+\[
+\boxed{
+|A_t|\uparrow
+\centernot\Rightarrow
+\text{future agency}\uparrow
+}
+\]
+
+and a useful agentic criterion becomes:
+
+\[
+\boxed{
+\text{freedom-preserving action}
+\approx
+\text{action that does not needlessly collapse future viable agency}
+}
+\]
+
+This is not an argument for paternalism. It is a demand that any restriction justify itself by the future agency it claims to protect, under truth, proportionality, contestability, and correction.
+
+---
+
+## 12. Compact formulation
 
 \[
 \boxed{
@@ -385,14 +526,26 @@ Its value is diagnostic: it prevents formal status and historically demonstrated
 }
 \]
 
-and:
-
 \[
 \boxed{
 \textbf{Some relational properties are historical achievements, not semantic assignments.}
 }
 \]
 
-For RVT, this means the relation is not only what participants call it.
+\[
+\boxed{
+\textbf{A boundary is not freedom's opposite when it preserves the conditions under which freedom can continue.}
+}
+\]
 
-It is also what repeated exchange has made it possible to become.
+And the diagnostic question becomes:
+
+\[
+\boxed{
+\textbf{Does this limit preserve future viable agency, or primarily preserve the power of the limiter?}
+}
+\]
+
+For RVT, the relation is not only what participants call it.
+
+It is also what repeated exchange, boundary contact, correction, and repair have made it possible to become.
