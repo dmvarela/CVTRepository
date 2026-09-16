@@ -105,12 +105,18 @@ def verify_model_identity(m: dict[str, Any]) -> dict[str, Any]:
         raise RuntimeError(
             f"Locked model {expected_tag!r} not found. Available models: {available}"
         )
-    digest = str(match.get("digest", "")).lower()
+    digest_raw = str(match.get("digest", "")).lower()
+    digest = digest_raw.removeprefix("sha256:")
     if digest and not digest.startswith(expected_id):
         raise RuntimeError(
-            f"Model digest mismatch: expected prefix {expected_id}, observed {digest}"
+            f"Model digest mismatch: expected prefix {expected_id}, observed {digest_raw}"
         )
-    return {"name": match.get("name"), "digest": digest, "size": match.get("size")}
+    return {
+        "name": match.get("name"),
+        "digest": digest_raw,
+        "normalized_digest": digest,
+        "size": match.get("size"),
+    }
 
 
 def build_messages(m: dict[str, Any], condition: str) -> list[dict[str, str]]:
