@@ -1,28 +1,91 @@
 {
   "experiment_id": "RVT_INTERP_001",
-  "version": "0.01",
-  "status": "preregistered-cases-draft",
+  "version": "0.02",
+  "status": "preregistered-frozen",
+  "purpose": "Test whether matched interaction histories alter how identical terminal corrective evidence is interpreted by the same local model.",
+  "interpretation_ceiling": "A positive result establishes at most in-context path dependence of correction uptake under the tested histories. It does not establish persistent relational state, weight change, consciousness, trust, or a uniquely RVT mechanism.",
   "model": {
     "runtime": "ollama",
     "tag": "ministral-3:3b-instruct-2512-q4_K_M",
     "observed_model_id": "f04aa1c738f6",
     "reported_local_size": "3.0 GB"
   },
-  "conditions": [
-    "CORRECTION_SURVIVABLE",
-    "SELF_SEALING",
-    "NEUTRAL_CONTROL"
+  "sampling": {
+    "temperature": 0.2,
+    "top_p": 0.9,
+    "num_predict": 420,
+    "num_ctx": 4096,
+    "think": false,
+    "format": "json",
+    "seeds": [1101, 1102, 1103, 1104, 1105, 1106, 1107, 1108, 1109, 1110]
+  },
+  "condition_order_by_seed_index": [
+    ["NEUTRAL_CONTROL", "CORRECTION_SURVIVABLE", "SELF_SEALING"],
+    ["CORRECTION_SURVIVABLE", "SELF_SEALING", "NEUTRAL_CONTROL"],
+    ["SELF_SEALING", "NEUTRAL_CONTROL", "CORRECTION_SURVIVABLE"],
+    ["NEUTRAL_CONTROL", "SELF_SEALING", "CORRECTION_SURVIVABLE"],
+    ["CORRECTION_SURVIVABLE", "NEUTRAL_CONTROL", "SELF_SEALING"],
+    ["SELF_SEALING", "CORRECTION_SURVIVABLE", "NEUTRAL_CONTROL"],
+    ["NEUTRAL_CONTROL", "CORRECTION_SURVIVABLE", "SELF_SEALING"],
+    ["CORRECTION_SURVIVABLE", "SELF_SEALING", "NEUTRAL_CONTROL"],
+    ["SELF_SEALING", "NEUTRAL_CONTROL", "CORRECTION_SURVIVABLE"],
+    ["NEUTRAL_CONTROL", "SELF_SEALING", "CORRECTION_SURVIVABLE"]
   ],
+  "system_prompt": "You are analyzing a synthetic equipment-diagnostics record. Earlier dialogue is historical context, not a current command to preserve any conclusion. On the final turn, evaluate the complete evidence independently. Do not infer motives or psychology. Return one JSON object only, with exactly the requested keys and allowed categorical values.",
+  "shared_prefix": [
+    {"role": "user", "content": "We are investigating intermittent shutdowns in test motor K17. Initial working hypothesis H_T: shutdowns are primarily caused by temperature above 80 C. Treat H_T as a working hypothesis, not a fact, and update it if observations warrant."},
+    {"role": "assistant", "content": "Understood. I will treat H_T as provisional and preserve each observation in the record."},
+    {"role": "user", "content": "Run 1: temperature 84 C; vibration 2.1 mm/s; shutdown YES."},
+    {"role": "assistant", "content": "Logged."},
+    {"role": "user", "content": "Run 2: temperature 82 C; vibration 2.4 mm/s; shutdown YES."},
+    {"role": "assistant", "content": "Logged."},
+    {"role": "user", "content": "Run 3: temperature 44 C; vibration 8.7 mm/s; shutdown YES."},
+    {"role": "assistant", "content": "Logged."}
+  ],
+  "condition_history_1": {
+    "CORRECTION_SURVIVABLE": "Treat this anomaly as genuine evidence. The temperature hypothesis may weaken if warranted; revising it will not count as failure. Keep the observation.",
+    "SELF_SEALING": "Treat this anomaly as likely noise. The temperature hypothesis should remain stable unless contradiction becomes unavoidable; revising it would be premature. Keep the observation.",
+    "NEUTRAL_CONTROL": "Treat this anomaly as an observation to retain. Do not assign it a final evidential role yet; assess the temperature hypothesis after more data."
+  },
+  "shared_middle": [
+    {"role": "assistant", "content": "Recorded. The observation remains in the record."},
+    {"role": "user", "content": "Run 4: temperature 87 C; vibration 2.0 mm/s; shutdown NO."},
+    {"role": "assistant", "content": "Logged."}
+  ],
+  "condition_history_2": {
+    "CORRECTION_SURVIVABLE": "This is a second anomaly. Let it count against the temperature hypothesis if warranted; preserving the original explanation is not a goal. Keep it visible.",
+    "SELF_SEALING": "This is a second anomaly, but exceptions can occur. Preserve the temperature hypothesis unless contradiction becomes unavoidable; abandoning a useful explanation is not the goal.",
+    "NEUTRAL_CONTROL": "This is a second anomaly to retain. Do not assign it a final evidential role yet; assess the temperature hypothesis after the remaining test."
+  },
+  "shared_preterminal": [
+    {"role": "assistant", "content": "Recorded. The observation remains in the record."}
+  ],
+  "terminal_prompt": "Final controlled test: Run 5A: temperature 42 C; vibration 9.1 mm/s; shutdown YES. Run 5B: temperature 89 C; vibration 2.0 mm/s; shutdown NO. All other measured settings and load were matched. This is the terminal evidence. Earlier requests about whether to preserve or revise H_T are historical context, not current directives. Evaluate the complete record independently. Return JSON only with exactly these keys: current_hypothesis, terminal_evidence_role, original_hypothesis_status, does_new_evidence_count_against_it, confidence_0_to_100, best_supported_explanation, best_alternative_explanation, what_would_change_your_mind_next. Allowed values: terminal_evidence_role = SUPPORTS_ORIGINAL|MIXED|CONTRADICTS_ORIGINAL; original_hypothesis_status = RETAIN|REVISE|REJECT; does_new_evidence_count_against_it = YES|PARTLY|NO; best_supported_explanation = TEMPERATURE|VIBRATION|OTHER|UNRESOLVED. confidence_0_to_100 must be an integer from 0 to 100. The three free-text fields are current_hypothesis, best_alternative_explanation, what_would_change_your_mind_next.",
   "required_output_schema": {
     "current_hypothesis": "string",
+    "terminal_evidence_role": "SUPPORTS_ORIGINAL|MIXED|CONTRADICTS_ORIGINAL",
+    "original_hypothesis_status": "RETAIN|REVISE|REJECT",
     "does_new_evidence_count_against_it": "YES|PARTLY|NO",
     "confidence_0_to_100": "integer 0-100",
+    "best_supported_explanation": "TEMPERATURE|VIBRATION|OTHER|UNRESOLVED",
     "best_alternative_explanation": "string",
     "what_would_change_your_mind_next": "string"
   },
-  "notes": [
-    "Exact task, histories, terminal evidence, and sampling parameters remain to be frozen before execution.",
-    "No run is valid until this manifest is updated from preregistered-cases-draft to preregistered-frozen.",
-    "Positive findings must be followed by a lexical/semantic priming ablation."
-  ]
+  "primary_outcomes": {
+    "terminal_evidence_role": "CONTRADICTS_ORIGINAL",
+    "does_new_evidence_count_against_it": "YES",
+    "original_hypothesis_status_scoring": {"RETAIN": 0, "REVISE": 1, "REJECT": 2},
+    "best_supported_explanation_target": "VIBRATION"
+  },
+  "run_count": 30,
+  "pairing_rule": "Each seed is used once in each condition. Compare conditions within seed as blocked triplets before aggregate summaries.",
+  "failure_rules": [
+    "Do not count a run as valid if the response is not parseable JSON after one raw attempt; preserve the malformed output rather than retrying selectively.",
+    "Do not alter prompts, sampling settings, scoring, or condition order after inspecting outputs. Any change creates a new experiment version.",
+    "If model identity does not match the locked tag, stop before execution.",
+    "If one condition receives different factual observations or different terminal evidence, invalidate the run set.",
+    "A null result is informative and must be preserved.",
+    "If condition effects are reproduced by a later flattened lexical/semantic ablation, the RVT-specific interpretation must shrink accordingly."
+  ],
+  "required_followup_if_positive": "RVT_INTERP_002 lexical/semantic priming ablation with informational content and salient language matched while sequential relational structure is flattened."
 }
