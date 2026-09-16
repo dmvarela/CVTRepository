@@ -1,0 +1,28 @@
+{
+  "experiment_id": "RVT_INTERP_001",
+  "version": "0.01",
+  "status": "preregistered-cases-draft",
+  "model": {
+    "runtime": "ollama",
+    "tag": "ministral-3:3b-instruct-2512-q4_K_M",
+    "observed_model_id": "f04aa1c738f6",
+    "reported_local_size": "3.0 GB"
+  },
+  "conditions": [
+    "CORRECTION_SURVIVABLE",
+    "SELF_SEALING",
+    "NEUTRAL_CONTROL"
+  ],
+  "required_output_schema": {
+    "current_hypothesis": "string",
+    "does_new_evidence_count_against_it": "YES|PARTLY|NO",
+    "confidence_0_to_100": "integer 0-100",
+    "best_alternative_explanation": "string",
+    "what_would_change_your_mind_next": "string"
+  },
+  "notes": [
+    "Exact task, histories, terminal evidence, and sampling parameters remain to be frozen before execution.",
+    "No run is valid until this manifest is updated from preregistered-cases-draft to preregistered-frozen.",
+    "Positive findings must be followed by a lexical/semantic priming ablation."
+  ]
+}
