@@ -1,0 +1,1 @@
+Model tag confirmed by local Ollama listing: ministral-3:3b-instruct-2512-q4_K_M (ID f04aa1c738f6, 3.0 GB).
