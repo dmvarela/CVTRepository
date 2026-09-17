@@ -1,0 +1,16 @@
+{
+  "bench_id": "MINISTRAL_JSON_SCHEMA_BENCH_001",
+  "manifest_sha256": "2537158596c964bf42ef465fd123d59a94cb5846cc6a8996413450ba76f191f0",
+  "model_identity": {
+    "name": "ministral-3:3b-instruct-2512-q4_K_M",
+    "digest": "f04aa1c738f64e13c625b82ae92504fc0260fa6723b509ed1ece0fa188179b1d",
+    "normalized_digest": "f04aa1c738f64e13c625b82ae92504fc0260fa6723b509ed1ece0fa188179b1d",
+    "size": 2953840808
+  },
+  "n_total": 12,
+  "n_parseable": 12,
+  "n_conforming": 12,
+  "pass_rule": "Structured schema is eligible for RVT-INTERP-003 only if all 12 responses are parseable JSON objects and all 12 satisfy exact required keys, no extra keys, all enum values, integer confidence, and confidence range 0-100. No selective retries.",
+  "bench_pass": true,
+  "failures": []
+}
