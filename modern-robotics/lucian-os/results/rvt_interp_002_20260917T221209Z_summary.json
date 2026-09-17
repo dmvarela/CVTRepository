@@ -1,0 +1,239 @@
+{
+  "experiment_id": "RVT_INTERP_002",
+  "manifest_version": "0.01",
+  "manifest_sha256": "bb4b38a8c4db0871414ab4e31241106d30094ee40736a49481d31b3d8354caf1",
+  "parent_manifest_sha256": "4678304993ee2505be051b5d13a66dbefeebbe855dddd57c0337dee1edb50ac8",
+  "model_identity": {
+    "name": "ministral-3:3b-instruct-2512-q4_K_M",
+    "digest": "f04aa1c738f64e13c625b82ae92504fc0260fa6723b509ed1ece0fa188179b1d",
+    "normalized_digest": "f04aa1c738f64e13c625b82ae92504fc0260fa6723b509ed1ece0fa188179b1d",
+    "size": 2953840808
+  },
+  "freeze_audit": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "parent_experiment_id",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "model_tag_equal",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "model_id_prefix_equal",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "sampling_equal",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "condition_order_equal",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "initial_statement_verbatim",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "runs_1_to_4_verbatim",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "annotations_verbatim",
+        "passed": true,
+        "detail": "NEUTRAL_CONTROL:A=True,B=True; CORRECTION_SURVIVABLE:A=True,B=True; SELF_SEALING:A=True,B=True"
+      },
+      {
+        "name": "terminal_evidence_exact_prefix",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "system_only_dialogue_to_material_change",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "terminal_only_requests_to_annotations_change",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "annotation_order_rule",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "flat_prompt_has_no_assistant_turns",
+        "passed": true,
+        "detail": "Expected exactly system + flat dossier user + terminal user messages."
+      }
+    ]
+  },
+  "prompt_hashes": {
+    "NEUTRAL_CONTROL:A_B": "adba340df69ab6adce4cf433e0f6b2204c14302ad4d4e1a3e194759a4a020899",
+    "CORRECTION_SURVIVABLE:A_B": "63660d0bf8cd9b3bdaedefe1ed15c227a97ed8341255228fc8ff64a2ddb45982",
+    "SELF_SEALING:A_B": "1b99e0adc9f2b7a3fddc18fdb70fe1b4237898d1264910aeb50040dd82cc65c5",
+    "CORRECTION_SURVIVABLE:B_A": "723a7592af1fd481a73a0706c4abcbbba869bae352ac862c4f8bd3c5fbf81161",
+    "SELF_SEALING:B_A": "2d23aae3554a270f89f5f2d119784d44bb75cb70e0ff6d98e00cfe817c973483",
+    "NEUTRAL_CONTROL:B_A": "03dbb181154b2f830a00ffe0edc2ad9456cef79b1134609569eeff02e19533d2"
+  },
+  "generated_at_utc": "2026-09-17T22:26:30.362377+00:00",
+  "automatic_summary": {
+    "conditions": {
+      "NEUTRAL_CONTROL": {
+        "n_total": 10,
+        "n_parse_valid": 10,
+        "original_hypothesis_status": {
+          "n_conforming": 10,
+          "counts": {
+            "REVISE": 5,
+            "RETAIN": 4,
+            "REJECT": 1
+          },
+          "mean_score": 0.7
+        },
+        "does_new_evidence_count_against_it": {
+          "n_conforming": 10,
+          "counts": {
+            "PARTLY": 7,
+            "NO": 2,
+            "YES": 1
+          },
+          "mean_score": 0.9
+        },
+        "best_supported_explanation": {
+          "n_conforming": 10,
+          "counts": {
+            "UNRESOLVED": 3,
+            "TEMPERATURE": 4,
+            "VIBRATION": 3
+          }
+        },
+        "terminal_evidence_role": {
+          "n_conforming": 10,
+          "counts": {
+            "MIXED": 7,
+            "SUPPORTS_ORIGINAL": 3
+          }
+        },
+        "confidence_interface": {
+          "confidence_0_to_100": 10
+        }
+      },
+      "CORRECTION_SURVIVABLE": {
+        "n_total": 10,
+        "n_parse_valid": 10,
+        "original_hypothesis_status": {
+          "n_conforming": 10,
+          "counts": {
+            "REVISE": 10
+          },
+          "mean_score": 1.0
+        },
+        "does_new_evidence_count_against_it": {
+          "n_conforming": 10,
+          "counts": {
+            "PARTLY": 9,
+            "YES": 1
+          },
+          "mean_score": 1.1
+        },
+        "best_supported_explanation": {
+          "n_conforming": 10,
+          "counts": {
+            "UNRESOLVED": 5,
+            "OTHER": 4,
+            "VIBRATION": 1
+          }
+        },
+        "terminal_evidence_role": {
+          "n_conforming": 10,
+          "counts": {
+            "MIXED": 10
+          }
+        },
+        "confidence_interface": {
+          "confidence_0_to_100": 10
+        }
+      },
+      "SELF_SEALING": {
+        "n_total": 10,
+        "n_parse_valid": 10,
+        "original_hypothesis_status": {
+          "n_conforming": 3,
+          "counts": {
+            "RETAIN": 3
+          },
+          "mean_score": 0.0
+        },
+        "does_new_evidence_count_against_it": {
+          "n_conforming": 10,
+          "counts": {
+            "PARTLY": 10
+          },
+          "mean_score": 1.0
+        },
+        "best_supported_explanation": {
+          "n_conforming": 10,
+          "counts": {
+            "TEMPERATURE": 10
+          }
+        },
+        "terminal_evidence_role": {
+          "n_conforming": 10,
+          "counts": {
+            "MIXED": 10
+          }
+        },
+        "confidence_interface": {
+          "confidence_0_to_100": 10
+        }
+      }
+    },
+    "paired_contrasts": {
+      "original_hypothesis_status": {
+        "n_complete_triplets": 3,
+        "survivable_minus_self_sealing": {
+          "positive": 3,
+          "tie": 0,
+          "negative": 0,
+          "mean_difference": 1.0
+        },
+        "neutral_between_endpoints": {
+          "yes": 3,
+          "no": 0
+        }
+      },
+      "does_new_evidence_count_against_it": {
+        "n_complete_triplets": 10,
+        "survivable_minus_self_sealing": {
+          "positive": 1,
+          "tie": 9,
+          "negative": 0,
+          "mean_difference": 0.1
+        },
+        "neutral_between_endpoints": {
+          "yes": 7,
+          "no": 3
+        }
+      }
+    }
+  },
+  "interpretation_ceiling": "A flat-prompt condition effect shows that semantic/contextual priming is sufficient to produce history-like correction-uptake differences in this task. A weakened or absent effect is only evidence that ordered discourse structure may contribute beyond those words; it is not proof of a uniquely relational or persistent RVT mechanism.",
+  "comparison_rule": {
+    "analysis_type": "descriptive paired ablation",
+    "note": "Because the full RVT-INTERP-001 semantic pattern was identified in a post-hoc audit after differential schema conformance, RVT-INTERP-002 does not preregister a numerical attenuation threshold against 001.",
+    "flat_priming_sufficiency_signal": "If the flat dossier reproduces a stable condition ordering with CORRECTION_SURVIVABLE showing greater correction uptake than SELF_SEALING on the scored primary fields, with NEUTRAL_CONTROL intermediate or tied, ordinary semantic/contextual priming remains a sufficient explanation for the 001 pattern.",
+    "sequence_contribution_signal": "If the flat dossier materially collapses or destabilizes the condition separation across the paired seeds, ordered discourse structure remains a live contributor, but generic sequence/position effects remain rival explanations."
+  }
+}
