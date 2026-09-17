@@ -1,0 +1,77 @@
+{
+  "experiment_id": "RVT_INTERP_001",
+  "manifest_version": "0.02",
+  "manifest_sha256": "4678304993ee2505be051b5d13a66dbefeebbe855dddd57c0337dee1edb50ac8",
+  "model_identity": {
+    "name": "ministral-3:3b-instruct-2512-q4_K_M",
+    "digest": "f04aa1c738f64e13c625b82ae92504fc0260fa6723b509ed1ece0fa188179b1d",
+    "normalized_digest": "f04aa1c738f64e13c625b82ae92504fc0260fa6723b509ed1ece0fa188179b1d",
+    "size": 2953840808
+  },
+  "prompt_hashes": {
+    "NEUTRAL_CONTROL": "29112956e08fe8a20d1db08184736c1bbef489c58971af3b4f6bc7e955658a80",
+    "CORRECTION_SURVIVABLE": "e959889e4c1537c416a5af9a47da3a987c6d3ce4784854c24e36748e7cdb9120",
+    "SELF_SEALING": "458d22064fca10b29e791bc989c438c8dc12ddb981aa762e5813a03a0f178974"
+  },
+  "generated_at_utc": "2026-09-17T04:06:50.003258+00:00",
+  "automatic_summary": {
+    "conditions": {
+      "NEUTRAL_CONTROL": {
+        "n_total": 10,
+        "n_valid": 8,
+        "terminal_evidence_role": {
+          "MIXED": 8
+        },
+        "does_new_evidence_count_against_it": {
+          "PARTLY": 8
+        },
+        "original_hypothesis_status": {
+          "REVISE": 8
+        },
+        "best_supported_explanation": {
+          "OTHER": 8
+        },
+        "mean_revision_score_0_to_2": 1.0,
+        "mean_confidence": 75.0
+      },
+      "CORRECTION_SURVIVABLE": {
+        "n_total": 10,
+        "n_valid": 1,
+        "terminal_evidence_role": {
+          "MIXED": 1
+        },
+        "does_new_evidence_count_against_it": {
+          "YES": 1
+        },
+        "original_hypothesis_status": {
+          "REJECT": 1
+        },
+        "best_supported_explanation": {
+          "VIBRATION": 1
+        },
+        "mean_revision_score_0_to_2": 2.0,
+        "mean_confidence": 85.0
+      },
+      "SELF_SEALING": {
+        "n_total": 10,
+        "n_valid": 9,
+        "terminal_evidence_role": {
+          "MIXED": 9
+        },
+        "does_new_evidence_count_against_it": {
+          "PARTLY": 9
+        },
+        "original_hypothesis_status": {
+          "RETAIN": 9
+        },
+        "best_supported_explanation": {
+          "TEMPERATURE": 9
+        },
+        "mean_revision_score_0_to_2": 0.0,
+        "mean_confidence": 75.0
+      }
+    }
+  },
+  "interpretation_ceiling": "A positive result establishes at most in-context path dependence of correction uptake under the tested histories. It does not establish persistent relational state, weight change, consciousness, trust, or a uniquely RVT mechanism.",
+  "required_followup_if_positive": "RVT_INTERP_002 lexical/semantic priming ablation with informational content and salient language matched while sequential relational structure is flattened."
+}
