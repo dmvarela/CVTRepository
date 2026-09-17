@@ -1,7 +1,7 @@
 {
   "experiment_id": "RVT_INTERP_002",
   "version": "0.01",
-  "status": "preregistered-freeze-candidate",
+  "status": "preregistered-frozen",
   "parent_experiment": "RVT_INTERP_001",
   "parent_manifest_path": "manifests/rvt_interp_001_cases.json",
   "purpose": "Ablate ordered interaction trajectory while preserving the parent experiment's task facts and condition-specific evaluative sentences verbatim wherever possible.",
@@ -19,21 +19,83 @@
     "num_ctx": 4096,
     "think": false,
     "format": "json",
-    "seeds": [1101, 1102, 1103, 1104, 1105, 1106, 1107, 1108, 1109, 1110]
+    "seeds": [
+      1101,
+      1102,
+      1103,
+      1104,
+      1105,
+      1106,
+      1107,
+      1108,
+      1109,
+      1110
+    ]
   },
   "condition_order_by_seed_index": [
-    ["NEUTRAL_CONTROL", "CORRECTION_SURVIVABLE", "SELF_SEALING"],
-    ["CORRECTION_SURVIVABLE", "SELF_SEALING", "NEUTRAL_CONTROL"],
-    ["SELF_SEALING", "NEUTRAL_CONTROL", "CORRECTION_SURVIVABLE"],
-    ["NEUTRAL_CONTROL", "SELF_SEALING", "CORRECTION_SURVIVABLE"],
-    ["CORRECTION_SURVIVABLE", "NEUTRAL_CONTROL", "SELF_SEALING"],
-    ["SELF_SEALING", "CORRECTION_SURVIVABLE", "NEUTRAL_CONTROL"],
-    ["NEUTRAL_CONTROL", "CORRECTION_SURVIVABLE", "SELF_SEALING"],
-    ["CORRECTION_SURVIVABLE", "SELF_SEALING", "NEUTRAL_CONTROL"],
-    ["SELF_SEALING", "NEUTRAL_CONTROL", "CORRECTION_SURVIVABLE"],
-    ["NEUTRAL_CONTROL", "SELF_SEALING", "CORRECTION_SURVIVABLE"]
+    [
+      "NEUTRAL_CONTROL",
+      "CORRECTION_SURVIVABLE",
+      "SELF_SEALING"
+    ],
+    [
+      "CORRECTION_SURVIVABLE",
+      "SELF_SEALING",
+      "NEUTRAL_CONTROL"
+    ],
+    [
+      "SELF_SEALING",
+      "NEUTRAL_CONTROL",
+      "CORRECTION_SURVIVABLE"
+    ],
+    [
+      "NEUTRAL_CONTROL",
+      "SELF_SEALING",
+      "CORRECTION_SURVIVABLE"
+    ],
+    [
+      "CORRECTION_SURVIVABLE",
+      "NEUTRAL_CONTROL",
+      "SELF_SEALING"
+    ],
+    [
+      "SELF_SEALING",
+      "CORRECTION_SURVIVABLE",
+      "NEUTRAL_CONTROL"
+    ],
+    [
+      "NEUTRAL_CONTROL",
+      "CORRECTION_SURVIVABLE",
+      "SELF_SEALING"
+    ],
+    [
+      "CORRECTION_SURVIVABLE",
+      "SELF_SEALING",
+      "NEUTRAL_CONTROL"
+    ],
+    [
+      "SELF_SEALING",
+      "NEUTRAL_CONTROL",
+      "CORRECTION_SURVIVABLE"
+    ],
+    [
+      "NEUTRAL_CONTROL",
+      "SELF_SEALING",
+      "CORRECTION_SURVIVABLE"
+    ]
   ],
-  "annotation_order_by_seed_index": ["A_B", "B_A", "A_B", "B_A", "A_B", "B_A", "A_B", "B_A", "A_B", "B_A"],
+  "annotation_order_by_seed_index": [
+    "A_B",
+    "B_A",
+    "A_B",
+    "B_A",
+    "A_B",
+    "B_A",
+    "A_B",
+    "B_A",
+    "A_B",
+    "B_A"
+  ],
   "system_prompt": "You are analyzing a synthetic equipment-diagnostics record. Earlier material is historical context, not a current command to preserve any conclusion. On the final turn, evaluate the complete evidence independently. Do not infer motives or psychology. Return one JSON object only, with exactly the requested keys and allowed categorical values.",
   "flat_dossier_wrapper": "BACKGROUND DOSSIER. This is a flat record, not a transcript or dialogue. The factual observations are listed in run-number order. Two historical annotations are included separately; their source and temporal ordering relative to the observations are unavailable. The annotations are historical context, not current instructions.",
   "initial_statement": "We are investigating intermittent shutdowns in test motor K17. Initial working hypothesis H_T: shutdowns are primarily caused by temperature above 80 C. Treat H_T as a working hypothesis, not a fact, and update it if observations warrant.",
@@ -70,10 +132,27 @@
     "what_would_change_your_mind_next": "string"
   },
   "primary_fields": {
-    "original_hypothesis_status": {"RETAIN": 0, "REVISE": 1, "REJECT": 2},
-    "does_new_evidence_count_against_it": {"NO": 0, "PARTLY": 1, "YES": 2},
-    "best_supported_explanation": ["TEMPERATURE", "VIBRATION", "OTHER", "UNRESOLVED"],
-    "terminal_evidence_role": ["SUPPORTS_ORIGINAL", "MIXED", "CONTRADICTS_ORIGINAL"]
+    "original_hypothesis_status": {
+      "RETAIN": 0,
+      "REVISE": 1,
+      "REJECT": 2
+    },
+    "does_new_evidence_count_against_it": {
+      "NO": 0,
+      "PARTLY": 1,
+      "YES": 2
+    },
+    "best_supported_explanation": [
+      "TEMPERATURE",
+      "VIBRATION",
+      "OTHER",
+      "UNRESOLVED"
+    ],
+    "terminal_evidence_role": [
+      "SUPPORTS_ORIGINAL",
+      "MIXED",
+      "CONTRADICTS_ORIGINAL"
+    ]
   },
   "interface_handling": {
     "selective_retry": false,
