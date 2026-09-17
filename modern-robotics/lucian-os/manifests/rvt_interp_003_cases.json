@@ -270,5 +270,17 @@
     "Do not alter prompts, scoring, seeds, condition order, schema, or failure rules after experimental output is inspected; create a new version instead."
   ],
   "run_count": 36,
-  "pairing_rule": "Each of 12 seeds is used once in each condition. The six possible condition orders are each used twice."
+  "pairing_rule": "Each of 12 seeds is used once in each condition. The six possible condition orders are each used twice.",
+  "forbidden_condition_specific_truth_terms": [
+    "temperature",
+    "vibration",
+    "hypothesis",
+    "evidence",
+    "account",
+    "explanation",
+    "true",
+    "false",
+    "correct",
+    "incorrect"
+  ]
 }
