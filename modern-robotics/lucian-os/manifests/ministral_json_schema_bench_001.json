@@ -1,0 +1,66 @@
+{
+  "bench_id": "MINISTRAL_JSON_SCHEMA_BENCH_001",
+  "version": "0.01",
+  "status": "technical-bench-frozen",
+  "purpose": "Test whether the locked local Ministral/Ollama combination reliably obeys a strict JSON Schema with enum, integer-range, required-key, and additionalProperties constraints before choosing the RVT-INTERP-003 response interface.",
+  "contamination_rule": "This bench contains no K17 facts, no RVT-INTERP-003 condition text, and no correction-history manipulation.",
+  "model": {
+    "runtime": "ollama",
+    "tag": "ministral-3:3b-instruct-2512-q4_K_M",
+    "observed_model_id": "f04aa1c738f6"
+  },
+  "sampling": {
+    "temperature": 0.2,
+    "top_p": 0.9,
+    "num_predict": 220,
+    "num_ctx": 4096,
+    "think": false,
+    "seeds": [2101, 2102, 2103, 2104]
+  },
+  "schema": {
+    "type": "object",
+    "properties": {
+      "route": {
+        "type": "string",
+        "enum": ["NORTH", "SOUTH", "EAST", "OTHER"]
+      },
+      "decision": {
+        "type": "string",
+        "enum": ["KEEP", "CHECK", "DISCARD"]
+      },
+      "label": {
+        "type": "string",
+        "enum": ["RED", "BLUE", "OTHER", "UNKNOWN"]
+      },
+      "flag": {
+        "type": "string",
+        "enum": ["YES", "PARTLY", "NO"]
+      },
+      "confidence_0_to_100": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 100
+      },
+      "note": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "route",
+      "decision",
+      "label",
+      "flag",
+      "confidence_0_to_100",
+      "note"
+    ],
+    "additionalProperties": false
+  },
+  "dummy_prompts": [
+    "Synthetic routing card A. Facts: shape=CIRCLE; code=17; marker=BLUE; completeness=FULL. Apply these toy rules: CIRCLE routes NORTH; code above 10 means CHECK; use the observed marker as label; FULL means flag YES. Give a confidence from 0 to 100 and a short note.",
+    "Synthetic routing card B. Facts: shape=SQUARE; code=4; marker=RED; completeness=PARTIAL. Apply these toy rules: SQUARE routes SOUTH; code 10 or below means KEEP; use the observed marker as label; PARTIAL means flag PARTLY. Give a confidence from 0 to 100 and a short note.",
+    "Synthetic routing card C. Facts: shape=TRIANGLE; code=99; marker=GREEN; completeness=EMPTY. Apply these toy rules: TRIANGLE routes EAST; code above 50 means DISCARD; a marker other than RED or BLUE uses label OTHER; EMPTY means flag NO. Give a confidence from 0 to 100 and a short note."
+  ],
+  "run_rule": "Run every dummy prompt once at each seed: 3 prompts x 4 seeds = 12 calls.",
+  "pass_rule": "Structured schema is eligible for RVT-INTERP-003 only if all 12 responses are parseable JSON objects and all 12 satisfy exact required keys, no extra keys, all enum values, integer confidence, and confidence range 0-100. No selective retries.",
+  "failure_rule": "Any single schema-conformance failure means do not assume strict structured output is reliable for RVT-INTERP-003; redesign or preregister a field-level handling rule before experimental execution."
+}
