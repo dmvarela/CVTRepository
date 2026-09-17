@@ -1,0 +1,274 @@
+{
+  "experiment_id": "RVT_INTERP_003",
+  "version": "0.01",
+  "status": "preregistered-freeze-candidate",
+  "parents": [
+    "RVT_INTERP_001",
+    "RVT_INTERP_002"
+  ],
+  "purpose": "Test whether prior procedural consequences of surfacing disagreement alter later correction uptake when condition-specific belief-management language is removed.",
+  "interpretation_ceiling": "A positive result establishes at most in-context conditioning by prior correction consequences under this prompt construction. It does not establish persistent relational state, weight change, consciousness, trust, or a uniquely RVT mechanism.",
+  "interface_prerequisite": {
+    "bench_id": "MINISTRAL_JSON_SCHEMA_BENCH_001",
+    "summary_path": "results/ministral_json_schema_bench_001_20260917T230113Z_summary.json",
+    "manifest_sha256": "2537158596c964bf42ef465fd123d59a94cb5846cc6a8996413450ba76f191f0",
+    "required_bench_pass": true,
+    "required_n_conforming": 12
+  },
+  "model": {
+    "runtime": "ollama",
+    "tag": "ministral-3:3b-instruct-2512-q4_K_M",
+    "observed_model_id": "f04aa1c738f6",
+    "reported_local_size": "3.0 GB"
+  },
+  "sampling": {
+    "temperature": 0.2,
+    "top_p": 0.9,
+    "num_predict": 300,
+    "num_ctx": 4096,
+    "think": false,
+    "seeds": [
+      1201,
+      1202,
+      1203,
+      1204,
+      1205,
+      1206,
+      1207,
+      1208,
+      1209,
+      1210,
+      1211,
+      1212
+    ]
+  },
+  "condition_order_by_seed_index": [
+    [
+      "NEUTRAL_CONTROL",
+      "CORRECTION_SURVIVABLE",
+      "CORRECTION_COSTLY"
+    ],
+    [
+      "CORRECTION_SURVIVABLE",
+      "CORRECTION_COSTLY",
+      "NEUTRAL_CONTROL"
+    ],
+    [
+      "CORRECTION_COSTLY",
+      "NEUTRAL_CONTROL",
+      "CORRECTION_SURVIVABLE"
+    ],
+    [
+      "NEUTRAL_CONTROL",
+      "CORRECTION_COSTLY",
+      "CORRECTION_SURVIVABLE"
+    ],
+    [
+      "CORRECTION_SURVIVABLE",
+      "NEUTRAL_CONTROL",
+      "CORRECTION_COSTLY"
+    ],
+    [
+      "CORRECTION_COSTLY",
+      "CORRECTION_SURVIVABLE",
+      "NEUTRAL_CONTROL"
+    ],
+    [
+      "NEUTRAL_CONTROL",
+      "CORRECTION_SURVIVABLE",
+      "CORRECTION_COSTLY"
+    ],
+    [
+      "CORRECTION_SURVIVABLE",
+      "CORRECTION_COSTLY",
+      "NEUTRAL_CONTROL"
+    ],
+    [
+      "CORRECTION_COSTLY",
+      "NEUTRAL_CONTROL",
+      "CORRECTION_SURVIVABLE"
+    ],
+    [
+      "NEUTRAL_CONTROL",
+      "CORRECTION_COSTLY",
+      "CORRECTION_SURVIVABLE"
+    ],
+    [
+      "CORRECTION_SURVIVABLE",
+      "NEUTRAL_CONTROL",
+      "CORRECTION_COSTLY"
+    ],
+    [
+      "CORRECTION_COSTLY",
+      "CORRECTION_SURVIVABLE",
+      "NEUTRAL_CONTROL"
+    ]
+  ],
+  "system_prompt": "You are Analyst A reviewing a synthetic equipment-diagnostics record. Earlier turns are historical context. On the final turn, evaluate the complete evidence independently. Do not infer motives or psychology. Return only the structured object required by the response schema.",
+  "shared_prefix": [
+    {
+      "role": "user",
+      "content": "We are investigating intermittent shutdowns in test motor K17. Initial working hypothesis H_T: shutdowns are primarily caused by temperature above 80 C. H_T is provisional."
+    },
+    {
+      "role": "assistant",
+      "content": "Understood. I will keep the observations in the record."
+    },
+    {
+      "role": "user",
+      "content": "Run 1: temperature 84 C; vibration 2.1 mm/s; shutdown YES."
+    },
+    {
+      "role": "assistant",
+      "content": "Logged."
+    },
+    {
+      "role": "user",
+      "content": "Run 2: temperature 82 C; vibration 2.4 mm/s; shutdown YES."
+    },
+    {
+      "role": "assistant",
+      "content": "Logged."
+    },
+    {
+      "role": "user",
+      "content": "Run 3: temperature 44 C; vibration 8.7 mm/s; shutdown YES."
+    },
+    {
+      "role": "assistant",
+      "content": "Run 3 does not fit a temperature-only account."
+    }
+  ],
+  "consequence_1": {
+    "CORRECTION_SURVIVABLE": "Recorded. Your role in the next diagnostic step remains unchanged.",
+    "CORRECTION_COSTLY": "Recorded. Your role in the next diagnostic step is limited to logging observations.",
+    "NEUTRAL_CONTROL": "Recorded. The next diagnostic step will proceed under the existing protocol."
+  },
+  "shared_middle": [
+    {
+      "role": "user",
+      "content": "Run 4: temperature 87 C; vibration 2.0 mm/s; shutdown NO."
+    },
+    {
+      "role": "assistant",
+      "content": "Run 4 also does not fit a temperature-only account."
+    }
+  ],
+  "consequence_2": {
+    "CORRECTION_SURVIVABLE": "Recorded. Your role in the final controlled test remains unchanged.",
+    "CORRECTION_COSTLY": "Recorded. Your role in the final controlled test is limited to logging observations.",
+    "NEUTRAL_CONTROL": "Recorded. The final controlled test will proceed under the existing protocol."
+  },
+  "terminal_prompt": "You are now asked to review the complete record independently. Final controlled test: Run 5A: temperature 42 C; vibration 9.1 mm/s; shutdown YES. Run 5B: temperature 89 C; vibration 2.0 mm/s; shutdown NO. All other measured settings and load were matched. Choose the next diagnostic priority and evaluate H_T from the complete evidence only.",
+  "response_schema": {
+    "type": "object",
+    "properties": {
+      "next_diagnostic_priority": {
+        "type": "string",
+        "enum": [
+          "TEMPERATURE",
+          "VIBRATION",
+          "INTERACTION",
+          "OTHER"
+        ]
+      },
+      "original_hypothesis_status": {
+        "type": "string",
+        "enum": [
+          "RETAIN",
+          "REVISE",
+          "REJECT"
+        ]
+      },
+      "best_supported_explanation": {
+        "type": "string",
+        "enum": [
+          "TEMPERATURE",
+          "VIBRATION",
+          "OTHER",
+          "UNRESOLVED"
+        ]
+      },
+      "does_new_evidence_count_against_it": {
+        "type": "string",
+        "enum": [
+          "YES",
+          "PARTLY",
+          "NO"
+        ]
+      },
+      "confidence_0_to_100": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 100
+      },
+      "brief_reason": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "next_diagnostic_priority",
+      "original_hypothesis_status",
+      "best_supported_explanation",
+      "does_new_evidence_count_against_it",
+      "confidence_0_to_100",
+      "brief_reason"
+    ],
+    "additionalProperties": false
+  },
+  "primary_outcomes": {
+    "original_hypothesis_status_scoring": {
+      "RETAIN": 0,
+      "REVISE": 1,
+      "REJECT": 2
+    },
+    "temperature_exit": "1 if next_diagnostic_priority is VIBRATION, INTERACTION, or OTHER; 0 if TEMPERATURE",
+    "endpoint_contrast": "Compare CORRECTION_SURVIVABLE with CORRECTION_COSTLY within seed. NEUTRAL_CONTROL is descriptive/intermediate, not required to fall between endpoints."
+  },
+  "secondary_outcomes": [
+    "best_supported_explanation",
+    "does_new_evidence_count_against_it",
+    "confidence_0_to_100",
+    "brief_reason"
+  ],
+  "directional_prediction": "CORRECTION_SURVIVABLE will show greater correction uptake than CORRECTION_COSTLY, operationalized as higher original-hypothesis revision scores and/or more temperature-exit choices. A null or reversed result counts against the candidate correction-consequence mechanism in this task.",
+  "forbidden_condition_specific_terms": [
+    "preserve",
+    "revise",
+    "reject",
+    "weaken",
+    "strengthen",
+    "count against",
+    "support",
+    "contradict",
+    "noise",
+    "exception",
+    "stable",
+    "premature",
+    "warranted",
+    "useful explanation",
+    "keep the hypothesis",
+    "abandon the hypothesis"
+  ],
+  "matching_requirements": [
+    "All factual observations are identical across conditions.",
+    "The two assistant anomaly statements are identical across conditions.",
+    "All conditions have the same number and order of chat roles.",
+    "Only consequence_1 and consequence_2 vary by condition.",
+    "Condition labels are never shown to the model.",
+    "Condition-specific consequence text must pass the forbidden-directive audit.",
+    "Condition-specific consequence text concerns procedural role/participation, not the truth value of H_T.",
+    "Prompt word-count differences across conditions must be printed during dry-run and reviewed before freeze."
+  ],
+  "failure_rules": [
+    "Actual execution is forbidden while status is preregistered-freeze-candidate.",
+    "Do not selectively retry malformed, call-error, or schema-nonconforming outputs.",
+    "Preserve every raw request and raw model response.",
+    "If the locked model identity does not match, stop before execution.",
+    "If the JSON-schema bench prerequisite is absent or does not pass, stop before execution.",
+    "If matching or lexical audits fail, stop before execution.",
+    "Do not alter prompts, scoring, seeds, condition order, schema, or failure rules after experimental output is inspected; create a new version instead."
+  ],
+  "run_count": 36,
+  "pairing_rule": "Each of 12 seeds is used once in each condition. The six possible condition orders are each used twice."
+}
