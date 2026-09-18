@@ -50,7 +50,7 @@ A concrete example of research correction. Earlier continuity experiments used t
 
 ### 4. [Trajectory-state prototype](code/context_trajectory.py)
 
-A small Python artifact implementing ordered state and provenance. Later evidence may supersede an earlier state without deleting the earlier event from history.\n\n### 5. [Bounded-authority router demo](code/bounded_authority_router.py)\n\nA self-contained simulation with tests showing that high model confidence cannot create factual warrant or permission, and that an unavailable-but-authorized capability is treated differently from an unauthorized one.
+A small Python artifact implementing ordered state and provenance. Later evidence may supersede an earlier state without deleting the earlier event from history.\n\n### 5. [Bounded-authority router demo](code/bounded_authority_router.py)\n\nA self-contained simulation with [tests](tests/test_bounded_authority_router.py) showing that high model confidence cannot create factual warrant or permission, and that an unavailable-but-authorized capability is treated differently from an unauthorized one.
 
 ## Research program
 
@@ -91,7 +91,7 @@ Small pilots are treated as **engineering evidence**, not population-level proof
 
 The technical project asks a narrower question: what information, constraints, provenance, authority boundaries, and recovery structures should survive across changing hosts or contexts so that useful cooperation can continue without protecting error from correction?
 
-Current prototype work uses Python, Ollama, and local language models. Public artifacts are simulation-only unless explicitly stated otherwise.
+Current prototype work uses Python, Ollama, and local language models. Public artifacts are simulation-only unless explicitly stated otherwise. The public code includes the [trajectory-state prototype](code/context_trajectory.py) and a runnable [bounded-authority router](code/bounded_authority_router.py) with [tests](tests/test_bounded_authority_router.py).
 
 ## FTLτA
 
