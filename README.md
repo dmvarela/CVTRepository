@@ -8,6 +8,8 @@ The organizing question is:
 
 > **How can AI systems preserve useful state and cooperation across time while remaining corrigible to new evidence, resistant to unsupported pressure, transparent about provenance, and bounded in what they are authorized to do?**
 
+**For reviewers:** [Research Evidence Index](research/EVIDENCE_INDEX.md) maps the portfolio's main claims to inspectable artifacts, status, and claim boundaries.
+
 The repository name `CVTRepository` is a historical identifier. The broader theoretical program is now called **Relation Viability Theory (RVT)**, but this public repository is intentionally narrower: it is a curated front door to the AI-safety, governance, and human–AI-systems work.
 
 ## Start here
@@ -52,6 +54,10 @@ A concrete example of research correction. Earlier continuity experiments used t
 
 A small Python artifact implementing ordered state and provenance. Later evidence may supersede an earlier state without deleting the earlier event from history.
 
+### 5. [Bounded-authority router demo](code/bounded_authority_router.py)
+
+A self-contained simulation with [tests](tests/test_bounded_authority_router.py) showing that high model confidence cannot create factual warrant or permission, and that an unavailable-but-authorized capability is treated differently from an unauthorized one.
+
 ## Research program
 
 Current questions include:
@@ -91,7 +97,7 @@ Small pilots are treated as **engineering evidence**, not population-level proof
 
 The technical project asks a narrower question: what information, constraints, provenance, authority boundaries, and recovery structures should survive across changing hosts or contexts so that useful cooperation can continue without protecting error from correction?
 
-Current prototype work uses Python, Ollama, and local language models. Public artifacts are simulation-only unless explicitly stated otherwise.
+Current prototype work uses Python, Ollama, and local language models. Public artifacts are simulation-only unless explicitly stated otherwise. The public code includes the [trajectory-state prototype](code/context_trajectory.py) and a runnable [bounded-authority router](code/bounded_authority_router.py) with [tests](tests/test_bounded_authority_router.py).
 
 ## FTLτA
 
@@ -109,7 +115,7 @@ A = Agent coherence
 
 The framework is being studied as a possible non-compensatory admissibility layer: candidate actions that fail required ethical gates should not become permissible merely because they score highly on another dimension.
 
-The public provenance note linked above is intentionally explicit about where later continuity work extends the submitted manuscript and where it does not.
+The [submission record](research/FTLTA_SUBMISSION_RECORD.md) records the exact source digest and claim boundary. The public provenance note linked above is intentionally explicit about where later continuity work extends the submitted manuscript and where it does not.
 
 ## Relation Viability Theory
 
