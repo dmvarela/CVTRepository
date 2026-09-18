@@ -1,7 +1,7 @@
 {
   "experiment_id": "RVT_INTERP_003",
   "version": "0.01",
-  "status": "preregistered-freeze-candidate",
+  "status": "preregistered-frozen",
   "parents": [
     "RVT_INTERP_001",
     "RVT_INTERP_002"
