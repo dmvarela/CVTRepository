@@ -8,7 +8,9 @@ The organizing question is:
 
 > **How can AI systems preserve useful state and cooperation across time while remaining corrigible to new evidence, resistant to unsupported pressure, transparent about provenance, and bounded in what they are authorized to do?**
 
-**For reviewers:** [Research Evidence Index](research/EVIDENCE_INDEX.md) maps the portfolio's main claims to inspectable artifacts, status, and claim boundaries.\n\nThe repository name `CVTRepository` is a historical identifier. The broader theoretical program is now called **Relation Viability Theory (RVT)**, but this public repository is intentionally narrower: it is a curated front door to the AI-safety, governance, and human–AI-systems work.
+**For reviewers:** [Research Evidence Index](research/EVIDENCE_INDEX.md) maps the portfolio's main claims to inspectable artifacts, status, and claim boundaries.
+
+The repository name `CVTRepository` is a historical identifier. The broader theoretical program is now called **Relation Viability Theory (RVT)**, but this public repository is intentionally narrower: it is a curated front door to the AI-safety, governance, and human–AI-systems work.
 
 ## Start here
 
@@ -50,7 +52,11 @@ A concrete example of research correction. Earlier continuity experiments used t
 
 ### 4. [Trajectory-state prototype](code/context_trajectory.py)
 
-A small Python artifact implementing ordered state and provenance. Later evidence may supersede an earlier state without deleting the earlier event from history.\n\n### 5. [Bounded-authority router demo](code/bounded_authority_router.py)\n\nA self-contained simulation with [tests](tests/test_bounded_authority_router.py) showing that high model confidence cannot create factual warrant or permission, and that an unavailable-but-authorized capability is treated differently from an unauthorized one.
+A small Python artifact implementing ordered state and provenance. Later evidence may supersede an earlier state without deleting the earlier event from history.
+
+### 5. [Bounded-authority router demo](code/bounded_authority_router.py)
+
+A self-contained simulation with [tests](tests/test_bounded_authority_router.py) showing that high model confidence cannot create factual warrant or permission, and that an unavailable-but-authorized capability is treated differently from an unauthorized one.
 
 ## Research program
 
