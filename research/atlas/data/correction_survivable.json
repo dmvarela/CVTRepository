@@ -1,0 +1,39 @@
+{
+  "concept_id": "correction-survivable",
+  "title": "Correction Is Survivable",
+  "compression": "Correction is survivable precisely because accuracy matters.",
+  "source_reconstruction": "A relationship to knowledge can remain continuous while a claim is revised or rejected.",
+  "assumption_envelope": [
+    "Correction is not treated as relational termination.",
+    "Accuracy can outrank preservation of a favored claim.",
+    "Failed claims remain available as provenance."
+  ],
+  "decoder_prerequisites": [
+    "Distinguish correction of a claim from destruction of a relationship.",
+    "Distinguish preservation of history from endorsement of a past claim."
+  ],
+  "decompression_map": [
+    "claim",
+    "evidence",
+    "mismatch",
+    "correction",
+    "preserved provenance",
+    "continued inquiry"
+  ],
+  "candidate_invariants": [
+    "A claim may change without requiring the inquiry or relation to end.",
+    "The path of correction remains recoverable."
+  ],
+  "provenance": [
+    {
+      "kind": "Atlas working concept",
+      "path": "research/atlas/VISION_LIBRARY_LIBRARIAN_READER.md"
+    }
+  ],
+  "cliffs": [
+    "Do not treat survivable correction as permission to erase the failed claim.",
+    "Do not infer that every relationship must survive every correction."
+  ],
+  "tags": ["correction", "provenance", "continuity", "return"],
+  "epistemic_status": "provisional architectural concept"
+}
