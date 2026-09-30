@@ -79,5 +79,30 @@ class AtlasLibrarianTests(unittest.TestCase):
             )
 
 
+class AtlasMicroLibraryIntegrationTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        data_dir = (
+            Path(__file__).resolve().parents[1]
+            / "research"
+            / "atlas"
+            / "data"
+        )
+        cls.library = AtlasLibrary.from_directory(data_dir)
+        cls.librarian = AtlasLibrarian(cls.library)
+
+    def test_seed_library_contains_multiple_concepts(self):
+        self.assertGreaterEqual(len(self.library.records()), 3)
+
+    def test_find_can_retrieve_relation_as_codec(self):
+        results = self.librarian.find("shared context codec decompression")
+        self.assertEqual(results[0]["concept_id"], "relation-as-codec")
+
+    def test_reconstruction_not_prescription_remains_explicit(self):
+        packet = self.librarian.reconstruct("reconstruction-not-prescription")
+        self.assertIn("allowed to think", packet["source_reconstruction"])
+        self.assertIn("does not prescribe", packet["orientation"])
+
+
 if __name__ == "__main__":
     unittest.main()
