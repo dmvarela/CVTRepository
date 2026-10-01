@@ -56,6 +56,13 @@ def build_parser() -> argparse.ArgumentParser:
         default=None,
     )
 
+    decoder = sub.add_parser(
+        "decoder",
+        help="Inspect provisional receiving-context assumptions before reconstruction.",
+    )
+    decoder.add_argument("concept_id")
+    decoder.add_argument("--profile", dest="profile_id", default=None)
+
     translate = sub.add_parser(
         "translate",
         help="Prepare a bounded translation packet for a target context.",
@@ -81,6 +88,11 @@ def main() -> None:
         result = librarian.layered_view(
             args.concept_id,
             layer_type=args.layer_type,
+        )
+    elif args.command == "decoder":
+        result = librarian.prepare_decoder(
+            args.concept_id,
+            profile_id=args.profile_id,
         )
     elif args.command == "translate":
         result = librarian.prepare_translation(args.concept_id, args.target_context)
