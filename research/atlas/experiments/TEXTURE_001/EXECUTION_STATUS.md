@@ -5,7 +5,7 @@
 **Provider outputs:** none  
 **Adjudication:** not started  
 **Execution authorized:** no  
-**Harness:** BUILT — REVIEW PENDING CI
+**Harness:** BUILT — CI VERIFIED
 
 TEXTURE_001 v1 was rejected at design review before execution because its compact cues contained evaluative leakage and its packet risked cross-condition contamination.
 
@@ -55,6 +55,6 @@ The harness:
 
 No model run has been performed under v1, pre-audit v2, or v2.1.
 
-The next permitted activity is **harness review / CI verification only**.
+The harness CI check has passed. The next permitted activity is **execution-decision freeze only**: select provider/model, sampling settings, and retry policy before any real run.
 
 Execution still requires a separate explicit decision.
