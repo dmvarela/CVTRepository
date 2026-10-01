@@ -1,8 +1,8 @@
 """Minimal Atlas library-librarian prototype.
 
 Atlas keeps durable records separate from the Librarian that traverses them.
-Version 0.2 adds typed source layers so source text, translation, reconstruction,
-interpretation, and transformation can coexist without being collapsed.
+Version 0.3 adds explicit Decoder Profiles so receiving assumptions can be
+represented without being confused with source semantics.
 """
 
 from __future__ import annotations
@@ -79,6 +79,37 @@ class KnowledgeLayer:
 
 
 @dataclass(frozen=True)
+class DecoderProfile:
+    profile_id: str
+    context: str
+    likely_assumptions: list[str] = field(default_factory=list)
+    assumptions_not_guaranteed: list[str] = field(default_factory=list)
+    needed_distinctions: list[str] = field(default_factory=list)
+    mismatch_risks: list[str] = field(default_factory=list)
+    preparation_notes: list[str] = field(default_factory=list)
+    status: str = "provisional"
+    provenance: list[dict[str, Any]] = field(default_factory=list)
+
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -> "DecoderProfile":
+        return cls(
+            profile_id=str(data["profile_id"]),
+            context=str(data["context"]),
+            likely_assumptions=[str(x) for x in data.get("likely_assumptions", [])],
+            assumptions_not_guaranteed=[
+                str(x) for x in data.get("assumptions_not_guaranteed", [])
+            ],
+            needed_distinctions=[
+                str(x) for x in data.get("needed_distinctions", [])
+            ],
+            mismatch_risks=[str(x) for x in data.get("mismatch_risks", [])],
+            preparation_notes=[str(x) for x in data.get("preparation_notes", [])],
+            status=str(data.get("status", "provisional")),
+            provenance=[dict(x) for x in data.get("provenance", [])],
+        )
+
+
+@dataclass(frozen=True)
 class ConceptRecord:
     concept_id: str
     title: str
@@ -93,6 +124,7 @@ class ConceptRecord:
     tags: list[str] = field(default_factory=list)
     epistemic_status: str = "provisional"
     layers: list[KnowledgeLayer] = field(default_factory=list)
+    decoder_profiles: list[DecoderProfile] = field(default_factory=list)
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> "ConceptRecord":
@@ -110,6 +142,9 @@ class ConceptRecord:
             tags=[str(x) for x in data.get("tags", [])],
             epistemic_status=str(data.get("epistemic_status", "provisional")),
             layers=[KnowledgeLayer.from_dict(x) for x in data.get("layers", [])],
+            decoder_profiles=[
+                DecoderProfile.from_dict(x) for x in data.get("decoder_profiles", [])
+            ],
         )
 
 
@@ -168,8 +203,25 @@ class AtlasLibrarian:
         ranked: list[tuple[int, ConceptRecord]] = []
         for record in self.library.records():
             layer_text = " ".join(layer.content for layer in record.layers)
+            decoder_text = " ".join(
+                " ".join(
+                    [
+                        profile.context,
+                        *profile.likely_assumptions,
+                        *profile.mismatch_risks,
+                        *profile.needed_distinctions,
+                    ]
+                )
+                for profile in record.decoder_profiles
+            )
             haystack = " ".join(
-                [record.title, record.compression, *record.tags, layer_text]
+                [
+                    record.title,
+                    record.compression,
+                    *record.tags,
+                    layer_text,
+                    decoder_text,
+                ]
             )
             score = len(q & _tokens(haystack))
             if score:
@@ -195,6 +247,9 @@ class AtlasLibrarian:
             "cliffs": list(record.cliffs),
             "epistemic_status": record.epistemic_status,
             "layer_ids": [layer.layer_id for layer in record.layers],
+            "decoder_profile_ids": [
+                profile.profile_id for profile in record.decoder_profiles
+            ],
         }
 
     def reconstruct(self, concept_id: str) -> dict[str, Any]:
@@ -255,6 +310,53 @@ class AtlasLibrarian:
             for layer in layers
         ]
 
+    def prepare_decoder(
+        self,
+        concept_id: str,
+        *,
+        profile_id: str | None = None,
+    ) -> dict[str, Any]:
+        record = self.library.get(concept_id)
+        if profile_id is None:
+            profiles = record.decoder_profiles
+        else:
+            profiles = [
+                profile
+                for profile in record.decoder_profiles
+                if profile.profile_id == profile_id
+            ]
+            if not profiles:
+                raise KeyError(
+                    f"Unknown decoder profile {profile_id!r} for concept {concept_id!r}"
+                )
+
+        return {
+            "concept_id": record.concept_id,
+            "source_assumption_envelope": list(record.assumption_envelope),
+            "generic_decoder_prerequisites": list(record.decoder_prerequisites),
+            "decoder_profiles": [
+                {
+                    "profile_id": profile.profile_id,
+                    "context": profile.context,
+                    "likely_assumptions": list(profile.likely_assumptions),
+                    "assumptions_not_guaranteed": list(
+                        profile.assumptions_not_guaranteed
+                    ),
+                    "needed_distinctions": list(profile.needed_distinctions),
+                    "mismatch_risks": list(profile.mismatch_risks),
+                    "preparation_notes": list(profile.preparation_notes),
+                    "status": profile.status,
+                    "provenance": [dict(x) for x in profile.provenance],
+                }
+                for profile in profiles
+            ],
+            "orientation": (
+                "Decoder profiles are provisional context models, not claims about "
+                "what any individual reader must believe. They exist to surface "
+                "possible imported assumptions before faithful reconstruction."
+            ),
+        }
+
     def prepare_translation(self, concept_id: str, target_context: str) -> dict[str, Any]:
         record = self.library.get(concept_id)
         return {
@@ -264,6 +366,7 @@ class AtlasLibrarian:
             "candidate_invariants": list(record.candidate_invariants),
             "source_assumptions": list(record.assumption_envelope),
             "source_layers": self.layered_view(concept_id),
+            "decoder_preparation": self.prepare_decoder(concept_id),
             "instruction": (
                 "Propose a contextual translation without claiming that identical "
                 "surface implementation is required. Preserve any departure from the "
