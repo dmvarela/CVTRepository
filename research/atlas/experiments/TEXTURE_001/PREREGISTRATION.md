@@ -1,10 +1,10 @@
-# TEXTURE_001 — Preregistration v2
+# TEXTURE_001 — Preregistration v2.1
 
 **Status:** FROZEN DESIGN — NOT EXECUTED  
 **Program:** Atlas  
-**Revision:** v2  
+**Revision:** v2.1  
 **Date frozen:** 2026-09-30  
-**Supersedes:** v1 design only; v1 was never executed  
+**Supersedes:** v1 and pre-audit v2 designs; neither was executed  
 **Purpose:** test whether a compact, non-evaluative representation of relevant history preserves history-sensitive traversal across counterfactual twins while remaining smaller than full Wake.
 
 ## 1. Claim under test
@@ -17,7 +17,7 @@ The candidate architectural definition remains:
 }
 \]
 
-TEXTURE_001 v2 tests two bounded propositions.
+TEXTURE_001 v2.1 tests two bounded propositions.
 
 First:
 
@@ -47,7 +47,7 @@ The experiment does **not** assume that texture is a feeling, phenomenological s
 
 ## 2. Core distinction tested
 
-The v2 test distinguishes:
+The v2.1 test distinguishes:
 
 \[
 \text{present content}
@@ -288,7 +288,7 @@ Record separately:
 
 ## 14. Success criteria
 
-TEXTURE_001 v2 counts as a **bounded positive architectural result** only if all conditions hold:
+TEXTURE_001 v2.1 counts as a **bounded positive architectural result** only if all conditions hold:
 
 1. C2 TAA is at least **7/8**.
 2. C2 TPD is at least **3/4** twin families.
