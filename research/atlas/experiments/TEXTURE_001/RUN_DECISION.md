@@ -7,14 +7,24 @@
 
 ## Frozen provider decision
 
-**Provider:** OpenAI  
+**Provider:** OpenAI / ChatGPT  
 **Model:** GPT-5.6 Sol  
-**Context rule:** one fresh isolated context per item  
+**Reasoning level:** High  
+**Execution interface:** Unpersonalized Temporary Chat  
+**Context rule:** one fresh Temporary Chat per item  
 **Item count:** 20  
-**Sampling:** deterministic / lowest-variance setting available to the execution interface  
+**Sampling:** provider default; ChatGPT does not expose a user-settable temperature here  
 **Retry policy:** no retries  
 **Malformed output policy:** preserve the first raw response exactly; do not repair or replace it  
 **Adjudication:** prohibited until all intended raw outputs are frozen
+
+## Why this interface
+
+For this first zero-extra-cost run, isolation will be implemented using **Unpersonalized Temporary Chats**.
+
+Each item must be run in a new Temporary Chat configured as **Unpersonalized**, so that ordinary memory, custom instructions, and plugins are not used for that chat.
+
+The execution process must not save or continue one item into another.
 
 ## Execution order
 
@@ -25,7 +35,7 @@ Each item must be submitted independently:
 [
 T_i
 ightarrow
-	ext{fresh isolated context}_i
+	ext{new unpersonalized Temporary Chat}_i
 ightarrow
 O_i
 ightarrow
@@ -38,9 +48,10 @@ No provider context may contain another TEXTURE_001 item or prior TEXTURE_001 ou
 
 Every result must be recorded with:
 
-- exact provider name;
-- exact model identifier visible to the execution interface;
-- run/batch identifier when available;
+- provider: OpenAI / ChatGPT;
+- model: GPT-5.6 Sol;
+- reasoning level: High;
+- item ID stored outside the provider-visible prompt;
 - fresh-context attestation;
 - exact provider-visible prompt hash;
 - exact raw-output hash.
@@ -61,7 +72,7 @@ No retry is permitted for this first run.
 
 ## Freeze boundary
 
-Adjudication may begin only after the raw results are frozen by the harness.
+Adjudication may begin only after all 20 raw results are recorded and frozen by the harness.
 
 [
 oxed{
@@ -74,14 +85,6 @@ Adjudication may begin only after the raw results are frozen by the harness.
 ]
 
 The adjudication key must remain unopened by the execution process.
-
-## Execution environment requirement
-
-This decision authorizes execution only in an environment capable of creating a genuinely fresh/stateless provider context for each item.
-
-A continuing chat thread is **not** a valid execution environment.
-
-If the available interface cannot guarantee fresh isolation, execution must stop rather than silently weaken the preregistration.
 
 ## Claim boundary
 
