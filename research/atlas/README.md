@@ -1,7 +1,7 @@
 # Atlas
 
 **Status:** exploratory knowledge architecture with executable micro-library prototype  
-**Scope:** compression, provenance, translation, plasticity, and recoverable correction
+**Scope:** compression, provenance, translation, decoder mismatch, plasticity, and recoverable correction
 
 Atlas is a proposed architecture for preserving and moving conceptual knowledge across time, contexts, disciplines, and decoders without treating compressed representations as self-sufficient.
 
@@ -22,6 +22,7 @@ Atlas treats a concept not as a static note, but as a time-dependent object with
     source fidelity != permission to think
     preservation != endorsement
     correction != erasure
+    decoder context != reader identity
 
 ## Interpretive freedom
 
@@ -43,13 +44,7 @@ See [Atlas Vision — The Library–Librarian–Reader Pair](VISION_LIBRARY_LIBR
 
 The working system model is:
 
-[
-	ext{Library}
-leftrightarrow
-	ext{Librarian}
-leftrightarrow
-	ext{Reader}
-]
+    Library <-> Librarian <-> Reader
 
 The Library preserves the recoverable record. The Librarian performs explicit interpretive operations over it. The Reader supplies questions, context, and new associations.
 
@@ -69,12 +64,31 @@ The current prototype lives in:
 - `research/atlas/data/`
 - `tests/test_atlas_librarian.py`
 
-The first Librarian verbs are **FIND**, **TRACE**, **RECONSTRUCT**, and **TRANSLATE**.
+The current Librarian verbs are:
 
-The seed Library currently includes:
+    FIND
+    TRACE
+    RECONSTRUCT
+    LAYERS
+    DECODER
+    TRANSLATE
+
+The seed Library includes:
 - Correction Is Survivable
 - Reconstruction Is Not Prescription
 - Relation as Part of the Codec
+- Pauline Permission, Benefit, Mastery, and Building Up
+- Nephesh and Decoder Mismatch
+
+## Earned schema evolution
+
+The first source-rich specimen earned [Source Layers v0.2](SCHEMA_V0_2_SOURCE_LAYERS.md).
+
+The second source-rich specimen earned [Decoder Profiles v0.3](SCHEMA_V0_3_DECODER_PROFILES.md).
+
+The rule is:
+
+> **Do not add ontology because it sounds useful. Add it when a real traversal breaks the current representation.**
 
 ## Claim boundary
 
