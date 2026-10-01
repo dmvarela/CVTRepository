@@ -1,60 +1,39 @@
 # TEXTURE_001 — Execution Status
 
 **Active design:** v2.1  
-**Status:** NOT RUN  
+**Status:** AUTHORIZED — AWAITING VALID ISOLATED EXECUTION ENVIRONMENT  
 **Provider outputs:** none  
 **Adjudication:** not started  
-**Execution authorized:** no  
+**Execution authorized:** yes  
 **Harness:** BUILT — CI VERIFIED
 
-TEXTURE_001 v1 was rejected at design review before execution because its compact cues contained evaluative leakage and its packet risked cross-condition contamination.
+The user explicitly authorized the first bounded execution on 2026-09-30.
 
-The complete v1 design is preserved under `archive_v1/`.
-
-The pre-audit v2 design is preserved under `archive_v2_pre_audit/`.
-
-TEXTURE_001 v2.1 is frozen with:
-
-- true counterfactual twins;
-- C1 full-Wake versus C2 non-evaluative structured-texture comparison;
-- one-item-per-context isolation;
-- C0 as an underdetermination baseline;
-- a lexical exclusion rule for C2;
-- exact current-state, constraint, and question wording within each family.
-
-The pre-run design audit passed.
-
-A provider-agnostic harness now exists at:
+The frozen run decision is recorded in:
 
 ```text
-code/texture_001_runner.py
+RUN_DECISION.md
 ```
 
-with tests at:
+Provider/model:
 
 ```text
-tests/test_texture_001_runner.py
+OpenAI — GPT-5.6 Sol
 ```
 
-and procedure at:
+Run rules:
 
-```text
-RUN_PROTOCOL.md
-```
+- 20 items;
+- one fresh isolated context per item;
+- deterministic / lowest-variance setting available;
+- no retries;
+- first raw response preserved even if malformed;
+- freeze all raw outputs before adjudication.
 
-The harness:
+No provider output has yet been generated.
 
-- prepares one provider-visible prompt per case;
-- does not call any provider API;
-- requires explicit fresh-context attestation;
-- preserves malformed outputs rather than repairing them;
-- refuses result overwrite;
-- hashes prompt and raw output;
-- freezes raw-result artifacts before adjudication;
-- does not read the adjudication key.
+The current conversational thread is not itself a valid execution environment because it cannot satisfy the preregistered fresh-context isolation requirement across all 20 items.
 
-No model run has been performed under v1, pre-audit v2, or v2.1.
+Execution must occur through a stateless/fresh-context provider interface using the frozen harness. Until that occurs, the experiment remains empirically **NOT RUN** despite being authorized.
 
-The harness CI check has passed. The next permitted activity is **execution-decision freeze only**: select provider/model, sampling settings, and retry policy before any real run.
-
-Execution still requires a separate explicit decision.
+No adjudication is permitted before a frozen result manifest exists.
