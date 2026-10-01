@@ -6,7 +6,11 @@ import argparse
 import json
 from pathlib import Path
 
-from code.atlas_librarian import AtlasLibrary, AtlasLibrarian
+from code.atlas_librarian import (
+    ALLOWED_LAYER_TYPES,
+    AtlasLibrary,
+    AtlasLibrarian,
+)
 
 
 def _default_data_dir() -> Path:
@@ -40,6 +44,18 @@ def build_parser() -> argparse.ArgumentParser:
     )
     reconstruct.add_argument("concept_id")
 
+    layers = sub.add_parser(
+        "layers",
+        help="Show typed source/interpretive layers without collapsing them.",
+    )
+    layers.add_argument("concept_id")
+    layers.add_argument(
+        "--type",
+        dest="layer_type",
+        choices=sorted(ALLOWED_LAYER_TYPES),
+        default=None,
+    )
+
     translate = sub.add_parser(
         "translate",
         help="Prepare a bounded translation packet for a target context.",
@@ -61,6 +77,11 @@ def main() -> None:
         result = librarian.trace(args.concept_id)
     elif args.command == "reconstruct":
         result = librarian.reconstruct(args.concept_id)
+    elif args.command == "layers":
+        result = librarian.layered_view(
+            args.concept_id,
+            layer_type=args.layer_type,
+        )
     elif args.command == "translate":
         result = librarian.prepare_translation(args.concept_id, args.target_context)
     else:  # pragma: no cover - argparse enforces the command set.
