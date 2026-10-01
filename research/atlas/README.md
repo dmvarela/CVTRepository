@@ -1,7 +1,7 @@
 # Atlas
 
 **Status:** exploratory knowledge architecture with executable micro-library prototype  
-**Scope:** compression, provenance, translation, decoder mismatch, plasticity, and recoverable correction
+**Scope:** compression, provenance, translation, decoder mismatch, texture, plasticity, and recoverable correction
 
 Atlas is a proposed architecture for preserving and moving conceptual knowledge across time, contexts, disciplines, and decoders without treating compressed representations as self-sufficient.
 
@@ -23,6 +23,9 @@ Atlas treats a concept not as a static note, but as a time-dependent object with
     preservation != endorsement
     correction != erasure
     decoder context != reader identity
+    constitution != texture
+    Wake != texture
+    texture != style
 
 ## Interpretive freedom
 
@@ -90,6 +93,39 @@ The rule is:
 
 > **Do not add ontology because it sounds useful. Add it when a real traversal breaks the current representation.**
 
+## Candidate Texture hypothesis
+
+Atlas is now tracking **texture** as a candidate middle layer between constitutional boundaries and local action.
+
+See [Texture Hypothesis v0.1](TEXTURE_HYPOTHESIS_V0_1.md).
+
+The current working definition is:
+
+> **Texture is historically formed, corrigible geometry inside constitutional freedom.**
+
+A complementary operational definition is:
+
+> **Texture is the operational residue of history inside the admissible space.**
+
+The proposed distinction is:
+
+    Constitution -> what must not be traded away
+    Wake         -> how the present state became what it is
+    Texture      -> how that history changes the terrain of otherwise admissible action
+    Act          -> what is done here
+
+Texture may affect salience, caution, traversal resistance, decompression triggers, correction sensitivity, and which routes are noticed first.
+
+It is **not yet a first-class Atlas schema object**.
+
+The next step is a minimal `TEXTURE_001` test that holds present content and constitutional constraints constant while changing Wake. Texture earns stronger architectural status only if it changes useful traversal behavior beyond what ordinary provenance retrieval already provides.
+
+A key candidate rule is:
+
+> **No silent migration from texture to constitution.**
+
+Historically successful preferences should not silently harden into universal law, and constitutional boundaries should not silently degrade into soft preferences.
+
 ## Claim boundary
 
-Atlas is an exploratory research architecture. It does not establish that knowledge graphs are brains, that AI systems possess persistent personal identity, or that cross-domain structural mappings are valid merely because they are elegant. Associations remain candidates until they survive explicit return, boundary, and implementation checks.
+Atlas is an exploratory research architecture. It does not establish that knowledge graphs are brains, that AI systems possess persistent personal identity, that AI systems phenomenologically experience texture, or that cross-domain structural mappings are valid merely because they are elegant. Associations remain candidates until they survive explicit return, boundary, and implementation checks.
