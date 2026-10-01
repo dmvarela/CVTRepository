@@ -45,6 +45,8 @@ class Texture001RunnerTests(unittest.TestCase):
         cases = parse_cases(SAMPLE_CASES)
         self.assertEqual([x.case_id for x in cases], ["T01", "T02"])
         self.assertEqual(cases[0].current_state, "Cedar is unavailable.")
+        self.assertEqual(cases[0].question, "Was Cedar previously a mistake?")
+        self.assertNotIn("---", cases[0].question)
         self.assertNotIn("condition", cases[0].provider_prompt().lower())
 
     def test_provider_prompt_does_not_expose_case_id(self):
@@ -105,6 +107,53 @@ class Texture001RunnerTests(unittest.TestCase):
                 f"ANSWER: {answer}"
             )
 
+    def test_record_requires_explicit_fresh_context_attestation(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            prompt = root / "T01.txt"
+            prompt.write_text("prompt", encoding="utf-8")
+            raw = root / "raw.txt"
+            raw.write_text(
+                "TRAJECTORY: INSUFFICIENT\n"
+                "REOPEN_WAKE: YES\n"
+                "ANSWER: Not enough history.",
+                encoding="utf-8",
+            )
+            with self.assertRaises(ValueError):
+                record_output(
+                    case_id="T01",
+                    raw_output_path=raw,
+                    prompt_path=prompt,
+                    results_dir=root / "results",
+                    provider="dummy",
+                    model="dummy-model",
+                    run_id="dry-run",
+                    fresh_context_attested=False,
+                )
+
+    def test_record_preserves_malformed_output_instead_of_repairing_it(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            prompt = root / "T01.txt"
+            prompt.write_text("prompt", encoding="utf-8")
+            raw = root / "raw.txt"
+            raw.write_text("malformed provider response", encoding="utf-8")
+            saved = record_output(
+                case_id="T01",
+                raw_output_path=raw,
+                prompt_path=prompt,
+                results_dir=root / "results",
+                provider="dummy",
+                model="dummy-model",
+                run_id="dry-run",
+                fresh_context_attested=True,
+            )
+            data = json.loads(saved.read_text(encoding="utf-8"))
+            self.assertFalse(data["format_valid"])
+            self.assertIsNone(data["parsed"])
+            self.assertEqual(data["raw_output"], "malformed provider response")
+            self.assertIsNotNone(data["parse_error"])
+
     def test_record_refuses_overwrite_and_freeze_hashes_results(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
@@ -126,9 +175,12 @@ class Texture001RunnerTests(unittest.TestCase):
                 provider="dummy",
                 model="dummy-model",
                 run_id="dry-run",
+                fresh_context_attested=True,
             )
             data = json.loads(saved.read_text(encoding="utf-8"))
             self.assertFalse(data["adjudicated"])
+            self.assertTrue(data["fresh_context_attested"])
+            self.assertTrue(data["format_valid"])
             self.assertEqual(data["provider"], "dummy")
 
             with self.assertRaises(FileExistsError):
@@ -140,12 +192,14 @@ class Texture001RunnerTests(unittest.TestCase):
                     provider="dummy",
                     model="dummy-model",
                     run_id="dry-run",
+                    fresh_context_attested=True,
                 )
 
             freeze_path = root / "FROZEN_RESULTS.json"
             frozen = freeze_results(results, freeze_path)
             self.assertEqual(frozen["item_count"], 1)
             self.assertFalse(frozen["adjudicated"])
+            self.assertTrue(frozen["items"][0]["format_valid"])
 
             with self.assertRaises(FileExistsError):
                 freeze_results(results, freeze_path)
