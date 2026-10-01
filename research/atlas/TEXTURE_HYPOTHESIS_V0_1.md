@@ -806,3 +806,26 @@ The working intuition is:
 \]
 
 And the reader or agent should remain free to choose another path when evidence, context, or agency requires it.
+
+
+---
+
+## 21. Empirical status
+
+The first bounded test of this hypothesis is now frozen as:
+
+[`TEXTURE_001`](experiments/TEXTURE_001/PREREGISTRATION.md)
+
+Its design compares:
+
+[
+	ext{content only}
+quad	ext{vs}quad
+	ext{content + full Wake}
+quad	ext{vs}quad
+	ext{content + compact texture cue}.
+]
+
+The experiment is explicitly **not executed** at the time of this note.
+
+Texture remains a candidate architectural hypothesis until the preregistered test is run and adjudicated.
