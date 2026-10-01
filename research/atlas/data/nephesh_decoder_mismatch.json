@@ -1,0 +1,164 @@
+{
+  "concept_id": "nephesh-decoder-mismatch",
+  "title": "Nephesh and Decoder Mismatch",
+  "compression": "Soul can be a usable translation of nephesh, but it can silently import more than the Hebrew source guarantees.",
+  "source_reconstruction": "Biblical Hebrew nephesh has a broad semantic range involving living beings, life, selfhood, appetite, vitality, and embodied existence. English soul may preserve part of that range while also importing later body-soul assumptions. Recent scholarship also cautions against turning an older monistic correction into a universal rule for every occurrence.",
+  "assumption_envelope": [
+    "One Hebrew lexeme does not by itself establish a complete anthropology.",
+    "A traditional translation can remain useful while still carrying decoder risks.",
+    "Genesis 2:7 should not be made determinative for every occurrence of nephesh.",
+    "Embodied semantics do not automatically settle the monism-versus-separability debate."
+  ],
+  "decoder_prerequisites": [
+    "Distinguish lexeme from doctrine.",
+    "Distinguish translation tradition from lexical identity.",
+    "Distinguish embodied semantics from a universal monistic conclusion.",
+    "Distinguish source reconstruction from later theological construction."
+  ],
+  "decompression_map": [
+    "nephesh in nonhuman living creatures",
+    "Genesis 2:7 human becomes nephesh chayyah",
+    "embodied associations: throat, appetite, breath, vitality",
+    "traditional English soul",
+    "twentieth-century monistic correction",
+    "newer scholarship reopening separability questions",
+    "decoder mismatch analysis"
+  ],
+  "candidate_invariants": [
+    "No single English gloss exhausts the semantic range of nephesh.",
+    "The receiving language can import conceptual assumptions not guaranteed by the source lexeme.",
+    "Correcting one decoder bias should not create a new universal overcorrection."
+  ],
+  "provenance": [
+    {
+      "kind": "source-rich specimen",
+      "path": "research/atlas/specimens/NEPHESH_DECODER_MISMATCH_001.md"
+    }
+  ],
+  "cliffs": [
+    "Do not reduce nephesh to a detachable modern soul by lexical fiat.",
+    "Do not reduce nephesh to a permanently inseparable whole-person concept in every biblical context by lexical fiat.",
+    "Do not infer a reader's theology from identity or demographic characteristics."
+  ],
+  "tags": [
+    "nephesh",
+    "hebrew",
+    "soul",
+    "translation",
+    "decoder",
+    "assumption envelope",
+    "anthropology",
+    "genesis"
+  ],
+  "epistemic_status": "source-rich decoder-stress specimen",
+  "layers": [
+    {
+      "layer_id": "gen1-20-source",
+      "layer_type": "source_text",
+      "content": "The Hebrew phrase nephesh chayyah is used of living creatures in the waters.",
+      "source_ref": "Genesis 1:20",
+      "language": "Biblical Hebrew described in English",
+      "status": "source observation",
+      "notes": "Shows that nephesh terminology is not restricted to uniquely human immaterial identity."
+    },
+    {
+      "layer_id": "gen2-7-source",
+      "layer_type": "source_text",
+      "content": "The formed human receives the breath of life and becomes a nephesh chayyah.",
+      "source_ref": "Genesis 2:7",
+      "language": "Biblical Hebrew described in English",
+      "status": "source observation"
+    },
+    {
+      "layer_id": "gen2-7-translation",
+      "layer_type": "translation",
+      "content": "English versions variously render the result with expressions such as living being, living creature, or living soul.",
+      "source_ref": "Genesis 2:7",
+      "language": "English",
+      "status": "translation comparison",
+      "derived_from": ["gen2-7-source"]
+    },
+    {
+      "layer_id": "embodied-nephesh",
+      "layer_type": "lexical_note",
+      "content": "Scholarly treatments connect nephesh with embodied senses such as throat or neck, appetite, thirst, vitality, life, self, and personhood.",
+      "source_ref": "Lexical and Hebrew Bible scholarship",
+      "status": "broad lexical observation"
+    },
+    {
+      "layer_id": "monistic-consensus",
+      "layer_type": "historical_reconstruction",
+      "content": "An influential twentieth-century exegetical consensus emphasized psychosomatic unity and often used formulations such as the person is a nephesh rather than merely has one.",
+      "source_ref": "History of interpretation summarized in Pleijel 2019",
+      "status": "historical scholarly reconstruction"
+    },
+    {
+      "layer_id": "newer-separability-debate",
+      "layer_type": "scholarly_interpretation",
+      "content": "More recent scholarship has challenged the sufficiency of the older monistic consensus and has renewed attention to contexts in which nephesh may have been perceived as separable from the body.",
+      "source_ref": "Pleijel 2019; recent Hebrew Bible scholarship",
+      "status": "contested scholarly development",
+      "derived_from": ["monistic-consensus"]
+    },
+    {
+      "layer_id": "soul-decoder-warning",
+      "layer_type": "source_correction",
+      "content": "The English gloss soul may import a modern immaterial and detachable body-soul model that is not established by the Hebrew lexeme alone.",
+      "source_ref": "Decoder analysis based on lexical and translation scholarship",
+      "status": "decoder warning"
+    },
+    {
+      "layer_id": "monism-overcorrection-warning",
+      "layer_type": "source_correction",
+      "content": "Replacing soul with a rigid rule that nephesh can never be conceived as separable is also stronger than the current scholarly evidence warrants.",
+      "source_ref": "Pleijel 2019 and subsequent debate",
+      "status": "overcorrection warning"
+    },
+    {
+      "layer_id": "later-theology",
+      "layer_type": "transformation",
+      "content": "A reader may construct a later theological account of soul, embodiment, or afterlife, but Atlas should preserve that account as later construction rather than lexical content automatically contained in nephesh.",
+      "source_ref": "Atlas interpretive principle",
+      "status": "deliberate later construction"
+    }
+  ],
+  "decoder_profiles": [
+    {
+      "profile_id": "modern-english-soul",
+      "context": "A receiving context in which the English word soul commonly suggests an immaterial personal entity distinct from the body.",
+      "likely_assumptions": [
+        "Soul and body are naturally distinct categories.",
+        "Soul language primarily concerns uniquely human interior identity.",
+        "A soul can exist apart from bodily life.",
+        "The English word soul transparently names the same concept as nephesh."
+      ],
+      "assumptions_not_guaranteed": [
+        "That every occurrence of nephesh denotes a detachable immaterial entity.",
+        "That nephesh is uniquely human.",
+        "That the lexical choice alone establishes immortality or postmortem separability."
+      ],
+      "needed_distinctions": [
+        "lexeme versus doctrine",
+        "translation versus conceptual identity",
+        "embodied semantic range versus metaphysical conclusion",
+        "source reconstruction versus later theology"
+      ],
+      "mismatch_risks": [
+        "Importing later body-soul dualism into passages where the Hebrew wording does not require it.",
+        "Reading Genesis 2:7 as though it simply says a preformed body received a detachable soul."
+      ],
+      "preparation_notes": [
+        "Show nonhuman nephesh usage before using soul as a transparent gloss.",
+        "Show Genesis 2:7 as a become-a-living-nephesh construction.",
+        "Explicitly note the current scholarly debate so decoder preparation does not become a new orthodoxy."
+      ],
+      "status": "provisional context profile, not a claim about any individual reader",
+      "provenance": [
+        {
+          "kind": "decoder-stress specimen",
+          "path": "research/atlas/specimens/NEPHESH_DECODER_MISMATCH_001.md"
+        }
+      ]
+    }
+  ]
+}
