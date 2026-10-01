@@ -92,7 +92,7 @@ class AtlasMicroLibraryIntegrationTests(unittest.TestCase):
         cls.librarian = AtlasLibrarian(cls.library)
 
     def test_seed_library_contains_multiple_concepts(self):
-        self.assertGreaterEqual(len(self.library.records()), 4)
+        self.assertGreaterEqual(len(self.library.records()), 5)
 
     def test_find_can_retrieve_relation_as_codec(self):
         results = self.librarian.find("shared context codec decompression")
@@ -141,6 +141,41 @@ class AtlasMicroLibraryIntegrationTests(unittest.TestCase):
     def test_find_can_retrieve_source_rich_record_from_layer_content(self):
         results = self.librarian.find("building up constructive")
         self.assertEqual(results[0]["concept_id"], "paul-all-things-lawful")
+
+    def test_nephesh_has_explicit_decoder_profile(self):
+        packet = self.librarian.prepare_decoder(
+            "nephesh-decoder-mismatch",
+            profile_id="modern-english-soul",
+        )
+        self.assertEqual(len(packet["decoder_profiles"]), 1)
+        profile = packet["decoder_profiles"][0]
+        self.assertEqual(profile["profile_id"], "modern-english-soul")
+        self.assertIn(
+            "lexeme versus doctrine",
+            profile["needed_distinctions"],
+        )
+        self.assertIn("not claims about", packet["orientation"])
+
+    def test_decoder_profile_is_context_model_not_person_model(self):
+        packet = self.librarian.prepare_decoder("nephesh-decoder-mismatch")
+        profile = packet["decoder_profiles"][0]
+        self.assertIn("provisional context profile", profile["status"])
+        self.assertNotIn("user", profile["profile_id"])
+
+    def test_translation_packet_includes_decoder_preparation(self):
+        packet = self.librarian.prepare_translation(
+            "nephesh-decoder-mismatch",
+            "modern English theology discussion",
+        )
+        self.assertIn("decoder_preparation", packet)
+        self.assertEqual(
+            packet["decoder_preparation"]["decoder_profiles"][0]["profile_id"],
+            "modern-english-soul",
+        )
+
+    def test_find_can_use_decoder_mismatch_content(self):
+        results = self.librarian.find("detachable soul decoder")
+        self.assertEqual(results[0]["concept_id"], "nephesh-decoder-mismatch")
 
 
 if __name__ == "__main__":
