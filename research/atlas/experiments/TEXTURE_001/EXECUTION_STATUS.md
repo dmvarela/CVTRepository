@@ -1,7 +1,7 @@
 # TEXTURE_001 — Execution Status
 
 **Active design:** v2.1  
-**Status:** AUTHORIZED — AWAITING VALID ISOLATED EXECUTION ENVIRONMENT  
+**Status:** AUTHORIZED — MANUAL ISOLATED RUN READY  
 **Provider outputs:** none  
 **Adjudication:** not started  
 **Execution authorized:** yes  
@@ -15,25 +15,21 @@ The frozen run decision is recorded in:
 RUN_DECISION.md
 ```
 
-Provider/model:
+Frozen execution environment:
 
 ```text
-OpenAI — GPT-5.6 Sol
+OpenAI / ChatGPT
+GPT-5.6 Sol
+High reasoning
+Unpersonalized Temporary Chat
+one fresh chat per item
+no retries
 ```
-
-Run rules:
-
-- 20 items;
-- one fresh isolated context per item;
-- deterministic / lowest-variance setting available;
-- no retries;
-- first raw response preserved even if malformed;
-- freeze all raw outputs before adjudication.
 
 No provider output has yet been generated.
 
-The current conversational thread is not itself a valid execution environment because it cannot satisfy the preregistered fresh-context isolation requirement across all 20 items.
+The current conversational thread is not itself a valid execution environment because it contains the Atlas design history and therefore violates the experiment's isolation rule.
 
-Execution must occur through a stateless/fresh-context provider interface using the frozen harness. Until that occurs, the experiment remains empirically **NOT RUN** despite being authorized.
+The experiment is ready for a 20-item manual isolated run using the generated provider prompts. Raw outputs must be recorded and frozen before adjudication.
 
-No adjudication is permitted before a frozen result manifest exists.
+Until the first isolated prompt is submitted, the experiment remains empirically **NOT RUN**.
