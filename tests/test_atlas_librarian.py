@@ -92,7 +92,7 @@ class AtlasMicroLibraryIntegrationTests(unittest.TestCase):
         cls.librarian = AtlasLibrarian(cls.library)
 
     def test_seed_library_contains_multiple_concepts(self):
-        self.assertGreaterEqual(len(self.library.records()), 3)
+        self.assertGreaterEqual(len(self.library.records()), 4)
 
     def test_find_can_retrieve_relation_as_codec(self):
         results = self.librarian.find("shared context codec decompression")
@@ -102,6 +102,45 @@ class AtlasMicroLibraryIntegrationTests(unittest.TestCase):
         packet = self.librarian.reconstruct("reconstruction-not-prescription")
         self.assertIn("allowed to think", packet["source_reconstruction"])
         self.assertIn("does not prescribe", packet["orientation"])
+
+    def test_source_rich_record_preserves_distinct_layers(self):
+        layers = self.librarian.layered_view("paul-all-things-lawful")
+        types = {layer["layer_type"] for layer in layers}
+        self.assertIn("source_text", types)
+        self.assertIn("translation", types)
+        self.assertIn("historical_reconstruction", types)
+        self.assertIn("reader_interpretation", types)
+        self.assertIn("transformation", types)
+        self.assertIn("source_correction", types)
+
+    def test_layer_filter_does_not_collapse_source_and_transformation(self):
+        source_layers = self.librarian.layered_view(
+            "paul-all-things-lawful",
+            layer_type="source_text",
+        )
+        transformations = self.librarian.layered_view(
+            "paul-all-things-lawful",
+            layer_type="transformation",
+        )
+        self.assertEqual(len(source_layers), 2)
+        self.assertEqual(len(transformations), 1)
+        self.assertNotEqual(
+            source_layers[0]["content"],
+            transformations[0]["content"],
+        )
+
+    def test_source_correction_locates_build_up_in_10_23(self):
+        corrections = self.librarian.layered_view(
+            "paul-all-things-lawful",
+            layer_type="source_correction",
+        )
+        self.assertEqual(len(corrections), 1)
+        self.assertIn("10:23", corrections[0]["content"])
+        self.assertIn("not to 1 Corinthians 6:12", corrections[0]["content"])
+
+    def test_find_can_retrieve_source_rich_record_from_layer_content(self):
+        results = self.librarian.find("building up constructive")
+        self.assertEqual(results[0]["concept_id"], "paul-all-things-lawful")
 
 
 if __name__ == "__main__":
