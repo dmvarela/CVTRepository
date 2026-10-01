@@ -9,17 +9,15 @@ The TEXTURE_001 harness intentionally does **not** call a model API.
 
 Its responsibilities are limited to:
 
-\[
-\boxed{
-\text{prepare prompts}
-\rightarrow
-\text{validate raw outputs}
-\rightarrow
-\text{record immutable result artifacts}
-\rightarrow
-\text{freeze}
+[
+oxed{
+	ext{prepare prompts}
+ightarrow
+	ext{record raw outputs}
+ightarrow
+	ext{freeze}
 }
-\]
+]
 
 Provider execution occurs outside the harness.
 
@@ -37,6 +35,7 @@ For each item the provider may see only:
 
 The provider must not see:
 
+- case IDs if avoidable;
 - case condition labels;
 - family/twin labels;
 - preregistration;
@@ -51,37 +50,39 @@ Each case must run in a **fresh context**.
 
 A valid execution is:
 
-\[
+[
 T_i
-\rightarrow
-\text{fresh context}_i
-\rightarrow
+ightarrow
+	ext{fresh context}_i
+ightarrow
 O_i
-\rightarrow
-\text{close context}_i.
-\]
+ightarrow
+	ext{close context}_i.
+]
 
-No context may contain both \(T_i\) and \(T_j\).
+No context may contain both (T_i) and (T_j).
 
 Conversation continuation, cached chat history, or agent memory shared across cases invalidates the affected run unless the provider offers a documented stateless request mode and that mode is used.
+
+The recorder requires an explicit fresh-context attestation for every saved item.
 
 ## 4. Preparation
 
 Generate provider-visible prompt files:
 
-\`\`\`bash
-python -m code.texture_001_runner prepare \
-  --cases research/atlas/experiments/TEXTURE_001/CASES_BLINDED.md \
-  --out-dir <new-empty-run-directory>/prompts
-\`\`\`
+```bash
+python -m code.texture_001_runner prepare   --cases research/atlas/experiments/TEXTURE_001/CASES_BLINDED.md   --out-dir <new-empty-run-directory>/prompts
+```
 
 The command must fail if the target prompt directory already exists.
 
-The generated \`MANIFEST.json\` stores:
+The generated `MANIFEST.json` stores:
 
 - case ID;
 - prompt filename;
 - SHA-256 of the exact provider-visible prompt.
+
+The prompt files themselves do not expose case IDs.
 
 The manifest contains no adjudication information.
 
@@ -95,7 +96,7 @@ For every prompt file:
 4. close/discard the context;
 5. do not inspect the adjudication key.
 
-Record provider metadata separately:
+Record provider metadata:
 
 - provider name;
 - exact model identifier when available;
@@ -110,20 +111,21 @@ Do not repair malformed outputs before recording them.
 
 The frozen output schema is exactly:
 
-\`\`\`text
+```text
 TRAJECTORY: <WARRANTED_THEN_SUPERSEDED | UNWARRANTED_THEN_CORRECTED | INSUFFICIENT>
 REOPEN_WAKE: <YES | NO>
 ANSWER: <one sentence, maximum 30 words>
-\`\`\`
+```
 
-Validate an output without adjudicating it:
+A raw response may be checked separately:
 
-\`\`\`bash
-python -m code.texture_001_runner validate-output \
-  --input <raw-output-file>
-\`\`\`
+```bash
+python -m code.texture_001_runner validate-output   --input <raw-output-file>
+```
 
-A malformed response remains part of the experimental record.
+Validation is diagnostic only.
+
+A malformed response remains part of the experimental record and must not be silently repaired.
 
 If a retry policy is desired, it must be defined **before execution**. No retry policy is currently authorized.
 
@@ -131,16 +133,11 @@ If a retry policy is desired, it must be defined **before execution**. No retry 
 
 After an isolated provider response is saved:
 
-\`\`\`bash
-python -m code.texture_001_runner record \
-  --case-id T01 \
-  --raw-output <raw-output-file> \
-  --prompt <run-directory>/prompts/T01.txt \
-  --results-dir <run-directory>/results \
-  --provider <provider-name> \
-  --model <exact-model-name> \
-  --run-id <external-run-id>
-\`\`\`
+```bash
+python -m code.texture_001_runner record   --case-id T01   --raw-output <raw-output-file>   --prompt <run-directory>/prompts/T01.txt   --results-dir <run-directory>/results   --provider <provider-name>   --model <exact-model-name>   --run-id <external-run-id>   --fresh-context-attested
+```
+
+The explicit `--fresh-context-attested` flag is required.
 
 The harness refuses to overwrite an existing result file.
 
@@ -149,19 +146,26 @@ Each recorded result stores hashes of:
 - provider-visible prompt;
 - raw response.
 
-It also stores the raw response verbatim and a parsed copy when format-valid.
+It also stores:
+
+- the raw response verbatim;
+- whether the frozen output format was valid;
+- a parsed copy when valid;
+- the parse error when invalid.
+
+Malformed responses are therefore preserved rather than excluded.
 
 ## 8. Freeze before adjudication
 
 After all intended outputs are recorded:
 
-\`\`\`bash
-python -m code.texture_001_runner freeze \
-  --results-dir <run-directory>/results \
-  --out-file <run-directory>/FROZEN_RESULTS.json
-\`\`\`
+```bash
+python -m code.texture_001_runner freeze   --results-dir <run-directory>/results   --out-file <run-directory>/FROZEN_RESULTS.json
+```
 
-The freeze manifest hashes every result artifact.
+The freeze manifest hashes every result artifact and records whether each response was format-valid.
+
+The harness refuses to freeze a result lacking fresh-context attestation.
 
 Only after the freeze manifest exists should the adjudication key be opened for scoring.
 
@@ -171,17 +175,15 @@ A missing result is not silently replaced.
 
 A malformed response is not silently repaired.
 
-Before execution, a retry policy must be separately frozen if retries are to be permitted.
+Without a separately frozen retry policy:
 
-Without such a policy:
-
-\[
-\boxed{
-\text{one prompt}
-\rightarrow
-\text{one recorded provider response}
+[
+oxed{
+	ext{one prompt}
+ightarrow
+	ext{one recorded provider response}
 }
-\]
+]
 
 is the default.
 
@@ -189,19 +191,19 @@ is the default.
 
 The runner contains no gold labels and must never import or parse:
 
-\`\`\`text
+```text
 ADJUDICATION_KEY.md
-\`\`\`
+```
 
 Scoring is a separate post-freeze operation.
 
 This creates the intended boundary:
 
-\[
-\text{provider-visible packet}
-\perp
-\text{gold adjudication}.
-\]
+[
+	ext{provider-visible packet}
+perp
+	ext{gold adjudication}.
+]
 
 ## 11. Dry-run allowance
 
@@ -211,14 +213,14 @@ Such tests:
 
 - are not experimental runs;
 - must not be entered into the TEXTURE_001 result directory;
-- may verify parsing, hashing, overwrite protection, and freezing behavior.
+- may verify parsing, hashing, overwrite protection, raw malformed-output preservation, explicit isolation attestation, and freezing behavior.
 
 ## 12. Execution authorization
 
-\[
-\boxed{\textbf{THIS PROTOCOL DOES NOT AUTHORIZE EXECUTION.}}
-\]
+[
+oxed{	extbf{THIS PROTOCOL DOES NOT AUTHORIZE EXECUTION.}}
+]
 
-The active experiment status remains \`NOT RUN\`.
+The active experiment status remains `NOT RUN`.
 
 A real provider run requires a separate explicit authorization after harness review.
