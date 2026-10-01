@@ -34,3 +34,20 @@ It is a pre-execution design repair.
 The v1 defect itself is preserved as an Atlas scar:
 
 > A compressed representation of history is not evidence for texture if it simply smuggles the adjudication into the prompt.
+
+
+## Pre-run audit correction: v2 -> v2.1
+
+The first automated pre-run audit found a smaller wording-control defect: three baseline questions were not text-identical to the corresponding twin questions.
+
+- API baseline used “in March” in one condition and “earlier” elsewhere.
+- Approval baseline used “an earlier application” while the twin cases used “the earlier application.”
+- Route baseline used “an earlier shipment” while the twin cases used “the first shipment.”
+
+Because the preregistration requires current state, constraint, and question to remain exactly constant within each family, these differences were corrected before execution.
+
+The pre-audit v2 files are preserved under `archive_v2_pre_audit/`.
+
+No model run occurred before this correction.
+
+v2.1 changes wording control only; it does not change the hypotheses, gold labels, condition mapping, success criteria, or adjudication logic.
