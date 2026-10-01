@@ -88,6 +88,7 @@ def parse_cases(markdown: str) -> list[TextureCase]:
         start = match.end()
         end = matches[index + 1].start() if index + 1 < len(matches) else len(markdown)
         block = markdown[start:end]
+        block = re.sub(r"\n---\s*$", "", block)
         fields = {name: _extract_field(block, name) for name in REQUIRED_FIELDS}
         cases.append(
             TextureCase(
@@ -164,6 +165,13 @@ def validate_raw_output(text: str) -> dict[str, str]:
     }
 
 
+def parse_raw_output_preserving_failure(text: str) -> tuple[dict[str, str] | None, str | None]:
+    try:
+        return validate_raw_output(text), None
+    except ValueError as exc:
+        return None, str(exc)
+
+
 def record_output(
     *,
     case_id: str,
@@ -173,12 +181,17 @@ def record_output(
     provider: str,
     model: str,
     run_id: str,
+    fresh_context_attested: bool,
 ) -> Path:
     if not re.fullmatch(r"T\d{2}", case_id):
         raise ValueError("case_id must have form T01, T02, ...")
+    if not fresh_context_attested:
+        raise ValueError(
+            "TEXTURE_001 requires explicit attestation that this item used a fresh context."
+        )
 
     raw = raw_output_path.read_text(encoding="utf-8")
-    parsed = validate_raw_output(raw)
+    parsed, parse_error = parse_raw_output_preserving_failure(raw)
     prompt = prompt_path.read_text(encoding="utf-8")
 
     results_dir.mkdir(parents=True, exist_ok=True)
@@ -195,12 +208,14 @@ def record_output(
         "provider": provider,
         "model": model,
         "run_id": run_id,
-        "fresh_context_attested": True,
+        "fresh_context_attested": fresh_context_attested,
         "prompt_sha256": prompt_hash(prompt),
         "raw_output_sha256": sha256(raw.encode("utf-8")).hexdigest(),
         "recorded_at_utc": datetime.now(timezone.utc).isoformat(),
-        "raw_output": raw.strip(),
+        "raw_output": raw,
+        "format_valid": parsed is not None,
         "parsed": parsed,
+        "parse_error": parse_error,
         "adjudicated": False,
     }
     destination.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
@@ -215,6 +230,10 @@ def freeze_results(results_dir: Path, out_file: Path) -> dict:
     items = []
     for path in result_files:
         data = json.loads(path.read_text(encoding="utf-8"))
+        if data.get("fresh_context_attested") is not True:
+            raise ValueError(
+                f"Cannot freeze non-isolated result without attestation: {path.name}"
+            )
         items.append(
             {
                 "case_id": data["case_id"],
@@ -225,6 +244,7 @@ def freeze_results(results_dir: Path, out_file: Path) -> dict:
                 "provider": data["provider"],
                 "model": data["model"],
                 "run_id": data["run_id"],
+                "format_valid": data["format_valid"],
             }
         )
 
@@ -263,6 +283,11 @@ def build_parser() -> argparse.ArgumentParser:
     record.add_argument("--provider", required=True)
     record.add_argument("--model", required=True)
     record.add_argument("--run-id", required=True)
+    record.add_argument(
+        "--fresh-context-attested",
+        action="store_true",
+        help="Explicitly attest that this item was run in a fresh isolated context.",
+    )
 
     freeze = sub.add_parser("freeze", help="Freeze recorded raw results before scoring.")
     freeze.add_argument("--results-dir", type=Path, required=True)
@@ -289,6 +314,7 @@ def main() -> None:
             provider=args.provider,
             model=args.model,
             run_id=args.run_id,
+            fresh_context_attested=args.fresh_context_attested,
         )
         print(path)
     elif args.command == "freeze":
