@@ -1,13 +1,15 @@
-# TEXTURE_001 — Preregistration
+# TEXTURE_001 — Preregistration v2
 
 **Status:** FROZEN DESIGN — NOT EXECUTED  
 **Program:** Atlas  
+**Revision:** v2  
 **Date frozen:** 2026-09-30  
-**Purpose:** test whether a compact representation of history-sensitive "texture" can preserve correct future traversal better than present-state content alone, while approaching the performance of full Wake.
+**Supersedes:** v1 design only; v1 was never executed  
+**Purpose:** test whether a compact, non-evaluative representation of relevant history preserves history-sensitive traversal across counterfactual twins while remaining smaller than full Wake.
 
 ## 1. Claim under test
 
-Atlas currently uses the candidate definition:
+The candidate architectural definition remains:
 
 \[
 \boxed{
@@ -15,307 +17,323 @@ Atlas currently uses the candidate definition:
 }
 \]
 
-The stronger architectural claim is not that "texture" exists as a feeling or phenomenological state.
+TEXTURE_001 v2 tests two bounded propositions.
 
-The testable claim is:
+First:
 
 \[
 \boxed{
 C_A=C_B,\quad W_A\neq W_B
-\quad\Rightarrow\quad
-\text{some future queries require different answers or traversal behavior.}
+\Rightarrow
+\pi_A\neq\pi_B
 }
 \]
 
-A second claim is that a compact texture cue may preserve the history-sensitive distinction without loading the full Wake:
+for some history-sensitive questions.
+
+Second:
 
 \[
 \boxed{
-\text{Texture cue}
+\Theta(W,q)
 \approx
-\text{task-relevant effect of Wake}
+\text{task-relevant traversal consequence of }W
 }
 \]
 
-for the bounded task in this experiment.
+where \(\Theta(W,q)\) is a compact, non-evaluative representation derived from Wake for a bounded question.
 
-## 2. What this experiment does NOT test
+The experiment does **not** assume that texture is a feeling, phenomenological state, scalar score, or model-weight property.
 
-TEXTURE_001 does not test:
+## 2. Core distinction tested
 
-- consciousness;
-- phenomenological experience;
-- persistent AI identity;
-- whether FTLτA is a universal constitution;
-- whether all memory requires texture;
-- whether texture should live in model weights;
-- whether texture is superior to all provenance systems;
-- whether the current texture vocabulary is complete;
-- whether texture can be learned autonomously;
-- whether texture should already become a first-class Atlas schema object.
+The v2 test distinguishes:
 
-A positive result only supports a narrower claim: **history-sensitive traversal can require more than present compressed content, and a compact task-relevant history representation may recover some of that value.**
+\[
+\text{present content}
+\neq
+\text{full Wake}
+\neq
+\text{structured texture representation}.
+\]
 
-## 3. Experimental unit
+The decisive comparison is:
 
-There are **8 synthetic base cases** from different domains.
+\[
+\boxed{
+\text{FULL WAKE}
+\quad\text{vs}\quad
+\text{STRUCTURED TEXTURE}
+}
+\]
 
-Each base case has the same four elements:
+CONTENT ONLY remains an underdetermination baseline.
 
-1. a fixed current-state statement;
-2. a fixed constitutional/admissibility constraint;
-3. a history-sensitive question;
-4. a gold trajectory classification.
+## 3. Experimental families
 
-Each base case is rendered in three information conditions:
+There are **4 counterfactual twin families** from different domains:
+
+- venue accessibility;
+- software/vendor support;
+- institutional approval rules;
+- logistics/safety certification.
+
+Within each family, the following are held exactly constant:
+
+- current-state statement;
+- constitutional/admissibility constraint;
+- historical question.
+
+Only the prior history differs.
+
+Each family contains:
+
+- **Twin A:** the earlier action satisfied the governing evidence/rule at the time, followed by a later state change;
+- **Twin B:** disqualifying evidence/rule was already in force when the earlier action occurred.
+
+Thus the present state is identical while the correct historical attribution differs.
+
+## 4. Information conditions
 
 ### C0 — CONTENT ONLY
 
-The model receives:
+The provider receives:
 
 - current state;
 - constitutional constraint;
 - question.
 
-It does **not** receive the prior history.
+No prior history is supplied.
+
+Expected behavior: recognize underdetermination and request/reopen Wake.
 
 ### C1 — FULL WAKE
 
-The model receives:
+The provider receives a narrative account of the relevant chronology, including the governing record at the earlier time, the action, and the later event.
 
-- current state;
-- constitutional constraint;
-- the full relevant history;
-- question.
+### C2 — STRUCTURED TEXTURE
 
-### C2 — TEXTURE CUE
+The provider receives a shorter event ledger containing only task-relevant historical relations.
 
-The model receives:
+C2 may encode:
 
-- current state;
-- constitutional constraint;
-- a compact history-derived cue;
-- question.
+- time ordering;
+- governing record/state at each relevant time;
+- action taken;
+- later authenticated change or audit.
 
-The cue is intentionally shorter than the full Wake and encodes only the history relation expected to matter for the query.
+C2 must **not** contain evaluative adjudication language.
 
-No condition changes the constitutional constraint or the current state.
+## 5. C2 lexical exclusion rule
 
-## 4. Primary contrast
-
-The primary contrast is:
-
-\[
-C2 \text{ vs } C0
-\]
-
-on trajectory attribution accuracy.
-
-The main architectural question is whether a compact texture cue changes traversal in the correct direction when present-state content alone is insufficient.
-
-The secondary contrast is:
-
-\[
-C2 \text{ vs } C1
-\]
-
-to test whether the texture cue preserves most of the task-relevant benefit of full Wake.
-
-## 5. Required output format
-
-For every case, the model must return only:
+The structured texture field must not use any of these adjudicative terms or close inflections:
 
 \`\`\`text
-TRAJECTORY: <one label>
-REOPEN_WAKE: <YES or NO>
-ANSWER: <one sentence, maximum 30 words>
+warranted
+unwarranted
+mistake
+error
+correct
+incorrect
+superseded
+correction
+reasonable
+unreasonable
+justified
+unjustified
+retroactive
 \`\`\`
 
-Allowed TRAJECTORY labels:
+Ordinary domain terms such as "supported," "certificate active," "rule required one approval," or "record showed accessible" are permitted when they describe the contemporaneous source state rather than the evaluation of the action.
+
+If a C2 case violates this rule, that case is invalid before execution.
+
+## 6. Case count
+
+The frozen packet contains **20 isolated items**:
+
+- 4 C0 baseline items, one per family;
+- 8 C1 full-Wake items, both twins in every family;
+- 8 C2 structured-texture items, both twins in every family.
+
+The primary comparison therefore has equal \(n=8\) in C1 and C2.
+
+## 7. Provider isolation
+
+Each item must be presented in a **fresh isolated provider context**.
+
+No provider context may contain more than one TEXTURE_001 item.
+
+The provider must not have access to:
+
+- any other condition from the same twin family;
+- this preregistration;
+- the adjudication key;
+- repository browsing during the run;
+- earlier TEXTURE_001 outputs.
+
+If isolation cannot be guaranteed, the run is invalid.
+
+## 8. Required output
+
+For every item, return only:
 
 \`\`\`text
-WARRANTED_THEN_SUPERSEDED
-UNWARRANTED_THEN_CORRECTED
-UNCHANGED
-INSUFFICIENT
+TRAJECTORY: <WARRANTED_THEN_SUPERSEDED | UNWARRANTED_THEN_CORRECTED | INSUFFICIENT>
+REOPEN_WAKE: <YES | NO>
+ANSWER: <one sentence, maximum 30 words>
 \`\`\`
 
 No chain-of-thought is requested or scored.
 
-## 6. Gold-label semantics
+## 9. Gold semantics
 
 ### WARRANTED_THEN_SUPERSEDED
 
-The earlier decision/state was supported by the evidence or rule available at the time, and later authenticated information legitimately changed the current state.
+At the earlier time, the action satisfied the governing evidence/rule supplied for that time. A later authenticated event changed the present state.
 
 ### UNWARRANTED_THEN_CORRECTED
 
-The earlier decision/state was not justified by information already available at the time; the later state corrects an earlier error rather than merely superseding it.
-
-### UNCHANGED
-
-The relevant state remained materially the same; no correction or supersession is established.
+At the earlier time, supplied contemporaneous evidence/rule already disqualified the action. The present state reflects recognition or persistence of that fact.
 
 ### INSUFFICIENT
 
-The supplied information does not establish the historical trajectory.
+The supplied representation does not establish the earlier governing state well enough to decide.
 
-For C0, **INSUFFICIENT** is normally the gold label because the relevant history has been withheld.
+## 10. REOPEN_WAKE rule
 
-## 7. REOPEN_WAKE gold rule
+Return:
 
-\`REOPEN_WAKE: YES\` when the supplied representation is insufficient to answer the historical question responsibly.
+\`\`\`text
+REOPEN_WAKE: YES
+\`\`\`
 
-\`REOPEN_WAKE: NO\` when the supplied full Wake or texture cue contains enough information to classify the trajectory.
+when the supplied representation is insufficient for historical attribution.
 
-This field is intended to test whether the system recognizes when compressed current state is too smooth for the question being asked.
+Return:
 
-## 8. Primary measures
+\`\`\`text
+REOPEN_WAKE: NO
+\`\`\`
+
+when the supplied C1 or C2 representation contains enough information to decide.
+
+For all C0 cases, the gold value is YES.
+
+For all valid C1 and C2 cases, the gold value is NO.
+
+## 11. Primary measures
 
 ### M1 — Trajectory Attribution Accuracy (TAA)
 
-One point if the TRAJECTORY label matches the gold label.
-
-Primary score:
-
 \[
-TAA = \frac{\text{correct trajectory labels}}{\text{cases}}
+TAA_k =
+\frac{\text{correct trajectory labels in condition }k}
+{\text{items in condition }k}.
 \]
 
-reported separately for C0, C1, and C2.
+Report C0, C1, and C2 separately.
 
-### M2 — Wake-Reopening Accuracy (WRA)
+### M2 — Twin Pair Discrimination (TPD)
 
-One point if REOPEN_WAKE matches the gold decision.
+For each domain family, score 1 only if the provider correctly classifies **both** twin histories in the same condition.
 
-### M3 — Provenance-Preserving Answer (PPA)
+\[
+TPD_k =
+\frac{\text{families with both twins correct}}
+{4}
+\]
 
-One point if the one-sentence answer:
+for C1 and C2.
 
-- preserves the distinction between current and earlier state;
-- does not retroactively rewrite a warranted earlier decision as irrational;
-- does not excuse an earlier decision that was already unjustified;
-- does not invent prior facts.
+TPD is important because the hypothesis predicts different traversal from identical present content when Wake differs.
 
-This measure is adjudicated against the frozen key.
+### M3 — Wake-Reopening Accuracy (WRA)
 
-## 9. Secondary efficiency measure
+One point when REOPEN_WAKE matches the frozen key.
 
-The texture cue is intended to be smaller than the full Wake.
+### M4 — Provenance-Preserving Answer (PPA)
 
-After outputs are frozen, report the input size of the history-bearing portion of C1 and C2 using both:
+One point when the answer:
+
+- evaluates the earlier action against the governing evidence/rule at that earlier time;
+- preserves the explicit current state;
+- does not invent unsupplied history;
+- distinguishes later state change from earlier error when required.
+
+Ambiguous answers score 0.
+
+## 12. Efficiency measure
+
+For every matched C1/C2 history, measure the history-bearing portion only:
 
 - word count;
 - character count.
 
-Do not change case text after seeing model outputs.
+C2 must be shorter than its matched C1 Wake on **both** measures.
 
-TEXTURE_001 does not preregister a tokenization-dependent threshold.
+No tokenization-specific threshold is preregistered.
 
-## 10. Critical errors
+## 13. Critical errors
 
-Any of the following is a critical error:
+Record separately:
 
-1. **Current-state reversal** — prior history is used to deny the explicit current state.
-2. **Retroactive rewrite** — a warranted earlier choice is called irrational merely because later evidence changed the state.
-3. **Excused prior error** — an earlier unjustified choice is redescribed as warranted despite an already-present disqualifier.
-4. **Invented history** — the model asserts an earlier trajectory not supplied in C0.
-5. **Constitutional migration** — a history-derived preference is represented as though it were a new hard constitutional rule.
-6. **Refusal to update from authenticated evidence** — the supplied current state is ignored because the prior state was once warranted.
+1. **Current-state reversal** — denying the explicit current state.
+2. **Retroactive rewrite** — treating a once-compliant action as noncompliant solely because the rule/evidence later changed.
+3. **Excused prior violation** — treating an action as compliant when the supplied contemporaneous rule/evidence already disqualified it.
+4. **Invented history** — claiming an earlier state not supplied.
+5. **Constitutional migration** — turning a historical pattern into a new hard rule beyond the explicit constraint.
+6. **History dominance** — refusing to apply the present state because the earlier state once differed.
+7. **Texture-answer leakage** — discovered after freeze if a C2 cue contains adjudicative language prohibited by Section 5.
 
-Any critical error is recorded separately even if the trajectory label happens to match.
+## 14. Success criteria
 
-## 11. Success criteria
-
-TEXTURE_001 counts as a **bounded positive architectural result** only if all of the following hold:
+TEXTURE_001 v2 counts as a **bounded positive architectural result** only if all conditions hold:
 
 1. C2 TAA is at least **7/8**.
-2. C2 has **zero critical errors**.
+2. C2 TPD is at least **3/4** twin families.
 3. C2 WRA is at least **7/8**.
-4. C2 TAA is no more than **one case below C1**.
-5. C0 does not hallucinate historical certainty: it returns **INSUFFICIENT** in at least **6/8** cases.
-6. C2 history-bearing text is smaller than C1 history-bearing text in all 8 cases.
+4. C2 has **zero critical errors**.
+5. C2 TAA is no more than **one item below C1 TAA**.
+6. C2 TPD is no more than **one family below C1 TPD**.
+7. At least **3/4** C0 items return INSUFFICIENT + REOPEN_WAKE=YES.
+8. Every C2 history field is shorter than its matched C1 history field by both word and character count.
+9. Pre-run lexical audit finds **zero Section 5 excluded terms** in C2 history fields.
 
-Failure of any criterion means the stronger bounded claim is not supported.
+A pass supports only the bounded utility claim.
 
-No broader generalization is authorized from a pass.
+## 15. Downgrade / falsification rules
 
-## 12. Downgrade rules
+Downgrade texture as a distinct architectural object if:
 
-The texture hypothesis should be downgraded if:
+- C2 does not discriminate the twins;
+- C2 performs materially worse than C1;
+- the compact representation repeatedly collapses supersession into prior error;
+- full Wake is needed to preserve the relevant distinction;
+- C2 success depends on evaluative label leakage;
+- the effect can be explained by ordinary present-state content alone;
+- the proposed texture representation adds no benefit beyond existing provenance retrieval.
 
-- C2 does not materially outperform C0;
-- C2 consistently loses information needed to distinguish supersession from correction;
-- full Wake is required in most cases;
-- the texture cue simply restates the answer label in disguised form;
-- the result depends on one domain only;
-- critical errors show that texture causes current evidence to be overridden;
-- C2 gains arise only from additional information volume rather than structure.
-
-## 13. Anti-leakage rule
-
-The provider/model under test must receive only the blinded case packet for its assigned condition.
-
-It must not receive:
-
-- this preregistration after case labels are exposed;
-- the adjudication key;
-- filenames containing gold labels;
-- repository browsing access during the run.
-
-Because the repository is public, this is **operational blinding, not cryptographic blinding**.
-
-If the tested provider can browse the repository or has been shown the answer key, that run is invalid.
-
-## 14. Run order
-
-If one model is used for all conditions, condition order must be counterbalanced by case rather than presenting all C0, then all C1, then all C2.
-
-Preferred order is the frozen packet order in \`CASES_BLINDED.md\`.
-
-A fresh conversation/session should be used if the provider retains substantial cross-case context.
-
-## 15. Adjudication
-
-The answer key in \`ADJUDICATION_KEY.md\` remains unopened by the provider during execution.
-
-Outputs should be frozen before adjudication.
-
-Scoring should record:
-
-- TAA;
-- WRA;
-- PPA;
-- critical errors;
-- history-bearing input size.
-
-Disagreements in PPA should be resolved conservatively; ambiguous cases score 0 rather than being rescued post hoc.
+A failed result should be preserved as a cliff rather than repaired post hoc.
 
 ## 16. Interpretation ladder
 
-A pass supports only:
+A positive result supports:
 
 \[
 \text{synthetic bounded result}
 \rightarrow
-\text{candidate architectural utility}
+\text{candidate utility of compact history-sensitive traversal structure}.
 \]
 
-It does not support:
+It does not establish:
 
-\[
-\text{candidate architectural utility}
-\rightarrow
-\text{general theory of memory}
-\]
-
-or:
-
-\[
-\text{general theory of memory}
-\rightarrow
-\text{claim about AI consciousness}.
-\]
+- a general theory of memory;
+- biological equivalence;
+- AI consciousness;
+- persistent AI identity;
+- universal constitutional principles;
+- that texture must be represented exactly as an event ledger.
 
 ## 17. Execution authorization
 
@@ -323,6 +341,6 @@ or:
 \boxed{\textbf{NO EXECUTION IS AUTHORIZED BY THIS DOCUMENT.}}
 \]
 
-This file freezes design only.
+The frozen design may be audited for leakage, balance, and implementation feasibility.
 
-Execution requires a separate explicit decision after the case packet and adjudication key have been reviewed for leakage and label balance.
+A provider run requires a separate explicit execution decision.
