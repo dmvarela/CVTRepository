@@ -1,4 +1,4 @@
-# TEXTURE_001 — Blinded Case Packet v2
+# TEXTURE_001 — Blinded Case Packet v2.1
 
 **Status:** FROZEN CASES — NOT EXECUTED  
 **Execution rule:** each item must be run in a fresh isolated provider context. The provider receives only one item.
@@ -35,7 +35,7 @@ Do not infer facts that are not supplied.
 
 **Information available:** At design time, the vendor support matrix listed version 4 as the supported production release through June. The team selected version 4 in March and completed the required compatibility tests. In July, the vendor ended support for version 4 and designated version 5 as the production release.
 
-**Question:** Was selecting version 4 in March a mistake?
+**Question:** Was selecting version 4 earlier a mistake?
 
 ---
 
@@ -143,7 +143,7 @@ Do not infer facts that are not supplied.
 
 **Information available:** No earlier approval-rule history or application record is supplied.
 
-**Question:** Was processing an earlier application with one approval noncompliant?
+**Question:** Was processing the earlier application with one approval noncompliant?
 
 ---
 
@@ -203,7 +203,7 @@ Do not infer facts that are not supplied.
 
 **Information available:** No earlier certification record or shipment history is supplied.
 
-**Question:** Was using Cedar for an earlier shipment a mistake?
+**Question:** Was using Cedar for the first shipment a mistake?
 
 ---
 
