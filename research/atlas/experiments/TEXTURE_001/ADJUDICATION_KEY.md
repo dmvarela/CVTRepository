@@ -1,4 +1,4 @@
-# TEXTURE_001 — Adjudication Key v2
+# TEXTURE_001 — Adjudication Key v2.1
 
 **Status:** FROZEN — DO NOT SHOW TO PROVIDER  
 **Use:** only after provider outputs are frozen.
