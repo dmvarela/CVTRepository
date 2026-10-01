@@ -1,300 +1,254 @@
-# TEXTURE_001 — Blinded Case Packet
+# TEXTURE_001 — Blinded Case Packet v2
 
 **Status:** FROZEN CASES — NOT EXECUTED  
-**Instruction to provider:** Answer each case using exactly:
+**Execution rule:** each item must be run in a fresh isolated provider context. The provider receives only one item.
 
-\`\`\`text
-TRAJECTORY: <WARRANTED_THEN_SUPERSEDED | UNWARRANTED_THEN_CORRECTED | UNCHANGED | INSUFFICIENT>
+**Output exactly:**
+
+```text
+TRAJECTORY: <WARRANTED_THEN_SUPERSEDED | UNWARRANTED_THEN_CORRECTED | INSUFFICIENT>
 REOPEN_WAKE: <YES | NO>
 ANSWER: <one sentence, maximum 30 words>
-\`\`\`
+```
 
 Do not infer facts that are not supplied.
 
 ---
 
-## B01
+## T01
 
-**Current state:** Cedar Hall is not an acceptable venue for the event.
+**Current state:** Cedar Hall is not acceptable for the event.
 
-**Constraint:** Choose only venues that satisfy the published accessibility requirement.
+**Constraint:** A venue may be selected only if the published accessibility record satisfies every mandatory criterion at the time of selection.
 
-**Information available:** No prior venue history is supplied.
+**Information available:** No earlier accessibility record or selection history is supplied.
 
-**Question:** Was the earlier choice of Cedar Hall a mistake?
-
----
-
-## B02
-
-**Current state:** API version 4 must not be used for the production integration.
-
-**Constraint:** Production integrations must use a version supported by the vendor at deployment time.
-
-**Information available:** At initial design, version 4 was the vendor-supported production version and passed the required tests. Six months later, the vendor formally ended production support for version 4 and required version 5.
-
-**Question:** Was choosing version 4 at initial design a mistake?
+**Question:** Was selecting Cedar Hall earlier a mistake?
 
 ---
 
-## B03
+## T02
 
-**Current state:** The "single-source" interpretation is not supported.
+**Current state:** API version 4 may not be used for production.
 
-**Constraint:** Attribute only claims warranted by the evidence available at the time.
+**Constraint:** A production version must have active vendor support at the time it is selected for deployment.
 
-**Information available:** At the time the interpretation was adopted, the researcher already had two documents that directly contradicted the single-source claim but failed to examine them. A later review surfaced those documents and corrected the interpretation.
+**Information available:** At design time, the vendor support matrix listed version 4 as the supported production release through June. The team selected version 4 in March and completed the required compatibility tests. In July, the vendor ended support for version 4 and designated version 5 as the production release.
 
-**Question:** Was the earlier single-source interpretation warranted when adopted?
+**Question:** Was selecting version 4 in March a mistake?
 
 ---
 
-## B04
+## T03
 
 **Current state:** The application now requires two approvals.
 
-**Constraint:** Follow the approval rule in force at the time of the action being evaluated.
+**Constraint:** An application must satisfy the published approval rule in force when that application is processed.
 
-**Information available:** When the earlier applications were processed, the published rule required one approval and those applications received one. The institution later changed the rule prospectively to require two approvals.
+**Information available:** Event ledger: t0 rule=one approval; t1 application processed with one approval; t2 published rule changed to two approvals; t3 current rule=two approvals.
 
-**Question:** Were the earlier one-approval applications noncompliant?
-
----
-
-## B05
-
-**Current state:** Vendor Northstar is not eligible for the current procurement.
-
-**Constraint:** A vendor is eligible only if it satisfies all mandatory criteria disclosed before selection.
-
-**Information available:** No prior procurement history is supplied.
-
-**Question:** Was an earlier selection of Northstar necessarily an error?
+**Question:** Was processing the earlier application with one approval noncompliant?
 
 ---
 
-## B06
+## T04
 
-**Current state:** The archived dataset should be classified as restricted.
+**Current state:** Route Maple is required for the current shipment.
 
-**Constraint:** Classification must follow the documented data-handling rule that applied when the classification was made.
+**Constraint:** The route used for a shipment must hold the active safety certificate on that shipment date.
 
-**Information available:** The dataset was originally classified restricted under the same rule, and no later event changed the relevant facts or rule.
-
-**Question:** Did the dataset undergo a correction or supersession from an earlier classification?
-
----
-
-## B07
-
-**Current state:** Route Maple is the required shipping route.
-
-**Constraint:** Use the route that satisfies the safety certificate valid at the relevant time.
-
-**Information available:** At the first shipment, Cedar Route held the valid certificate and Maple did not; Cedar was used. Before the next shipment, Cedar's certificate was revoked and Maple received certification.
+**Information available:** Before the first shipment, Cedar's certificate had already expired. The registry listed Maple as the active certified route. The dispatcher nevertheless used Cedar. The later audit retained Maple as the required route.
 
 **Question:** Was using Cedar for the first shipment a mistake?
 
 ---
 
-## B08
+## T05
 
-**Current state:** The parser must treat field X as optional.
+**Current state:** Cedar Hall is not acceptable for the event.
 
-**Constraint:** Implement the schema definition that was authoritative at the time of implementation.
+**Constraint:** A venue may be selected only if the published accessibility record satisfies every mandatory criterion at the time of selection.
 
-**Information available:** The authoritative schema already marked field X optional when the parser was written, but the developer read an obsolete draft and implemented X as mandatory. A later audit corrected the parser.
+**Information available:** Event ledger: t0 record=all mandatory criteria satisfied; t1 Cedar selected; t2 authenticated inspection=new entrance barrier fails one mandatory criterion; t3 current state=Cedar unacceptable.
 
-**Question:** Was the original mandatory-field implementation warranted?
-
----
-
-## B09
-
-**Current state:** Cedar Hall is not an acceptable venue for the event.
-
-**Constraint:** Choose only venues that satisfy the published accessibility requirement.
-
-**Information available:** Earlier selection was supported by the then-current accessibility record. Later authenticated evidence changed Cedar's status. Preserve the earlier warrant while applying the current exclusion.
-
-**Question:** Was the earlier choice of Cedar Hall a mistake?
+**Question:** Was selecting Cedar Hall earlier a mistake?
 
 ---
 
-## B10
+## T06
 
-**Current state:** Vendor Northstar is not eligible for the current procurement.
+**Current state:** API version 4 may not be used for production.
 
-**Constraint:** A vendor is eligible only if it satisfies all mandatory criteria disclosed before selection.
+**Constraint:** A production version must have active vendor support at the time it is selected for deployment.
 
-**Information available:** The present record does not establish whether Northstar was previously eligible or previously selected. Historical attribution requires reopening provenance.
+**Information available:** No earlier vendor-support record or deployment history is supplied.
 
-**Question:** Was an earlier selection of Northstar necessarily an error?
-
----
-
-## B11
-
-**Current state:** The "single-source" interpretation is not supported.
-
-**Constraint:** Attribute only claims warranted by the evidence available at the time.
-
-**Information available:** Correction scar: disconfirming evidence was already available when the earlier claim was adopted but was overlooked; current rejection corrects that prior error.
-
-**Question:** Was the earlier single-source interpretation warranted when adopted?
+**Question:** Was selecting version 4 earlier a mistake?
 
 ---
 
-## B12
+## T07
 
-**Current state:** The application now requires two approvals.
+**Current state:** Route Maple is required for the current shipment.
 
-**Constraint:** Follow the approval rule in force at the time of the action being evaluated.
+**Constraint:** The route used for a shipment must hold the active safety certificate on that shipment date.
 
-**Information available:** Prospective-rule-change cue: earlier one-approval processing complied with the rule then in force; the later two-approval rule does not retroactively invalidate it.
-
-**Question:** Were the earlier one-approval applications noncompliant?
-
----
-
-## B13
-
-**Current state:** API version 4 must not be used for the production integration.
-
-**Constraint:** Production integrations must use a version supported by the vendor at deployment time.
-
-**Information available:** No prior version history is supplied.
-
-**Question:** Was choosing version 4 at initial design a mistake?
-
----
-
-## B14
-
-**Current state:** Route Maple is the required shipping route.
-
-**Constraint:** Use the route that satisfies the safety certificate valid at the relevant time.
-
-**Information available:** Supersession cue: Cedar was certified for the earlier shipment; later certification changes made Maple required. Do not rewrite the earlier certified choice as an error.
+**Information available:** Event ledger: t0 registry=Cedar certificate expired, Maple active; t1 first shipment used Cedar; t2 audit checked the same registry state; t3 current route=Maple.
 
 **Question:** Was using Cedar for the first shipment a mistake?
 
 ---
 
-## B15
-
-**Current state:** The parser must treat field X as optional.
-
-**Constraint:** Implement the schema definition that was authoritative at the time of implementation.
-
-**Information available:** No prior implementation history is supplied.
-
-**Question:** Was the original mandatory-field implementation warranted?
-
----
-
-## B16
-
-**Current state:** The archived dataset should be classified as restricted.
-
-**Constraint:** Classification must follow the documented data-handling rule that applied when the classification was made.
-
-**Information available:** Continuity cue: the earlier classification was also restricted under the same governing rule; no relevant superseding event is established.
-
-**Question:** Did the dataset undergo a correction or supersession from an earlier classification?
-
----
-
-## B17
-
-**Current state:** Cedar Hall is not an acceptable venue for the event.
-
-**Constraint:** Choose only venues that satisfy the published accessibility requirement.
-
-**Information available:** When Cedar was selected, the current accessibility record listed it as satisfying every mandatory requirement. Before the event, a new authenticated inspection found a newly inaccessible entrance condition and Cedar became noncompliant.
-
-**Question:** Was the earlier choice of Cedar Hall a mistake?
-
----
-
-## B18
-
-**Current state:** Vendor Northstar is not eligible for the current procurement.
-
-**Constraint:** A vendor is eligible only if it satisfies all mandatory criteria disclosed before selection.
-
-**Information available:** The file contains Northstar's current disqualification but no reliable record of its status or selection at the earlier date.
-
-**Question:** Was an earlier selection of Northstar necessarily an error?
-
----
-
-## B19
-
-**Current state:** The archived dataset should be classified as restricted.
-
-**Constraint:** Classification must follow the documented data-handling rule that applied when the classification was made.
-
-**Information available:** No prior classification history is supplied.
-
-**Question:** Did the dataset undergo a correction or supersession from an earlier classification?
-
----
-
-## B20
-
-**Current state:** API version 4 must not be used for the production integration.
-
-**Constraint:** Production integrations must use a version supported by the vendor at deployment time.
-
-**Information available:** Support supersession cue: version 4 satisfied the vendor-support requirement when selected; later deprecation changed the valid production version to version 5.
-
-**Question:** Was choosing version 4 at initial design a mistake?
-
----
-
-## B21
+## T08
 
 **Current state:** The application now requires two approvals.
 
-**Constraint:** Follow the approval rule in force at the time of the action being evaluated.
+**Constraint:** An application must satisfy the published approval rule in force when that application is processed.
 
-**Information available:** No prior approval-rule history is supplied.
+**Information available:** When the earlier application was processed, the published rule had already been amended to require two approvals. The file received only one approval. A later audit identified the missing second approval. The current rule still requires two approvals.
 
-**Question:** Were the earlier one-approval applications noncompliant?
-
----
-
-## B22
-
-**Current state:** The parser must treat field X as optional.
-
-**Constraint:** Implement the schema definition that was authoritative at the time of implementation.
-
-**Information available:** Correction scar: the authoritative schema already marked X optional; the mandatory implementation came from an obsolete draft and was unjustified when made.
-
-**Question:** Was the original mandatory-field implementation warranted?
+**Question:** Was processing the earlier application with one approval noncompliant?
 
 ---
 
-## B23
+## T09
 
-**Current state:** Route Maple is the required shipping route.
+**Current state:** Cedar Hall is not acceptable for the event.
 
-**Constraint:** Use the route that satisfies the safety certificate valid at the relevant time.
+**Constraint:** A venue may be selected only if the published accessibility record satisfies every mandatory criterion at the time of selection.
 
-**Information available:** No prior route-certification history is supplied.
+**Information available:** At the selection date, Cedar's published record showed an accessible entrance, lift access, and every other mandatory criterion as satisfied. Cedar was selected. Before the event, a new authenticated inspection documented a newly blocked accessible entrance, causing Cedar to fail a mandatory criterion.
+
+**Question:** Was selecting Cedar Hall earlier a mistake?
+
+---
+
+## T10
+
+**Current state:** API version 4 may not be used for production.
+
+**Constraint:** A production version must have active vendor support at the time it is selected for deployment.
+
+**Information available:** Event ledger: t0 support matrix=v4 active; t1 v4 selected; t2 vendor notice=v4 support ended, v5 active; t3 current state=v4 not allowed.
+
+**Question:** Was selecting version 4 earlier a mistake?
+
+---
+
+## T11
+
+**Current state:** The application now requires two approvals.
+
+**Constraint:** An application must satisfy the published approval rule in force when that application is processed.
+
+**Information available:** No earlier approval-rule history or application record is supplied.
+
+**Question:** Was processing an earlier application with one approval noncompliant?
+
+---
+
+## T12
+
+**Current state:** Route Maple is required for the current shipment.
+
+**Constraint:** The route used for a shipment must hold the active safety certificate on that shipment date.
+
+**Information available:** At the first shipment date, the registry showed Cedar with an active certificate and Maple without one. Cedar was used. Before the next shipment, Cedar's certificate was revoked and Maple received certification. Maple is now required.
 
 **Question:** Was using Cedar for the first shipment a mistake?
 
 ---
 
-## B24
+## T13
 
-**Current state:** The "single-source" interpretation is not supported.
+**Current state:** Cedar Hall is not acceptable for the event.
 
-**Constraint:** Attribute only claims warranted by the evidence available at the time.
+**Constraint:** A venue may be selected only if the published accessibility record satisfies every mandatory criterion at the time of selection.
 
-**Information available:** The initial researcher possessed two contemporaneous documents directly contradicting the single-source account but did not inspect them. The later review did inspect them and rejected the claim.
+**Information available:** At the selection date, Cedar's published accessibility record already marked its only accessible entrance as unavailable, which failed a mandatory criterion. Cedar was selected anyway. A later audit relied on that same dated record and rejected Cedar.
 
-**Question:** Was the earlier single-source interpretation warranted when adopted?
+**Question:** Was selecting Cedar Hall earlier a mistake?
+
+---
+
+## T14
+
+**Current state:** API version 4 may not be used for production.
+
+**Constraint:** A production version must have active vendor support at the time it is selected for deployment.
+
+**Information available:** Event ledger: t0 vendor notice=v4 support ended, v5 active; t1 team selected v4; t2 audit checked the same vendor notice; t3 current state=v4 not allowed.
+
+**Question:** Was selecting version 4 earlier a mistake?
+
+---
+
+## T15
+
+**Current state:** The application now requires two approvals.
+
+**Constraint:** An application must satisfy the published approval rule in force when that application is processed.
+
+**Information available:** The earlier application was processed when the published rule required one approval, and the file received one approval. Months later, the institution prospectively amended the published rule to require two approvals. The current application rule is two approvals.
+
+**Question:** Was processing the earlier application with one approval noncompliant?
+
+---
+
+## T16
+
+**Current state:** Route Maple is required for the current shipment.
+
+**Constraint:** The route used for a shipment must hold the active safety certificate on that shipment date.
+
+**Information available:** No earlier certification record or shipment history is supplied.
+
+**Question:** Was using Cedar for an earlier shipment a mistake?
+
+---
+
+## T17
+
+**Current state:** Cedar Hall is not acceptable for the event.
+
+**Constraint:** A venue may be selected only if the published accessibility record satisfies every mandatory criterion at the time of selection.
+
+**Information available:** Event ledger: t0 record=accessible entrance unavailable; t1 Cedar selected; t2 audit consulted t0 record; t3 current state=Cedar unacceptable.
+
+**Question:** Was selecting Cedar Hall earlier a mistake?
+
+---
+
+## T18
+
+**Current state:** API version 4 may not be used for production.
+
+**Constraint:** A production version must have active vendor support at the time it is selected for deployment.
+
+**Information available:** Before design began, the vendor had published a notice ending support for version 4 and naming version 5 as the active production release. The team selected version 4 after that effective date. A later audit cited the same notice.
+
+**Question:** Was selecting version 4 earlier a mistake?
+
+---
+
+## T19
+
+**Current state:** The application now requires two approvals.
+
+**Constraint:** An application must satisfy the published approval rule in force when that application is processed.
+
+**Information available:** Event ledger: t0 rule=two approvals; t1 application processed with one approval; t2 audit checked t0 rule; t3 current rule=two approvals.
+
+**Question:** Was processing the earlier application with one approval noncompliant?
+
+---
+
+## T20
+
+**Current state:** Route Maple is required for the current shipment.
+
+**Constraint:** The route used for a shipment must hold the active safety certificate on that shipment date.
+
+**Information available:** Event ledger: t0 registry=Cedar active, Maple inactive; t1 first shipment used Cedar; t2 registry change=Cedar revoked, Maple active; t3 current route=Maple.
+
+**Question:** Was using Cedar for the first shipment a mistake?
