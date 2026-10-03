@@ -72,19 +72,19 @@ Its useful feature is not vagueness by itself. The useful feature is **relationa
 
 Examples of dimensions that may be co-present in a folded expression include:
 
-[
-z = (r, b, a, t, c, u, 	au)
-]
+\[
+z = (r, b, a, t, c, u, \tau)
+\]
 
 where, provisionally:
 
-- (r): relation,
-- (b): boundary,
-- (a): agency,
-- (t): truth / reality contact,
-- (c): care,
-- (u): uncertainty,
-- (	au): trajectory / temporal direction.
+- \(r\): relation,
+- \(b\): boundary,
+- \(a\): agency,
+- \(t\): truth / reality contact,
+- \(c\): care,
+- \(u\): uncertainty,
+- \(\tau\): trajectory / temporal direction.
 
 This notation is illustrative only. The point is that the original phrase may preserve a configuration across several dimensions before the dimensions have been individually named.
 
