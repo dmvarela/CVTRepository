@@ -1,0 +1,159 @@
+{
+  "concept_id": "paul-all-things-lawful",
+  "title": "Pauline Permission, Benefit, Mastery, and Building Up",
+  "compression": "All things are lawful, but not all things are constructive.",
+  "source_reconstruction": "The working compression combines two related passages: 1 Corinthians 6:12 qualifies permission by benefit and by refusal to be mastered; 1 Corinthians 10:23 repeats the permission and benefit pattern and adds the criterion of building up.",
+  "assumption_envelope": [
+    "The word lawful can over-suggest a modern juridical frame; permitted is another plausible rendering.",
+    "The attribution of the permission formula as a Corinthian slogan is an exegetical reconstruction rather than an explicit quotation marker in the Greek text.",
+    "The phrase not all things build up belongs to 1 Corinthians 10:23 rather than 6:12.",
+    "Constructive is a later English interpretive compression of the build-up image, not a direct lexical identity."
+  ],
+  "decoder_prerequisites": [
+    "Distinguish source text from translation choice.",
+    "Distinguish translation from historical or speaker reconstruction.",
+    "Distinguish our later working compression from Paul's source wording.",
+    "Distinguish a later application from an attribution of original authorial intent."
+  ],
+  "decompression_map": [
+    "permission formula",
+    "1 Corinthians 6:12: benefit and mastery",
+    "1 Corinthians 10:23: benefit and building up",
+    "later relational compression: constructive",
+    "possible cross-domain transformation"
+  ],
+  "candidate_invariants": [
+    "Permission alone is not the only evaluative consideration in the two passages.",
+    "The later build-up criterion should remain distinct from the mastery criterion even when both inform a later compression."
+  ],
+  "provenance": [
+    {
+      "kind": "source-rich specimen",
+      "path": "research/atlas/specimens/PAUL_ALL_THINGS_LAWFUL_001.md"
+    }
+  ],
+  "cliffs": [
+    "Do not say that 1 Corinthians 6:12 literally says not all things build up.",
+    "Do not store the Corinthian-slogan reading as uncontested fact.",
+    "Do not attribute later AI or organizational applications backward to Paul."
+  ],
+  "tags": [
+    "paul",
+    "1 corinthians",
+    "greek",
+    "translation",
+    "permission",
+    "benefit",
+    "mastery",
+    "building up",
+    "constructive"
+  ],
+  "epistemic_status": "source-rich worked specimen",
+  "layers": [
+    {
+      "layer_id": "1cor6-12-source",
+      "layer_type": "source_text",
+      "content": "Panta moi exestin; ou panta sympherei; ouk ego exousiasthesomai.",
+      "source_ref": "1 Corinthians 6:12",
+      "language": "Greek transliteration",
+      "status": "source layer",
+      "notes": "Machine-readable transliteration of the clauses highlighted in the worked specimen."
+    },
+    {
+      "layer_id": "1cor6-12-translation",
+      "layer_type": "translation",
+      "content": "All things are permitted or lawful for me; not all things are beneficial; I will not be mastered by anything.",
+      "source_ref": "1 Corinthians 6:12",
+      "language": "English",
+      "status": "minimal gloss",
+      "derived_from": ["1cor6-12-source"]
+    },
+    {
+      "layer_id": "1cor10-23-source",
+      "layer_type": "source_text",
+      "content": "Panta exestin; ou panta sympherei; ou panta oikodomei.",
+      "source_ref": "1 Corinthians 10:23",
+      "language": "Greek transliteration",
+      "status": "source layer"
+    },
+    {
+      "layer_id": "1cor10-23-translation",
+      "layer_type": "translation",
+      "content": "All things are permitted or lawful; not all things are beneficial; not all things build up.",
+      "source_ref": "1 Corinthians 10:23",
+      "language": "English",
+      "status": "minimal gloss",
+      "derived_from": ["1cor10-23-source"]
+    },
+    {
+      "layer_id": "lex-exestin",
+      "layer_type": "lexical_note",
+      "content": "Exestin is commonly rendered lawful or permitted; the English lawful can sound more narrowly juridical than the Greek requires.",
+      "source_ref": "1 Corinthians 6:12; 10:23",
+      "status": "translation note"
+    },
+    {
+      "layer_id": "lex-sympherei",
+      "layer_type": "lexical_note",
+      "content": "Sympherei carries the sense of beneficial, profitable, advantageous, or helpful in context.",
+      "source_ref": "1 Corinthians 6:12; 10:23",
+      "status": "translation note"
+    },
+    {
+      "layer_id": "lex-oikodomei",
+      "layer_type": "lexical_note",
+      "content": "Oikodomei uses building language and is commonly rendered builds up or edifies.",
+      "source_ref": "1 Corinthians 10:23",
+      "status": "translation note"
+    },
+    {
+      "layer_id": "slogan-reconstruction",
+      "layer_type": "historical_reconstruction",
+      "content": "A widespread scholarly reading treats the permission formula as a Corinthian slogan that Paul quotes and qualifies, while published scholarship also disputes the need for that attribution.",
+      "source_ref": "1 Corinthians 6:12; 10:23",
+      "status": "contested reconstruction",
+      "assumptions": [
+        "Modern quotation marks can silently encode the slogan interpretation."
+      ],
+      "provenance": [
+        {
+          "kind": "specimen bibliography",
+          "path": "research/atlas/specimens/PAUL_ALL_THINGS_LAWFUL_001.md"
+        }
+      ]
+    },
+    {
+      "layer_id": "our-constructive-compression",
+      "layer_type": "reader_interpretation",
+      "content": "Constructive became our compact working signal for what builds up rather than merely being permissible.",
+      "source_ref": "Atlas collaboration",
+      "status": "relational compression",
+      "derived_from": [
+        "1cor6-12-translation",
+        "1cor10-23-translation",
+        "lex-oikodomei"
+      ],
+      "notes": "Useful compression, but not a literal rendering of 1 Corinthians 6:12."
+    },
+    {
+      "layer_id": "systems-application",
+      "layer_type": "transformation",
+      "content": "The distinction between mere permission and what builds up may inspire later thinking about AI or organizational design.",
+      "source_ref": "Atlas collaboration",
+      "status": "deliberate later application",
+      "derived_from": ["our-constructive-compression"],
+      "notes": "This is not attributed backward as Paul's own technical theory."
+    },
+    {
+      "layer_id": "6-12-source-correction",
+      "layer_type": "source_correction",
+      "content": "The clause not all things build up belongs to 1 Corinthians 10:23, not to 1 Corinthians 6:12.",
+      "source_ref": "1 Corinthians 6:12; 10:23",
+      "status": "source correction",
+      "derived_from": [
+        "1cor6-12-source",
+        "1cor10-23-source"
+      ]
+    }
+  ]
+}

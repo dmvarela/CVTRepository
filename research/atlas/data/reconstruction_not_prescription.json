@@ -1,0 +1,38 @@
+{
+  "concept_id": "reconstruction-not-prescription",
+  "title": "Reconstruction Is Not Prescription",
+  "compression": "Source-incompatible does not mean illegitimate thought.",
+  "source_reconstruction": "Atlas may reconstruct what a source meant without treating that reconstruction as a rule for what later readers are allowed to think.",
+  "assumption_envelope": [
+    "Historical fidelity and interpretive freedom are separate questions.",
+    "A transformation may be valuable while remaining different from the source meaning.",
+    "Attribution matters even when intellectual permission remains open."
+  ],
+  "decoder_prerequisites": [
+    "Distinguish descriptive provenance from normative permission.",
+    "Distinguish faithful reconstruction from deliberate transformation."
+  ],
+  "decompression_map": [
+    "source meaning",
+    "reconstruction",
+    "reader freedom",
+    "deliberate transformation",
+    "accurate attribution"
+  ],
+  "candidate_invariants": [
+    "A later interpretation may depart from a source without being forbidden.",
+    "A departure should not be attributed to the source as though it were faithful reconstruction."
+  ],
+  "provenance": [
+    {
+      "kind": "architecture principle",
+      "path": "research/atlas/ATLAS_ARCHITECTURE_V0_1.md"
+    }
+  ],
+  "cliffs": [
+    "Do not turn source fidelity into intellectual orthodoxy.",
+    "Do not erase the source-transformation distinction in the name of interpretive freedom."
+  ],
+  "tags": ["reconstruction", "prescription", "interpretation", "transformation", "provenance"],
+  "epistemic_status": "architecture principle"
+}

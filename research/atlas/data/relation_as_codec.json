@@ -1,0 +1,39 @@
+{
+  "concept_id": "relation-as-codec",
+  "title": "Relation as Part of the Codec",
+  "compression": "Shared relational history can supply side information for conceptual decompression.",
+  "source_reconstruction": "In sustained collaboration, compact messages may depend on accumulated shared vocabulary, examples, corrections, and interaction expectations that are not explicitly restated in each message.",
+  "assumption_envelope": [
+    "Meaning may depend partly on shared context outside the immediate message.",
+    "Greater compression can increase decoder-mismatch risk.",
+    "Shared context does not make every interpretation correct."
+  ],
+  "decoder_prerequisites": [
+    "Distinguish the explicit message from side information available to the decoder.",
+    "Distinguish conversational familiarity from epistemic warrant."
+  ],
+  "decompression_map": [
+    "repeated interaction",
+    "shared references",
+    "compressed signals",
+    "relational side information",
+    "decompression",
+    "handoff mismatch risk"
+  ],
+  "candidate_invariants": [
+    "A message can become shorter when decoders share relevant prior context.",
+    "Transfer can fail when the message survives but the shared decoding context does not."
+  ],
+  "provenance": [
+    {
+      "kind": "architecture principle",
+      "path": "research/atlas/ATLAS_ARCHITECTURE_V0_1.md"
+    }
+  ],
+  "cliffs": [
+    "Do not confuse familiarity with truth.",
+    "Do not assume a future decoder shares the same relational context merely because it receives the same tokens."
+  ],
+  "tags": ["relation", "codec", "compression", "decompression", "handoff", "context"],
+  "epistemic_status": "provisional architectural hypothesis"
+}
