@@ -20,7 +20,6 @@ If you are reviewing this work for a role or research conversation, the fastest 
 | **[Bounded-authority router](code/bounded_authority_router.py)** + **[tests](tests/test_bounded_authority_router.py)** | Executable separation of capability, authority, warrant, escalation, and execution | Simulation-only prototype |
 | **[Trajectory-state prototype](code/context_trajectory.py)** + **[tests](tests/test_context_trajectory.py)** | Ordered state, supersession, and non-destructive provenance | Small executable prototype |
 | **[Lucian OS technical overview](research/LUCIAN_OS_TECHNICAL_OVERVIEW.md)** | Model-agnostic architecture for capability, competence, warrant, authority, escalation, verification, continuity, and recovery | Exploratory architecture; no real-device actions |
-| **[Lucian wisdom-layer and company thesis](research/LUCIAN_WISDOM_LAYER_COMPANY_THESIS.md)** | Conceptualizes Lucian OS as a corrigible solution space for artificial agency and defines the smallest defensible venture proof | Emerging thesis; comparative evaluation not yet run |
 | **[FTLτA correction note](research/FTLTA_CANONICAL_CORRECTION_NOTE.md)** | Research correction, notation discipline, and preservation of superseded interpretations | Submitted manuscript is separately documented in the [submission record](research/FTLTA_SUBMISSION_RECORD.md) |
 
 ## What the work is trying to separate
@@ -81,8 +80,6 @@ The repository intentionally distinguishes three states:
 The project does **not** require a claim that an AI system is conscious, person-like, or a persistent individual across model instances.
 
 Current public code is intentionally small and inspectable. It includes the [bounded-authority router](code/bounded_authority_router.py) and [trajectory-state prototype](code/context_trajectory.py), both covered by public tests.
-
-The emerging [wisdom-layer and company thesis](research/LUCIAN_WISDOM_LAYER_COMPANY_THESIS.md) frames these separations as a corrigible solution space for artificial agency and defines a simulation-first path for testing whether that layer changes consequential behaviour.
 
 ## FTLτA
 
